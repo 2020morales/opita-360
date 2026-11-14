@@ -1,0 +1,96 @@
+{
+  "queried_utc": "2026-11-14T20:04:52.870Z",
+  "results": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "endpoint": "branches?per_page=100",
+        "data": [
+          {
+            "name": "chore/memoria-y-skills",
+            "sha": "b2acc8a147915fb2a669bccef86f0812c08760c2"
+          },
+          {
+            "name": "feat/filtro-municipio",
+            "sha": "d81614d13cd04a288bd0eaa5cc5938dfaed68460"
+          },
+          {
+            "name": "main",
+            "sha": "4bb1626975c67dfeeee67ab1156322f2e6ce3eba"
+          },
+          {
+            "name": "taller5/sistema-agentes",
+            "sha": "8cce952bace0763ac5e96208c70e93a304979fb4"
+          }
+        ]
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "endpoint": "pulls?state=all&per_page=100",
+        "data": [
+          {
+            "number": 2,
+            "title": "Taller 5 - Implementación del sistema de agentes de OPITA 360",
+            "state": "open",
+            "merged_at": null,
+            "head": "taller5/sistema-agentes",
+            "head_sha": "8cce952bace0763ac5e96208c70e93a304979fb4",
+            "base": "main",
+            "body": " Descripción\nEste Pull Request presenta el desarrollo del Taller 5: Sistema de Agentes, aplicado al proyecto integrador OPITA 360.\n\n Trabajo realizado\n- Incorporación de componentes para la orquestación de agentes especializados.\n- Definición de funciones de frontend, backend, calidad y seguridad.\n- Incorporación de archivos de configuración y pruebas.\n- Documentación de resultados, limitaciones y hallazgos.\n- Elaboración del PDF de cuatro páginas correspondiente al taller.\n\n Evidencias\nLas evidencias y la documentación se encuentran en la carpeta `docs/taller-5/`.\n\n",
+            "url": "https://github.com/2020morales/opita-360/pull/2"
+          },
+          {
+            "number": 1,
+            "title": "Taller 4 - AGENTS.md, Skills y Modo Plan - OPITA 360",
+            "state": "open",
+            "merged_at": null,
+            "head": "chore/memoria-y-skills",
+            "head_sha": "b2acc8a147915fb2a669bccef86f0812c08760c2",
+            "base": "main",
+            "body": "Se incorporan los archivos de memoria e instrucciones para el proyecto OPITA 360, incluyendo AGENTS.md en la raíz, frontend y backend.\n\nTambién se agregan dos skills para orientar el desarrollo con React y FastAPI, estableciendo buenas prácticas y criterios de implementación.\n\nEstos archivos servirán como base para los planes y las mejoras funcionales del taller.",
+            "url": "https://github.com/2020morales/opita-360/pull/1"
+          }
+        ]
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "endpoint": "pulls/1/files",
+        "data": [
+          {
+            "filename": ".github/skills/backend-fastapi/SKILL.md"
+          },
+          {
+            "filename": ".github/skills/frontend-react/SKILL.md"
+          },
+          {
+            "filename": "AGENTS.md"
+          },
+          {
+            "filename": "backend/AGENTS.md"
+          },
+          {
+            "filename": "frontend/AGENTS.md"
+          }
+        ]
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "endpoint": "pulls/1/reviews",
+        "data": []
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "endpoint": "issues/1/comments",
+        "data": []
+      }
+    }
+  ]
+}

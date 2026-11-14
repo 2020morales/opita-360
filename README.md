@@ -12,7 +12,7 @@ Plataforma web para explorar destinos turísticos, culturales y naturales del Hu
 
 ## Requisitos
 - Python 3.10+
-- Node.js 18+
+- Node.js 22.12+ (verificado con 22.20.0)
 
 ## Ejecutar en Windows / Visual Studio Code
 
@@ -42,7 +42,7 @@ Abre la dirección que Vite muestre, normalmente http://localhost:5173.
 
 ## Funciones
 - Catálogo de lugares turísticos del Huila.
-- Filtros por categoría.
+- Filtros por municipio, búsqueda y categoría.
 - Formulario de preferencias de viaje.
 - Recomendaciones mediante reglas sencillas (no requiere suscripción de IA).
 - Estimación orientativa del costo.

@@ -1,0 +1,68 @@
+
+> opita-360-frontend@1.0.0 test
+> node --test tests/*.test.js
+
+TAP version 13
+# Subtest: unique ordered municipalities without empty values
+ok 1 - unique ordered municipalities without empty values
+  ---
+  duration_ms: 14.6869
+  type: 'test'
+  ...
+# Subtest: all destinations by default
+ok 2 - all destinations by default
+  ---
+  duration_ms: 0.2208
+  type: 'test'
+  ...
+# Subtest: municipality selection
+ok 3 - municipality selection
+  ---
+  duration_ms: 0.1222
+  type: 'test'
+  ...
+# Subtest: three filters use AND and normalize search
+ok 4 - three filters use AND and normalize search
+  ---
+  duration_ms: 0.2023
+  type: 'test'
+  ...
+# Subtest: empty results and recovery preserving category
+ok 5 - empty results and recovery preserving category
+  ---
+  duration_ms: 0.1453
+  type: 'test'
+  ...
+# Subtest: catalog replacement resets invalid selection
+ok 6 - catalog replacement resets invalid selection
+  ---
+  duration_ms: 0.1218
+  type: 'test'
+  ...
+# Subtest: valid selection and Todos remain
+ok 7 - valid selection and Todos remain
+  ---
+  duration_ms: 0.1739
+  type: 'test'
+  ...
+# Subtest: empty catalog
+ok 8 - empty catalog
+  ---
+  duration_ms: 0.1125
+  type: 'test'
+  ...
+# Subtest: does not mutate input
+ok 9 - does not mutate input
+  ---
+  duration_ms: 0.3021
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 107.815
