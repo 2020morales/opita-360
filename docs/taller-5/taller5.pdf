@@ -13,22 +13,23 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
 endobj
 5 0 obj
-<< /Length 2519 >>
+<< /Length 2773 >>
 stream
 0.12 0.22 0.19 rg
 0.12 0.22 0.19 RG
 BT /F1 17 Tf 1 0 0 1 45 796 Tm (OPITA 360 | Taller 5: Sistema de Agentes) Tj ET
 BT /F1 14 Tf 1 0 0 1 45 766 Tm (1. Proyecto y herramienta) Tj ET
-BT /F1 8 Tf 1 0 0 1 45 32 Tm (Rama: taller5/sistema-agentes | Evidencia en docs/taller-5 | Página 1/4) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 730 Tm (OPITA 360 es una aplicación turística del Huila. El frontend usa React, Vite y lucide-react;) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 716 Tm (el backend utiliza Python, FastAPI y Pydantic. Los datos actuales están en memoria.) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 702 Tm (PostgreSQL solo tiene un esquema preparado, sin conexión persistente.) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 678 Tm (El taller incorpora herramientas de desarrollo en Python, Ollama local y un servidor MCP) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 664 Tm (externo. No cambia funciones turísticas, API, CORS ni esquema SQL. No se hacen commits ni) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 650 Tm (push.) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 626 Tm (La especificación delimita revisión de código con evidencias auténticas. La planificación) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 612 Tm (emite cuatro tareas con permisos fijos y contratos que vinculan tarea, agente y archivos. La) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 598 Tm (procedencia del plan es Codex, sin atribuir a Copilot un documento inexistente.) Tj ET
+BT /F1 8 Tf 1 0 0 1 45 32 Tm (FET-QX7 | Rama: taller5/sistema-agentes | Evidencias: docs/taller-5 | Página 1/4) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 730 Tm (OPITA 360 permite explorar destinos turísticos del Huila. Su frontend usa React, Vite y) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 716 Tm (lucide-react; el backend está desarrollado en Python con FastAPI y Pydantic. Por ahora, los) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 702 Tm (datos se manejan en memoria. Existe un esquema para PostgreSQL, pero aún no hay conexión) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 688 Tm (persistente.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 664 Tm (Para este taller añadimos un sistema de revisión de código con herramientas en Python,) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 650 Tm (Ollama local y un servidor MCP externo. Se mantienen las funciones turísticas, la API, CORS) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 636 Tm (y el esquema SQL. Los cambios siguen sin commit ni push.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 612 Tm (El trabajo parte de una especificación, un plan y cuatro tareas. Cada tarea tiene permisos) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 598 Tm (definidos y un contrato que relaciona el reporte con el agente y sus archivos. El plan se) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 584 Tm (elaboró con Codex; no corresponde a un documento generado por Copilot.) Tj ET
 0.92 0.96 0.92 rg 45 465 220 42 re B 0.12 0.22 0.19 rg
 BT /F1 9 Tf 1 0 0 1 54 483.0 Tm (React/Vite: frontend existente) Tj ET
 0.92 0.96 0.92 rg 330 465 220 42 re B 0.12 0.22 0.19 rg
@@ -38,28 +39,29 @@ BT /F1 9 Tf 1 0 0 1 339 483.0 Tm (FastAPI: backend existente) Tj ET
 0.92 0.96 0.92 rg 175 365 245 52 re B 0.12 0.22 0.19 rg
 BT /F1 9 Tf 1 0 0 1 184 393.0 Tm (Revisión del taller: independiente de la) Tj ET
 BT /F1 9 Tf 1 0 0 1 184 382.0 Tm (aplicación turística) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 320 Tm (Herramientas: Python 3.10+, Ollama en 127.0.0.1:11434, modelo qwen3.5:4b y MCP por stdio.) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 306 Tm (Node portátil 24.13.0 ejecuta el servidor externo sin sustituir Node del sistema. Los) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 292 Tm (modelos no reciben shell ni edición turística.) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 225 Tm (Rúbrica del usuario: calidad del código 25%; agentes 20%; diagramas 20%; herramientas,) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 211 Tm (permisos y modelo 15%; diferencias con referencia 10%; documento 10%. Este PDF contiene) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 197 Tm (cuatro páginas dentro del máximo de ocho.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 320 Tm (El entorno requiere Python 3.10+ y Ollama en 127.0.0.1:11434, con el modelo qwen3.5:4b. La) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 306 Tm (conexión MCP usa stdio. El servidor externo se ejecuta con Node portátil 24.13.0, sin) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 292 Tm (reemplazar la instalación del sistema. Los modelos no pueden ejecutar comandos libres ni) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 278 Tm (editar la aplicación turística.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 225 Tm (La rúbrica asigna 25% a calidad del código, 20% a agentes, 20% a diagramas, 15% a) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 211 Tm (herramientas, permisos y modelo, 10% a diferencias con la referencia y 10% al documento.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 197 Tm (Esta entrega tiene cuatro páginas y respeta el máximo de ocho.) Tj ET
 endstream
 endobj
 6 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
 endobj
 7 0 obj
-<< /Length 2754 >>
+<< /Length 2902 >>
 stream
 0.12 0.22 0.19 rg
 0.12 0.22 0.19 RG
 BT /F1 17 Tf 1 0 0 1 45 796 Tm (OPITA 360 | Taller 5: Sistema de Agentes) Tj ET
 BT /F1 14 Tf 1 0 0 1 45 766 Tm (2. Sistema de agentes) Tj ET
-BT /F1 8 Tf 1 0 0 1 45 32 Tm (Rama: taller5/sistema-agentes | Evidencia en docs/taller-5 | Página 2/4) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 730 Tm (Los cinco roles usan qwen3.5:4b con contextos separados. Asignar un modelo no demuestra) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 716 Tm (inferencia: solo las trazas reales permiten afirmar ejecución. El modo determinista no) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 702 Tm (simula un LLM.) Tj ET
+BT /F1 8 Tf 1 0 0 1 45 32 Tm (FET-QX7 | Rama: taller5/sistema-agentes | Evidencias: docs/taller-5 | Página 2/4) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 730 Tm (El orquestador y los cuatro especialistas usan qwen3.5:4b en contextos separados. Las trazas) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 716 Tm (registran las llamadas reales al modelo. También se conserva un modo determinista que solo) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 702 Tm (inventaría archivos y no se presenta como una ejecución LLM.) Tj ET
 0.92 0.96 0.92 rg 190 620 215 34 re B 0.12 0.22 0.19 rg
 BT /F1 9 Tf 1 0 0 1 199 634.0 Tm (Operador: autoriza alcance) Tj ET
 0.92 0.96 0.92 rg 190 560 215 34 re B 0.12 0.22 0.19 rg
@@ -92,28 +94,29 @@ BT /F1 9 Tf 1 0 0 1 199 304.0 Tm (T06 Seguridad: políticas y reportes) Tj ET
 BT /F1 9 Tf 1 0 0 1 199 244.0 Tm (awaiting_human_review) Tj ET
 0.7 w 297 290 m 297 264 l S
 294 269 m 297 264 l 300 269 l S
-BT /F1 10 Tf 1 0 0 1 45 195 Tm (Frontend y backend reciben código leído realmente por MCP. Calidad revisa sus reportes y) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 181 Tm (checks del operador; seguridad recibe políticas y resultados previos. Los hallazgos no se) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 167 Tm (aplican automáticamente.) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 125 Tm (MCP: @modelcontextprotocol/server-filesystem@2.3.0 por stdio. Se exporta un archivo) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 111 Tm (permitido, compara la lectura y verifica rechazo fuera del scope. Escrituras anunciadas no) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 97 Tm (se autorizan. Staging no es sandbox OS.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 195 Tm (Frontend y backend analizan código obtenido por MCP. Calidad revisa sus reportes y las) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 181 Tm (pruebas ejecutadas por el operador; seguridad revisa las políticas y los resultados) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 167 Tm (anteriores. Las recomendaciones requieren revisión antes de aplicarse.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 125 Tm (MCP usa @modelcontextprotocol/server-filesystem@2.3.0 por stdio. Lee una copia autorizada,) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 111 Tm (compara su contenido y comprueba el rechazo de archivos fuera del alcance. El cliente no) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 97 Tm (permite escrituras. La copia temporal no aísla el proceso del sistema operativo.) Tj ET
 endstream
 endobj
 8 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
 endobj
 9 0 obj
-<< /Length 2879 >>
+<< /Length 3079 >>
 stream
 0.12 0.22 0.19 rg
 0.12 0.22 0.19 RG
 BT /F1 17 Tf 1 0 0 1 45 796 Tm (OPITA 360 | Taller 5: Sistema de Agentes) Tj ET
 BT /F1 14 Tf 1 0 0 1 45 766 Tm (3. Calidad del código) Tj ET
-BT /F1 8 Tf 1 0 0 1 45 32 Tm (Rama: taller5/sistema-agentes | Evidencia en docs/taller-5 | Página 3/4) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 730 Tm (La revisión conserva contratos y funcionalidades existentes. Las pruebas verifican tarea-) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 716 Tm (agente, evidencia no vacía, duplicados, hashes, permisos y límites. El modelo puede errar:) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 702 Tm (los hallazgos requieren contraste humano.) Tj ET
+BT /F1 8 Tf 1 0 0 1 45 32 Tm (FET-QX7 | Rama: taller5/sistema-agentes | Evidencias: docs/taller-5 | Página 3/4) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 730 Tm (Las pruebas comprueban la relación entre tarea y agente, la presencia de evidencias, los) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 716 Tm (duplicados, los hashes, los permisos y los límites. Se mantienen los contratos y las) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 702 Tm (funciones existentes. Las respuestas del modelo se contrastan con el código y los resultados) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 688 Tm (de ejecución.) Tj ET
 0.92 0.96 0.92 rg 190 610 215 34 re B 0.12 0.22 0.19 rg
 BT /F1 9 Tf 1 0 0 1 199 624.0 Tm (Especificación y aprobación) Tj ET
 0.92 0.96 0.92 rg 190 550 215 34 re B 0.12 0.22 0.19 rg
@@ -132,50 +135,50 @@ BT /F1 9 Tf 1 0 0 1 199 444.0 Tm (T05/T06: revisión especializada) Tj ET
 BT /F1 9 Tf 1 0 0 1 199 384.0 Tm (Informe pendiente de revisión humana) Tj ET
 0.7 w 297 430 m 297 404 l S
 294 409 m 297 404 l 300 409 l S
-BT /F1 10 Tf 1 0 0 1 45 325 Tm (Resultados actuales: 27 pruebas de agentes y 8 de API aprobadas \(35 total\), compilaciones) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 311 Tm (correctas. Chrome real: 11/14 antes y 14/14 después. Se corrigieron etiqueta de búsqueda,) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 297 Tm (nombre del selector de días y estado ARIA del menú. Filtros, API, demo y teclado) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 283 Tm (comprobados; registros y PNG en browser/.) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 225 Tm (Pruebas limitadas: nombres accesibles vía Chrome, etiquetas, teclado y ancho móvil; no) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 211 Tm (certifican WCAG ni lector de pantalla. Las cinco inferencias y dos MCP son anteriores a la) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 197 Tm (corrección. Se conserva checks-llm-historical.json; checks.json es actual. No se repitió) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 183 Tm (LLM/MCP ni npm ci en esta actualización.) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 125 Tm (El LLM erró sobre validación de presupuesto y ausencia de pruebas MCP. T05/T06 no recibieron) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 111 Tm (ledger MCP explícito; el asistente contrastó las afirmaciones con el host. Ver revision-) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 97 Tm (hallazgos.md. Aceptación humana pendiente: la ejecución no prueba precisión semántica ni) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 83 Tm (autoriza commit o push.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 325 Tm (Pasaron 27 pruebas de agentes y 8 de API \(35 en total\), además de las compilaciones. En) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 311 Tm (Chrome pasaron 11 de 14 comprobaciones antes y las 14 después de corregir la etiqueta de) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 297 Tm (búsqueda, el nombre del selector de días y el estado ARIA del menú. Se probaron filtros,) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 283 Tm (API, modo demo y teclado; browser/ conserva los registros y PNG.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 225 Tm (Chrome permitió revisar nombres accesibles, etiquetas, teclado y ancho móvil; falta una) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 211 Tm (auditoría WCAG y un lector de pantalla. Las cinco inferencias LLM y dos sesiones MCP son) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 197 Tm (anteriores a estas correcciones: sus pruebas están en checks-llm-historical.json;) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 183 Tm (checks.json es actual. No se repitieron LLM/MCP ni npm ci en esa actualización.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 125 Tm (El LLM se equivocó al cuestionar la validación del presupuesto y negar las pruebas MCP.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 111 Tm (T05/T06 no recibieron su registro explícito; el asistente contrastó esas afirmaciones con) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 97 Tm (las evidencias del entorno. revision-hallazgos.md explica las discrepancias. La aprobación) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 83 Tm (humana final sigue pendiente; no se autoriza commit ni push.) Tj ET
 endstream
 endobj
 10 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 11 0 R >>
 endobj
 11 0 obj
-<< /Length 2417 >>
+<< /Length 2538 >>
 stream
 0.12 0.22 0.19 rg
 0.12 0.22 0.19 RG
 BT /F1 17 Tf 1 0 0 1 45 796 Tm (OPITA 360 | Taller 5: Sistema de Agentes) Tj ET
 BT /F1 14 Tf 1 0 0 1 45 766 Tm (4. Diferencias con el sistema de referencia) Tj ET
-BT /F1 8 Tf 1 0 0 1 45 32 Tm (Rama: taller5/sistema-agentes | Evidencia en docs/taller-5 | Página 4/4) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 730 Tm (PENDIENTE: el sistema de referencia no está disponible. El usuario autorizó continuar) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 716 Tm (dejando la comparación pendiente. No se inventan semejanzas o diferencias ni se afirma) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 702 Tm (cumplimiento del 10% correspondiente.) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 678 Tm (Al recibir la fuente se contrastarán arquitectura, roles, modelos, permisos, MCP, aprobación) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 664 Tm (humana y calidad. Cada diferencia debe citar archivos, decisiones o ejecuciones verificables) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 650 Tm (de ambos sistemas.) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 626 Tm (Contraste interno distinto de la referencia: la versión previa inventariaba archivos con) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 612 Tm (perfiles de modelo nulos. La corrección incorpora asignación local explícita, análisis LLM) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 598 Tm (especializado, contexto MCP utilizado por frontend/backend, revisión de reportes previos y) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 584 Tm (trazabilidad.) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 560 Tm (Ese contraste no atribuye propiedades a una referencia desconocida. Tampoco prueba ejecución) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 546 Tm (por sí solo: los resultados auténticos se inspeccionan en los artefactos de la ejecución) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 532 Tm (final.) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 508 Tm (Archivos para revisión: rubrica.md, especificacion.md, tareas.md, arquitectura.md,) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 494 Tm (entrega.md, resultados.md y artefactos de pruebas/LLM. El ejecutor conserva la aplicación) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 480 Tm (turística y PostgreSQL continúa sin conexión. Los pendientes deben permanecer visibles.) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 456 Tm (Antes de aceptar la entrega, una persona revisa el diff, las respuestas LLM, las) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 442 Tm (comprobaciones reales y su correspondencia con el código. Una prueba no ejecutada o una) Tj ET
-BT /F1 10 Tf 1 0 0 1 45 428 Tm (aprobación automática no sustituye esa revisión.) Tj ET
+BT /F1 8 Tf 1 0 0 1 45 32 Tm (FET-QX7 | Rama: taller5/sistema-agentes | Evidencias: docs/taller-5 | Página 4/4) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 730 Tm (La comparación queda pendiente porque aún no está disponible el sistema de referencia. Se) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 716 Tm (autorizó continuar con el resto del taller, sin atribuir semejanzas o diferencias a un) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 702 Tm (material que no se ha revisado. Por eso no se afirma cumplimiento del 10% de este criterio.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 678 Tm (Cuando se reciba la referencia, se compararán arquitectura, roles, modelos, permisos, MCP,) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 664 Tm (aprobación humana y calidad. Cada diferencia se apoyará en archivos, decisiones o) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 650 Tm (ejecuciones de ambos sistemas.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 626 Tm (Sí podemos describir los cambios frente a nuestra primera versión: antes solo se) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 612 Tm (inventariaban archivos y los perfiles de modelo estaban vacíos. Ahora hay un modelo local) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 598 Tm (asignado, análisis por especialidad, código obtenido por MCP para frontend y backend,) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 584 Tm (revisión de reportes y trazabilidad de las ejecuciones.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 560 Tm (Esta evolución interna no reemplaza la comparación solicitada. Los registros de ejecución) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 546 Tm (permiten comprobar qué se implementó, qué se probó y qué sigue pendiente, sin atribuir) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 532 Tm (características a la referencia desconocida.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 508 Tm (La documentación de apoyo está en rubrica.md, especificacion.md, tareas.md, arquitectura.md,) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 494 Tm (entrega.md y resultados.md, junto con las evidencias de pruebas y LLM. Las funciones) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 480 Tm (turísticas se mantienen y PostgreSQL sigue sin conexión.) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 456 Tm (La aceptación final requiere que una persona revise los cambios, las respuestas del modelo y) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 442 Tm (su relación con las pruebas. Los resultados registrados no sustituyen esa decisión ni) Tj ET
+BT /F1 10 Tf 1 0 0 1 45 428 Tm (permiten dar por ejecutadas las verificaciones pendientes.) Tj ET
 endstream
 endobj
 xref
@@ -186,14 +189,14 @@ xref
 0000000140 00000 n 
 0000000237 00000 n 
 0000000363 00000 n 
-0000002934 00000 n 
-0000003060 00000 n 
-0000005866 00000 n 
-0000005992 00000 n 
-0000008923 00000 n 
-0000009051 00000 n 
+0000003188 00000 n 
+0000003314 00000 n 
+0000006268 00000 n 
+0000006394 00000 n 
+0000009525 00000 n 
+0000009653 00000 n 
 trailer
 << /Size 12 /Root 1 0 R >>
 startxref
-11521
+12244
 %%EOF

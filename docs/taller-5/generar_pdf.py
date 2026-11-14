@@ -18,7 +18,7 @@ class Page:
         self.commands = ["0.12 0.22 0.19 rg", "0.12 0.22 0.19 RG"]
         self.text(45, 796, "OPITA 360 | Taller 5: Sistema de Agentes", 17)
         self.text(45, 766, title, 14)
-        self.text(45, 32, f"Rama: taller5/sistema-agentes | Evidencia en docs/taller-5 | Página {number}/4", 8)
+        self.text(45, 32, f"FET-QX7 | Rama: taller5/sistema-agentes | Evidencias: docs/taller-5 | Página {number}/4", 8)
 
     def text(self, x, y, value, size=10):
         self.commands.append(f"BT /F1 {size} Tf 1 0 0 1 {x} {y} Tm ({literal(value)}) Tj ET")
@@ -49,18 +49,18 @@ class Page:
 
 def pages():
     p1 = Page("1. Proyecto y herramienta", 1)
-    y = p1.paragraph(730, "OPITA 360 es una aplicación turística del Huila. El frontend usa React, Vite y lucide-react; el backend utiliza Python, FastAPI y Pydantic. Los datos actuales están en memoria. PostgreSQL solo tiene un esquema preparado, sin conexión persistente.")
-    y = p1.paragraph(y, "El taller incorpora herramientas de desarrollo en Python, Ollama local y un servidor MCP externo. No cambia funciones turísticas, API, CORS ni esquema SQL. No se hacen commits ni push.")
-    y = p1.paragraph(y, "La especificación delimita revisión de código con evidencias auténticas. La planificación emite cuatro tareas con permisos fijos y contratos que vinculan tarea, agente y archivos. La procedencia del plan es Codex, sin atribuir a Copilot un documento inexistente.")
+    y = p1.paragraph(730, "OPITA 360 permite explorar destinos turísticos del Huila. Su frontend usa React, Vite y lucide-react; el backend está desarrollado en Python con FastAPI y Pydantic. Por ahora, los datos se manejan en memoria. Existe un esquema para PostgreSQL, pero aún no hay conexión persistente.")
+    y = p1.paragraph(y, "Para este taller añadimos un sistema de revisión de código con herramientas en Python, Ollama local y un servidor MCP externo. Se mantienen las funciones turísticas, la API, CORS y el esquema SQL. Los cambios siguen sin commit ni push.")
+    y = p1.paragraph(y, "El trabajo parte de una especificación, un plan y cuatro tareas. Cada tarea tiene permisos definidos y un contrato que relaciona el reporte con el agente y sus archivos. El plan se elaboró con Codex; no corresponde a un documento generado por Copilot.")
     p1.box(45, 465, "React/Vite: frontend existente", 220, 42)
     p1.box(330, 465, "FastAPI: backend existente", 220, 42)
     p1.arrow(265, 486, 330, 486)
     p1.box(175, 365, "Revisión del taller: independiente de la aplicación turística", 245, 52)
-    p1.paragraph(320, "Herramientas: Python 3.10+, Ollama en 127.0.0.1:11434, modelo qwen3.5:4b y MCP por stdio. Node portátil 24.13.0 ejecuta el servidor externo sin sustituir Node del sistema. Los modelos no reciben shell ni edición turística.")
-    p1.paragraph(225, "Rúbrica del usuario: calidad del código 25%; agentes 20%; diagramas 20%; herramientas, permisos y modelo 15%; diferencias con referencia 10%; documento 10%. Este PDF contiene cuatro páginas dentro del máximo de ocho.")
+    p1.paragraph(320, "El entorno requiere Python 3.10+ y Ollama en 127.0.0.1:11434, con el modelo qwen3.5:4b. La conexión MCP usa stdio. El servidor externo se ejecuta con Node portátil 24.13.0, sin reemplazar la instalación del sistema. Los modelos no pueden ejecutar comandos libres ni editar la aplicación turística.")
+    p1.paragraph(225, "La rúbrica asigna 25% a calidad del código, 20% a agentes, 20% a diagramas, 15% a herramientas, permisos y modelo, 10% a diferencias con la referencia y 10% al documento. Esta entrega tiene cuatro páginas y respeta el máximo de ocho.")
 
     p2 = Page("2. Sistema de agentes", 2)
-    p2.paragraph(730, "Los cinco roles usan qwen3.5:4b con contextos separados. Asignar un modelo no demuestra inferencia: solo las trazas reales permiten afirmar ejecución. El modo determinista no simula un LLM.")
+    p2.paragraph(730, "El orquestador y los cuatro especialistas usan qwen3.5:4b en contextos separados. Las trazas registran las llamadas reales al modelo. También se conserva un modo determinista que solo inventaría archivos y no se presenta como una ejecución LLM.")
     p2.box(190, 620, "Operador: autoriza alcance")
     p2.box(190, 560, "Orquestador LLM: plan validado")
     p2.arrow(297, 620, 297, 594)
@@ -77,28 +77,28 @@ def pages():
     p2.arrow(297, 350, 297, 324)
     p2.box(190, 230, "awaiting_human_review")
     p2.arrow(297, 290, 297, 264)
-    p2.paragraph(195, "Frontend y backend reciben código leído realmente por MCP. Calidad revisa sus reportes y checks del operador; seguridad recibe políticas y resultados previos. Los hallazgos no se aplican automáticamente.")
-    p2.paragraph(125, "MCP: @modelcontextprotocol/server-filesystem@2.3.0 por stdio. Se exporta un archivo permitido, compara la lectura y verifica rechazo fuera del scope. Escrituras anunciadas no se autorizan. Staging no es sandbox OS.")
+    p2.paragraph(195, "Frontend y backend analizan código obtenido por MCP. Calidad revisa sus reportes y las pruebas ejecutadas por el operador; seguridad revisa las políticas y los resultados anteriores. Las recomendaciones requieren revisión antes de aplicarse.")
+    p2.paragraph(125, "MCP usa @modelcontextprotocol/server-filesystem@2.3.0 por stdio. Lee una copia autorizada, compara su contenido y comprueba el rechazo de archivos fuera del alcance. El cliente no permite escrituras. La copia temporal no aísla el proceso del sistema operativo.")
 
     p3 = Page("3. Calidad del código", 3)
-    p3.paragraph(730, "La revisión conserva contratos y funcionalidades existentes. Las pruebas verifican tarea-agente, evidencia no vacía, duplicados, hashes, permisos y límites. El modelo puede errar: los hallazgos requieren contraste humano.")
+    p3.paragraph(730, "Las pruebas comprueban la relación entre tarea y agente, la presencia de evidencias, los duplicados, los hashes, los permisos y los límites. Se mantienen los contratos y las funciones existentes. Las respuestas del modelo se contrastan con el código y los resultados de ejecución.")
     labels = ["Especificación y aprobación", "Plan LLM y contratos válidos", "T03/T04 con MCP y evidencias", "T05/T06: revisión especializada", "Informe pendiente de revisión humana"]
     for index, label in enumerate(labels):
         y = 610 - 60 * index
         p3.box(190, y, label)
         if index:
             p3.arrow(297, y + 60, 297, y + 34)
-    p3.paragraph(325, "Resultados actuales: 27 pruebas de agentes y 8 de API aprobadas (35 total), compilaciones correctas. Chrome real: 11/14 antes y 14/14 después. Se corrigieron etiqueta de búsqueda, nombre del selector de días y estado ARIA del menú. Filtros, API, demo y teclado comprobados; registros y PNG en browser/.")
-    p3.paragraph(225, "Pruebas limitadas: nombres accesibles vía Chrome, etiquetas, teclado y ancho móvil; no certifican WCAG ni lector de pantalla. Las cinco inferencias y dos MCP son anteriores a la corrección. Se conserva checks-llm-historical.json; checks.json es actual. No se repitió LLM/MCP ni npm ci en esta actualización.")
-    p3.paragraph(125, "El LLM erró sobre validación de presupuesto y ausencia de pruebas MCP. T05/T06 no recibieron ledger MCP explícito; el asistente contrastó las afirmaciones con el host. Ver revision-hallazgos.md. Aceptación humana pendiente: la ejecución no prueba precisión semántica ni autoriza commit o push.")
+    p3.paragraph(325, "Pasaron 27 pruebas de agentes y 8 de API (35 en total), además de las compilaciones. En Chrome pasaron 11 de 14 comprobaciones antes y las 14 después de corregir la etiqueta de búsqueda, el nombre del selector de días y el estado ARIA del menú. Se probaron filtros, API, modo demo y teclado; browser/ conserva los registros y PNG.")
+    p3.paragraph(225, "Chrome permitió revisar nombres accesibles, etiquetas, teclado y ancho móvil; falta una auditoría WCAG y un lector de pantalla. Las cinco inferencias LLM y dos sesiones MCP son anteriores a estas correcciones: sus pruebas están en checks-llm-historical.json; checks.json es actual. No se repitieron LLM/MCP ni npm ci en esa actualización.")
+    p3.paragraph(125, "El LLM se equivocó al cuestionar la validación del presupuesto y negar las pruebas MCP. T05/T06 no recibieron su registro explícito; el asistente contrastó esas afirmaciones con las evidencias del entorno. revision-hallazgos.md explica las discrepancias. La aprobación humana final sigue pendiente; no se autoriza commit ni push.")
 
     p4 = Page("4. Diferencias con el sistema de referencia", 4)
-    y = p4.paragraph(730, "PENDIENTE: el sistema de referencia no está disponible. El usuario autorizó continuar dejando la comparación pendiente. No se inventan semejanzas o diferencias ni se afirma cumplimiento del 10% correspondiente.")
-    y = p4.paragraph(y, "Al recibir la fuente se contrastarán arquitectura, roles, modelos, permisos, MCP, aprobación humana y calidad. Cada diferencia debe citar archivos, decisiones o ejecuciones verificables de ambos sistemas.")
-    y = p4.paragraph(y, "Contraste interno distinto de la referencia: la versión previa inventariaba archivos con perfiles de modelo nulos. La corrección incorpora asignación local explícita, análisis LLM especializado, contexto MCP utilizado por frontend/backend, revisión de reportes previos y trazabilidad.")
-    y = p4.paragraph(y, "Ese contraste no atribuye propiedades a una referencia desconocida. Tampoco prueba ejecución por sí solo: los resultados auténticos se inspeccionan en los artefactos de la ejecución final.")
-    y = p4.paragraph(y, "Archivos para revisión: rubrica.md, especificacion.md, tareas.md, arquitectura.md, entrega.md, resultados.md y artefactos de pruebas/LLM. El ejecutor conserva la aplicación turística y PostgreSQL continúa sin conexión. Los pendientes deben permanecer visibles.")
-    p4.paragraph(y, "Antes de aceptar la entrega, una persona revisa el diff, las respuestas LLM, las comprobaciones reales y su correspondencia con el código. Una prueba no ejecutada o una aprobación automática no sustituye esa revisión.")
+    y = p4.paragraph(730, "La comparación queda pendiente porque aún no está disponible el sistema de referencia. Se autorizó continuar con el resto del taller, sin atribuir semejanzas o diferencias a un material que no se ha revisado. Por eso no se afirma cumplimiento del 10% de este criterio.")
+    y = p4.paragraph(y, "Cuando se reciba la referencia, se compararán arquitectura, roles, modelos, permisos, MCP, aprobación humana y calidad. Cada diferencia se apoyará en archivos, decisiones o ejecuciones de ambos sistemas.")
+    y = p4.paragraph(y, "Sí podemos describir los cambios frente a nuestra primera versión: antes solo se inventariaban archivos y los perfiles de modelo estaban vacíos. Ahora hay un modelo local asignado, análisis por especialidad, código obtenido por MCP para frontend y backend, revisión de reportes y trazabilidad de las ejecuciones.")
+    y = p4.paragraph(y, "Esta evolución interna no reemplaza la comparación solicitada. Los registros de ejecución permiten comprobar qué se implementó, qué se probó y qué sigue pendiente, sin atribuir características a la referencia desconocida.")
+    y = p4.paragraph(y, "La documentación de apoyo está en rubrica.md, especificacion.md, tareas.md, arquitectura.md, entrega.md y resultados.md, junto con las evidencias de pruebas y LLM. Las funciones turísticas se mantienen y PostgreSQL sigue sin conexión.")
+    p4.paragraph(y, "La aceptación final requiere que una persona revise los cambios, las respuestas del modelo y su relación con las pruebas. Los resultados registrados no sustituyen esa decisión ni permiten dar por ejecutadas las verificaciones pendientes.")
     return [p1, p2, p3, p4]
 
 
