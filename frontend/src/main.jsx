@@ -30,6 +30,7 @@ function App() {
   const [destinations, setDestinations] = useState(fallbackDestinations);
   const [apiStatus, setApiStatus] = useState("probando");
   const [category, setCategory] = useState("Todos");
+  const [municipality, setMunicipality] = useState("Todos");
   const [search, setSearch] = useState("");
   const [days, setDays] = useState(2);
   const [budget, setBudget] = useState("200000");
@@ -45,11 +46,21 @@ function App() {
       .catch(() => setApiStatus("demostración"));
   }, []);
 
+  const municipalities = useMemo(() => [...new Set(destinations.map(d => d.municipality).filter(Boolean))]
+    .sort((a, b) => a.localeCompare(b, "es")), [destinations]);
+
+  useEffect(() => {
+    if (municipality !== "Todos" && !municipalities.includes(municipality)) {
+      setMunicipality("Todos");
+    }
+  }, [municipalities, municipality]);
+
   const filtered = useMemo(() => destinations.filter(d => {
     const matchCategory = category === "Todos" || d.category === category;
+    const matchMunicipality = municipality === "Todos" || d.municipality === municipality;
     const q = search.trim().toLowerCase();
-    return matchCategory && (!q || `${d.name} ${d.municipality} ${d.category}`.toLowerCase().includes(q));
-  }), [destinations, category, search]);
+    return matchCategory && matchMunicipality && (!q || `${d.name} ${d.municipality} ${d.category}`.toLowerCase().includes(q));
+  }), [destinations, category, municipality, search]);
 
   const toggleInterest = (interest) => setInterests(prev => prev.includes(interest) ? prev.filter(x => x !== interest) : [...prev, interest]);
 
@@ -103,7 +114,7 @@ function App() {
 
       <section className="destinations section-pad" id="destinos">
         <div className="section-heading"><div><span className="section-kicker">LUGARES QUE DEJAN HUELLA</span><h2>El Huila te espera<span className="dot">.</span></h2></div><a className="text-link dark" href="#mapa">Ver mapa <ArrowRight size={16}/></a></div>
-        <div className="filter-row"><div className="searchbox"><Search size={17}/><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Busca un destino o municipio…"/></div><div className="filters">{["Todos","Naturaleza","Cultura","Aventura","Bienestar"].map(c=><button key={c} className={category===c?"filter active":"filter"} onClick={()=>setCategory(c)}>{c}</button>)}</div></div>
+        <div className="filter-row"><div className="searchbox"><Search size={17}/><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Busca un destino o municipio…"/></div><label className="municipality-filter" htmlFor="municipality-filter"><MapPin size={16} aria-hidden="true"/><span>Municipio</span><select id="municipality-filter" value={municipality} onChange={e=>setMunicipality(e.target.value)}><option value="Todos">Todos los municipios</option>{municipalities.map(m=><option key={m} value={m}>{m}</option>)}</select></label><div className="filters">{["Todos","Naturaleza","Cultura","Aventura","Bienestar"].map(c=><button key={c} className={category===c?"filter active":"filter"} onClick={()=>setCategory(c)}>{c}</button>)}</div></div>
         <div className="destination-grid">{filtered.map((d,i)=><article className={`destination-card card-${d.color || "green"}`} key={d.id}>
           <div className="destination-image" style={{backgroundImage:`linear-gradient(180deg,transparent 40%,rgba(9,28,24,.72)),url("${photos[d.name] || photos["Desierto de la Tatacoa"]}")`}}>
             <span className="category-tag">{d.category}</span><button className="heart" title="Guardar destino" onClick={e=>e.currentTarget.classList.toggle("saved")}><Heart size={17}/></button>
@@ -112,7 +123,7 @@ function App() {
           </div>
           <div className="destination-info"><p>{d.description}</p><div className="destination-meta"><span><Wallet size={15}/> Desde {COP.format(d.price)}</span><a href="#aventura" aria-label={`Planear visita a ${d.name}`}><ArrowUpRightIcon/></a></div></div>
         </article>)}</div>
-        {filtered.length===0 && <div className="empty-state">No encontramos destinos con esa búsqueda. Prueba con otro nombre o categoría.</div>}
+        {filtered.length===0 && <div className="empty-state">No encontramos destinos con esos filtros. Prueba con otro municipio, nombre o categoría.</div>}
       </section>
 
       <section className="map-section section-pad" id="mapa">
