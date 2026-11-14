@@ -1,0 +1,64 @@
+{
+  "timestamp": "2026-11-14T17:40:23.670646+00:00",
+  "path": "docs\\taller-5\\taller5.pdf",
+  "sha256": "27690401e284d8b1944f301fd2f579664b395fdfffafc3d6496fe1126c7d06c9",
+  "generator_sha256": "87b1e83e969c2600f53391908317f2cf09b4a0c345c8d2044d3311d205b93830",
+  "pages": 7,
+  "sections": [
+    "1. Proyecto y herramienta",
+    "2. Sistema de agentes",
+    "3. Calidad del código",
+    "4. Diferencias con el sistema de referencia"
+  ],
+  "fet_qx7_all_pages": true,
+  "strict_open": true,
+  "rendered_pages": 7,
+  "uri_links": [
+    "https://github.com/2020morales/opita-360",
+    "https://github.com/2020morales/opita-360/pull/2",
+    "https://github.com/2020morales/opita-360/tree/taller5/sistema-agentes/docs/taller-5",
+    "https://github.com/777wills/mi-restaurante-ms/tree/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5",
+    "https://github.com/777wills/mi-restaurante-ui/tree/33161da7c19bba7fdd995a502692ca5f69d67214",
+    "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/docs/diagrams/03-patron-orquestador.excalidraw",
+    "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/speckit-custom/presets/implement-orchestrator/commands/speckit.implement.md"
+  ],
+  "git_attributes": "\"docs\\\\taller-5\\\\taller5.pdf\": text: unset\n\"docs\\\\taller-5\\\\taller5.pdf\": diff: unset\n\"docs\\\\taller-5\\\\taller5.pdf\": merge: unset\n",
+  "git_clean_preserves_bytes": true,
+  "git_blob_sha": "0fe62033e6047b8ae069161e6c0d4405641245a3",
+  "method": "pypdf strict, pdfium render all pages, annotation inspection, Git check-attr and no-write hash-object",
+  "link_target_checks": [
+    {
+      "url": "https://github.com/2020morales/opita-360",
+      "verified": true
+    },
+    {
+      "url": "https://github.com/2020morales/opita-360/pull/2",
+      "verified": true
+    },
+    {
+      "url": "https://github.com/2020morales/opita-360/tree/taller5/sistema-agentes/docs/taller-5",
+      "verified": true
+    },
+    {
+      "url": "https://github.com/777wills/mi-restaurante-ms/tree/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5",
+      "verified": true
+    },
+    {
+      "url": "https://github.com/777wills/mi-restaurante-ui/tree/33161da7c19bba7fdd995a502692ca5f69d67214",
+      "verified": true
+    },
+    {
+      "url": "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/docs/diagrams/03-patron-orquestador.excalidraw",
+      "verified": true
+    },
+    {
+      "url": "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/speckit-custom/presets/implement-orchestrator/commands/speckit.implement.md",
+      "verified": true
+    }
+  ],
+  "link_check_method": "GitHub connector read-only fetch of every URI target, not simulated clicks",
+  "rubric_table_removed": true,
+  "audit_matrix_sha256": "776ead4008df5f6e81e71b221630df59379abb29134859330be47337aa441558",
+  "editorial_change": "Remove rubric table only; page 1 reflowed at 12pt; retained technical text, other pages and links",
+  "link_target_check_note": "Targets unchanged from prior verified GitHub checks; not fetched again for this editorial change"
+}

@@ -2,6 +2,10 @@
 
 Versión documental: 1.1.0. Fecha: 2026-11-14.
 
+## Auditoría de entrega aprobada
+
+El usuario aprobó el informe y plan de auditoría completos: puerta contra registros vacíos/incompletos, entrega del ledger MCP a revisores, comparación con las referencias ya identificadas, PDF con tabla completa, diagramas y enlaces, protección *.pdf binary, pruebas auténticas y conservación de evidencia. Se mantiene la prohibición de nuevos commits, push o merge durante esta corrección. Ya existen commits previos y el PR #2. La comparación verificada sustituye el pendiente histórico de referencia desconocida; ver comparacion-referencia.md. La aceptación humana final aún no se ha dado.
+
 ## Corrección autorizada del alcance
 
 El usuario pidió corregir las seis deficiencias, trabajar en `taller5/sistema-agentes`, mantener funcionalidades turísticas y no hacer commits/push. Aportó la rúbrica: calidad 25 %, agentes 20 %, diagramas 20 %, herramientas/permisos/modelo 15 %, diferencias con referencia 10 % y documento 10 %. Autorizó continuar sin la referencia, marcando su comparación pendiente. El PDF debe tener máximo ocho páginas y las cuatro secciones registradas en `rubrica.md`.

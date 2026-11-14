@@ -1,22 +1,26 @@
 {
-  "timestamp": "2026-11-14T06:22:49.671915+00:00",
+  "timestamp": "2026-11-14T16:54:28.459517+00:00",
   "snapshot": {
     "branch": "taller5/sistema-agentes",
+    "git_head": "c72c3c925db3faef046e5eed50bb37641b3f8c05",
     "files": {
+      ".gitattributes": "9a2dee57af01039bba3957f1ec5ecf00dae32205dd259dfcf792a40f2c3a2ce3",
       ".github/skills/backend-fastapi/SKILL.md": "91fdf6335b03b2858e59980ab4e904447fec79dc387894a908e6473bf4cc12f5",
       ".github/skills/frontend-react/SKILL.md": "c29a3033d7b997c9e9fa4e69dfd37896b1c1677048ff04ec024cb757c4c7c1c9",
       "agents/__init__.py": "8c0629676c1f5a9aedaa599459b22d28b6f6f1c3122eb4869a409d5516068091",
       "agents/browser_checks.py": "0928f39a8a6d46f7f738af7f31f687a1e3ae20b0d686d4ef606cb43adb94bfa0",
-      "agents/llm_workflow.py": "7e24204b576ff338d832d990db2708b7ad2c84a7bb4119914a9f9b2a6bffe8f3",
-      "agents/manifest.v1.json": "f5a6caf9c6fd8b1b0aabc9ae0156d619664c539f38e682f30b963b84381ecbcd",
+      "agents/llm_workflow.py": "0e07d20b11959684dc39a7c93ed58e95df5a0ad97760dead7c076e23b731ea44",
+      "agents/manifest.v1.json": "609c6e5400ef9ebc50d5ef3c463c8e8c89e38136fd0e9b54583860f091ca6a5f",
       "agents/mcp_probe.py": "9e64812a83fea6d05a164e1f5db4ceb264000d167d69df005159499774297f96",
-      "agents/README.md": "3adb703962e681aae4eeaded6d259ac5e45dc95cf130426a7d5b6565fc205212",
+      "agents/quality_gates.py": "b9fc7be13dcee1dac6e7bdc7c3ff65bb4b55b209b8ef5f517cc3099ba9398fdd",
+      "agents/README.md": "d470f01ddc22522bb1c3d1a7cfe5118a500d298a3412600bb6c6d7bcb51f3556",
       "agents/report.schema.v1.json": "dbd3c0f1586248797159b383647d2bac5886626d3d2a9934d02a6236cc95a3ec",
       "agents/repro_frontend.py": "3e8995b27ff324e0df52c49d64101ee1a221aa3c1a80c003b159c96347f6d854",
       "agents/requirements.txt": "960b0daea252df709f410ae320077328a7039689dcc8cd6f3a07b1ed051ab76f",
       "agents/runtime.py": "6e08f5ebf35193fba4c8ed25b334ab7064f0d2243f0ae668594ca169d5777373",
-      "agents/snapshot.py": "5de7827810688b0fb49ec839ddf21fa54b618b75f8f54b9dd7c3c4f06b81a7e0",
+      "agents/snapshot.py": "ca6c0a5bd0dbbadaba9651e28fd2d3357ccd7dfc0215466db94d7d03c3964a2a",
       "agents/tests/test_llm_contracts.py": "802f5a00f02ef88447f37030a333815093aefcf56144ab7878fbf63140b64c05",
+      "agents/tests/test_quality_gates.py": "3cd6f8aba0931be02547e7ee62b086fcb4fd4223ba1123bf46e69dbf5afd83c2",
       "agents/tests/test_runtime.py": "b4814ec2e0d8dae7b598cb1267c34f847f4844cb9fed7c1371d1c939bf46150d",
       "agents/verify.py": "88a895f5131c4ba07fb460435af3fde52601a7af8a603092a2bc1d95fb73589f",
       "AGENTS.md": "af90aa9602215a866de7d683e967c33e8b2636c67b56f38466dffdc0acf95c65",
@@ -33,7 +37,7 @@
       "frontend/src/styles.css": "600186bec72b4d34bd572ecb4ccc4916b93f2ceb6145d8f698c3e44af2319448",
       "README.md": "d51aa2e32f9fcc68cb19d31c401609dfd11f9c1545960776451223f5f85b4aa8"
     },
-    "sha256": "ed92f92949b1f7572b01ae52bfa5c3f8ab3d5df14c106a029cb7f11a6ca1296e"
+    "sha256": "ce62386bdee8bc3c9f6b2f299d307e2e6a0cbe36227b0434d7d0b229ade569da"
   },
   "label": "after",
   "checks": [

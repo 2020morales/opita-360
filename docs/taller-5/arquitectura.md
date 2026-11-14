@@ -7,20 +7,21 @@ Versión documental 2.0.0. Rama: `taller5/sistema-agentes`. Los resultados ejecu
 ```mermaid
 flowchart TD
     H[Operador humano] -->|Autoriza revisión| O[Orquestador LLM y ejecutor controlado]
-    O --> F[T03 Frontend]
-    O --> B[T04 Backend]
-    F --> C[Cliente MCP autorizado]
-    B --> C
+    O -->|Tarea| F[T03 Frontend]
+    O -->|Tarea| B[T04 Backend]
+    F -->|Reporte| O
+    B -->|Reporte| O
+    O --> C[Cliente MCP autorizado]
     C -->|stdio| M[Servidor externo filesystem]
     M --> E[Copia temporal de archivo permitido]
-    F --> R[Reportes de frontend y backend]
-    B --> R
-    R --> Q[T05 Calidad]
+    C -->|Contexto verificado| O
+    O -->|Tarea y reportes anteriores| Q[T05 Calidad]
+    Q -->|Reporte| O
     V[Checks del operador y huellas vigentes] --> Q
-    Q --> S[T06 Seguridad]
-    R --> S
+    O -->|Tarea y reportes anteriores| S[T06 Seguridad]
+    S -->|Reporte| O
     P[Políticas y permisos] --> S
-    S --> A[Informe con trazas]
+    O --> A[Informe con trazas]
     A --> G[awaiting_human_review]
     G --> H
     L[Ollama local: qwen3.5:4b] --- O
@@ -50,17 +51,17 @@ La configuración ejecutable reside en `agents/manifest.v1.json`. Ollama se cons
 flowchart TD
     A[Especificación y restricciones] --> B{Operador aprueba alcance}
     B -->|No| X[Detener sin inferencia]
-    B -->|Sí| C[Registrar ejecución, fecha, rama y huellas]
-    C --> D[Plan LLM del orquestador]
+    B -->|Sí| C[Emitir tareas fijas y validar checks completos/snapshot]
+    C --> D[Plan narrativo LLM del orquestador]
     D --> E{Contrato de plan válido}
     E -->|No| Z[Corrección de formato acotada o error]
     Z --> E
-    E -->|Sí| F[Emitir T03 y T04 con permisos fijos]
+    E -->|Sí| F[Delegar T03 y T04 con permisos fijos]
     F --> G[Leer y verificar contexto MCP]
     G --> H[Inferencias frontend y backend]
     H --> I[Validar reportes y evidencias]
-    I --> J[Calidad: reportes y checks vigentes]
-    J --> K[Seguridad: reportes anteriores y políticas]
+    I --> J[Calidad: reportes, checks y registro MCP]
+    J --> K[Seguridad: reportes, checks, MCP y políticas]
     K --> L[Informe con trazas y limitaciones]
     L --> M[awaiting_human_review]
     M --> N[Decisión humana fuera del ejecutor]
@@ -78,6 +79,6 @@ Las fuentes adicionales autorizadas se entregan como extractos de hasta 4000 car
 
 Las rutas y herramientas se autorizan por rol. Los reportes deben corresponder a tareas emitidas y agentes asignados; `inspected` requiere evidencia no vacía, sin duplicados y con hashes correctos. Los checks registran fecha y huellas: un resultado antiguo no acredita código nuevo. El operador ejecuta comandos fijos; no hay shell disponible para modelos. La compilación no sustituye navegador o accesibilidad manual.
 
-## Referencia pendiente
+## Referencia inspeccionada
 
-La rúbrica ponderada se conserva en `rubrica.md`. El sistema de referencia no está disponible; el usuario autorizó continuar marcando esa comparación como pendiente. Las mejoras respecto al inventario local anterior son comprobables, pero no son diferencias verificadas con una referencia desconocida.
+La rúbrica está en `rubrica.md`. Se inspeccionaron backend calidad-agentes y frontend 001-project-baseline. La comparación Colmena Invertida está en `comparacion-referencia.md`; los metadatos y extractos en `reference-evidence.json`. Los agentes de referencia no se ejecutaron. OPITA adapta coordinación central para revisión, no implementación TDD y convergencia completas.

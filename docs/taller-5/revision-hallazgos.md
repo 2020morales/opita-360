@@ -1,33 +1,36 @@
-# Contraste de los hallazgos LLM con evidencia
+# Revisión de hallazgos y aceptación pendiente
 
-Esta es una revisión del asistente basada en código y artefactos, **no una aprobación humana** ni una nueva ejecución LLM. La ejecución fue real; sus opiniones no se consideran automáticamente verdaderas. Se preserva `llm-report.json` sin editar sus respuestas.
+Este contraste lo realizó el asistente mediante código y registros; **no es aprobación humana**. Se preservan llm-report.json (histórico) y llm-report-final.json (nuevo) sin editar las respuestas del modelo.
 
-| Afirmación del modelo | Contraste verificable | Tratamiento |
+## Correcciones comprobadas
+
+| Hallazgo de auditoría | Corrección y evidencia |
+|---|---|
+| checks=[] podía iniciar el flujo | quality_gates exige los cuatro checks únicos, completos y vigentes; siete regresiones nuevas pasan |
+| T05/T06 no recibían registro MCP | review_context entrega ambas verificaciones; context_receipts final contiene roles y hash del ledger |
+| Diagrama mezclaba estructura y secuencia | PDF separa estrella centralizada con retornos y flujo secuencial fiel al controlador |
+| PDF sin tabla completa, enlaces ni comparación | Siete páginas; cinco agentes con permisos/modelos; siete enlaces URI y referencias con SHA |
+| Conversión LF/CRLF podía romper xref | *.pdf binary; atributos text/diff/merge desactivados y apertura estricta comprobada |
+| Afirmaciones de inexistencia de commits/referencia | Se reconoce c72c3c9 y PR #2; comparación concreta en ramas pertinentes |
+
+## Contraste de las respuestas LLM con hechos
+
+| Afirmación u observación del modelo | Verificación del asistente | Tratamiento |
 |---|---|---|
-| T03: filtros y controles son correctos y accesibles | La ejecución posterior en Chrome encontró búsqueda sin etiqueta explícita, slider sin nombre accesible y menú sin aria-expanded. Se corrigieron y las mismas 14 comprobaciones pasaron. Algunas referencias de líneas del modelo eran inexactas. | La afirmación global del LLM era excesiva. Aprobados únicamente los escenarios probados; no es certificación WCAG ni prueba de lector de pantalla. |
-| T04: falta validar límite máximo absoluto del presupuesto y duración | TripRequest usa budget ge=0/le=100000000 y days ge=1/le=14; test_invalid_requests_return_422 comprueba presupuestos fuera de rango y días inválidos; test_request_boundaries comprueba límites. El algoritmo limita número de paradas. | Rechazar la afirmación general de ausencia de validación. La viabilidad real del viaje sigue sin probarse. |
-| T04: CORS permite métodos y headers globales | allow_methods/allow_headers contienen '*', pero allow_origins limita frontend local; ampliar métodos no equivale a permitir todo origen. | Observación parcial, no vulnerabilidad demostrada; no modificar CORS dentro del taller. |
-| T05: faltan pruebas PostgreSQL | La aplicación usa memoria y PostgreSQL está fuera de esta entrega. | Límite real, no fallo de persistencia implementada ni requisito probado incumplido. |
-| T05/T06: solo hubo pruebas estáticas, sin pruebas dinámicas MCP | checks registra unittest realmente ejecutado; llm-report.mcp registra dos inicializaciones/invocaciones externas y rechazos fuera de scope. | Contradicho por la evidencia del host. Calidad/seguridad recibieron checks y reportes, pero no el ledger MCP explícito; su revisión de esa integración es incompleta. |
-| T06: staging no es sandbox OS y servidor anuncia escrituras | El servidor externo conserva permisos del usuario; el cliente solo autoriza lectura y las pruebas comprueban denegaciones. | Riesgo confirmado y documentado; no prometer aislamiento OS. |
-| T06: aprobación previa del plan | --approved corresponde al alcance autorizado por el usuario; el registro declara generated_plan_reviewed_by_human=false. | No afirmar aprobación humana individual del plan producido por el modelo. Revisión final pendiente. |
+| Frontend final: contrastes adecuados | No se midieron contrastes ni WCAG completo; se probaron nombres accesibles y teclado | No aceptar como certificación de accesibilidad |
+| Frontend final: fragmentos sobre role/listbox | La salida separa una frase inconclusa y listbox aunque cumple el esquema JSON. El select nativo ya tiene semántica; no justifica añadir ese rol | No aplicar cambio sin requisito ni prueba |
+| Backend final: no existen pruebas ejecutadas | checks registra 8 pruebas TestClient; este ejecuta rutas y lógica de FastAPI. Además hay pruebas de navegador | Rechazar generalización; el agente no ejecutó personalmente los comandos |
+| Calidad final: pruebas solo de estructura, sin ejecución de funciones turísticas | TestClient llama recomendaciones y comprueba totales; Chrome prueba API y demostración | No aceptar esa descripción global. No hubo carga ni estrés, límite real distinto |
+| Históricos sobre falta de límites de presupuesto/días | TripRequest usa ge/le; 422 y límites están probados. El primer destino puede superar presupuesto por regla existente y hay regresión de ese caso | No modificar la regla turística ni afirmar ausencia general de validación |
+| Final: MCP anuncia escrituras, cliente las deniega | La lista de herramientas incluye escritura; pruebas locales rechazan sus nombres. El servidor rechazó una lectura fuera del scope. No se intentó escribir contra el servidor | No presentar una escritura remota denegada como prueba ejecutada |
+| Ausencia de PostgreSQL y de prueba de carga | Ambas son reales, pero persistencia está fuera de esta versión en memoria | Registrar como alcance/límite, no como fallo de una integración inexistente |
+| Sandbox OS ausente | Node tiene permisos del usuario; listas y copia temporal no lo aíslan por sistema operativo | Riesgo reconocido; no prometer aislamiento fuerte |
+| Plan aprobado | --approved confirma alcance autorizado; el registro declara generated_plan_reviewed_by_human=false | Mantener revisión humana final, sin firmas o aprobaciones ficticias |
 
-Los fragmentos inconclusos del reporte backend, aunque cumplen JSON Schema, no son una explicación técnica suficiente. Una respuesta estructurada no garantiza calidad ni veracidad. No se introdujeron cambios turísticos basados en esas opiniones.
+## Navegador y evidencias históricas
 
-## Verificación posterior con navegador real
+El primer Chrome registró 11/14 y reprodujo tres fallos: etiqueta de búsqueda, nombre del slider de días y estado expandido del menú. Se corrigieron y se comprobó 14/14. La auditoría final repitió los 14 casos con código 0; JSON, snapshot y PNG actuales están en browser/.
 
-`agents.browser_checks` usa Chrome headless por CDP y los servidores reales Vite/FastAPI. No se instaló una dependencia en el frontend ni se usó axe. El árbol Accessibility de Chrome se consultó realmente; no es una inspección DOM presentada como prueba de lector de pantalla.
+Se archivó la evidencia anterior en history/pre-delivery-audit/, incluidos reportes narrativos. Los archivos históricos pueden decir que aún faltaban referencia o commits en aquella etapa: no describen la situación actual. Las inferencias anteriores no se usan para acreditar el código corregido; el nuevo run es fe8439a1-922d-42cd-aaaf-4010f589de64.
 
-Evidencia: `browser/before.json` (11 de 14 aprobadas) y `browser/after.json` (14 de 14 aprobadas), con versión de Chrome, fecha, snapshot y observaciones. Las capturas before/after de escritorio y móvil son archivos PNG reales en esa carpeta. Los tres fallos iniciales están conservados.
-
-Correcciones comprobadas en `frontend/src/main.jsx`:
-
-- Búsqueda: nombre explícito mediante aria-label.
-- Días: label asociado mediante htmlFor/id y aria-valuetext; el slider dejó de estar sin nombre en el árbol accesible.
-- Menú móvil: aria-expanded, aria-controls y nombre Abrir/Cerrar coherente con su estado.
-
-Se ejecutaron catálogo y recomendaciones contra API real, municipio, combinación vacía, recuperación y búsqueda combinada, selector con teclado, Tab, bloqueo de API para demostración y recomendaciones locales, menú móvil, ausencia de desbordamiento horizontal a 390 px, nombres accesibles y ausencia de excepciones JavaScript. El catálogo demo conserva ocho destinos. No se modificaron API, reglas presupuestarias ni datos turísticos.
-
-La ejecución LLM previa se conserva sin alteraciones; sus fuentes eran anteriores a estas correcciones. `checks-llm-historical.json` conserva exactamente el hash de checks referenciado por llm-report. `checks.json` corresponde a las pruebas actuales. No se afirma una nueva inferencia sobre la interfaz corregida.
-
-Pendientes: lectura humana con lector de pantalla, auditoría completa WCAG (incluidos contrastes y todas las interacciones), otros navegadores/dispositivos, revisión humana final y comparación con referencia. Calidad/seguridad LLM aún no recibieron explícitamente el ledger MCP en una nueva inferencia. No se simulan esas comprobaciones ni se calcula una nota.
+Pendientes: revisión humana de los hallazgos y de la entrega; lector de pantalla y auditoría WCAG completa; cobertura porcentual, carga, mutación y CI propio si se amplía el alcance. Las referencias ya se inspeccionaron, pero no se ejecutaron sus proyectos. No se calcula una nota automática.

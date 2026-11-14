@@ -16,11 +16,11 @@ Revisar OPITA 360 mediante orquestador y especialistas frontend, backend, calida
 | R4 | Autorización y límites efectivos | Pruebas permitidas/denegadas por rol y herramienta |
 | R5 | Reportes vinculados e íntegros | Rechazar tarea inexistente, agente incorrecto, evidencia vacía/duplicada y hash falso |
 | R6 | MCP externo utilizado por especialistas | Inicialización, lectura real, comparación y contexto entregado a frontend/backend |
-| R7 | Calidad y seguridad revisan entradas previas | T05 recibe T03/T04 y checks; T06 recibe reportes y políticas |
+| R7 | Calidad y seguridad revisan entradas previas | T05/T06 reciben reportes, checks y ambas verificaciones MCP; T06 recibe además políticas |
 | R8 | Aprobación humana trazable | Identificador, fecha y huellas; cierre `awaiting_human_review` |
 | R9 | Reproducción sin cambios turísticos | Pruebas y frontend instalado desde lockfile en copia temporal |
 | R10 | Documentación coherente | Diagramas reales, tareas uniformes, PDF de hasta ocho páginas |
-| R11 | Comparación con referencia | Fuente inspeccionada y diferencias respaldadas; pendiente |
+| R11 | Comparación con referencia | Fuentes y ramas inspeccionadas, SHA y diferencias respaldadas en comparacion-referencia.md |
 
 ## Modos y modelos
 
@@ -31,11 +31,11 @@ Revisar OPITA 360 mediante orquestador y especialistas frontend, backend, calida
 1. El operador define y aprueba alcance de revisión.
 2. El orquestador solicita un plan LLM, lo valida y emite cuatro tareas con permisos fijos.
 3. Frontend/backend reciben código autorizado mediante MCP y producen hallazgos.
-4. Calidad contrasta T03/T04 con checks vigentes; seguridad revisa resultados anteriores y políticas.
+4. Calidad contrasta T03/T04 con checks vigentes y registro MCP; seguridad revisa resultados anteriores, checks, registro MCP y políticas.
 5. El ejecutor valida límites, reportes y evidencias y entrega el informe a revisión humana.
 
 Los contratos no conceden permisos. Los reintentos acotados corrigen formato, no código. Los hashes los genera el ejecutor; un modelo no puede suplir evidencias ni afirmar que ejecutó comandos. Las sugerencias requieren contraste humano y no se aplican automáticamente.
 
 ## Criterios académicos y pendientes
 
-La ponderación y las cuatro secciones del documento están en `rubrica.md`. No se conoce el sistema de referencia y no se inventará su comparación. El usuario autorizó continuar con ese pendiente. Las pruebas no ejecutadas deben identificarse expresamente. No se incluyen persistencia, despliegue, commits o push.
+La ponderación y las cuatro secciones están en `rubrica.md`. Las referencias ya fueron inspeccionadas sin ejecutar sus proyectos: ver `comparacion-referencia.md`. Las pruebas no ejecutadas se identifican expresamente. No se incluye persistencia ni despliegue. Existen commits previos y un PR abierto; esta corrección no publica cambios ni fusiona el PR.

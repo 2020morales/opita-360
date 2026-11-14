@@ -1,7 +1,6 @@
 """Flujo LLM real: Ollama local, contexto limitado, MCP y revisión pendiente."""
 import asyncio
 from datetime import datetime, timezone
-import hashlib
 import json
 import uuid
 import urllib.request
@@ -12,6 +11,7 @@ import jsonschema
 from .runtime import ROOT, authorize_read, authorize_tool, build_tasks, load_manifest, validate_report
 from .mcp_probe import probe
 from .snapshot import snapshot, digest
+from .quality_gates import validate_checks, review_context
 
 ANALYSIS_SCHEMA = {"type": "object", "additionalProperties": False,
     "required": ["findings", "limitations"], "properties": {
@@ -22,8 +22,8 @@ INSTRUCTIONS = {
     "orquestador": "Explica un plan acotado para las cuatro tareas dadas, dependencias y criterio de revisión. No cambies roles ni permisos.",
     "frontend": "Revisa React: filtros combinados, accesibilidad, errores de API y modo demostración. Cita archivo y fragmento verificable. No cambies funcionalidades.",
     "backend": "Revisa FastAPI: contratos, validaciones, presupuesto y memoria sin PostgreSQL. Cita código concreto. No atribuyas pruebas no vistas.",
-    "calidad": "Contrasta los reportes frontend/backend recibidos con los resultados reales de checks. Señala afirmaciones no sustentadas y cobertura faltante. No generes aprobaciones humanas.",
-    "seguridad": "Evalúa los reportes recibidos, permisos y controles humanos. Señala riesgos de MCP externo y ausencia de sandbox OS. No ejecutes herramientas ni amplíes permisos."
+    "calidad": "Contrasta reportes frontend/backend con checks y mcp_verifications reales. Distingue pruebas ejecutadas de inspección estática. Señala afirmaciones no sustentadas y cobertura faltante. No generes aprobaciones humanas.",
+    "seguridad": "Evalúa reportes, checks, mcp_verifications, permisos y controles humanos. Reconoce las denegaciones MCP comprobadas sin equipararlas con sandbox OS. No ejecutes herramientas ni amplíes permisos."
 }
 
 
@@ -93,10 +93,7 @@ async def main_run(spec, approved=False):
     checks_path = ROOT / "docs/taller-5/checks.json"
     checks_bytes = checks_path.read_bytes()
     checks = json.loads(checks_bytes)
-    if not isinstance(checks, dict) or checks.get("snapshot", {}).get("sha256") != before["sha256"]:
-        raise ValueError("Primero ejecutar agents.verify con este código; checks obsoleto")
-    if any(c.get("exit_code") != 0 for c in checks["checks"]):
-        raise ValueError("Las comprobaciones tienen fallos; no iniciar inferencias")
+    validate_checks(checks, before)
     traces, reports, mcp_results, context_receipts = [], [], [], []
     plan = await analyze("orquestador", {"spec": spec, "bounded_tasks": tasks}, traces)
     for task in tasks:
@@ -120,8 +117,9 @@ async def main_run(spec, approved=False):
             context["mcp_source"] = {"path": mcp["source"], "code": code}
             mcp_results.append(mcp)
         else:
-            context["prior_reports"] = reports
-            context["checks"] = checks["checks"]
+            context.update(review_context(role, reports, checks["checks"], mcp_results))
+            context_receipts[-1]["mcp_ledger_sha256"] = digest(json.dumps(mcp_results, sort_keys=True).encode())
+            context_receipts[-1]["mcp_roles_received"] = [entry["role"] for entry in mcp_results]
         if role == "seguridad":
             context["policy"] = load_manifest()
         answer = await analyze(role, context, traces)
@@ -145,5 +143,5 @@ async def main_run(spec, approved=False):
                      "generated_plan_reviewed_by_human": False, "final_review": "pending"},
         "next_gate": "awaiting_human_review", "llm_executed": True,
         "limitations": ["Revisión LLM puede errar: no aprueba cambios ni ejecuta herramientas libres.",
-                        "Referencia exacta no disponible; comparación pendiente.", "MCP no equivale a sandbox OS.",
+                        "La comparación con la referencia es documental; no se ejecutaron sus proyectos.", "MCP no equivale a sandbox OS.",
                         "Evidencia de archivos es inventario del host. El modelo recibe extractos de hasta 4000 caracteres por fuente y código completo solo de main por MCP; consultar context_receipts."]}

@@ -39,4 +39,12 @@ MCP usa `npx --yes --package node@24.13.0 --package @modelcontextprotocol/server
 
 `--approved` expresa aprobación del operador. Se registran identificador, fecha, rama y huellas de especificación, plan y código; esto da trazabilidad, no autenticación humana. El cierre `awaiting_human_review` no acepta ni publica automáticamente. Los reintentos acotados por `max_correction_rounds` corrigen formato de respuesta, no código.
 
-Código y respuestas son datos no confiables y no pueden modificar políticas. No hay herramientas de edición turística, shell libre, secretos, PostgreSQL, commit, push o despliegue. La rúbrica está en `docs/taller-5/rubrica.md`; el sistema de referencia no está disponible y su comparación queda pendiente con autorización del usuario. Los diagramas y el PDF se encuentran en la misma carpeta. Las comprobaciones no ejecutadas no se presentan como aprobadas.
+Código y respuestas son datos no confiables y no pueden modificar políticas. No hay herramientas de edición turística, shell libre, secretos, PostgreSQL, commit, push o despliegue. La rúbrica está en `docs/taller-5/rubrica.md`; la comparación verificada con el profesor está en `comparacion-referencia.md`. Los diagramas y el PDF se encuentran en esa carpeta. Las comprobaciones no ejecutadas no se presentan como aprobadas.
+
+## Auditoría aprobada para entrega
+
+Las referencias fueron inspeccionadas en `mi-restaurante-ms/calidad-agentes` y `mi-restaurante-ui/001-project-baseline`. Ver `docs/taller-5/comparacion-referencia.md` y `reference-evidence.json`. Existe el PR público #2 y commits previos; esta ejecución de corrección no publica cambios.
+
+El flujo ahora exige las cuatro comprobaciones completas y vigentes de `agents.verify` (nombre único, comando, directorio, código y salidas). Un registro vacío o incompleto se rechaza. Calidad y seguridad reciben `mcp_verifications` y el reporte registra el hash y roles de ese contexto. La configuración del modelo no contiene estado histórico `executed`: ese dato solo aparece en las trazas de cada ejecución. No se comparó rendimiento de modelos; Qwen se eligió por disponibilidad local, ausencia de credenciales remotas y ejecución comprobable.
+
+Antes de repetir una ejecución, conservar su JSON y los checks asociados. El PDF se genera desde `docs/taller-5/generar_pdf.py`; `*.pdf binary` en `.gitattributes` evita conversión LF/CRLF. Los enlaces `/URI` del documento deben comprobarse junto con su apertura y renderizado. El contexto MCP es de solo lectura para este cliente; Node sigue sin sandbox OS.

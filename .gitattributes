@@ -1,0 +1,2 @@
+# El PDF contiene offsets binarios: no convertir LF/CRLF ni tratarlo como texto.
+*.pdf binary

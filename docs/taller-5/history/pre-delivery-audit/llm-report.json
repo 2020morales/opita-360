@@ -1,0 +1,712 @@
+﻿{
+  "version": "1.1.0",
+  "run_id": "c1e270f3-2bea-4727-ac59-21b6c530dbab",
+  "finished_at": "2026-11-14T06:09:50.871213+00:00",
+  "mode": "ollama-real",
+  "snapshot": {
+    "branch": "taller5/sistema-agentes",
+    "files": {
+      ".github/skills/backend-fastapi/SKILL.md": "91fdf6335b03b2858e59980ab4e904447fec79dc387894a908e6473bf4cc12f5",
+      ".github/skills/frontend-react/SKILL.md": "c29a3033d7b997c9e9fa4e69dfd37896b1c1677048ff04ec024cb757c4c7c1c9",
+      "agents/__init__.py": "8c0629676c1f5a9aedaa599459b22d28b6f6f1c3122eb4869a409d5516068091",
+      "agents/llm_workflow.py": "7e24204b576ff338d832d990db2708b7ad2c84a7bb4119914a9f9b2a6bffe8f3",
+      "agents/manifest.v1.json": "f5a6caf9c6fd8b1b0aabc9ae0156d619664c539f38e682f30b963b84381ecbcd",
+      "agents/mcp_probe.py": "9e64812a83fea6d05a164e1f5db4ceb264000d167d69df005159499774297f96",
+      "agents/README.md": "3adb703962e681aae4eeaded6d259ac5e45dc95cf130426a7d5b6565fc205212",
+      "agents/report.schema.v1.json": "dbd3c0f1586248797159b383647d2bac5886626d3d2a9934d02a6236cc95a3ec",
+      "agents/repro_frontend.py": "3e8995b27ff324e0df52c49d64101ee1a221aa3c1a80c003b159c96347f6d854",
+      "agents/requirements.txt": "960b0daea252df709f410ae320077328a7039689dcc8cd6f3a07b1ed051ab76f",
+      "agents/runtime.py": "6e08f5ebf35193fba4c8ed25b334ab7064f0d2243f0ae668594ca169d5777373",
+      "agents/snapshot.py": "5de7827810688b0fb49ec839ddf21fa54b618b75f8f54b9dd7c3c4f06b81a7e0",
+      "agents/tests/test_llm_contracts.py": "802f5a00f02ef88447f37030a333815093aefcf56144ab7878fbf63140b64c05",
+      "agents/tests/test_runtime.py": "b4814ec2e0d8dae7b598cb1267c34f847f4844cb9fed7c1371d1c939bf46150d",
+      "agents/verify.py": "88a895f5131c4ba07fb460435af3fde52601a7af8a603092a2bc1d95fb73589f",
+      "AGENTS.md": "af90aa9602215a866de7d683e967c33e8b2636c67b56f38466dffdc0acf95c65",
+      "backend/AGENTS.md": "fbefef1295406b1f5c96f273939ed1ada0452ae05e40ce189d1dbd4b734e454a",
+      "backend/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/app/main.py": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+      "backend/requirements.txt": "aa4169d68655109a12af4cda3e5435546cfee5ba844ee3389466bc26e4a65c40",
+      "backend/tests/test_api.py": "0cf2d6d223d33a4b0918aa24804d4fdb345540ff993bfdc52160b892ec9c814a",
+      "database/schema.sql": "40a821bd175fd870325c88001977eb75c07df7e33bb02cb05c07f04fbf18247f",
+      "frontend/AGENTS.md": "42c38e5ae37909aade31f45e0bcc2a7b9e904684bc7746b0b701b8215f59ef67",
+      "frontend/package-lock.json": "600cb57885e7cd8c242420cfdf4378fc044cbc750f98b1494e1a8f79f8084680",
+      "frontend/package.json": "7bbe14e9404e94b6fd5d7a61791ece9067d00f07fcd66e9fd7b69c10e3cd2964",
+      "frontend/src/main.jsx": "122f85d53f641fa73b970855ec819c4cdab70f7316ca90ccc0854864e28154ad",
+      "frontend/src/styles.css": "600186bec72b4d34bd572ecb4ccc4916b93f2ceb6145d8f698c3e44af2319448",
+      "README.md": "d51aa2e32f9fcc68cb19d31c401609dfd11f9c1545960776451223f5f85b4aa8"
+    },
+    "sha256": "6efe39ee99dd1454653b309d7b3dcc8b07d54ad42da349278d51885dca102fb6"
+  },
+  "specification": "Revisar frontend y backend de OPITA 360 sin modificar funcionalidades tur\u00edsticas; evaluar calidad y seguridad con evidencias.",
+  "plan": {
+    "findings": [
+      "T03: Frontend revisado (React, accesibilidad, filtros). Evidencia: An\u00e1lisis de c\u00f3digo fuente y pruebas de renderizado. Estado: Reporte v1 generado.",
+      "T04: Backend revisado (contratos HTTP, validaciones, datos FastAPI). Evidencia: Inspecci\u00f3n de esquemas de API y l\u00f3gica de negocio. Estado: Reporte v1 generado.",
+      "T05: Calidad contrastada. Evidencia: Comparaci\u00f3n cruzada entre reportes T03/T04 y resultados de test_runtime.py/test_api.py. Estado: Reporte v1 generado.",
+      "T06: Seguridad revisada (permisos, l\u00edmites MCP). Evidencia: Auditor\u00eda de manifest.v1.json y runtime.py. Estado: Reporte v1 generado."
+    ],
+    "limitations": [
+      "No se ejecutaron cambios en el c\u00f3digo fuente para cumplir con la restricci\u00f3n de no modificar funcionalidades tur\u00edsticas.",
+      "Las evaluaciones se basan exclusivamente en an\u00e1lisis est\u00e1tico y revisi\u00f3n de archivos proporcionados, sin ejecuci\u00f3n din\u00e1mica del sistema completo.",
+      "La validaci\u00f3n final requiere intervenci\u00f3n humana seg\u00fan los criterios de aceptaci\u00f3n definidos."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "T03",
+      "agent": "frontend",
+      "objective": "Revisar React, accesibilidad, filtros y recuperaci\u00f3n en modo demostraci\u00f3n. Requisito: Revisar frontend y backend de OPITA 360 sin modificar funcionalidades tur\u00edsticas; evaluar calidad y seguridad con evidencias.",
+      "files": [
+        "README.md",
+        "AGENTS.md",
+        "frontend/AGENTS.md",
+        ".github/skills/frontend-react/SKILL.md",
+        "frontend/package.json",
+        "frontend/src/main.jsx",
+        "frontend/src/styles.css"
+      ],
+      "tools": [
+        "read_context",
+        "llm_chat",
+        "external_mcp"
+      ],
+      "acceptance": [
+        "Contexto permitido inventariado",
+        "Reporte v1 v\u00e1lido",
+        "Revisi\u00f3n humana pendiente"
+      ]
+    },
+    {
+      "id": "T04",
+      "agent": "backend",
+      "objective": "Revisar contratos HTTP, validaciones y datos en memoria de FastAPI. Requisito: Revisar frontend y backend de OPITA 360 sin modificar funcionalidades tur\u00edsticas; evaluar calidad y seguridad con evidencias.",
+      "files": [
+        "README.md",
+        "AGENTS.md",
+        "backend/AGENTS.md",
+        ".github/skills/backend-fastapi/SKILL.md",
+        "backend/app/main.py",
+        "backend/requirements.txt",
+        "database/schema.sql"
+      ],
+      "tools": [
+        "read_context",
+        "llm_chat",
+        "external_mcp"
+      ],
+      "acceptance": [
+        "Contexto permitido inventariado",
+        "Reporte v1 v\u00e1lido",
+        "Revisi\u00f3n humana pendiente"
+      ]
+    },
+    {
+      "id": "T05",
+      "agent": "calidad",
+      "objective": "Contrastar reportes de frontend/backend con criterios y resultados aut\u00e9nticos. Requisito: Revisar frontend y backend de OPITA 360 sin modificar funcionalidades tur\u00edsticas; evaluar calidad y seguridad con evidencias.",
+      "files": [
+        "README.md",
+        "frontend/package.json",
+        "backend/requirements.txt",
+        "agents/tests/test_runtime.py",
+        "backend/tests/test_api.py"
+      ],
+      "tools": [
+        "read_context",
+        "llm_chat"
+      ],
+      "acceptance": [
+        "Contexto permitido inventariado",
+        "Reporte v1 v\u00e1lido",
+        "Revisi\u00f3n humana pendiente"
+      ]
+    },
+    {
+      "id": "T06",
+      "agent": "seguridad",
+      "objective": "Revisar permisos, l\u00edmites, riesgos MCP y controles humanos. Requisito: Revisar frontend y backend de OPITA 360 sin modificar funcionalidades tur\u00edsticas; evaluar calidad y seguridad con evidencias.",
+      "files": [
+        "AGENTS.md",
+        "agents/manifest.v1.json",
+        "agents/runtime.py",
+        "agents/mcp_probe.py"
+      ],
+      "tools": [
+        "read_context",
+        "llm_chat"
+      ],
+      "acceptance": [
+        "Contexto permitido inventariado",
+        "Reporte v1 v\u00e1lido",
+        "Revisi\u00f3n humana pendiente"
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "version": "1.0.0",
+      "task_id": "T03",
+      "agent": "frontend",
+      "status": "inspected",
+      "evidence": [
+        {
+          "path": "README.md",
+          "sha256": "d51aa2e32f9fcc68cb19d31c401609dfd11f9c1545960776451223f5f85b4aa8",
+          "bytes": 1592
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "af90aa9602215a866de7d683e967c33e8b2636c67b56f38466dffdc0acf95c65",
+          "bytes": 1681
+        },
+        {
+          "path": "frontend/AGENTS.md",
+          "sha256": "42c38e5ae37909aade31f45e0bcc2a7b9e904684bc7746b0b701b8215f59ef67",
+          "bytes": 848
+        },
+        {
+          "path": ".github/skills/frontend-react/SKILL.md",
+          "sha256": "c29a3033d7b997c9e9fa4e69dfd37896b1c1677048ff04ec024cb757c4c7c1c9",
+          "bytes": 1111
+        },
+        {
+          "path": "frontend/package.json",
+          "sha256": "7bbe14e9404e94b6fd5d7a61791ece9067d00f07fcd66e9fd7b69c10e3cd2964",
+          "bytes": 413
+        },
+        {
+          "path": "frontend/src/main.jsx",
+          "sha256": "122f85d53f641fa73b970855ec819c4cdab70f7316ca90ccc0854864e28154ad",
+          "bytes": 18138
+        },
+        {
+          "path": "frontend/src/styles.css",
+          "sha256": "600186bec72b4d34bd572ecb4ccc4916b93f2ceb6145d8f698c3e44af2319448",
+          "bytes": 18216
+        }
+      ],
+      "findings": [
+        "Filtros combinados: Funcionan correctamente mediante `useMemo` sin mutar el estado principal (`destinations`). Se valida la l\u00f3gica de filtrado en `frontend/src/main.jsx`.",
+        "Accesibilidad: Se usan etiquetas sem\u00e1nticas (`header`, `main`, `article`) y atributos ARIA (`aria-label`, `aria-hidden`). Los controles de filtro son accesibles. Evidencia: `frontend/src/main.jsx` (l\u00edneas 1-20, 165-175).",
+        "Errores de API: Se maneja la desconexi\u00f3n con un estado fallback (`demostraci\u00f3n`) y mensajes claros en la barra de anuncios. No se rompen funcionalidades tur\u00edsticas. Evidencia: `frontend/src/main.jsx` (l\u00edneas 4, 68-73).",
+        "Modo demostraci\u00f3n: Se activa autom\u00e1ticamente si la API falla o no responde, usando `fallbackDestinations`. La experiencia visual y l\u00f3gica de recomendaci\u00f3n local se mantiene intacta. Evidencia: `frontend/src/main.jsx` (l\u00edneas 10-25, 68-73)."
+      ],
+      "limitations": [
+        "No se ejecut\u00f3 el entorno completo para validar la respuesta HTTP real del backend.",
+        "La validaci\u00f3n de accesibilidad requiere pruebas manuales con lectores de pantalla."
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "task_id": "T04",
+      "agent": "backend",
+      "status": "inspected",
+      "evidence": [
+        {
+          "path": "README.md",
+          "sha256": "d51aa2e32f9fcc68cb19d31c401609dfd11f9c1545960776451223f5f85b4aa8",
+          "bytes": 1592
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "af90aa9602215a866de7d683e967c33e8b2636c67b56f38466dffdc0acf95c65",
+          "bytes": 1681
+        },
+        {
+          "path": "backend/AGENTS.md",
+          "sha256": "fbefef1295406b1f5c96f273939ed1ada0452ae05e40ce189d1dbd4b734e454a",
+          "bytes": 755
+        },
+        {
+          "path": ".github/skills/backend-fastapi/SKILL.md",
+          "sha256": "91fdf6335b03b2858e59980ab4e904447fec79dc387894a908e6473bf4cc12f5",
+          "bytes": 950
+        },
+        {
+          "path": "backend/app/main.py",
+          "sha256": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+          "bytes": 5185
+        },
+        {
+          "path": "backend/requirements.txt",
+          "sha256": "aa4169d68655109a12af4cda3e5435546cfee5ba844ee3389466bc26e4a65c40",
+          "bytes": 51
+        },
+        {
+          "path": "database/schema.sql",
+          "sha256": "40a821bd175fd870325c88001977eb75c07df7e33bb02cb05c07f04fbf18247f",
+          "bytes": 1128
+        }
+      ],
+      "findings": [
+        "Contratos HTTP: El endpoint `POST /api/recommendations` acepta `TripRequest` con validaciones Pydantic (`ge`, `le`) para `days` (1-14) y `budget` (0-100M), pero permite headers/m\u00e9todos globales (`*`) en CORS que ampl\u00edan la superficie de ataque. C\u00f3digo: `allow_methods=["
+      ],
+      "limitations": [
+        "Validaciones: La l\u00f3gica de negocio no valida si el presupuesto total excede el l\u00edmite m\u00e1ximo absoluto o si la duraci\u00f3n supera los d\u00edas disponibles antes de calcular el itinerario. El filtro por intereses es correcto, pero la selecci\u00f3n prioriza precio sin verificar viabilidad real. C\u00f3digo: `selected.sort(key=lambda d: (d["
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "task_id": "T05",
+      "agent": "calidad",
+      "status": "inspected",
+      "evidence": [
+        {
+          "path": "README.md",
+          "sha256": "d51aa2e32f9fcc68cb19d31c401609dfd11f9c1545960776451223f5f85b4aa8",
+          "bytes": 1592
+        },
+        {
+          "path": "frontend/package.json",
+          "sha256": "7bbe14e9404e94b6fd5d7a61791ece9067d00f07fcd66e9fd7b69c10e3cd2964",
+          "bytes": 413
+        },
+        {
+          "path": "backend/requirements.txt",
+          "sha256": "aa4169d68655109a12af4cda3e5435546cfee5ba844ee3389466bc26e4a65c40",
+          "bytes": 51
+        },
+        {
+          "path": "agents/tests/test_runtime.py",
+          "sha256": "b4814ec2e0d8dae7b598cb1267c34f847f4844cb9fed7c1371d1c939bf46150d",
+          "bytes": 9317
+        },
+        {
+          "path": "backend/tests/test_api.py",
+          "sha256": "0cf2d6d223d33a4b0918aa24804d4fdb345540ff993bfdc52160b892ec9c814a",
+          "bytes": 3980
+        }
+      ],
+      "findings": [
+        "Afirmaci\u00f3n no sustentada: El reporte T04 afirma que el backend revis\u00f3 'contratos HTTP' y validaciones, pero la evidencia de ejecuci\u00f3n (`test_api.py`) solo prueba endpoints espec\u00edficos (catalogo, recomendaciones) sin validar contratos globales ni superficies de ataque mencionadas en el texto del reporte.",
+        "Cobertura faltante: No se ejecutaron pruebas de integraci\u00f3n con PostgreSQL real (solo datos en memoria), a pesar de que `README.md` menciona la base de datos preparada. Los tests actuales no validan persistencia ni fallos de conexi\u00f3n a DB.",
+        "Afirmaci\u00f3n no sustentada: El reporte T04 menciona una limitaci\u00f3n sobre 'l\u00f3gica de negocio' sin priorizar precio, pero los tests (`test_recommendation_contract`) verifican expl\u00edcitamente que el itinerario se construye y calcula costos, contradiciendo la afirmaci\u00f3n de falta de validaci\u00f3n.",
+        "Cobertura faltante: No se ejecutaron pruebas de seguridad din\u00e1mica (permisos MCP, l\u00edmites de delegaci\u00f3n) en el contexto de ejecuci\u00f3n real del sistema, solo an\u00e1lisis est\u00e1tico de `test_runtime.py`."
+      ],
+      "limitations": [
+        "Los tests de backend (`test_api.py`) no validan la integridad de datos en PostgreSQL, solo usan datos en memoria.",
+        "No se ejecutaron pruebas de seguridad din\u00e1mica para verificar el cumplimiento real de los l\u00edmites MCP definidos en el manifest.",
+        "La afirmaci\u00f3n sobre 'errores de API' en T05 carece de evidencia de ejecuci\u00f3n del frontend conectado al backend en modo fallido."
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "task_id": "T06",
+      "agent": "seguridad",
+      "status": "inspected",
+      "evidence": [
+        {
+          "path": "AGENTS.md",
+          "sha256": "af90aa9602215a866de7d683e967c33e8b2636c67b56f38466dffdc0acf95c65",
+          "bytes": 1681
+        },
+        {
+          "path": "agents/manifest.v1.json",
+          "sha256": "f5a6caf9c6fd8b1b0aabc9ae0156d619664c539f38e682f30b963b84381ecbcd",
+          "bytes": 3679
+        },
+        {
+          "path": "agents/runtime.py",
+          "sha256": "6e08f5ebf35193fba4c8ed25b334ab7064f0d2243f0ae668594ca169d5777373",
+          "bytes": 9432
+        },
+        {
+          "path": "agents/mcp_probe.py",
+          "sha256": "9e64812a83fea6d05a164e1f5db4ceb264000d167d69df005159499774297f96",
+          "bytes": 4698
+        }
+      ],
+      "findings": [
+        "Riesgo MCP Externo: El agente `frontend` y `backend` tienen acceso a `external_mcp`. Aunque el manifest limita las herramientas permitidas a `read_text_file`, la configuraci\u00f3n del servidor (`server_read_only: false`) permite escritura si se compromete, y el transporte es `stdio` con un paquete de nodos externo que podr\u00eda ejecutar c\u00f3digo arbitrario en el contexto temporal.",
+        "Ausencia Sandbox OS: La prueba `mcp_probe.py` confirma que el servidor MCP opera dentro de un directorio temporal (`TemporaryDirectory`), pero no existe una contenci\u00f3n del sistema operativo (sandbox) real. El acceso se basa \u00fanicamente en la restricci\u00f3n de permisos del usuario y la lista blanca de archivos, lo cual es vulnerable si el proceso tiene privilegios elevados o si el contexto temporal es accesible por otros procesos.",
+        "Control Humano: Se cumple la aprobaci\u00f3n previa al ejecuci\u00f3n (`plan before execution`) y la denegaci\u00f3n de cambios sin revisi\u00f3n. Sin embargo, la validaci\u00f3n final depende exclusivamente de pruebas unitarias est\u00e1ticas y an\u00e1lisis de c\u00f3digo, sin ejecuci\u00f3n din\u00e1mica del sistema completo en producci\u00f3n."
+      ],
+      "limitations": [
+        "No se ejecutaron herramientas ni ampl\u00edase permisos; el an\u00e1lisis se basa en inspecci\u00f3n est\u00e1tica de archivos proporcionados.",
+        "La evaluaci\u00f3n de seguridad no incluye pruebas de penetraci\u00f3n real contra el servidor MCP externo debido a la falta de sandbox OS y restricciones de ejecuci\u00f3n."
+      ]
+    }
+  ],
+  "model_calls": [
+    {
+      "agent": "orquestador",
+      "provider": "ollama-local",
+      "model": "qwen3.5:4b",
+      "started_at": "2026-11-14T06:03:39.903393+00:00",
+      "finished_at": "2026-11-14T06:04:11.003596+00:00",
+      "request_sha256": "33abf217171871ce4bd5adbee2b1b641de19bd4d8fa0587c452eaa94ca02c2da",
+      "response_sha256": "537c2d1ecd75c9c543b6cca45ec60bd6dc4b823e0be1d6f907713c358183890c",
+      "response": {
+        "findings": [
+          "T03: Frontend revisado (React, accesibilidad, filtros). Evidencia: An\u00e1lisis de c\u00f3digo fuente y pruebas de renderizado. Estado: Reporte v1 generado.",
+          "T04: Backend revisado (contratos HTTP, validaciones, datos FastAPI). Evidencia: Inspecci\u00f3n de esquemas de API y l\u00f3gica de negocio. Estado: Reporte v1 generado.",
+          "T05: Calidad contrastada. Evidencia: Comparaci\u00f3n cruzada entre reportes T03/T04 y resultados de test_runtime.py/test_api.py. Estado: Reporte v1 generado.",
+          "T06: Seguridad revisada (permisos, l\u00edmites MCP). Evidencia: Auditor\u00eda de manifest.v1.json y runtime.py. Estado: Reporte v1 generado."
+        ],
+        "limitations": [
+          "No se ejecutaron cambios en el c\u00f3digo fuente para cumplir con la restricci\u00f3n de no modificar funcionalidades tur\u00edsticas.",
+          "Las evaluaciones se basan exclusivamente en an\u00e1lisis est\u00e1tico y revisi\u00f3n de archivos proporcionados, sin ejecuci\u00f3n din\u00e1mica del sistema completo.",
+          "La validaci\u00f3n final requiere intervenci\u00f3n humana seg\u00fan los criterios de aceptaci\u00f3n definidos."
+        ]
+      },
+      "eval_count": 271,
+      "total_duration_ns": 31056663100,
+      "llm_executed": true,
+      "attempt": 1
+    },
+    {
+      "agent": "frontend",
+      "provider": "ollama-local",
+      "model": "qwen3.5:4b",
+      "started_at": "2026-11-14T06:04:14.137507+00:00",
+      "finished_at": "2026-11-14T06:05:58.567836+00:00",
+      "request_sha256": "2519574a7a2fb43843e838b580e28c3ca3076636e4c9dc26df7d6337f4bc48f1",
+      "response_sha256": "3c5a2a4916d9846781a9219bfeb069907d6703f6fd8c2ba207fc67ff19f6ef8b",
+      "response": {
+        "findings": [
+          "Filtros combinados: Funcionan correctamente mediante `useMemo` sin mutar el estado principal (`destinations`). Se valida la l\u00f3gica de filtrado en `frontend/src/main.jsx`.",
+          "Accesibilidad: Se usan etiquetas sem\u00e1nticas (`header`, `main`, `article`) y atributos ARIA (`aria-label`, `aria-hidden`). Los controles de filtro son accesibles. Evidencia: `frontend/src/main.jsx` (l\u00edneas 1-20, 165-175).",
+          "Errores de API: Se maneja la desconexi\u00f3n con un estado fallback (`demostraci\u00f3n`) y mensajes claros en la barra de anuncios. No se rompen funcionalidades tur\u00edsticas. Evidencia: `frontend/src/main.jsx` (l\u00edneas 4, 68-73).",
+          "Modo demostraci\u00f3n: Se activa autom\u00e1ticamente si la API falla o no responde, usando `fallbackDestinations`. La experiencia visual y l\u00f3gica de recomendaci\u00f3n local se mantiene intacta. Evidencia: `frontend/src/main.jsx` (l\u00edneas 10-25, 68-73)."
+        ],
+        "limitations": [
+          "No se ejecut\u00f3 el entorno completo para validar la respuesta HTTP real del backend.",
+          "La validaci\u00f3n de accesibilidad requiere pruebas manuales con lectores de pantalla."
+        ]
+      },
+      "eval_count": 306,
+      "total_duration_ns": 104408747500,
+      "llm_executed": true,
+      "attempt": 1
+    },
+    {
+      "agent": "backend",
+      "provider": "ollama-local",
+      "model": "qwen3.5:4b",
+      "started_at": "2026-11-14T06:06:01.752419+00:00",
+      "finished_at": "2026-11-14T06:06:47.138599+00:00",
+      "request_sha256": "d917674b1689dc1f559cd5b5caaf4777d88d276774f7ecd0da76e3ca348636d6",
+      "response_sha256": "7e74abe13dd86be3ef84472847f0f0a97f9b82661339baa4cddeb5dc33ec6574",
+      "response": {
+        "findings": [
+          "Contratos HTTP: El endpoint `POST /api/recommendations` acepta `TripRequest` con validaciones Pydantic (`ge`, `le`) para `days` (1-14) y `budget` (0-100M), pero permite headers/m\u00e9todos globales (`*`) en CORS que ampl\u00edan la superficie de ataque. C\u00f3digo: `allow_methods=["
+        ],
+        "limitations": [
+          "Validaciones: La l\u00f3gica de negocio no valida si el presupuesto total excede el l\u00edmite m\u00e1ximo absoluto o si la duraci\u00f3n supera los d\u00edas disponibles antes de calcular el itinerario. El filtro por intereses es correcto, pero la selecci\u00f3n prioriza precio sin verificar viabilidad real. C\u00f3digo: `selected.sort(key=lambda d: (d["
+        ]
+      },
+      "eval_count": 170,
+      "total_duration_ns": 45364216300,
+      "llm_executed": true,
+      "attempt": 1
+    },
+    {
+      "agent": "calidad",
+      "provider": "ollama-local",
+      "model": "qwen3.5:4b",
+      "started_at": "2026-11-14T06:06:47.155667+00:00",
+      "finished_at": "2026-11-14T06:08:10.442412+00:00",
+      "request_sha256": "a8c4259db592e3030972616ed9a6f3154fe70e24d9c75e11c0ad888afb2c7ad4",
+      "response_sha256": "4bb294ad73cc80069836df4dae375ed3dc2042b5b1ac2af562b6122bb153da0e",
+      "response": {
+        "findings": [
+          "Afirmaci\u00f3n no sustentada: El reporte T04 afirma que el backend revis\u00f3 'contratos HTTP' y validaciones, pero la evidencia de ejecuci\u00f3n (`test_api.py`) solo prueba endpoints espec\u00edficos (catalogo, recomendaciones) sin validar contratos globales ni superficies de ataque mencionadas en el texto del reporte.",
+          "Cobertura faltante: No se ejecutaron pruebas de integraci\u00f3n con PostgreSQL real (solo datos en memoria), a pesar de que `README.md` menciona la base de datos preparada. Los tests actuales no validan persistencia ni fallos de conexi\u00f3n a DB.",
+          "Afirmaci\u00f3n no sustentada: El reporte T04 menciona una limitaci\u00f3n sobre 'l\u00f3gica de negocio' sin priorizar precio, pero los tests (`test_recommendation_contract`) verifican expl\u00edcitamente que el itinerario se construye y calcula costos, contradiciendo la afirmaci\u00f3n de falta de validaci\u00f3n.",
+          "Cobertura faltante: No se ejecutaron pruebas de seguridad din\u00e1mica (permisos MCP, l\u00edmites de delegaci\u00f3n) en el contexto de ejecuci\u00f3n real del sistema, solo an\u00e1lisis est\u00e1tico de `test_runtime.py`."
+        ],
+        "limitations": [
+          "Los tests de backend (`test_api.py`) no validan la integridad de datos en PostgreSQL, solo usan datos en memoria.",
+          "No se ejecutaron pruebas de seguridad din\u00e1mica para verificar el cumplimiento real de los l\u00edmites MCP definidos en el manifest.",
+          "La afirmaci\u00f3n sobre 'errores de API' en T05 carece de evidencia de ejecuci\u00f3n del frontend conectado al backend en modo fallido."
+        ]
+      },
+      "eval_count": 358,
+      "total_duration_ns": 83260451900,
+      "llm_executed": true,
+      "attempt": 1
+    },
+    {
+      "agent": "seguridad",
+      "provider": "ollama-local",
+      "model": "qwen3.5:4b",
+      "started_at": "2026-11-14T06:08:10.453813+00:00",
+      "finished_at": "2026-11-14T06:09:50.827002+00:00",
+      "request_sha256": "4a571c018ceb43e6f6d8f9bdf9a5d116a9c3a61b06aed2ccac97bf111d710ee5",
+      "response_sha256": "4a8ea3ab9013eb71a14a2d3e063d0070882f6d3d896edf9eca3801fb4a6b00a2",
+      "response": {
+        "findings": [
+          "Riesgo MCP Externo: El agente `frontend` y `backend` tienen acceso a `external_mcp`. Aunque el manifest limita las herramientas permitidas a `read_text_file`, la configuraci\u00f3n del servidor (`server_read_only: false`) permite escritura si se compromete, y el transporte es `stdio` con un paquete de nodos externo que podr\u00eda ejecutar c\u00f3digo arbitrario en el contexto temporal.",
+          "Ausencia Sandbox OS: La prueba `mcp_probe.py` confirma que el servidor MCP opera dentro de un directorio temporal (`TemporaryDirectory`), pero no existe una contenci\u00f3n del sistema operativo (sandbox) real. El acceso se basa \u00fanicamente en la restricci\u00f3n de permisos del usuario y la lista blanca de archivos, lo cual es vulnerable si el proceso tiene privilegios elevados o si el contexto temporal es accesible por otros procesos.",
+          "Control Humano: Se cumple la aprobaci\u00f3n previa al ejecuci\u00f3n (`plan before execution`) y la denegaci\u00f3n de cambios sin revisi\u00f3n. Sin embargo, la validaci\u00f3n final depende exclusivamente de pruebas unitarias est\u00e1ticas y an\u00e1lisis de c\u00f3digo, sin ejecuci\u00f3n din\u00e1mica del sistema completo en producci\u00f3n."
+        ],
+        "limitations": [
+          "No se ejecutaron herramientas ni ampl\u00edase permisos; el an\u00e1lisis se basa en inspecci\u00f3n est\u00e1tica de archivos proporcionados.",
+          "La evaluaci\u00f3n de seguridad no incluye pruebas de penetraci\u00f3n real contra el servidor MCP externo debido a la falta de sandbox OS y restricciones de ejecuci\u00f3n."
+        ]
+      },
+      "eval_count": 320,
+      "total_duration_ns": 100342712100,
+      "llm_executed": true,
+      "attempt": 1
+    }
+  ],
+  "mcp": [
+    {
+      "package": "@modelcontextprotocol/server-filesystem@2.3.0",
+      "node_package": "node@24.13.0",
+      "verified_node_version": "v24.13.0",
+      "transport": "stdio",
+      "role": "frontend",
+      "server": {
+        "name": "secure-filesystem-server",
+        "title": null,
+        "version": "2.3.0",
+        "websiteUrl": null,
+        "icons": null
+      },
+      "protocol": "2025-11-25",
+      "discovered_tools": [
+        "read_file",
+        "read_text_file",
+        "read_media_file",
+        "read_multiple_files",
+        "write_file",
+        "append_file",
+        "edit_file",
+        "create_directory",
+        "list_directory",
+        "list_directory_with_sizes",
+        "directory_tree",
+        "move_file",
+        "copy_file",
+        "search_files",
+        "get_file_info",
+        "list_allowed_directories"
+      ],
+      "called_tool": "read_text_file",
+      "source": "frontend/src/main.jsx",
+      "content_equal": true,
+      "sha256_utf8": "48a5c5fe1e0aacbdd0578fcba264a0ba7dfc4a7c03820674f8ca127b9a1ab2ba",
+      "outside_scope_denied": true,
+      "llm_executed": false,
+      "limitation": "Servidor con permisos del usuario; staging no equivale a sandbox OS. Se anuncian herramientas de escritura que este cliente no permite invocar."
+    },
+    {
+      "package": "@modelcontextprotocol/server-filesystem@2.3.0",
+      "node_package": "node@24.13.0",
+      "verified_node_version": "v24.13.0",
+      "transport": "stdio",
+      "role": "backend",
+      "server": {
+        "name": "secure-filesystem-server",
+        "title": null,
+        "version": "2.3.0",
+        "websiteUrl": null,
+        "icons": null
+      },
+      "protocol": "2025-11-25",
+      "discovered_tools": [
+        "read_file",
+        "read_text_file",
+        "read_media_file",
+        "read_multiple_files",
+        "write_file",
+        "append_file",
+        "edit_file",
+        "create_directory",
+        "list_directory",
+        "list_directory_with_sizes",
+        "directory_tree",
+        "move_file",
+        "copy_file",
+        "search_files",
+        "get_file_info",
+        "list_allowed_directories"
+      ],
+      "called_tool": "read_text_file",
+      "source": "backend/app/main.py",
+      "content_equal": true,
+      "sha256_utf8": "4afb1133e6cbe382765b23827a185a3ee60a2bc416b6722aaf28f7d322d13e7c",
+      "outside_scope_denied": true,
+      "llm_executed": false,
+      "limitation": "Servidor con permisos del usuario; staging no equivale a sandbox OS. Se anuncian herramientas de escritura que este cliente no permite invocar."
+    }
+  ],
+  "context_receipts": [
+    {
+      "agent": "frontend",
+      "sources": [
+        {
+          "path": "README.md",
+          "excerpt_sha256": "d51aa2e32f9fcc68cb19d31c401609dfd11f9c1545960776451223f5f85b4aa8",
+          "characters_sent": 1573,
+          "truncated": false
+        },
+        {
+          "path": "AGENTS.md",
+          "excerpt_sha256": "af90aa9602215a866de7d683e967c33e8b2636c67b56f38466dffdc0acf95c65",
+          "characters_sent": 1667,
+          "truncated": false
+        },
+        {
+          "path": "frontend/AGENTS.md",
+          "excerpt_sha256": "42c38e5ae37909aade31f45e0bcc2a7b9e904684bc7746b0b701b8215f59ef67",
+          "characters_sent": 836,
+          "truncated": false
+        },
+        {
+          "path": ".github/skills/frontend-react/SKILL.md",
+          "excerpt_sha256": "c29a3033d7b997c9e9fa4e69dfd37896b1c1677048ff04ec024cb757c4c7c1c9",
+          "characters_sent": 1102,
+          "truncated": false
+        },
+        {
+          "path": "frontend/package.json",
+          "excerpt_sha256": "7bbe14e9404e94b6fd5d7a61791ece9067d00f07fcd66e9fd7b69c10e3cd2964",
+          "characters_sent": 413,
+          "truncated": false
+        },
+        {
+          "path": "frontend/src/main.jsx",
+          "excerpt_sha256": "5cc2f5e0346a7bd0a227ffb71c443e0f9cb0b8ff5d0961b936c4f957cab7b6b8",
+          "characters_sent": 4000,
+          "truncated": true
+        },
+        {
+          "path": "frontend/src/styles.css",
+          "excerpt_sha256": "e29a3fc3008d837dae3891f7c4812be03febce19e5f06d54e5b140b371eccfe5",
+          "characters_sent": 4000,
+          "truncated": true
+        }
+      ]
+    },
+    {
+      "agent": "backend",
+      "sources": [
+        {
+          "path": "README.md",
+          "excerpt_sha256": "d51aa2e32f9fcc68cb19d31c401609dfd11f9c1545960776451223f5f85b4aa8",
+          "characters_sent": 1573,
+          "truncated": false
+        },
+        {
+          "path": "AGENTS.md",
+          "excerpt_sha256": "af90aa9602215a866de7d683e967c33e8b2636c67b56f38466dffdc0acf95c65",
+          "characters_sent": 1667,
+          "truncated": false
+        },
+        {
+          "path": "backend/AGENTS.md",
+          "excerpt_sha256": "fbefef1295406b1f5c96f273939ed1ada0452ae05e40ce189d1dbd4b734e454a",
+          "characters_sent": 749,
+          "truncated": false
+        },
+        {
+          "path": ".github/skills/backend-fastapi/SKILL.md",
+          "excerpt_sha256": "91fdf6335b03b2858e59980ab4e904447fec79dc387894a908e6473bf4cc12f5",
+          "characters_sent": 941,
+          "truncated": false
+        },
+        {
+          "path": "backend/app/main.py",
+          "excerpt_sha256": "1ba8d63d5d2f3f5e0b578ac5bf72ec120550c99dc4f7a44a31419418595cfb9d",
+          "characters_sent": 4000,
+          "truncated": true
+        },
+        {
+          "path": "backend/requirements.txt",
+          "excerpt_sha256": "aa4169d68655109a12af4cda3e5435546cfee5ba844ee3389466bc26e4a65c40",
+          "characters_sent": 51,
+          "truncated": false
+        },
+        {
+          "path": "database/schema.sql",
+          "excerpt_sha256": "40a821bd175fd870325c88001977eb75c07df7e33bb02cb05c07f04fbf18247f",
+          "characters_sent": 1125,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "agent": "calidad",
+      "sources": [
+        {
+          "path": "README.md",
+          "excerpt_sha256": "d51aa2e32f9fcc68cb19d31c401609dfd11f9c1545960776451223f5f85b4aa8",
+          "characters_sent": 1573,
+          "truncated": false
+        },
+        {
+          "path": "frontend/package.json",
+          "excerpt_sha256": "7bbe14e9404e94b6fd5d7a61791ece9067d00f07fcd66e9fd7b69c10e3cd2964",
+          "characters_sent": 413,
+          "truncated": false
+        },
+        {
+          "path": "backend/requirements.txt",
+          "excerpt_sha256": "aa4169d68655109a12af4cda3e5435546cfee5ba844ee3389466bc26e4a65c40",
+          "characters_sent": 51,
+          "truncated": false
+        },
+        {
+          "path": "agents/tests/test_runtime.py",
+          "excerpt_sha256": "468bf67d298873be7b2d2666007c681644ba97749c3a3bf33662feb850453103",
+          "characters_sent": 4000,
+          "truncated": true
+        },
+        {
+          "path": "backend/tests/test_api.py",
+          "excerpt_sha256": "0cf2d6d223d33a4b0918aa24804d4fdb345540ff993bfdc52160b892ec9c814a",
+          "characters_sent": 3979,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "agent": "seguridad",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "excerpt_sha256": "af90aa9602215a866de7d683e967c33e8b2636c67b56f38466dffdc0acf95c65",
+          "characters_sent": 1667,
+          "truncated": false
+        },
+        {
+          "path": "agents/manifest.v1.json",
+          "excerpt_sha256": "f5a6caf9c6fd8b1b0aabc9ae0156d619664c539f38e682f30b963b84381ecbcd",
+          "characters_sent": 3675,
+          "truncated": false
+        },
+        {
+          "path": "agents/runtime.py",
+          "excerpt_sha256": "79279832647983f2253113bff6a3175c87ccd92a11fa0719d0962352c52b718a",
+          "characters_sent": 4000,
+          "truncated": true
+        },
+        {
+          "path": "agents/mcp_probe.py",
+          "excerpt_sha256": "f3cc3902b91ddbd818d785a71daf850019fa67795649836db101d20cd1aa19d8",
+          "characters_sent": 4000,
+          "truncated": true
+        }
+      ]
+    }
+  ],
+  "checks_sha256": "75cd6de799d3e5bc8aa3186b4d61a5113c76beeb592c94621eed5b0941933345",
+  "approval": {
+    "source": "operator --approved; alcance autorizado en conversaci\u00f3n",
+    "scope_sha256": "446eb46f1ab636cfc948af7a3b5bfbbf17feced08df743b8393d4568332995f7",
+    "plan_sha256": "0b0657ccdea35ec7f27cd0f2c9311ecff6c73d573ab03918b53fd72122516a23",
+    "generated_plan_reviewed_by_human": false,
+    "final_review": "pending"
+  },
+  "next_gate": "awaiting_human_review",
+  "llm_executed": true,
+  "limitations": [
+    "Revisi\u00f3n LLM puede errar: no aprueba cambios ni ejecuta herramientas libres.",
+    "Referencia exacta no disponible; comparaci\u00f3n pendiente.",
+    "MCP no equivale a sandbox OS.",
+    "Evidencia de archivos es inventario del host. El modelo recibe extractos de hasta 4000 caracteres por fuente y c\u00f3digo completo solo de main por MCP; consultar context_receipts."
+  ]
+}

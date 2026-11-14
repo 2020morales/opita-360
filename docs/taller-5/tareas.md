@@ -2,14 +2,14 @@
 
 Versión documental 2.0.0. T03–T06 corresponden a delegaciones ejecutables; los otros IDs identifican pasos del flujo. Los resultados y estados auténticos se consultan en `resultados.md` y artefactos asociados.
 
-| ID | Responsable | Trabajo e entrada | Salida/control |
+| ID | Responsable | Trabajo y entrada | Salida/control |
 |---|---|---|---|
 | T01 | Operador | Aprobar alcance y restricciones | Declaración ligada a ejecución y huellas |
 | T02 | Orquestador LLM | Proponer plan estructurado | Cuatro roles obligatorios, sin ampliar permisos |
 | T03 | Frontend LLM | Revisar React, filtros, API y fallback con contexto MCP | Reporte T03 y evidencia íntegra |
 | T04 | Backend LLM | Revisar FastAPI, entradas, contratos y memoria con contexto MCP | Reporte T04 sin afirmar persistencia |
-| T05 | Calidad LLM | Revisar T03/T04 y checks vigentes | Hallazgos y límites; no atribuirse pruebas |
-| T06 | Seguridad LLM | Revisar reportes previos y políticas | Riesgos, sin ampliar permisos |
+| T05 | Calidad LLM | Revisar T03/T04, checks vigentes y registro MCP | Hallazgos y límites; no atribuirse pruebas |
+| T06 | Seguridad LLM | Revisar reportes, checks, MCP y políticas | Riesgos, sin ampliar permisos |
 | T07 | Ejecutor MCP | Exportar, leer y cotejar archivo permitido | Lectura real y rechazo fuera del scope |
 | T08 | Operador | Ejecutar pruebas fijas y frontend desde lockfile en copia | Fecha, comandos, códigos de salida y huellas |
 | T09 | Ejecutor controlado | Validar reportes y reunir trazas | `awaiting_human_review` |
@@ -31,4 +31,11 @@ Cada tarea identifica agente, objetivo, archivos, herramientas y aceptación. La
 6. Conservar respuestas reales de Ollama y MCP; no reemplazar fallos por simulaciones.
 7. Entregar resultados y pendientes a revisión humana.
 
-`max_correction_rounds` limita reintentos de formato, no edición autónoma. Las pruebas no equivalen a revisión visual, seguridad completa ni aceptación humana. La comparación con el sistema de referencia queda pendiente porque su fuente no está disponible; no se confunde con el contraste interno frente al inventario previo.
+`max_correction_rounds` limita reintentos de formato, no edición autónoma. Las pruebas no equivalen a seguridad completa ni aceptación humana. La referencia ya se inspeccionó: `comparacion-referencia.md` distingue el patrón del profesor de esta adaptación. No se confunde esa comparación con el contraste interno frente al inventario previo.
+
+## Correcciones de la auditoría de entrega
+
+- La puerta exige las cuatro comprobaciones, nombres únicos, comandos/directorios correctos, salidas completas y snapshot vigente. Rechaza checks vacíos o incompletos.
+- T05 y T06 reciben el registro MCP; context_receipts registra su hash y los roles recibidos.
+- El PDF tiene tabla de cinco agentes, estructura centralizada, flujo real, comparación verificada, enlaces URI y código FET-QX7. Se protege de conversión de Git con `.gitattributes`.
+- Existen commits y el PR #2; la aceptación y cualquier nueva publicación siguen siendo humanas.
