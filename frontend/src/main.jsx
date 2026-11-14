@@ -86,8 +86,8 @@ function App() {
     <div className="announcement"><span className="pulse"></span> Hecho en el Huila, pensado para quienes quieren descubrirlo <span className={`api-pill ${apiStatus}`}>{apiStatus === "conectada" ? "API conectada" : apiStatus === "probando" ? "Conectando API…" : "Modo demostración"}</span></div>
     <header className="nav-wrap">
       <a className="brand" href="#inicio" aria-label="OPITA 360 inicio"><span className="brand-mark"><Compass size={23}/></span><span>OPITA <b>360</b><small>EL HUILA POR DESCUBRIR</small></span></a>
-      <button className="mobile-toggle" onClick={()=>setMobileMenu(!mobileMenu)} aria-label="Abrir menú">{mobileMenu?<X/>:<Menu/>}</button>
-      <nav className={mobileMenu ? "nav-links open" : "nav-links"}>
+      <button className="mobile-toggle" onClick={()=>setMobileMenu(!mobileMenu)} aria-label={mobileMenu ? "Cerrar menú" : "Abrir menú"} aria-expanded={mobileMenu} aria-controls="main-navigation">{mobileMenu?<X/>:<Menu/>}</button>
+      <nav id="main-navigation" className={mobileMenu ? "nav-links open" : "nav-links"}>
         <a href="#destinos" onClick={()=>setMobileMenu(false)}>Destinos</a><a href="#mapa" onClick={()=>setMobileMenu(false)}>Mapa</a><a href="#aventura" onClick={()=>setMobileMenu(false)}>Diseña tu aventura</a>
         <a className="nav-cta" href="#aventura" onClick={()=>setMobileMenu(false)}>Comenzar <ArrowRight size={16}/></a>
       </nav>
@@ -114,7 +114,7 @@ function App() {
 
       <section className="destinations section-pad" id="destinos">
         <div className="section-heading"><div><span className="section-kicker">LUGARES QUE DEJAN HUELLA</span><h2>El Huila te espera<span className="dot">.</span></h2></div><a className="text-link dark" href="#mapa">Ver mapa <ArrowRight size={16}/></a></div>
-        <div className="filter-row"><div className="searchbox"><Search size={17}/><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Busca un destino o municipio…"/></div><label className="municipality-filter" htmlFor="municipality-filter"><MapPin size={16} aria-hidden="true"/><span>Municipio</span><select id="municipality-filter" value={municipality} onChange={e=>setMunicipality(e.target.value)}><option value="Todos">Todos los municipios</option>{municipalities.map(m=><option key={m} value={m}>{m}</option>)}</select></label><div className="filters">{["Todos","Naturaleza","Cultura","Aventura","Bienestar"].map(c=><button key={c} className={category===c?"filter active":"filter"} onClick={()=>setCategory(c)}>{c}</button>)}</div></div>
+        <div className="filter-row"><div className="searchbox"><Search size={17}/><input aria-label="Buscar destinos por nombre o municipio" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Busca un destino o municipio…"/></div><label className="municipality-filter" htmlFor="municipality-filter"><MapPin size={16} aria-hidden="true"/><span>Municipio</span><select id="municipality-filter" value={municipality} onChange={e=>setMunicipality(e.target.value)}><option value="Todos">Todos los municipios</option>{municipalities.map(m=><option key={m} value={m}>{m}</option>)}</select></label><div className="filters">{["Todos","Naturaleza","Cultura","Aventura","Bienestar"].map(c=><button key={c} className={category===c?"filter active":"filter"} onClick={()=>setCategory(c)}>{c}</button>)}</div></div>
         <div className="destination-grid">{filtered.map((d,i)=><article className={`destination-card card-${d.color || "green"}`} key={d.id}>
           <div className="destination-image" style={{backgroundImage:`linear-gradient(180deg,transparent 40%,rgba(9,28,24,.72)),url("${photos[d.name] || photos["Desierto de la Tatacoa"]}")`}}>
             <span className="category-tag">{d.category}</span><button className="heart" title="Guardar destino" onClick={e=>e.currentTarget.classList.toggle("saved")}><Heart size={17}/></button>
@@ -140,8 +140,8 @@ function App() {
         <div className="planner-intro"><span className="section-kicker">03 / TU VIAJE, A TU MANERA</span><h2>Diseña una aventura<br/><em>hecha para ti.</em></h2><p>Cuéntanos qué te gusta. Nuestro recomendador organiza una idea de recorrido según tus intereses, días disponibles y presupuesto.</p><div className="planner-benefits"><span><Sparkles size={17}/> Recomendaciones personalizadas</span><span><Wallet size={17}/> Presupuesto orientativo</span><span><Compass size={17}/> Destinos del Huila</span></div></div>
         <form className="planner-form" onSubmit={makeTrip}>
           <div className="form-top"><span className="form-icon"><Sparkles size={19}/></span><div><h3>Tu próxima aventura</h3><p>Solo toma un minuto</p></div><span className="step">01 — 03</span></div>
-          <label className="field-label"><span><CalendarDays size={16}/> ¿Cuántos días tienes?</span><b>{days} {days===1?"día":"días"}</b></label>
-          <input className="range" type="range" min="1" max="7" value={days} onChange={e=>setDays(e.target.value)} />
+          <label className="field-label" htmlFor="trip-days"><span><CalendarDays size={16}/> ¿Cuántos días tienes?</span><b>{days} {days===1?"día":"días"}</b></label>
+          <input id="trip-days" className="range" type="range" min="1" max="7" value={days} aria-valuetext={`${days} ${days===1?"día":"días"}`} onChange={e=>setDays(e.target.value)} />
           <div className="range-ends"><span>1 día</span><span>7 días</span></div>
           <label className="field-label budget-label" htmlFor="budget"><span><Wallet size={16}/> ¿Cuál es tu presupuesto?</span></label>
           <div className="money-input"><span>$</span><input id="budget" type="number" min="0" step="10000" value={budget} onChange={e=>setBudget(e.target.value)} required/><small>COP</small></div>

@@ -1,0 +1,128 @@
+{
+  "timestamp": "2026-11-14T06:22:49.671915+00:00",
+  "snapshot": {
+    "branch": "taller5/sistema-agentes",
+    "files": {
+      ".github/skills/backend-fastapi/SKILL.md": "91fdf6335b03b2858e59980ab4e904447fec79dc387894a908e6473bf4cc12f5",
+      ".github/skills/frontend-react/SKILL.md": "c29a3033d7b997c9e9fa4e69dfd37896b1c1677048ff04ec024cb757c4c7c1c9",
+      "agents/__init__.py": "8c0629676c1f5a9aedaa599459b22d28b6f6f1c3122eb4869a409d5516068091",
+      "agents/browser_checks.py": "0928f39a8a6d46f7f738af7f31f687a1e3ae20b0d686d4ef606cb43adb94bfa0",
+      "agents/llm_workflow.py": "7e24204b576ff338d832d990db2708b7ad2c84a7bb4119914a9f9b2a6bffe8f3",
+      "agents/manifest.v1.json": "f5a6caf9c6fd8b1b0aabc9ae0156d619664c539f38e682f30b963b84381ecbcd",
+      "agents/mcp_probe.py": "9e64812a83fea6d05a164e1f5db4ceb264000d167d69df005159499774297f96",
+      "agents/README.md": "3adb703962e681aae4eeaded6d259ac5e45dc95cf130426a7d5b6565fc205212",
+      "agents/report.schema.v1.json": "dbd3c0f1586248797159b383647d2bac5886626d3d2a9934d02a6236cc95a3ec",
+      "agents/repro_frontend.py": "3e8995b27ff324e0df52c49d64101ee1a221aa3c1a80c003b159c96347f6d854",
+      "agents/requirements.txt": "960b0daea252df709f410ae320077328a7039689dcc8cd6f3a07b1ed051ab76f",
+      "agents/runtime.py": "6e08f5ebf35193fba4c8ed25b334ab7064f0d2243f0ae668594ca169d5777373",
+      "agents/snapshot.py": "5de7827810688b0fb49ec839ddf21fa54b618b75f8f54b9dd7c3c4f06b81a7e0",
+      "agents/tests/test_llm_contracts.py": "802f5a00f02ef88447f37030a333815093aefcf56144ab7878fbf63140b64c05",
+      "agents/tests/test_runtime.py": "b4814ec2e0d8dae7b598cb1267c34f847f4844cb9fed7c1371d1c939bf46150d",
+      "agents/verify.py": "88a895f5131c4ba07fb460435af3fde52601a7af8a603092a2bc1d95fb73589f",
+      "AGENTS.md": "af90aa9602215a866de7d683e967c33e8b2636c67b56f38466dffdc0acf95c65",
+      "backend/AGENTS.md": "fbefef1295406b1f5c96f273939ed1ada0452ae05e40ce189d1dbd4b734e454a",
+      "backend/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/app/main.py": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+      "backend/requirements.txt": "aa4169d68655109a12af4cda3e5435546cfee5ba844ee3389466bc26e4a65c40",
+      "backend/tests/test_api.py": "0cf2d6d223d33a4b0918aa24804d4fdb345540ff993bfdc52160b892ec9c814a",
+      "database/schema.sql": "40a821bd175fd870325c88001977eb75c07df7e33bb02cb05c07f04fbf18247f",
+      "frontend/AGENTS.md": "42c38e5ae37909aade31f45e0bcc2a7b9e904684bc7746b0b701b8215f59ef67",
+      "frontend/package-lock.json": "600cb57885e7cd8c242420cfdf4378fc044cbc750f98b1494e1a8f79f8084680",
+      "frontend/package.json": "7bbe14e9404e94b6fd5d7a61791ece9067d00f07fcd66e9fd7b69c10e3cd2964",
+      "frontend/src/main.jsx": "28d2fec2732701e817b01cec50827451511f3cae9291eaf8784e111c8cee1757",
+      "frontend/src/styles.css": "600186bec72b4d34bd572ecb4ccc4916b93f2ceb6145d8f698c3e44af2319448",
+      "README.md": "d51aa2e32f9fcc68cb19d31c401609dfd11f9c1545960776451223f5f85b4aa8"
+    },
+    "sha256": "ed92f92949b1f7572b01ae52bfa5c3f8ab3d5df14c106a029cb7f11a6ca1296e"
+  },
+  "label": "after",
+  "checks": [
+    {
+      "name": "real_api_catalog",
+      "passed": true,
+      "observed": {
+        "cards": 8,
+        "status": "API conectada"
+      }
+    },
+    {
+      "name": "municipality_neiva",
+      "passed": true,
+      "observed": 2
+    },
+    {
+      "name": "combined_empty_filters",
+      "passed": true,
+      "observed": "No encontramos destinos con esos filtros. Prueba con otro municipio, nombre o categoría."
+    },
+    {
+      "name": "search_and_municipality",
+      "passed": true,
+      "observed": "Centro de Neiva y tradición opita"
+    },
+    {
+      "name": "real_api_recommendations",
+      "passed": true,
+      "observed": {
+        "stops": 2,
+        "method": "Recomendación basada en reglas: intereses, duración y presupuesto. Valores orientativos para demostración; confirma precios, horarios y transporte antes de viajar."
+      }
+    },
+    {
+      "name": "explicit_form_labels",
+      "passed": true,
+      "observed": []
+    },
+    {
+      "name": "ax_control_names",
+      "passed": true,
+      "observed": []
+    },
+    {
+      "name": "keyboard_select",
+      "passed": true,
+      "observed": {
+        "focused": "SELECT",
+        "value": "Isnos"
+      }
+    },
+    {
+      "name": "keyboard_tab",
+      "passed": true,
+      "observed": "<button class=\"filter active\">Todos</button>"
+    },
+    {
+      "name": "offline_demo_and_recommendations",
+      "passed": true,
+      "observed": "Recomendación local de demostración. Valores orientativos; confirma precios y disponibilidad antes de viajar."
+    },
+    {
+      "name": "mobile_menu_visible",
+      "passed": true,
+      "observed": "nav-links open"
+    },
+    {
+      "name": "mobile_menu_expanded_state",
+      "passed": true,
+      "observed": "<button class=\"mobile-toggle\" aria-label=\"Cerrar menú\" aria-expanded=\"true\" aria-controls=\"main-navigation\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-x\" aria-hidden=\"true\"><path d=\"M18 6 6 18\"></path><path d=\"m6 6 12 12\"></path></svg></button>"
+    },
+    {
+      "name": "mobile_no_horizontal_overflow",
+      "passed": true,
+      "observed": {
+        "width": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "name": "no_js_exceptions",
+      "passed": true,
+      "observed": []
+    }
+  ],
+  "limitations": [
+    "CDP con Chrome headless, no lector de pantalla humano ni auditoría WCAG completa.",
+    "No se usa axe; se comprueban nombres accesibles y estados explícitos."
+  ],
+  "browser": "Chrome/157.0.8103.38"
+}
