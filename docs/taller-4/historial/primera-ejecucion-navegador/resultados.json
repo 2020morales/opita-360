@@ -1,0 +1,143 @@
+{
+  "timestamp_utc": "2026-11-14T20:03:43.942444+00:00",
+  "base": "d81614d",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "checks": [
+    {
+      "name": "Backend Python syntax without creating pycache",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "name": "Real GET /api/destinations: 8 destinations with municipality",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "name": "React connected to real API",
+      "passed": true,
+      "actual": 8
+    },
+    {
+      "name": "Todos and unique municipalities derived from API",
+      "passed": true,
+      "actual": [
+        "Todos",
+        "Isnos",
+        "Neiva",
+        "Rivera",
+        "San Agustín",
+        "Villavieja",
+        "Yaguará"
+      ]
+    },
+    {
+      "name": "API municipality Isnos",
+      "passed": true,
+      "actual": 1
+    },
+    {
+      "name": "API municipality Neiva",
+      "passed": true,
+      "actual": 2
+    },
+    {
+      "name": "API municipality Rivera",
+      "passed": true,
+      "actual": 1
+    },
+    {
+      "name": "API municipality San Agustín",
+      "passed": true,
+      "actual": 2
+    },
+    {
+      "name": "API municipality Villavieja",
+      "passed": true,
+      "actual": 1
+    },
+    {
+      "name": "API municipality Yaguará",
+      "passed": true,
+      "actual": 1
+    },
+    {
+      "name": "API three filters combined",
+      "passed": true,
+      "actual": 1
+    },
+    {
+      "name": "Empty combination shows clear message",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "name": "Recovery restores eight destinations",
+      "passed": true,
+      "actual": 8
+    },
+    {
+      "name": "Select linked to visible label",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "name": "Native select supports keyboard selection",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "name": "Mobile selector fits viewport",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "name": "Demo municipality",
+      "passed": true,
+      "actual": 2
+    },
+    {
+      "name": "Demo three filters",
+      "passed": true,
+      "actual": 1
+    },
+    {
+      "name": "Controlled delayed catalog resets invalid selection in React",
+      "passed": true,
+      "actual": null
+    }
+  ],
+  "commands": [
+    {
+      "args": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "test"
+      ],
+      "exit_code": 0,
+      "log": "unit.log"
+    },
+    {
+      "args": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "log": "build.log"
+    }
+  ],
+  "limitations": [
+    "Browser automation checks are not a complete accessibility audit or screen-reader test.",
+    "Catalog replacement uses an explicit browser fixture; connected API checks use real FastAPI.",
+    "Test harness adds origin http://127.0.0.1:5174 to CORS in memory only because port 5173 is occupied; production CORS is unchanged.",
+    "External photographs depend on network access; layout checks do not prove their availability."
+  ],
+  "status": "passed",
+  "source_sha256": {
+    "frontend\\src\\main.jsx": "63d1378283a7bd319ed9e3d1471498d63c19eb50ed705953c5f7721540f7d1bf",
+    "frontend\\src\\destination-filters.js": "ed404efe3763c77fbc91286a48c0b081b28fdb1e854191cc69b626f720ca1d05",
+    "frontend\\tests\\destination-filters.test.js": "83403ba2742ddece2f29145a2113f77d93795e644300457eb4c285eacdbfb269",
+    "docs\\plan-filtro-municipio.md": "8fa374098352446808dc4a8e7dbfc142c183fcd61f6930cb5e2bf1c29f7d9670",
+    "docs\\taller-4\\verificar.py": "a8d90bacb5d96b4f407314728e51b760e014d792dd436cb9f8f95e06852855a1"
+  }
+}

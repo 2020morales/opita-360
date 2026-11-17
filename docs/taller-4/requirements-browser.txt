@@ -1,0 +1,2 @@
+# Browser verifier only; production dependencies stay unchanged.
+websockets==17.4
