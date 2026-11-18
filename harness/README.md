@@ -1,6 +1,6 @@
 # Arnés SDD de OPITA 360 — Taller 6
 
-Este arnés añade memoria, skills nativas de Codex, revisión de specs y comandos verificables sobre React/FastAPI. No implementa todavía las cinco funcionalidades. No usa Spec Kit; constitution.md no es obligatorio para esta estructura propia.
+Este arnés añade memoria, skills nativas de Codex, revisión de specs y comandos verificables sobre React/FastAPI. S01 tiene implementación local y pruebas; las otras cuatro funcionalidades siguen pendientes. Ver ../docs/taller-6/s01-resultados.md. No usa Spec Kit; constitution.md no es obligatorio para esta estructura propia.
 
 Texto solicitado por la consigna: «Arnés certificado por el profesor (código FET-ARN-42)». Se reproduce como requisito literal del documento; no acredita una certificación o revisión emitida por el docente.
 
@@ -79,7 +79,7 @@ Los permisos siguen siendo de revisión: la implementación automática de parch
 
 Coeficiente Murciélago: el PDF no proporciona fórmula. Pendiente de aclaración; no hay puntuaciones inventadas. CI nuevo, cobertura medida y pruebas de las funcionalidades siguen pendientes. La Matriz Halcón relaciona skills y agentes; no es una calificación.
 
-Los cinco planes contienen Factor Ámbar propuesto del 1 al 9, no aprobado por el profesor. Cada spec necesitará rama y PR individual fusionado en main tras autorización. Hoy no hay implementación, PR ni tareas de esas specs completadas.
+Los cinco planes contienen Factor Ámbar propuesto del 1 al 9, no aprobado por el profesor. Cada spec necesitará rama y PR individual fusionado en main tras autorización. S01 tiene implementación local y tareas verificadas; todavía no hay PR de S01. Las otras cuatro specs siguen sin implementación.
 
 
 ## Comprobacion tecnica y limites de tiempo implementados

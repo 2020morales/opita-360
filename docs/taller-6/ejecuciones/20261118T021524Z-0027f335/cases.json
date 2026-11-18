@@ -1,0 +1,97 @@
+{
+  "spec": "001",
+  "skill": "brújula-semántica",
+  "execution": "not_run",
+  "cases": [
+    {
+      "id": "TC-001-01",
+      "acceptance_id": "AC-01",
+      "arrange": "catalogo actual con ID 1",
+      "act": "GET /api/destinations/1",
+      "assert": "HTTP 200 y objeto destination identico al elemento id=1 del listado, con todos sus campos",
+      "layer": "api",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-001-02",
+      "acceptance_id": "AC-02",
+      "arrange": "catalogo sin ID 9999",
+      "act": "GET /api/destinations/9999",
+      "assert": "HTTP 404 y JSON detail=\"Destino no encontrado\", sin datos de otro destino",
+      "layer": "api",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-001-03",
+      "acceptance_id": "AC-03",
+      "arrange": "API disponible",
+      "act": "consultar /api/destinations/abc, /api/destinations/0 y /api/destinations/-1",
+      "assert": "cada solicitud devuelve HTTP 422; listado y catalogo permanecen iguales",
+      "layer": "api",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-001-04",
+      "acceptance_id": "AC-04",
+      "arrange": "catalogo cargado desde API y tarjeta id=1",
+      "act": "activar con Enter el boton Ver detalle de Desierto de la Tatacoa",
+      "assert": "se solicita GET /api/destinations/1 y se abre un unico dialogo con nombre, municipio, categoria, descripcion, precio COP, duracion y etiquetas del destino devuelto",
+      "layer": "browser",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-001-05",
+      "acceptance_id": "AC-05",
+      "arrange": "dialogo abierto desde un boton visible",
+      "act": "recorrer controles con Tab y Shift+Tab y pulsar Escape; repetir cierre con boton Cerrar",
+      "assert": "foco inicial en Cerrar, recorrido contenido en dialogo, fondo no interactivo y foco devuelto al boton de origen en ambos cierres; dialogo tiene nombre accesible igual al destino",
+      "layer": "browser",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-001-06",
+      "acceptance_id": "AC-06",
+      "arrange": "solicitudes a API bloqueadas antes de cargar la pagina y catalogo demo visible",
+      "act": "abrir detalle del destino id=1",
+      "assert": "se muestran los campos del destino demo y aviso Modo demostracion; se puede cerrar y no se requiere conexion externa para el texto",
+      "layer": "browser",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-001-07",
+      "acceptance_id": "AC-07",
+      "arrange": "listado API cargado y respuesta de detalle falla con red, HTTP 500 o demora mayor a 5 segundos",
+      "act": "abrir detalle, probar cada fallo por separado",
+      "assert": "carga se anuncia, peticion se cancela a los 5 segundos como maximo mas 1 segundo de tolerancia de prueba y se muestra la copia del destino seleccionado con aviso Datos del catalogo; detalle no disponible; cerrar sigue funcionando",
+      "layer": "browser",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-001-08",
+      "acceptance_id": "AC-08",
+      "arrange": "listado cargado y detalle devuelve HTTP 404",
+      "act": "abrir tarjeta cuyo detalle no existe",
+      "assert": "se muestra Destino no encontrado sin sustituir por otro destino ni presentar copia como detalle vigente; boton Cerrar operativo",
+      "layer": "browser",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-001-09",
+      "acceptance_id": "AC-09",
+      "arrange": "detalle de A retrasado y listado con A y B",
+      "act": "abrir A, cerrar antes de respuesta, abrir B y finalmente completar respuesta de A",
+      "assert": "dialogo conserva identidad y datos de B; respuesta obsoleta no reabre A ni sobrescribe B",
+      "layer": "browser",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-001-10",
+      "acceptance_id": "AC-10",
+      "arrange": "municipio Neiva, categoria Cultura y busqueda Malecon seleccionados",
+      "act": "abrir y cerrar detalle; repetir con viewport 360x800 y 1280x800",
+      "assert": "filtros y tarjetas visibles se conservan; dialogo permite leer todos los campos mediante scroll sin desbordamiento horizontal; controles permanecen alcanzables por teclado",
+      "layer": "browser",
+      "status": "not_implemented"
+    }
+  ]
+}

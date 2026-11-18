@@ -35,7 +35,8 @@
         "frontend/src/main.jsx",
         "frontend/src/destination-filters.js",
         "frontend/src/styles.css",
-        ".agents/skills/opita-frontend/SKILL.md"
+        ".agents/skills/opita-frontend/SKILL.md",
+        "frontend/src/destination-detail.jsx"
       ],
       "write": false,
       "shell": false,
@@ -55,7 +56,8 @@
         "backend/AGENTS.md",
         "backend/app/main.py",
         "backend/tests/test_api.py",
-        ".agents/skills/opita-backend/SKILL.md"
+        ".agents/skills/opita-backend/SKILL.md",
+        "backend/tests/test_destination_detail.py"
       ],
       "write": false,
       "shell": false,

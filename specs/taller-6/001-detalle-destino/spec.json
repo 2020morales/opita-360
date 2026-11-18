@@ -2,37 +2,83 @@
   "id": "001",
   "title": "Detalle accesible de destino",
   "amber": 3,
-  "status": "draft",
-  "implementation": "not_started",
+  "status": "approved",
+  "implementation": "implemented",
   "pull_request": null,
   "acceptance": [
     {
       "id": "AC-01",
-      "given": "catalogo con ID 1",
+      "given": "catalogo actual con ID 1",
       "when": "GET /api/destinations/1",
-      "then": "200 y destino cuyo id es 1",
+      "then": "HTTP 200 y objeto destination identico al elemento id=1 del listado, con todos sus campos",
       "layer": "api"
     },
     {
       "id": "AC-02",
-      "given": "ID inexistente 9999",
+      "given": "catalogo sin ID 9999",
       "when": "GET /api/destinations/9999",
-      "then": "404 sin otro destino",
+      "then": "HTTP 404 y JSON detail=\"Destino no encontrado\", sin datos de otro destino",
       "layer": "api"
     },
     {
       "id": "AC-03",
-      "given": "tarjeta de un destino",
-      "when": "abrir detalle y pulsar Escape",
-      "then": "dialogo cerrado y foco devuelto al boton de origen",
-      "layer": "browser"
+      "given": "API disponible",
+      "when": "consultar /api/destinations/abc, /api/destinations/0 y /api/destinations/-1",
+      "then": "cada solicitud devuelve HTTP 422; listado y catalogo permanecen iguales",
+      "layer": "api"
     },
     {
       "id": "AC-04",
-      "given": "API bloqueada y catalogo demo",
-      "when": "abrir detalle de un destino",
-      "then": "datos del destino demo visibles sin bloqueo",
+      "given": "catalogo cargado desde API y tarjeta id=1",
+      "when": "activar con Enter el boton Ver detalle de Desierto de la Tatacoa",
+      "then": "se solicita GET /api/destinations/1 y se abre un unico dialogo con nombre, municipio, categoria, descripcion, precio COP, duracion y etiquetas del destino devuelto",
+      "layer": "browser"
+    },
+    {
+      "id": "AC-05",
+      "given": "dialogo abierto desde un boton visible",
+      "when": "recorrer controles con Tab y Shift+Tab y pulsar Escape; repetir cierre con boton Cerrar",
+      "then": "foco inicial en Cerrar, recorrido contenido en dialogo, fondo no interactivo y foco devuelto al boton de origen en ambos cierres; dialogo tiene nombre accesible igual al destino",
+      "layer": "browser"
+    },
+    {
+      "id": "AC-06",
+      "given": "solicitudes a API bloqueadas antes de cargar la pagina y catalogo demo visible",
+      "when": "abrir detalle del destino id=1",
+      "then": "se muestran los campos del destino demo y aviso Modo demostracion; se puede cerrar y no se requiere conexion externa para el texto",
+      "layer": "browser"
+    },
+    {
+      "id": "AC-07",
+      "given": "listado API cargado y respuesta de detalle falla con red, HTTP 500 o demora mayor a 5 segundos",
+      "when": "abrir detalle, probar cada fallo por separado",
+      "then": "carga se anuncia, peticion se cancela a los 5 segundos como maximo mas 1 segundo de tolerancia de prueba y se muestra la copia del destino seleccionado con aviso Datos del catalogo; detalle no disponible; cerrar sigue funcionando",
+      "layer": "browser"
+    },
+    {
+      "id": "AC-08",
+      "given": "listado cargado y detalle devuelve HTTP 404",
+      "when": "abrir tarjeta cuyo detalle no existe",
+      "then": "se muestra Destino no encontrado sin sustituir por otro destino ni presentar copia como detalle vigente; boton Cerrar operativo",
+      "layer": "browser"
+    },
+    {
+      "id": "AC-09",
+      "given": "detalle de A retrasado y listado con A y B",
+      "when": "abrir A, cerrar antes de respuesta, abrir B y finalmente completar respuesta de A",
+      "then": "dialogo conserva identidad y datos de B; respuesta obsoleta no reabre A ni sobrescribe B",
+      "layer": "browser"
+    },
+    {
+      "id": "AC-10",
+      "given": "municipio Neiva, categoria Cultura y busqueda Malecon seleccionados",
+      "when": "abrir y cerrar detalle; repetir con viewport 360x800 y 1280x800",
+      "then": "filtros y tarjetas visibles se conservan; dialogo permite leer todos los campos mediante scroll sin desbordamiento horizontal; controles permanecen alcanzables por teclado",
       "layer": "browser"
     }
+  ],
+  "acceptance_status": "awaiting_human_review",
+  "test_runs": [
+    "docs/taller-6/ejecuciones/20261118T021329Z-040d3084/s01-browser.json"
   ]
 }
