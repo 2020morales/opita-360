@@ -2,8 +2,8 @@
   "id": "002",
   "title": "Filtro por costo maximo",
   "amber": 3,
-  "status": "draft",
-  "implementation": "not_started",
+  "status": "approved",
+  "implementation": "implemented",
   "pull_request": null,
   "acceptance": [
     {
@@ -34,5 +34,9 @@
       "then": "mensaje de validacion; no se aplica un filtro invalido",
       "layer": "browser"
     }
+  ],
+  "acceptance_status": "awaiting_human_review",
+  "test_runs": [
+    "docs/taller-6/ejecuciones/20261118T052732Z-400db009/s02-browser.json"
   ]
 }

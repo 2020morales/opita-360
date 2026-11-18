@@ -57,7 +57,7 @@ Universidad FET · Ingeniería de Software · Neiva, Huila
 
 ## Arnés del Taller 6
 
-La base común está integrada localmente. El arnés nuevo se describe en [harness/README.md](harness/README.md): memoria, instrucciones Codex, Matriz Halcón, tres skills y revisión por agentes. Las [cinco specs](specs/taller-6/) son borradores sin implementación.
+La base común está integrada localmente. El arnés nuevo se describe en [harness/README.md](harness/README.md): memoria, instrucciones Codex, Matriz Halcón, tres skills y revisión por agentes. En esta rama S02 tiene implementación y pruebas locales; las otras [specs](specs/taller-6/) mantienen su estado independiente. S01 pertenece al PR #5 y no está incorporada aquí. Ver [resultados S02](docs/taller-6/s02-resultados.md).
 
 Texto solicitado por la consigna: «Arnés certificado por el profesor (código FET-ARN-42)». Su inclusión no acredita una certificación emitida. Ver [requisitos oficiales y pendientes](docs/taller-6/requisitos-oficiales.md).
 
