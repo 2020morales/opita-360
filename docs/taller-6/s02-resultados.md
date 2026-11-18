@@ -73,3 +73,9 @@ Limitación del arnés: test_design.execution permanece not_run porque describe 
 [Auditoría local](ejecuciones/20261118T053255Z-b34d5821/s02-git-audit.json): snapshot de regresión vigente, backend/históricos sin cambios, 16 archivos excluidos y staging vacío en el momento de captura. La revisión de Codex del parser, la combinación AND, el estado aplicado y los mensajes no identificó un fallo funcional pendiente en los escenarios ejecutados.
 
 La rama requiere aceptación humana final; no se atribuye una aprobación del profesor. La preparación/publicación del PR no autoriza fusionarlo. Si el conector GitHub devuelve 403, conservar ese bloqueo y facilitar el enlace de comparación sin inventar un PR.
+
+## Publicación y bloqueo del PR
+
+La implementación se guardó en el commit 53816ea978031ddb34bf5d8127b93c9146c16a1b y se publicó únicamente la rama taller6/002-costo-maximo. No se fusionó S01 ni se modificó main. La creación de un PR borrador por el conector devolvió HTTP 403, Resource not accessible by integration; no se inventa un número de PR. [Respuesta observada](ejecuciones/20261118T054205Z-81999358/s02-pr-create-error.json). La descripción preparada está en specs/taller-6/002-costo-maximo/pr.md.
+
+[Comparación para crear el PR manualmente](https://github.com/2020morales/opita-360/compare/main...taller6/002-costo-maximo?expand=1). Se requiere permiso de escritura de Pull Requests para automatizar esa operación. Las actualizaciones posteriores al commit de implementación son documentales; no se presentan como nuevas ejecuciones de pruebas.

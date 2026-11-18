@@ -1,0 +1,14 @@
+{
+  "spec": "002",
+  "operation": "GitHub connector create_pull_request",
+  "repository": "2020morales/opita-360",
+  "head": "taller6/002-costo-maximo",
+  "base": "main",
+  "draft": true,
+  "observed_error_code": "FORBIDDEN",
+  "observed_http_status": 403,
+  "observed_message": "Resource not accessible by integration",
+  "pull_request_created": false,
+  "implementation_commit": "53816ea978031ddb34bf5d8127b93c9146c16a1b",
+  "source": "actual connector response during S02 preparation; copied by operator, not a simulated LLM execution"
+}
