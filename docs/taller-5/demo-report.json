@@ -1,0 +1,276 @@
+﻿{
+  "version": "1.0.0",
+  "mode": "deterministic",
+  "approval": "operator_assertion",
+  "specification": "Inventario determinista separado de la evaluaci\u00f3n LLM real.",
+  "tasks": [
+    {
+      "id": "T03",
+      "agent": "frontend",
+      "objective": "Revisar React, accesibilidad, filtros y recuperaci\u00f3n en modo demostraci\u00f3n. Requisito: Inventario determinista separado de la evaluaci\u00f3n LLM real.",
+      "files": [
+        "README.md",
+        "AGENTS.md",
+        "frontend/AGENTS.md",
+        ".github/skills/frontend-react/SKILL.md",
+        "frontend/package.json",
+        "frontend/src/main.jsx",
+        "frontend/src/styles.css"
+      ],
+      "tools": [
+        "read_context",
+        "llm_chat",
+        "external_mcp"
+      ],
+      "acceptance": [
+        "Contexto permitido inventariado",
+        "Reporte v1 v\u00e1lido",
+        "Revisi\u00f3n humana pendiente"
+      ]
+    },
+    {
+      "id": "T04",
+      "agent": "backend",
+      "objective": "Revisar contratos HTTP, validaciones y datos en memoria de FastAPI. Requisito: Inventario determinista separado de la evaluaci\u00f3n LLM real.",
+      "files": [
+        "README.md",
+        "AGENTS.md",
+        "backend/AGENTS.md",
+        ".github/skills/backend-fastapi/SKILL.md",
+        "backend/app/main.py",
+        "backend/requirements.txt",
+        "database/schema.sql"
+      ],
+      "tools": [
+        "read_context",
+        "llm_chat",
+        "external_mcp"
+      ],
+      "acceptance": [
+        "Contexto permitido inventariado",
+        "Reporte v1 v\u00e1lido",
+        "Revisi\u00f3n humana pendiente"
+      ]
+    },
+    {
+      "id": "T05",
+      "agent": "calidad",
+      "objective": "Contrastar reportes de frontend/backend con criterios y resultados aut\u00e9nticos. Requisito: Inventario determinista separado de la evaluaci\u00f3n LLM real.",
+      "files": [
+        "README.md",
+        "frontend/package.json",
+        "backend/requirements.txt",
+        "agents/tests/test_runtime.py",
+        "backend/tests/test_api.py"
+      ],
+      "tools": [
+        "read_context",
+        "llm_chat"
+      ],
+      "acceptance": [
+        "Contexto permitido inventariado",
+        "Reporte v1 v\u00e1lido",
+        "Revisi\u00f3n humana pendiente"
+      ]
+    },
+    {
+      "id": "T06",
+      "agent": "seguridad",
+      "objective": "Revisar permisos, l\u00edmites, riesgos MCP y controles humanos. Requisito: Inventario determinista separado de la evaluaci\u00f3n LLM real.",
+      "files": [
+        "AGENTS.md",
+        "agents/manifest.v1.json",
+        "agents/runtime.py",
+        "agents/mcp_probe.py"
+      ],
+      "tools": [
+        "read_context",
+        "llm_chat"
+      ],
+      "acceptance": [
+        "Contexto permitido inventariado",
+        "Reporte v1 v\u00e1lido",
+        "Revisi\u00f3n humana pendiente"
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "version": "1.0.0",
+      "task_id": "T03",
+      "agent": "frontend",
+      "status": "inspected",
+      "evidence": [
+        {
+          "path": "README.md",
+          "sha256": "d51aa2e32f9fcc68cb19d31c401609dfd11f9c1545960776451223f5f85b4aa8",
+          "bytes": 1592
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "af90aa9602215a866de7d683e967c33e8b2636c67b56f38466dffdc0acf95c65",
+          "bytes": 1681
+        },
+        {
+          "path": "frontend/AGENTS.md",
+          "sha256": "42c38e5ae37909aade31f45e0bcc2a7b9e904684bc7746b0b701b8215f59ef67",
+          "bytes": 848
+        },
+        {
+          "path": ".github/skills/frontend-react/SKILL.md",
+          "sha256": "c29a3033d7b997c9e9fa4e69dfd37896b1c1677048ff04ec024cb757c4c7c1c9",
+          "bytes": 1111
+        },
+        {
+          "path": "frontend/package.json",
+          "sha256": "7bbe14e9404e94b6fd5d7a61791ece9067d00f07fcd66e9fd7b69c10e3cd2964",
+          "bytes": 413
+        },
+        {
+          "path": "frontend/src/main.jsx",
+          "sha256": "122f85d53f641fa73b970855ec819c4cdab70f7316ca90ccc0854864e28154ad",
+          "bytes": 18138
+        },
+        {
+          "path": "frontend/src/styles.css",
+          "sha256": "600186bec72b4d34bd572ecb4ccc4916b93f2ceb6145d8f698c3e44af2319448",
+          "bytes": 18216
+        }
+      ],
+      "findings": [
+        "Contexto permitido inventariado para frontend; requiere interpretaci\u00f3n humana o LLM."
+      ],
+      "limitations": [
+        "Sin LLM: no genera c\u00f3digo ni emite un dictamen de calidad.",
+        "No ejecuta pruebas ni modifica archivos."
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "task_id": "T04",
+      "agent": "backend",
+      "status": "inspected",
+      "evidence": [
+        {
+          "path": "README.md",
+          "sha256": "d51aa2e32f9fcc68cb19d31c401609dfd11f9c1545960776451223f5f85b4aa8",
+          "bytes": 1592
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "af90aa9602215a866de7d683e967c33e8b2636c67b56f38466dffdc0acf95c65",
+          "bytes": 1681
+        },
+        {
+          "path": "backend/AGENTS.md",
+          "sha256": "fbefef1295406b1f5c96f273939ed1ada0452ae05e40ce189d1dbd4b734e454a",
+          "bytes": 755
+        },
+        {
+          "path": ".github/skills/backend-fastapi/SKILL.md",
+          "sha256": "91fdf6335b03b2858e59980ab4e904447fec79dc387894a908e6473bf4cc12f5",
+          "bytes": 950
+        },
+        {
+          "path": "backend/app/main.py",
+          "sha256": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+          "bytes": 5185
+        },
+        {
+          "path": "backend/requirements.txt",
+          "sha256": "aa4169d68655109a12af4cda3e5435546cfee5ba844ee3389466bc26e4a65c40",
+          "bytes": 51
+        },
+        {
+          "path": "database/schema.sql",
+          "sha256": "40a821bd175fd870325c88001977eb75c07df7e33bb02cb05c07f04fbf18247f",
+          "bytes": 1128
+        }
+      ],
+      "findings": [
+        "Contexto permitido inventariado para backend; requiere interpretaci\u00f3n humana o LLM."
+      ],
+      "limitations": [
+        "Sin LLM: no genera c\u00f3digo ni emite un dictamen de calidad.",
+        "No ejecuta pruebas ni modifica archivos."
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "task_id": "T05",
+      "agent": "calidad",
+      "status": "inspected",
+      "evidence": [
+        {
+          "path": "README.md",
+          "sha256": "d51aa2e32f9fcc68cb19d31c401609dfd11f9c1545960776451223f5f85b4aa8",
+          "bytes": 1592
+        },
+        {
+          "path": "frontend/package.json",
+          "sha256": "7bbe14e9404e94b6fd5d7a61791ece9067d00f07fcd66e9fd7b69c10e3cd2964",
+          "bytes": 413
+        },
+        {
+          "path": "backend/requirements.txt",
+          "sha256": "aa4169d68655109a12af4cda3e5435546cfee5ba844ee3389466bc26e4a65c40",
+          "bytes": 51
+        },
+        {
+          "path": "agents/tests/test_runtime.py",
+          "sha256": "b4814ec2e0d8dae7b598cb1267c34f847f4844cb9fed7c1371d1c939bf46150d",
+          "bytes": 9317
+        },
+        {
+          "path": "backend/tests/test_api.py",
+          "sha256": "0cf2d6d223d33a4b0918aa24804d4fdb345540ff993bfdc52160b892ec9c814a",
+          "bytes": 3980
+        }
+      ],
+      "findings": [
+        "Contexto permitido inventariado para calidad; requiere interpretaci\u00f3n humana o LLM."
+      ],
+      "limitations": [
+        "Sin LLM: no genera c\u00f3digo ni emite un dictamen de calidad.",
+        "No ejecuta pruebas ni modifica archivos."
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "task_id": "T06",
+      "agent": "seguridad",
+      "status": "inspected",
+      "evidence": [
+        {
+          "path": "AGENTS.md",
+          "sha256": "af90aa9602215a866de7d683e967c33e8b2636c67b56f38466dffdc0acf95c65",
+          "bytes": 1681
+        },
+        {
+          "path": "agents/manifest.v1.json",
+          "sha256": "f5a6caf9c6fd8b1b0aabc9ae0156d619664c539f38e682f30b963b84381ecbcd",
+          "bytes": 3679
+        },
+        {
+          "path": "agents/runtime.py",
+          "sha256": "6e08f5ebf35193fba4c8ed25b334ab7064f0d2243f0ae668594ca169d5777373",
+          "bytes": 9432
+        },
+        {
+          "path": "agents/mcp_probe.py",
+          "sha256": "9e64812a83fea6d05a164e1f5db4ceb264000d167d69df005159499774297f96",
+          "bytes": 4698
+        }
+      ],
+      "findings": [
+        "Contexto permitido inventariado para seguridad; requiere interpretaci\u00f3n humana o LLM."
+      ],
+      "limitations": [
+        "Sin LLM: no genera c\u00f3digo ni emite un dictamen de calidad.",
+        "No ejecuta pruebas ni modifica archivos."
+      ]
+    }
+  ],
+  "next_gate": "human_review",
+  "llm_executed": false
+}

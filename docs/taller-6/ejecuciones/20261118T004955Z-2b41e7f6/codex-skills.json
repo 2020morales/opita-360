@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "method": "skills/list",
+  "detected": [
+    "brújula-semántica",
+    "opita-backend",
+    "opita-frontend"
+  ],
+  "expected": [
+    "brújula-semántica",
+    "opita-backend",
+    "opita-frontend"
+  ],
+  "llm_executed": false,
+  "limitation": "Descubrimiento local por CLI. No demuestra activacion automatica ni uso en una nueva sesion del IDE."
+}

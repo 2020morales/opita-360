@@ -1,0 +1,21 @@
+{
+  "timestamp_utc": "2026-11-14T20:03:05.638828+00:00",
+  "base": "d81614d",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "checks": [],
+  "commands": [],
+  "limitations": [
+    "Browser automation checks are not a complete accessibility audit or screen-reader test.",
+    "Catalog replacement uses an explicit browser fixture; connected API checks use real FastAPI.",
+    "External photographs depend on network access; layout checks do not prove their availability."
+  ],
+  "status": "failed",
+  "error": "Traceback (most recent call last):\n  File \"C:\\Users\\BAIRON~1\\AppData\\Local\\Temp\\opita-360-taller4\\docs\\taller-4\\verificar.py\", line 102, in <module>\n    s.bind(('127.0.0.1',port))\nOSError: [WinError 10048] Solo se permite un uso de cada dirección de socket (protocolo/dirección de red/puerto)\n",
+  "source_sha256": {
+    "frontend\\src\\main.jsx": "63d1378283a7bd319ed9e3d1471498d63c19eb50ed705953c5f7721540f7d1bf",
+    "frontend\\src\\destination-filters.js": "ed404efe3763c77fbc91286a48c0b081b28fdb1e854191cc69b626f720ca1d05",
+    "frontend\\tests\\destination-filters.test.js": "83403ba2742ddece2f29145a2113f77d93795e644300457eb4c285eacdbfb269",
+    "docs\\plan-filtro-municipio.md": "8fa374098352446808dc4a8e7dbfc142c183fcd61f6930cb5e2bf1c29f7d9670",
+    "docs\\taller-4\\verificar.py": "e1d630795f2c8a1ea68eed8ac7ff6e2ab2eeb25af3439552e75be7b1814cbe93"
+  }
+}

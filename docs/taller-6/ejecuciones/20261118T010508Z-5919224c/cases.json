@@ -1,0 +1,52 @@
+{
+  "spec": "003",
+  "skill": "brújula-semántica",
+  "execution": "not_run",
+  "cases": [
+    {
+      "id": "TC-003-01",
+      "acceptance_id": "AC-01",
+      "arrange": "destino no guardado",
+      "act": "guardar y recargar la pagina",
+      "assert": "el ID sigue entre favoritos",
+      "layer": "browser",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-003-02",
+      "acceptance_id": "AC-02",
+      "arrange": "destino guardado",
+      "act": "quitar favorito",
+      "assert": "no aparece en modo solo favoritos",
+      "layer": "browser",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-003-03",
+      "acceptance_id": "AC-03",
+      "arrange": "localStorage con JSON corrupto",
+      "act": "iniciar catalogo",
+      "assert": "aplicacion utilizable y favoritos vacios",
+      "layer": "unit",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-003-04",
+      "acceptance_id": "AC-04",
+      "arrange": "almacenamiento no disponible",
+      "act": "guardar favorito",
+      "assert": "estado de sesion utilizable y aviso sin prometer persistencia",
+      "layer": "browser",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-003-05",
+      "acceptance_id": "AC-05",
+      "arrange": "boton de favorito",
+      "act": "activar con teclado",
+      "assert": "estado accesible refleja guardado o no guardado",
+      "layer": "browser",
+      "status": "not_implemented"
+    }
+  ]
+}

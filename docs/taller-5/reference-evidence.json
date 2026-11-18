@@ -1,0 +1,180 @@
+{
+  "source": "GitHub connector, read-only inspection; no reference project executed",
+  "branches": {
+    "backend": [
+      {
+        "name": "calidad-agentes",
+        "commit": {
+          "sha": "af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5",
+          "url": "https://api.github.com/repos/777wills/mi-restaurante-ms/commits/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5"
+        },
+        "protected": false
+      },
+      {
+        "name": "main",
+        "commit": {
+          "sha": "0f86b93cf56d5db4a30cb70227af44df5d10a8b6",
+          "url": "https://api.github.com/repos/777wills/mi-restaurante-ms/commits/0f86b93cf56d5db4a30cb70227af44df5d10a8b6"
+        },
+        "protected": true
+      },
+      {
+        "name": "speckit-test",
+        "commit": {
+          "sha": "bccd1434768a0f00fe684be1b17720758daeedbc",
+          "url": "https://api.github.com/repos/777wills/mi-restaurante-ms/commits/bccd1434768a0f00fe684be1b17720758daeedbc"
+        },
+        "protected": false
+      }
+    ],
+    "frontend": [
+      {
+        "name": "001-project-baseline",
+        "commit": {
+          "sha": "33161da7c19bba7fdd995a502692ca5f69d67214",
+          "url": "https://api.github.com/repos/777wills/mi-restaurante-ui/commits/33161da7c19bba7fdd995a502692ca5f69d67214"
+        },
+        "protected": false
+      },
+      {
+        "name": "main",
+        "commit": {
+          "sha": "1e78394be240deb64c894369d481fd79c1688014",
+          "url": "https://api.github.com/repos/777wills/mi-restaurante-ui/commits/1e78394be240deb64c894369d481fd79c1688014"
+        },
+        "protected": false
+      }
+    ]
+  },
+  "files": [
+    {
+      "key": "ms:.github/agents/architect.agent.md",
+      "url": "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/.github/agents/architect.agent.md",
+      "blob_sha": "d6f39976effcc48e1023996d02f34dacaee53139",
+      "excerpt": "---\nname: architect\ndescription: Arquitecto .NET de solo lectura. Investiga decisiones técnicas abiertas de una feature (versiones vigentes, alternativas, encaje con la constitución) y devuelve opciones con una recomendación. Úsalo en la Fase 0 de /speckit-plan.\ntools: [\"read\", \"search\", \"web\", \"context7/*\"]\nmodel: Claude Opus 5.5 (copilot)\nuser-invocable: false\n---\n\nEres el arquitecto .NET de MiRestaurante (ASP.NET Core sobre .NET 10, EF Core con PostgreSQL, arquitectura limpia en cuatro capas). Trabajas como subagente: recibes una lista de dudas técnicas de una feature y devuelves una propuesta. **No editas archivos ni ejecutas comandos.**\n\n## Antes de empezar\n"
+    },
+    {
+      "key": "ms:.github/agents/developer.agent.md",
+      "url": "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/.github/agents/developer.agent.md",
+      "blob_sha": "e1d0a807c3ade205a35ac2d9ae75044c7f041e58",
+      "excerpt": "---\nname: developer\ndescription: Developer .NET. Escribe el código de producción mínimo para pasar las pruebas en rojo (Green), refactoriza y confirma que todo funciona (build, format, pruebas, prueba de humo con curl y navegador integrado). También ejecuta tareas de configuración, dependencias y verificación de línea base.\ntools: [\"read\", \"search\", \"edit\", \"execute\", \"browser\", \"context7/*\", \"todo\"]\nmodel: Claude Sonnet 5.5 (copilot)\nuser-invocable: false\n---\n\nEres el developer .NET de MiRestaurante. Trabajas como subagente: el orquestador te entrega un bloque de tareas de `tasks.md` y tú las ejecutas y devuelves un informe.\n\n## Antes de empezar\n"
+    },
+    {
+      "key": "ms:.github/agents/test-developer.agent.md",
+      "url": "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/.github/agents/test-developer.agent.md",
+      "blob_sha": "5e307a8087893862886561f4197c2925014082f7",
+      "excerpt": "---\nname: test-developer\ndescription: Developer de pruebas .NET. Escribe las pruebas antes del código (Red) y confirma que fallan por el motivo esperado; mide la cobertura y reporta las líneas sin cubrir de los archivos de la feature. No toca código de producción.\ntools: [\"read\", \"search\", \"edit\", \"execute\", \"context7/*\", \"todo\"]\nmodel: Claude Sonnet 5.5 (copilot)\nuser-invocable: false\n---\n\nEres el developer de pruebas .NET de MiRestaurante. Trabajas como subagente: el orquestador te entrega un bloque de tareas de prueba o una verificación de cobertura y tú devuelves un informe.\n\n## Antes de empezar\n"
+    },
+    {
+      "key": "ms:.github/agents/reviewer.agent.md",
+      "url": "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/.github/agents/reviewer.agent.md",
+      "blob_sha": "b722c6975761681526f49cecd7c5718087f88392",
+      "excerpt": "---\nname: reviewer\ndescription: Arquitecto revisor .NET de solo lectura. Revisa el código y las pruebas de una historia o de la feature completa contra la constitución (simplicidad, arquitectura, convenciones), las buenas prácticas y los test smells; ejecuta mutation testing informativo sobre los archivos de la feature.\ntools: [\"read\", \"search\", \"execute\", \"context7/*\"]\nmodel: \"Claude Opus 5.5 (copilot)\"\nuser-invocable: false\n---\n\nEres el arquitecto revisor de MiRestaurante. Trabajas como subagente: el orquestador te indica la feature y el alcance (las tareas de un punto de control de historia, la feature completa en la revisión final, o los archivos de un diff de rama antes de una PR). **No editas archivos**: solo lees, ejecutas comandos de verificación y reportas hallazgos.\n\n## Antes de empezar\n"
+    },
+    {
+      "key": "ms:.github/agents/spec-auditor.agent.md",
+      "url": "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/.github/agents/spec-auditor.agent.md",
+      "blob_sha": "33263c6674e8aa2db4a93806efb7a72492203bac",
+      "excerpt": "---\nname: spec-auditor\ndescription: Auditor de convergencia. Compara el código actual con spec.md, plan.md, tasks.md y la constitución siguiendo la skill speckit-converge, y añade al final de tasks.md las tareas que falten. Úsalo al terminar todas las tareas de /speckit-implement.\ntools: [\"read\", \"search\", \"edit\", \"execute\"]\nmodel: Claude Sonnet 5.5 (copilot)\nuser-invocable: false\n---\n\nEres el auditor de convergencia. Trabajas como subagente: el orquestador te pide auditar la feature activa cuando todas sus tareas están marcadas.\n\n## Cómo trabajar\n"
+    },
+    {
+      "key": "ms:speckit-custom/presets/implement-orchestrator/commands/speckit.implement.md",
+      "url": "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/speckit-custom/presets/implement-orchestrator/commands/speckit.implement.md",
+      "blob_sha": "9228dd7c9bd1bae0ea17c78edeb2715b9ddd5959",
+      "excerpt": "## Rol obligatorio: orquestador\n\nEn este comando actúas como **orquestador**. Coordinas a subagentes especializados; **no escribes código**. Las instrucciones de esta sección prevalecen sobre las del resto del comando cuando hablen de quién ejecuta una tarea.\n\n### Lo que puedes y no puedes hacer\n\n- **Puedes**: leer cualquier archivo, ejecutar los scripts de `.specify/scripts/`, hacer preguntas al desarrollador y editar **solo** el `tasks.md` de la feature (marcar `[X]` y añadir fases de revisión).\n- **No puedes**: crear ni modificar código, pruebas, configuración, dependencias ni archivos de ignorados; tampoco ejecutar build, pruebas o herramientas del proyecto. Todo eso se delega. Si te descubres a punto de hacerlo, delega.\n\n### Subagentes disponibles\n\n| Subagente        | Recibe                                                                                                                                                                                    |\n| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `test-developer` | Tareas que crean o modifican pruebas o piden verlas fallar (Red); verificaciones de cobertura                                                                                             |\n| `developer`      | Tareas de código de producción (Green y Refactor), configuración, dependencias, migraciones, archivos de ignorados (paso 4 del comando base) y verificaciones de línea base o de paquetes |\n| `reviewer`       | Revisiones en cada punto de control de historia y la revisión final (solo lectura)                                                                                                        |\n| `spec-auditor`   | La auditoría de convergencia al terminar todas las tareas                                                                                                                                 |\n\nSi una tarea no encaja claramente en una fila, decide tú según las rutas de archivo que toca y deja el motivo en la traza.\n\n### Reglas de comunicación\n"
+    },
+    {
+      "key": "ms:.github/workflows/ci.yml",
+      "url": "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/.github/workflows/ci.yml",
+      "blob_sha": "535f731a39cd87ed713abbc6a1e55bbd4e1c2967",
+      "excerpt": "name: CI\n\non:\n  pull_request:\n    branches: [main]\n  push:\n    branches: [main]\n\npermissions:\n  contents: read\n\nconcurrency:"
+    },
+    {
+      "key": "ms:docs/diagrams/03-patron-orquestador.excalidraw",
+      "url": "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/docs/diagrams/03-patron-orquestador.excalidraw",
+      "blob_sha": "aacfb2cc9de8dc1445ed34dad20c5d644c779afc",
+      "excerpt": "Patrón orquestador → subagentes\nDesarrollador\ndecide y responde preguntas\nOrquestador\nplanifica, delega, decide\nNO escribe código\npreguntas ↕ decisiones\n↓ tarea (prompt)\n↑ informe fijo\narchitect\ncontexto propio\ntest-developer\ncontexto propio\ndeveloper\ncontexto propio\nreviewer\ncontexto propio\nspec-auditor\ncontexto propio\n✗ Los subagentes no se hablan entre sí ni se invocan unos a otros\nReglas\n• El orquestador es el único que conoce a todos y entrega a cada uno su tarea (prompt).\n• Cada subagente devuelve un informe fijo: ESTADO · TAREAS · ARCHIVOS · EVIDENCIA · NECESITA DE OTRO AGENTE · PREGUNTAS.\n• Si un subagente necesita a otro, lo dice en su informe y el orquestador decide."
+    },
+    {
+      "key": "ui:.github/agents/architect.agent.md",
+      "url": "https://github.com/777wills/mi-restaurante-ui/blob/33161da7c19bba7fdd995a502692ca5f69d67214/.github/agents/architect.agent.md",
+      "blob_sha": "791b5887b7d073d86e3184c28ef2b2a626fa20a4",
+      "excerpt": "---\nname: architect\ndescription: Arquitecto Angular de solo lectura. Investiga decisiones técnicas abiertas de una feature (APIs vigentes de Angular, librerías, accesibilidad, encaje con la constitución) y devuelve opciones con una recomendación. Úsalo en la Fase 0 de /speckit-plan.\ntools: ['read', 'search', 'web', 'context7/*', 'angular-cli/*']\nmodel: Claude Opus 5.5 (copilot)\nuser-invocable: false\n---\n\nEres el arquitecto Angular de Mi Restaurante UI (Angular 22, CSR estático, signals, Tailwind CSS 4, Vitest, WCAG 2.2 AA). Trabajas como subagente: recibes una lista de dudas técnicas de una feature y devuelves una propuesta. **No editas archivos ni ejecutas comandos.**\n\n## Antes de empezar\n"
+    },
+    {
+      "key": "ui:.github/agents/developer.agent.md",
+      "url": "https://github.com/777wills/mi-restaurante-ui/blob/33161da7c19bba7fdd995a502692ca5f69d67214/.github/agents/developer.agent.md",
+      "blob_sha": "71d1afafcfd123128c6c90501586e6835644f9b8",
+      "excerpt": "---\nname: developer\ndescription: Developer Angular. Escribe el código de producción mínimo para pasar las pruebas en rojo (Green), refactoriza y confirma que todo funciona (lint, build, pruebas y verificación visual en el navegador integrado en móvil, escritorio, tema claro y oscuro). También ejecuta tareas de configuración, dependencias y verificación de línea base.\ntools: ['read', 'search', 'edit', 'execute', 'browser', 'context7/*', 'angular-cli/*', 'todo']\nmodel: Claude Sonnet 5.5 (copilot)\nuser-invocable: false\n---\n\nEres el developer Angular de Mi Restaurante UI. Trabajas como subagente: el orquestador te entrega un bloque de tareas de `tasks.md` y tú las ejecutas y devuelves un informe.\n\n## Antes de empezar\n"
+    },
+    {
+      "key": "ui:.github/agents/test-developer.agent.md",
+      "url": "https://github.com/777wills/mi-restaurante-ui/blob/33161da7c19bba7fdd995a502692ca5f69d67214/.github/agents/test-developer.agent.md",
+      "blob_sha": "1c64f65162a82e06daf016ace400864488b088ae",
+      "excerpt": "---\nname: test-developer\ndescription: Developer de pruebas Angular. Escribe las pruebas antes del código (Red) con Vitest y TestBed y confirma que fallan por el motivo esperado; mide la cobertura y reporta las líneas sin cubrir de los archivos de la feature. No toca código de producción.\ntools: ['read', 'search', 'edit', 'execute', 'context7/*', 'angular-cli/*', 'todo']\nmodel: Claude Sonnet 5.5 (copilot)\nuser-invocable: false\n---\n\nEres el developer de pruebas Angular de Mi Restaurante UI. Trabajas como subagente: el orquestador te entrega un bloque de tareas de prueba o una verificación de cobertura y tú devuelves un informe.\n\n## Antes de empezar\n"
+    },
+    {
+      "key": "ui:.github/agents/reviewer.agent.md",
+      "url": "https://github.com/777wills/mi-restaurante-ui/blob/33161da7c19bba7fdd995a502692ca5f69d67214/.github/agents/reviewer.agent.md",
+      "blob_sha": "30f1439f1260f7db3604f0c7a06549828bd2df3d",
+      "excerpt": "---\nname: reviewer\ndescription: Arquitecto revisor Angular de solo lectura. Revisa el código y las pruebas de una historia o de la feature completa contra la constitución (simplicidad, arquitectura por feature, contrato con el backend, Tailwind y es-CO), la accesibilidad WCAG 2.2 AA, las buenas prácticas y los test smells.\ntools: ['read', 'search', 'execute', 'browser', 'context7/*', 'angular-cli/*']\nmodel: Claude Opus 5.5 (copilot)\nuser-invocable: false\n---\n\nEres el arquitecto revisor de Mi Restaurante UI. Trabajas como subagente: el orquestador te indica la feature y el alcance (las tareas de un punto de control de historia, la feature completa en la revisión final, o los archivos de un diff de rama antes de una PR). **No editas archivos**: solo lees, ejecutas comandos de verificación, inspeccionas la app en el navegador integrado y reportas hallazgos.\n\n## Antes de empezar\n"
+    },
+    {
+      "key": "ui:.github/agents/spec-auditor.agent.md",
+      "url": "https://github.com/777wills/mi-restaurante-ui/blob/33161da7c19bba7fdd995a502692ca5f69d67214/.github/agents/spec-auditor.agent.md",
+      "blob_sha": "95dad39defeb5a2a95ca5ddf0d283ae268d80f3e",
+      "excerpt": "---\nname: spec-auditor\ndescription: Auditor de convergencia. Compara el código actual con spec.md, plan.md, tasks.md y la constitución siguiendo la skill speckit-converge, y añade al final de tasks.md las tareas que falten. Úsalo al terminar todas las tareas de /speckit-implement.\ntools: ['read', 'search', 'edit', 'execute']\nmodel: Claude Sonnet 5.5 (copilot)\nuser-invocable: false\n---\n\nEres el auditor de convergencia. Trabajas como subagente: el orquestador te pide auditar la feature activa cuando todas sus tareas están marcadas.\n\n## Cómo trabajar\n"
+    },
+    {
+      "key": "ui:.mcp.json",
+      "url": "https://github.com/777wills/mi-restaurante-ui/blob/33161da7c19bba7fdd995a502692ca5f69d67214/.mcp.json",
+      "blob_sha": "b3042426d42930c17f3f9597eb2192b20b8454fb",
+      "excerpt": "{\n  \"mcpServers\": {\n    \"angular-cli\": {\n      \"command\": \"/home/wills/.nvm/versions/node/v26.13.0/bin/node\",\n      \"args\": [\"node_modules/@angular/cli/bin/ng.js\", \"mcp\"]\n    }\n  }\n}\n"
+    },
+    {
+      "key": "ui:.github/workflows/ci.yml",
+      "url": "https://github.com/777wills/mi-restaurante-ui/blob/33161da7c19bba7fdd995a502692ca5f69d67214/.github/workflows/ci.yml",
+      "blob_sha": "986ccd38cef0be01933f3971fa7727ab67d70192",
+      "excerpt": "name: CI\n\non:\n  pull_request:\n    branches: [main]\n  push:\n    branches: [main]\n\npermissions:\n  contents: read\n\nconcurrency:"
+    }
+  ],
+  "pr": {
+    "url": "https://github.com/2020morales/opita-360/pull/2",
+    "number": 2,
+    "state": "open",
+    "merged": false,
+    "mergeable": true,
+    "draft": false,
+    "body": " Descripción\nEste Pull Request presenta el desarrollo del Taller 5: Sistema de Agentes, aplicado al proyecto integrador OPITA 360.\n\n Trabajo realizado\n- Incorporación de componentes para la orquestación de agentes especializados.\n- Definición de funciones de frontend, backend, calidad y seguridad.\n- Incorporación de archivos de configuración y pruebas.\n- Documentación de resultados, limitaciones y hallazgos.\n- Elaboración del PDF de cuatro páginas correspondiente al taller.\n\n Evidencias\nLas evidencias y la documentación se encuentran en la carpeta `docs/taller-5/`.\n\n",
+    "title": "Taller 5 - Implementación del sistema de agentes de OPITA 360",
+    "base": "main",
+    "base_sha": "4bb1626975c67dfeeee67ab1156322f2e6ce3eba",
+    "head": "taller5/sistema-agentes",
+    "head_sha": "c72c3c925db3faef046e5eed50bb37641b3f8c05",
+    "head_repo_id": 1435274171,
+    "head_repo_full_name": "2020morales/opita-360",
+    "merge_commit_sha": "a62b9a1c518566c0ce31a49cbc0825015e4896e4",
+    "user": {
+      "login": "2020morales",
+      "name": "2020morales",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/209065191?v=4",
+      "id": 209065191
+    },
+    "requested_reviewers": null,
+    "requested_team_reviewers": null,
+    "diff": null,
+    "comments": null,
+    "created_at": "2026-11-14T06:46:32Z",
+    "updated_at": "2026-11-14T07:07:09Z",
+    "closed_at": null,
+    "merged_at": null,
+    "commits": 4,
+    "changed_files": 46,
+    "additions": 3541,
+    "deletions": 8,
+    "display_url": "https://github.com/2020morales/opita-360/pull/2",
+    "display_title": "Taller 5 - Implementación del sistema de agentes de OPITA 360"
+  }
+}
+

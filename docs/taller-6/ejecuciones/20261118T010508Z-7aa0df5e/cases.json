@@ -1,0 +1,43 @@
+{
+  "spec": "001",
+  "skill": "brújula-semántica",
+  "execution": "not_run",
+  "cases": [
+    {
+      "id": "TC-001-01",
+      "acceptance_id": "AC-01",
+      "arrange": "catalogo con ID 1",
+      "act": "GET /api/destinations/1",
+      "assert": "200 y destino cuyo id es 1",
+      "layer": "api",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-001-02",
+      "acceptance_id": "AC-02",
+      "arrange": "ID inexistente 9999",
+      "act": "GET /api/destinations/9999",
+      "assert": "404 sin otro destino",
+      "layer": "api",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-001-03",
+      "acceptance_id": "AC-03",
+      "arrange": "tarjeta de un destino",
+      "act": "abrir detalle y pulsar Escape",
+      "assert": "dialogo cerrado y foco devuelto al boton de origen",
+      "layer": "browser",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-001-04",
+      "acceptance_id": "AC-04",
+      "arrange": "API bloqueada y catalogo demo",
+      "act": "abrir detalle de un destino",
+      "assert": "datos del destino demo visibles sin bloqueo",
+      "layer": "browser",
+      "status": "not_implemented"
+    }
+  ]
+}

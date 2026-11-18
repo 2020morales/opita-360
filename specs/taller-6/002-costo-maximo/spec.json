@@ -1,0 +1,38 @@
+{
+  "id": "002",
+  "title": "Filtro por costo maximo",
+  "amber": 3,
+  "status": "draft",
+  "implementation": "not_started",
+  "pull_request": null,
+  "acceptance": [
+    {
+      "id": "AC-01",
+      "given": "destino de 35000 COP y limite 35000",
+      "when": "aplicar costo maximo",
+      "then": "el destino se incluye por limite inclusivo",
+      "layer": "unit"
+    },
+    {
+      "id": "AC-02",
+      "given": "filtros activos y costo vacio",
+      "when": "filtrar catalogo",
+      "then": "costo no limita; municipio, categoria y busqueda siguen activos",
+      "layer": "unit"
+    },
+    {
+      "id": "AC-03",
+      "given": "catalogo actual con precios positivos",
+      "when": "aplicar limite cero",
+      "then": "lista vacia y mensaje de recuperacion",
+      "layer": "browser"
+    },
+    {
+      "id": "AC-04",
+      "given": "entrada negativa o no numerica",
+      "when": "intentar aplicar el limite",
+      "then": "mensaje de validacion; no se aplica un filtro invalido",
+      "layer": "browser"
+    }
+  ]
+}

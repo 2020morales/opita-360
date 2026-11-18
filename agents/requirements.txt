@@ -1,0 +1,4 @@
+# Entorno de herramientas separado del backend. Fijar versiones resueltas tras prueba.
+mcp==1.30.0
+httpx==0.28.1
+jsonschema==4.26.0

@@ -1,0 +1,45 @@
+{
+  "id": "003",
+  "title": "Favoritos persistentes en el navegador",
+  "amber": 4,
+  "status": "draft",
+  "implementation": "not_started",
+  "pull_request": null,
+  "acceptance": [
+    {
+      "id": "AC-01",
+      "given": "destino no guardado",
+      "when": "guardar y recargar la pagina",
+      "then": "el ID sigue entre favoritos",
+      "layer": "browser"
+    },
+    {
+      "id": "AC-02",
+      "given": "destino guardado",
+      "when": "quitar favorito",
+      "then": "no aparece en modo solo favoritos",
+      "layer": "browser"
+    },
+    {
+      "id": "AC-03",
+      "given": "localStorage con JSON corrupto",
+      "when": "iniciar catalogo",
+      "then": "aplicacion utilizable y favoritos vacios",
+      "layer": "unit"
+    },
+    {
+      "id": "AC-04",
+      "given": "almacenamiento no disponible",
+      "when": "guardar favorito",
+      "then": "estado de sesion utilizable y aviso sin prometer persistencia",
+      "layer": "browser"
+    },
+    {
+      "id": "AC-05",
+      "given": "boton de favorito",
+      "when": "activar con teclado",
+      "then": "estado accesible refleja guardado o no guardado",
+      "layer": "browser"
+    }
+  ]
+}
