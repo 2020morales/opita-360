@@ -89,6 +89,9 @@ class GroundingTests(unittest.TestCase):
         self.assertEqual(summary["base_checks"], [])
         self.assertEqual(summary["new_feature_tests"], "not_determined_by_suite_summary")
 
+    def test_missing_checks_do_not_deny_external_feature_runs(self):
+        self.assertEqual(test_summary(None)["new_feature_tests"], "not_determined_by_suite_summary")
+
     def test_watchdog_reaps_its_actual_owned_worker(self):
         start = time.monotonic()
         with self.assertRaises(StageTimeout) as captured:

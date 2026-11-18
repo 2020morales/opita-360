@@ -31,3 +31,7 @@
 /* S03: state-driven favorites and keyboard focus. */
 .favorites-controls{margin:1rem 0}.favorites-controls label{display:flex;align-items:center;gap:.5rem;font-weight:700}.favorites-controls input{width:1.2rem;height:1.2rem}.favorites-controls p{margin:.5rem 0}
 .favorites-notice{color:#7d3318;font-weight:600}.heart:focus-visible,.favorites-controls input:focus-visible{outline:3px solid #b35b08;outline-offset:3px}.heart[aria-pressed=true]{background:#fff;color:#a12442}
+
+/* S04: independent itinerary municipality selector. */
+.trip-municipality{box-sizing:border-box;width:100%;font:inherit;padding:.7rem;border:1px solid #145947;border-radius:.5rem;background:white;color:#183e32;margin-bottom:1rem}
+.trip-municipality:focus-visible{outline:3px solid #b35b08;outline-offset:3px}.result-empty{padding:1rem;border:1px solid #145947;border-radius:.5rem}

@@ -17,7 +17,8 @@
         "AGENTS.md",
         "harness/README.md",
         "harness/manifest.json",
-        "docs/taller-6/s03-contexto-agentes.json"
+        "docs/taller-6/s03-contexto-agentes.json",
+        "docs/taller-6/s04-contexto-agentes.json"
       ],
       "write": false,
       "shell": false,
@@ -41,7 +42,10 @@
         "frontend/tests/max-cost.test.js",
         "docs/taller-6/s03-contexto-agentes.json",
         "frontend/src/favorites.js",
-        "frontend/tests/favorites.test.js"
+        "frontend/tests/favorites.test.js",
+        "docs/taller-6/s04-contexto-agentes.json",
+        "frontend/src/recommendation-municipality.js",
+        "frontend/tests/recommendation-municipality.test.js"
       ],
       "write": false,
       "shell": false,
@@ -63,7 +67,9 @@
         "backend/tests/test_api.py",
         ".agents/skills/opita-backend/SKILL.md",
         "backend/tests/test_destination_detail.py",
-        "docs/taller-6/s03-contexto-agentes.json"
+        "docs/taller-6/s03-contexto-agentes.json",
+        "docs/taller-6/s04-contexto-agentes.json",
+        "backend/tests/test_recommendation_municipality.py"
       ],
       "write": false,
       "shell": false,
@@ -83,7 +89,8 @@
         "harness/tests/test_harness.py",
         ".agents/skills/brujula-semantica/SKILL.md",
         "harness/grounding.py",
-        "docs/taller-6/s03-contexto-agentes.json"
+        "docs/taller-6/s03-contexto-agentes.json",
+        "docs/taller-6/s04-contexto-agentes.json"
       ],
       "write": false,
       "shell": false,
@@ -104,7 +111,8 @@
         "harness/runtime.py",
         "harness/core.py",
         "harness/grounding.py",
-        "docs/taller-6/s03-contexto-agentes.json"
+        "docs/taller-6/s03-contexto-agentes.json",
+        "docs/taller-6/s04-contexto-agentes.json"
       ],
       "write": false,
       "shell": false,
