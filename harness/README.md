@@ -1,6 +1,6 @@
 # Arnés SDD de OPITA 360 — Taller 6
 
-Este arnés añade memoria, skills nativas de Codex, revisión de specs y comandos verificables sobre React/FastAPI. No implementa todavía las cinco funcionalidades. No usa Spec Kit; constitution.md no es obligatorio para esta estructura propia.
+Este arnés añade memoria, skills nativas de Codex, revisión de specs y comandos verificables sobre React/FastAPI. Esta rama implementa S04, sin incorporar S01–S03. Ver ../docs/taller-6/s04-resultados.md. No usa Spec Kit; constitution.md no es obligatorio para esta estructura propia.
 
 Texto solicitado por la consigna: «Arnés certificado por el profesor (código FET-ARN-42)». Se reproduce como requisito literal del documento; no acredita una certificación o revisión emitida por el docente.
 
@@ -79,7 +79,7 @@ Los permisos siguen siendo de revisión: la implementación automática de parch
 
 Coeficiente Murciélago: el PDF no proporciona fórmula. Pendiente de aclaración; no hay puntuaciones inventadas. CI nuevo, cobertura medida y pruebas de las funcionalidades siguen pendientes. La Matriz Halcón relaciona skills y agentes; no es una calificación.
 
-Los cinco planes contienen Factor Ámbar propuesto del 1 al 9, no aprobado por el profesor. Cada spec necesitará rama y PR individual fusionado en main tras autorización. Hoy no hay implementación, PR ni tareas de esas specs completadas.
+Los cinco planes contienen Factor Ámbar propuesto del 1 al 9, no aprobado por el profesor. Cada spec necesitará rama y PR individual fusionado en main tras autorización. S04 tiene implementación y tareas ejecutadas; su revisión y PR se registran por separado, sin afirmar cierre de las otras specs.
 
 
 ## Comprobacion tecnica y limites de tiempo implementados
@@ -89,3 +89,5 @@ grounding.py selecciona codigo por simbolos y contrasta cinco hechos catalogados
 stages.py inicia workers propios, controla el tiempo de cada etapa y detiene solo esos procesos al vencer el plazo. Limites: LLM 150 s (cliente HTTP 145 s), MCP 60 s y revision total 600 s, mas limpieza acotada de hasta 10 s por timeout. --max-seconds permite reducir, nunca ampliar, el limite total. El padre registra etapa, rol, duracion y parciales incluso si falla el worker. No es un sandbox OS. No se atribuye una causa al TimeoutError historico sin detalle.
 
 La interpretacion de los hallazgos y la aceptacion final siguen siendo humanas. Resultados y fallos de estas correcciones en ../docs/taller-6/correcciones-partes-1-2.md. Las advertencias de dependencias se revisan en ../docs/taller-6/advertencias-dependencias.md, sin ocultarlas ni actualizar paquetes historicos.
+
+Para S04 los roles reciben s04-contexto-agentes.json, resumen del operador derivado de pruebas reales. El resumen de suites no afirma ejecución o ausencia de ejecución de criterios; los diseños se distinguen de los informes. Los permisos mínimos no cambian.

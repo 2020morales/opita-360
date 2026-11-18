@@ -116,12 +116,12 @@ def verify_assertions(answer, sources, facts):
 
 def test_summary(checks):
     if not checks:
-        return {"base_checks": [], "new_feature_tests": "not_executed"}
+        return {"base_checks": [], "new_feature_tests": "not_determined_by_suite_summary"}
     results = []
     for c in checks["checks"]:
         output = c.get("stdout", "") + c.get("stderr", "")
         match = re.search(r"Ran (\d+) tests|# tests (\d+)", output)
         results.append({"name": c["name"], "exit_code": c["exit_code"],
                         "test_count": int(next(g for g in match.groups() if g)) if match else None})
-    return {"base_checks": results, "new_feature_tests": "not_executed",
-            "note": "A passing base suite is not evidence that draft feature criteria were implemented."}
+    return {"base_checks": results, "new_feature_tests": "not_determined_by_suite_summary",
+            "note": "Suite counts neither prove nor disprove execution of feature criteria; consult actual operator reports, not generated designs."}

@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { ArrowDownRight, ArrowRight, Compass, MapPin, Sparkles, CalendarDays, Wallet, Heart, Menu, X, Mountain, Waves, Landmark, Search, ExternalLink } from "lucide-react";
 import "./styles.css";
+import { recommendationCandidates } from "./recommendation-municipality.js";
 import { getMunicipalities, validMunicipality, filterDestinations } from "./destination-filters.js";
 
 const API = "http://127.0.0.1:8000";
@@ -32,6 +33,7 @@ function App() {
   const [apiStatus, setApiStatus] = useState("probando");
   const [category, setCategory] = useState("Todos");
   const [municipality, setMunicipality] = useState("Todos");
+  const [tripMunicipality, setTripMunicipality] = useState("");
   const [search, setSearch] = useState("");
   const [days, setDays] = useState(2);
   const [budget, setBudget] = useState("200000");
@@ -51,6 +53,7 @@ function App() {
 
   useEffect(() => {
     setMunicipality(current => validMunicipality(current, municipalities));
+    setTripMunicipality(current => municipalities.includes(current) ? current : "");
   }, [municipalities]);
 
   const filtered = useMemo(() => filterDestinations(destinations, { category, municipality, search }),
@@ -61,16 +64,18 @@ function App() {
   async function makeTrip(e) {
     e.preventDefault();
     setLoading(true);
-    const payload = { days: Number(days), budget: Math.max(0, Number(budget) || 0), interests: interests.length ? interests : ["naturaleza"] };
+    const payload = { days: Number(days), budget: Math.max(0, Number(budget) || 0), interests: interests.length ? interests : ["naturaleza"], ...(tripMunicipality ? { municipality: tripMunicipality } : {}) };
     try {
       const response = await fetch(`${API}/api/recommendations`, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload) });
       if (!response.ok) throw new Error("API");
       setResult(await response.json());
     } catch {
-      const chosen = destinations.filter(d => d.tags.some(t => payload.interests.includes(t)) || payload.interests.includes(d.category.toLowerCase())).sort((a,b)=>a.price-b.price).slice(0, Number(days));
-      const itinerary = chosen.length ? chosen : destinations.slice(0, Number(days));
+      const candidates = recommendationCandidates(destinations, payload.municipality);
+      const chosen = candidates.filter(d => d.tags.some(t => payload.interests.includes(t)) || payload.interests.includes(d.category.toLowerCase())).sort((a,b)=>a.price-b.price).slice(0, Number(days));
+      const itinerary = chosen.length ? chosen : candidates.slice(0, Number(days));
       const total = itinerary.reduce((sum,d)=>sum+d.price,0);
-      setResult({summary:`Propuesta de ${itinerary.length} parada(s) para ${days} día(s).`,method:"Recomendación local de demostración.",itinerary,estimated_total:total,budget:payload.budget,remaining_budget:Math.max(payload.budget-total,0),notice:"Valores orientativos; confirma precios y disponibilidad antes de viajar."});
+      const localityNotice = payload.municipality && !candidates.length ? "No hay destinos disponibles para el municipio seleccionado. " : "";
+      setResult({summary:`Propuesta de ${itinerary.length} parada(s) para ${days} día(s).`,method:"Recomendación local de demostración.",itinerary,estimated_total:total,budget:payload.budget,remaining_budget:Math.max(payload.budget-total,0),notice:`${localityNotice}Valores orientativos; confirma precios y disponibilidad antes de viajar.`});
     }
     setLoading(false);
     setTimeout(() => document.getElementById("resultado")?.scrollIntoView({behavior:"smooth",block:"start"}), 80);
@@ -140,13 +145,15 @@ function App() {
           <label className="field-label budget-label" htmlFor="budget"><span><Wallet size={16}/> ¿Cuál es tu presupuesto?</span></label>
           <div className="money-input"><span>$</span><input id="budget" type="number" min="0" step="10000" value={budget} onChange={e=>setBudget(e.target.value)} required/><small>COP</small></div>
           <div className="field-label"><span><Heart size={16}/> ¿Qué te gustaría vivir?</span></div>
+          <label className="field-label" htmlFor="trip-municipality">Municipio de la propuesta</label>
+          <select className="trip-municipality" id="trip-municipality" value={tripMunicipality} onChange={event=>setTripMunicipality(event.target.value)}><option value="">Todos los municipios</option>{municipalities.map(value=><option key={value} value={value}>{value}</option>)}</select>
           <div className="interest-grid">{[{id:"naturaleza",name:"Naturaleza",emoji:"🌿"},{id:"cultura",name:"Cultura",emoji:"🗿"},{id:"aventura",name:"Aventura",emoji:"🥾"},{id:"relajación",name:"Relajación",emoji:"♨️"},{id:"gastronomía",name:"Gastronomía",emoji:"🍲"},{id:"familia",name:"En familia",emoji:"👨‍👩‍👧"}].map(item=><button type="button" key={item.id} className={interests.includes(item.id)?"interest selected":"interest"} onClick={()=>toggleInterest(item.id)}><span>{item.emoji}</span>{item.name}</button>)}</div>
           <button className="button button-dark submit-button" disabled={loading} type="submit">{loading?"Creando tu ruta…":"Crear mi itinerario"} <ArrowRight size={18}/></button>
           <p className="form-disclaimer">Los valores son estimaciones académicas, no cotizaciones de proveedores.</p>
         </form>
       </section>
 
-      {result && <section className="results section-pad" id="resultado"><div className="section-heading"><div><span className="section-kicker">TU PROPUESTA PERSONALIZADA</span><h2>Tu ruta empieza aquí<span className="dot">.</span></h2><p>{result.summary}</p></div><div className="result-total"><small>COSTO ESTIMADO</small><b>{COP.format(result.estimated_total)}</b><span>Saldo estimado: {COP.format(result.remaining_budget)}</span></div></div><div className="result-list">{(result.itinerary||[]).map((d,i)=><article className="result-item" key={d.id}><span className="result-day">DÍA {i+1}</span><div className="result-emoji">{d.emoji}</div><div className="result-details"><h3>{d.name}</h3><p><MapPin size={14}/> {d.municipality} · {d.category}</p><span>{d.description}</span></div><b>{COP.format(d.price)}</b></article>)}</div><p className="result-notice">{result.method} {result.notice}</p></section>}
+      {result && <section className="results section-pad" id="resultado"><div className="section-heading"><div><span className="section-kicker">TU PROPUESTA PERSONALIZADA</span><h2>Tu ruta empieza aquí<span className="dot">.</span></h2><p>{result.summary}</p></div><div className="result-total"><small>COSTO ESTIMADO</small><b>{COP.format(result.estimated_total)}</b><span>Saldo estimado: {COP.format(result.remaining_budget)}</span></div></div>{result.itinerary?.length===0 && <p className="result-empty" role="status">No hay destinos disponibles para esta selección. Prueba Todos los municipios u otro municipio.</p>}<div className="result-list">{(result.itinerary||[]).map((d,i)=><article className="result-item" key={d.id}><span className="result-day">DÍA {i+1}</span><div className="result-emoji">{d.emoji}</div><div className="result-details"><h3>{d.name}</h3><p><MapPin size={14}/> {d.municipality} · {d.category}</p><span>{d.description}</span></div><b>{COP.format(d.price)}</b></article>)}</div><p className="result-notice">{result.method} {result.notice}</p></section>}
 
       <section className="closing section-pad"><div className="closing-art"><div className="closing-sun"></div><Mountain className="closing-mountain one"/><Mountain className="closing-mountain two"/><Waves className="closing-waves"/></div><div className="closing-copy"><span className="section-kicker">EL ORGULLO DE NUESTRA TIERRA</span><h2>El Huila no se cuenta.<br/><em>Se vive.</em></h2><a className="button button-light" href="#aventura">Planea tu aventura <ArrowRight size={17}/></a></div></section>
     </main>

@@ -16,7 +16,8 @@
         "harness/agents/orquestador.md",
         "AGENTS.md",
         "harness/README.md",
-        "harness/manifest.json"
+        "harness/manifest.json",
+        "docs/taller-6/s04-contexto-agentes.json"
       ],
       "write": false,
       "shell": false,
@@ -35,7 +36,10 @@
         "frontend/src/main.jsx",
         "frontend/src/destination-filters.js",
         "frontend/src/styles.css",
-        ".agents/skills/opita-frontend/SKILL.md"
+        ".agents/skills/opita-frontend/SKILL.md",
+        "docs/taller-6/s04-contexto-agentes.json",
+        "frontend/src/recommendation-municipality.js",
+        "frontend/tests/recommendation-municipality.test.js"
       ],
       "write": false,
       "shell": false,
@@ -55,7 +59,9 @@
         "backend/AGENTS.md",
         "backend/app/main.py",
         "backend/tests/test_api.py",
-        ".agents/skills/opita-backend/SKILL.md"
+        ".agents/skills/opita-backend/SKILL.md",
+        "docs/taller-6/s04-contexto-agentes.json",
+        "backend/tests/test_recommendation_municipality.py"
       ],
       "write": false,
       "shell": false,
@@ -74,7 +80,8 @@
         "harness/core.py",
         "harness/tests/test_harness.py",
         ".agents/skills/brujula-semantica/SKILL.md",
-        "harness/grounding.py"
+        "harness/grounding.py",
+        "docs/taller-6/s04-contexto-agentes.json"
       ],
       "write": false,
       "shell": false,
@@ -94,7 +101,8 @@
         "harness/manifest.json",
         "harness/runtime.py",
         "harness/core.py",
-        "harness/grounding.py"
+        "harness/grounding.py",
+        "docs/taller-6/s04-contexto-agentes.json"
       ],
       "write": false,
       "shell": false,

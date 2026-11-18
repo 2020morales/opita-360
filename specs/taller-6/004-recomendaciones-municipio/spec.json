@@ -2,37 +2,48 @@
   "id": "004",
   "title": "Recomendaciones restringidas por municipio",
   "amber": 5,
-  "status": "draft",
-  "implementation": "not_started",
+  "status": "approved",
+  "implementation": "implemented",
   "pull_request": null,
   "acceptance": [
     {
       "id": "AC-01",
       "given": "solicitud anterior sin municipio",
       "when": "POST /api/recommendations",
-      "then": "contrato y politica de presupuesto actuales conservados",
+      "then": "campos y politica presupuestaria anteriores conservados; omitir/null/vacio significa sin restriccion",
       "layer": "api"
     },
     {
       "id": "AC-02",
       "given": "solicitud con municipio Neiva",
       "when": "pedir recomendaciones",
-      "then": "todos los destinos pertenecen a Neiva",
+      "then": "solo destinos de Neiva, incluso si los intereses no coinciden y se usa recuperacion",
       "layer": "api"
     },
     {
       "id": "AC-03",
       "given": "municipio sin destinos",
       "when": "pedir recomendaciones",
-      "then": "200 e itinerario vacio, sin fallback a otros municipios",
+      "then": "HTTP 200, itinerary=[], estimated_total=0, remaining_budget=budget y sin sustitucion territorial",
       "layer": "api"
     },
     {
       "id": "AC-04",
       "given": "API bloqueada y municipio Neiva seleccionado",
       "when": "crear propuesta demo",
-      "then": "ningun destino de otro municipio",
+      "then": "propuesta demo solo de Neiva; municipio sin candidatos produce lista vacia y aviso",
+      "layer": "browser"
+    },
+    {
+      "id": "AC-05",
+      "given": "formulario con selector propio de municipio y API disponible",
+      "when": "crear propuesta con Neiva y repetir con Todos los municipios",
+      "then": "envia municipality=Neiva u omite el campo respectivamente, sin cambiar filtros del catalogo; selector etiquetado y operable con teclado",
       "layer": "browser"
     }
+  ],
+  "acceptance_status": "awaiting_human_review",
+  "test_runs": [
+    "docs/taller-6/ejecuciones/20261118T065921Z-77b06f39/s04-browser.json"
   ]
 }

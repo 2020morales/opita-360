@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
-from typing import List
+from pydantic import BaseModel, Field, StrictStr
+from typing import List, Optional
 
 app = FastAPI(
     title="OPITA 360 API",
@@ -80,6 +80,7 @@ class TripRequest(BaseModel):
     days: int = Field(default=2, ge=1, le=14)
     budget: int = Field(default=200000, ge=0, le=100000000)
     interests: List[str] = Field(default_factory=lambda: ["naturaleza"])
+    municipality: Optional[StrictStr] = None
 
 @app.get("/")
 def root():
@@ -91,13 +92,15 @@ def list_destinations():
 
 @app.post("/api/recommendations")
 def recommend_trip(request: TripRequest):
-    selected = [d for d in DESTINATIONS if any(
+    municipality = request.municipality.strip().casefold() if request.municipality else ""
+    candidates = [d for d in DESTINATIONS if not municipality or d["municipality"].casefold() == municipality]
+    selected = [d for d in candidates if any(
         interest.lower() in [tag.lower() for tag in d["tags"]] or
         interest.lower() == d["category"].lower()
         for interest in request.interests
     )]
     if not selected:
-        selected = DESTINATIONS[:]
+        selected = candidates[:]
     # Prioriza sitios asequibles y ajusta el número a los días solicitados.
     selected.sort(key=lambda d: (d["price"] > request.budget, d["price"]))
     itinerary, total = [], 0
@@ -115,5 +118,5 @@ def recommend_trip(request: TripRequest):
         "estimated_total": total,
         "budget": request.budget,
         "remaining_budget": remaining,
-        "notice": "Valores orientativos para demostración; confirma precios, horarios y transporte antes de viajar."
+        "notice": ("No hay destinos disponibles para el municipio seleccionado. " if municipality and not candidates else "") + "Valores orientativos para demostración; confirma precios, horarios y transporte antes de viajar."
     }

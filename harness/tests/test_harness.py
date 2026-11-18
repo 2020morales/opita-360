@@ -8,10 +8,10 @@ from harness.cli import redact
 from harness.runtime import run
 
 class HarnessTests(unittest.TestCase):
-    def test_exactly_five_complete_draft_specs(self):
+    def test_exactly_five_complete_specs_with_valid_lifecycle(self):
         specs = core.validate_structure()
         self.assertEqual(len(specs), 5)
-        self.assertTrue(all(s["status"] == "draft" for s in specs))
+        self.assertTrue(all(s["status"] in ("draft", "approved") for s in specs))
 
     def test_compass_is_one_to_one_with_acceptance(self):
         s, _ = core.load_spec("002")

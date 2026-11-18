@@ -70,7 +70,10 @@ class GroundingTests(unittest.TestCase):
         facts = technical_facts(self.spec, record)
         self.assertTrue(facts["facts"]["base_checks_passed"]["value"])
         self.assertFalse(facts["facts"]["spec_tests_executed"]["value"])
-        self.assertEqual(test_summary(record)["new_feature_tests"], "not_executed")
+        self.assertEqual(test_summary(record)["new_feature_tests"], "not_determined_by_suite_summary")
+
+    def test_missing_checks_do_not_deny_external_feature_runs(self):
+        self.assertEqual(test_summary(None)["new_feature_tests"], "not_determined_by_suite_summary")
 
     def test_watchdog_reaps_its_actual_owned_worker(self):
         start = time.monotonic()

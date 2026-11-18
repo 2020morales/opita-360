@@ -105,7 +105,7 @@ async def run(spec_id, approved=False, llm=False, mcp=False, checks_path=None, m
             raise
     for role in ROLES:
         sources = [select_source(s) for s in before[role]]
-        payload = {"specification": spec, "test_design": {"execution": "not_run", "case_ids": [c["id"] for c in compass(spec)["cases"]], "feature_implementation": spec.get("implementation")}, "sources": sources,
+        payload = {"specification": spec, "test_design": {"kind": "generated_cases_not_execution_ledger", "case_ids": [c["id"] for c in compass(spec)["cases"]], "feature_implementation": spec.get("implementation")}, "sources": sources,
                    "technical_facts": facts, "test_results": test_summary(checks_record),
                    "prior_reports": [{"role": a["role"], "verified_claims": [c for c in a["claims"] if c["status"] == "verified"],
                                       "blocked_claims": a["blocked_claims"]} for a in audits],
