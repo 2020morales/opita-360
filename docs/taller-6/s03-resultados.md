@@ -79,3 +79,9 @@ Comando: python -B -m harness review --spec 003 --approved --llm --checks docs/t
 El orquestador reconoció ahora los resultados aportados. Otros roles mantuvieron errores: backend propuso exigir recuperación localStorage en FastAPI, frontend negó manejo de corrupción pese al helper, calidad/seguridad negaron pruebas específicas. Codex rechazó esos hallazgos contra loadFavorites/saveFavorites y los casos corrupt_JSON_recovers_without_write, getterblocked/readblocked/writeblocked y Enter/Space del informe real de navegador. No se alteró backend ni se ocultó el informe para satisfacer al modelo.
 
 Se conservan ambas rondas de cinco inferencias y sus contextos; no se presenta la comparación como benchmark controlado ni como garantía de calidad general del modelo. La entrega de contexto mejoró datos concretos del arnés, pero la interpretación semántica de los hallazgos sigue requiriendo revisión. No hay revisión docente acreditada.
+
+## Publicación y creación del PR
+
+Implementación publicada únicamente en taller6/003-favoritos, commit 59c4c6f1e938444ab5d39e00314e07b82a83ae97. La creación de un PR borrador mediante el conector fue rechazada con HTTP 403; no se creó PR ni se fusionó ninguna rama. [Respuesta observada](ejecuciones/20261118T063536Z-63e76614/s03-pr-create-error.json). El bloqueo es el permiso de la integración para esa operación, no un fallo de pruebas.
+
+[Crear PR manualmente](https://github.com/2020morales/opita-360/compare/main...taller6/003-favoritos?expand=1). Descripción lista para copiar en specs/taller-6/003-favoritos/pr.md. Esta actualización posterior es documental, no una nueva ejecución de pruebas; el código funcional probado permanece igual.
