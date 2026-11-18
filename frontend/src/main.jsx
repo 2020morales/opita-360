@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { ArrowDownRight, ArrowRight, Compass, MapPin, Sparkles, CalendarDays, Wallet, Heart, Menu, X, Mountain, Waves, Landmark, Search, ExternalLink } from "lucide-react";
 import "./styles.css";
+import DestinationDetail from "./destination-detail.jsx";
 import { getMunicipalities, validMunicipality, filterDestinations } from "./destination-filters.js";
 
 const API = "http://127.0.0.1:8000";
@@ -39,6 +40,7 @@ function App() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [detail, setDetail] = useState(null);
 
   useEffect(() => {
     fetch(`${API}/api/destinations`)
@@ -77,6 +79,8 @@ function App() {
   }
 
   return <div className="app-shell">
+    {detail && <DestinationDetail key={detail.destination.id} {...detail} api={API} onClose={() => setDetail(null)}/>}
+
     <div className="announcement"><span className="pulse"></span> Hecho en el Huila, pensado para quienes quieren descubrirlo <span className={`api-pill ${apiStatus}`}>{apiStatus === "conectada" ? "API conectada" : apiStatus === "probando" ? "Conectando API…" : "Modo demostración"}</span></div>
     <header className="nav-wrap">
       <a className="brand" href="#inicio" aria-label="OPITA 360 inicio"><span className="brand-mark"><Compass size={23}/></span><span>OPITA <b>360</b><small>EL HUILA POR DESCUBRIR</small></span></a>
@@ -115,7 +119,7 @@ function App() {
             <span className="destination-number">0{(i+1).toString().slice(-1)}</span>
             <div className="destination-title"><span>{d.municipality} · HUILA</span><h3>{d.name}</h3></div>
           </div>
-          <div className="destination-info"><p>{d.description}</p><div className="destination-meta"><span><Wallet size={15}/> Desde {COP.format(d.price)}</span><a href="#aventura" aria-label={`Planear visita a ${d.name}`}><ArrowUpRightIcon/></a></div></div>
+          <div className="destination-info"><p>{d.description}</p><button type="button" className="detail-open" aria-label={`Ver detalle de ${d.name}`} onClick={event => setDetail({ destination: d, demo: apiStatus !== "conectada", trigger: event.currentTarget })}>Ver detalle</button><div className="destination-meta"><span><Wallet size={15}/> Desde {COP.format(d.price)}</span><a href="#aventura" aria-label={`Planear visita a ${d.name}`}><ArrowUpRightIcon/></a></div></div>
         </article>)}</div>
         {filtered.length===0 && <div className="empty-state">No encontramos destinos con esos filtros. Prueba con otro municipio, nombre o categoría.</div>}
       </section>

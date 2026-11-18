@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Path
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from typing import List
@@ -88,6 +88,14 @@ def root():
 @app.get("/api/destinations")
 def list_destinations():
     return {"destinations": DESTINATIONS, "total": len(DESTINATIONS)}
+
+@app.get("/api/destinations/{destination_id}")
+def destination_detail(destination_id: int = Path(gt=0)):
+    for destination in DESTINATIONS:
+        if destination["id"] == destination_id:
+            return {"destination": destination}
+    raise HTTPException(status_code=404, detail="Destino no encontrado")
+
 
 @app.post("/api/recommendations")
 def recommend_trip(request: TripRequest):

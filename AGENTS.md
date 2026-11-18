@@ -1,7 +1,7 @@
 # Memoria de agentes — OPITA 360
 
 ## Arquitectura real
-Monorepo turistico del Huila. React/Vite y lucide-react en frontend/src/main.jsx y styles.css; filtros puros en destination-filters.js. FastAPI/Pydantic en backend/app/main.py. GET /, GET /api/destinations y POST /api/recommendations. API local 8000, frontend 5173. El catalogo y recomendaciones usan memoria; database/schema.sql prepara PostgreSQL, no demuestra persistencia.
+Monorepo turistico del Huila. React/Vite y lucide-react en frontend/src/main.jsx y styles.css; filtros puros en destination-filters.js. FastAPI/Pydantic en backend/app/main.py. GET /, GET /api/destinations, GET /api/destinations/{destination_id} (S01) y POST /api/recommendations. API local 8000, frontend 5173. El catalogo y recomendaciones usan memoria; database/schema.sql prepara PostgreSQL, no demuestra persistencia.
 
 Taller 4: instrucciones, skills originales en .github/skills, filtro y docs/taller-4. Taller 5: agents/, contratos, MCP y docs/taller-5. Taller 6: harness/, .agents/skills/, specs/taller-6 y docs/taller-6. Base comun integrada en 5b01ae0. No confundir documentos historicos con estado actual.
 
@@ -38,7 +38,7 @@ Los comandos fueron ejecutados y sus resultados quedaron registrados en docs/tal
 ## Flujo SDD y controles humanos
 1. Leer memoria y spec; aclarar criterios ambiguos.
 2. Especificacion -> plan con Factor Ambar -> tareas -> casos; aprobacion humana antes de implementar.
-3. Una rama por spec. Todavia NO estan autorizadas las cinco funcionalidades.
+3. Una rama por spec. Solo S01 fue autorizada para implementacion local; las otras cuatro no.
 4. Pruebas y cambios minimos tras aprobacion. Registrar fallos reales y correcciones; no simular TDD.
 5. Orquestador coordina revisiones de frontend/backend/calidad/seguridad. El CLI review revisa, no escribe codigo. Implementacion futura a cargo de Codex/operador con alcance aprobado.
 6. Ejecutar calidad, revisar hallazgos y repetir solo cuando haya cambios o fallos. Dejar evidencia nueva con fecha, comando, salida y hash.

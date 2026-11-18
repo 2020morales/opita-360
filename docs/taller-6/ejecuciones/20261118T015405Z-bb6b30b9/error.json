@@ -1,0 +1,8 @@
+{
+  "status": "failed",
+  "command": "validate",
+  "error_type": "ValueError",
+  "error": "Factor Ambar no coincide con plan",
+  "partial": null,
+  "finished_at": "2026-11-18T01:54:05.158563+00:00"
+}

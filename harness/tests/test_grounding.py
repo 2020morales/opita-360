@@ -9,6 +9,10 @@ from harness.stages import StageTimeout, execute_stage
 class GroundingTests(unittest.TestCase):
     def setUp(self):
         self.spec, _ = core.load_spec("001")
+        # A draft fixture must not depend on the lifecycle of the real S01.
+        self.spec = copy.deepcopy(self.spec)
+        self.spec["implementation"] = "not_started"
+        self.spec["test_runs"] = []
         self.facts = technical_facts(self.spec, None)
 
     def test_pydantic_model_and_typed_handler_are_found(self):
