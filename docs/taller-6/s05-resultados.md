@@ -79,3 +79,9 @@ Contraste del operador: la descarga real y el control de transporte sí están d
 Se conservan textos incompletos y citas inválidas de los roles; el auditor las marca, no son citas verificadas. No se aceptan afirmaciones globales de cumplimiento/seguridad del LLM como evidencia. La revisión confirma uso real del arnés, no sustituye pruebas o revisión humana final. No se encontraron errores funcionales adicionales comprobados en ese contraste.
 
 Verificación final: 96 tests aprobados (37 arnés, 34 agentes, 8 API, 17 frontend) y build código 0 en el [snapshot final](ejecuciones/20261118T160230Z-283a97bd/checks.json). El [audit de hashes](ejecuciones/20261118T160427Z-1c56ba52/s05-git-audit.json) comprueba coincidencia funcional con el navegador. Después solo se completó documentación/metadatos SDD; no se cambió código de aplicación ni pruebas ejecutadas.
+
+## Publicación real
+
+Commit de implementación `9d063547ec983ff480a9057cdfbd8fc9a503d0e3`, 33 archivos; push de la rama S05 exitoso. El conector GitHub rechazó crear el PR con HTTP 403, Resource not accessible by integration. No se presenta un PR inexistente como creado. [Registro auténtico de la operación](ejecuciones/20261118T162500Z-fe597740/s05-publicacion.json).
+
+[Crear PR hacia main](https://github.com/2020morales/opita-360/compare/main...taller6/005-exportar-itinerario?expand=1); título y descripción completos en specs/taller-6/005-exportar-itinerario/pr.md. No hubo merge ni eliminación de ramas. El seguimiento posterior modifica únicamente documentación/metadatos, sin invalidar pruebas del código funcional.

@@ -6,6 +6,6 @@
 - [x] T04 Exportación y UI implementadas sin dependencias nuevas.
 - [x] T05 Navegador real API/demo, archivos y controles accesibles; fallos previos conservados.
 - [x] T06 Regresión, revisión real de cinco roles y evidencias cerradas; ver informe S05.
-- [ ] T07 Commit, push y PR autorizados, registrar resultado real.
+- [ ] T07 Commit y push realizados; creación PR bloqueada por conector 403. Descripción y enlace manual en pr.md.
 - [ ] T08 Revisión humana final y docente acreditada si se exige.
 - [ ] T09 Merge y verificación conjunta, requieren autorización separada.
