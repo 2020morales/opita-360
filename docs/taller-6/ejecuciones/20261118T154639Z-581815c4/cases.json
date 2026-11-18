@@ -1,0 +1,43 @@
+{
+  "spec": "005",
+  "skill": "brújula-semántica",
+  "execution": "not_run",
+  "cases": [
+    {
+      "id": "TC-005-01",
+      "acceptance_id": "AC-01",
+      "arrange": "ninguna propuesta generada",
+      "act": "consultar accion exportar",
+      "assert": "accion deshabilitada o ausente",
+      "layer": "browser",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-005-02",
+      "acceptance_id": "AC-02",
+      "arrange": "propuesta valida",
+      "act": "exportar y analizar JSON",
+      "assert": "version de formato 1, destinos y totales iguales a la propuesta",
+      "layer": "unit",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-005-03",
+      "acceptance_id": "AC-03",
+      "arrange": "propuesta demo",
+      "act": "exportar JSON",
+      "assert": "origen demo identificado explicitamente",
+      "layer": "unit",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-005-04",
+      "acceptance_id": "AC-04",
+      "arrange": "propuesta visible",
+      "act": "activar exportacion",
+      "assert": "descarga .json valida sin enviar datos a servicios externos",
+      "layer": "browser",
+      "status": "not_implemented"
+    }
+  ]
+}

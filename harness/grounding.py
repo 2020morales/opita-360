@@ -36,6 +36,8 @@ def select_source(source):
         reason = "Documento o funcion auxiliar."
     excerpts = []
     budget = (1600 if "/tests/" in source["path"] else 4200) if source["path"].endswith((".py", ".jsx")) else 900
+    if source["path"] == "frontend/src/export-itinerary.js":
+        budget = 3000  # S05 helper: include both serializer and download cleanup.
     used = 0
     for start, end in ranges:
         block = []
@@ -76,7 +78,7 @@ def technical_facts(spec, checks):
     return {"facts": facts,
             "basis": {"backend": {"sha256": digest(backend_path.read_bytes()), "analysis": "AST BaseModel + Field + typed handler"},
                       "frontend": {"sha256": digest(safe_path("frontend/src/main.jsx").read_bytes()), "analysis": "static pattern; not full browser proof"}},
-            "distinction": "Checks are regressions of base/harness. Generated spec cases are not implemented or executed.",
+            "distinction": "Generated test designs are not execution records; inspect the actual linked test runs.",
             "source_sha256": {"backend/app/main.py": digest(backend_path.read_bytes()), "frontend/src/main.jsx": digest(safe_path("frontend/src/main.jsx").read_bytes())},
             "limitation": "Spec facts check declared records, not independent proof of feature implementation or test execution."}
 
@@ -116,12 +118,12 @@ def verify_assertions(answer, sources, facts):
 
 def test_summary(checks):
     if not checks:
-        return {"base_checks": [], "new_feature_tests": "not_executed"}
+        return {"base_checks": [], "new_feature_tests": "not_determined_by_suite_summary"}
     results = []
     for c in checks["checks"]:
         output = c.get("stdout", "") + c.get("stderr", "")
         match = re.search(r"Ran (\d+) tests|# tests (\d+)", output)
         results.append({"name": c["name"], "exit_code": c["exit_code"],
                         "test_count": int(next(g for g in match.groups() if g)) if match else None})
-    return {"base_checks": results, "new_feature_tests": "not_executed",
-            "note": "A passing base suite is not evidence that draft feature criteria were implemented."}
+    return {"base_checks": results, "new_feature_tests": "not_determined_by_suite_summary",
+            "note": "Suite counts alone neither prove nor deny feature-case execution; inspect linked reports."}
