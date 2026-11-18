@@ -62,3 +62,7 @@ Rama temporal de integración S01–S05. Memoria, skills, agentes y Matriz Halc�
 Texto solicitado por la consigna: «Arnés certificado por el profesor (código FET-ARN-42)». Su inclusión no acredita una certificación emitida. Ver [requisitos oficiales y pendientes](docs/taller-6/requisitos-oficiales.md).
 
 Comandos desde la raíz: `python -B -m harness validate`, `python -B -m harness cases --spec 001`, `python -B -m harness checks --scope all`. Los [resultados nuevos](docs/taller-6/resultados-arnes.md) distinguen lo ejecutado de lo pendiente. No ejecutar agents.verify para nuevas evidencias: sobrescribe registros históricos.
+
+## S05 — exportación del itinerario
+
+Esta rama añade descarga JSON local, versión 1, de la última propuesta mostrada, con origen API/demo explícito. No incorpora las ramas S01–S04. [Resultados y límites S05](docs/taller-6/s05-resultados.md).

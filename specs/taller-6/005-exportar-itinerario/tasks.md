@@ -1,11 +1,11 @@
-# Tareas 005
+# Tareas S05
 
-- [ ] T01 Aprobar requisitos, alcance y Factor Ambar.
-- [ ] T02 Revisar casos generados por brujula-semantica.
-- [ ] T03 Crear rama propia y pruebas de criterios.
-- [ ] T04 Registrar resultados iniciales reales, sin simular TDD.
-- [ ] T05 Implementar la funcionalidad autorizada.
-- [ ] T06 Ejecutar dos mecanismos de calidad y documentar resultados.
-- [ ] T07 Revision de seguridad y convergencia AC/pruebas.
-- [ ] T08 Revision humana, commit y PR hacia main autorizados.
-- [ ] T09 Fusion autorizada y verificacion en main.
+- [x] T01 Alcance, cuatro criterios y Ámbar 3/9 aprobados por el usuario.
+- [x] T02 Conversor brújula-semántica ejecutado; cuatro diseños revisados.
+- [x] T03 Rama independiente y pruebas iniciales reales.
+- [x] T04 Exportación y UI implementadas sin dependencias nuevas.
+- [x] T05 Navegador real API/demo, archivos y controles accesibles; fallos previos conservados.
+- [x] T06 Regresión, revisión real de cinco roles y evidencias cerradas; ver informe S05.
+- [ ] T07 Commit y push realizados; creación PR bloqueada por conector 403. Descripción y enlace manual en pr.md.
+- [ ] T08 Revisión humana final y docente acreditada si se exige.
+- [ ] T09 Merge y verificación conjunta, requieren autorización separada.

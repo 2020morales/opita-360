@@ -1,0 +1,12 @@
+{
+  "spec": "005",
+  "operation": "create_pull_request",
+  "source": "Actual GitHub connector response observed by operator; this record is not a shell/API replay.",
+  "head": "taller6/005-exportar-itinerario",
+  "base": "main",
+  "implementation_commit": "9d063547ec983ff480a9057cdfbd8fc9a503d0e3",
+  "branch_push_exit_code": 0,
+  "http_status": 403,
+  "message": "Resource not accessible by integration",
+  "pull_request_created": false
+}

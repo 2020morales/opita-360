@@ -12,7 +12,7 @@ Texto solicitado por la consigna: «Arnés certificado por el profesor (código 
 - core.py: permisos, contratos, validación SDD y conversor brújula-semántica.
 - runtime.py: orquestador central, cinco contextos secuenciales, inventario o llamadas reales a Ollama.
 - cli.py: comandos fijos del operador, reportes nuevos y redacción de rutas.
-- ../specs/taller-6/: cinco borradores con spec, plan, tareas y PR pendiente.
+- ../specs/taller-6/: cinco especificaciones con spec, plan, tareas y seguimiento de PR; S05 está aprobada en esta rama.
 - ../docs/taller-6/ejecuciones/: salidas nuevas en carpetas únicas; jamás se reutiliza una carpeta histórica.
 
 El modelo local recibe contexto como dato no confiable y no recibe shell, edición ni herramientas ejecutables. Puede sugerir hallazgos, no aplicar cambios. No hay comunicación lateral. El operador/Codex implementará cada spec después de aprobar su alcance; este runtime no es un programador autónomo.

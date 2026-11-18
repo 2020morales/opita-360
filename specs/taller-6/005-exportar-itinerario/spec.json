@@ -2,8 +2,8 @@
   "id": "005",
   "title": "Exportacion versionada del itinerario",
   "amber": 3,
-  "status": "draft",
-  "implementation": "not_started",
+  "status": "approved",
+  "implementation": "implemented",
   "pull_request": null,
   "acceptance": [
     {
@@ -34,5 +34,10 @@
       "then": "descarga .json valida sin enviar datos a servicios externos",
       "layer": "browser"
     }
+  ],
+  "human_review": "awaiting_final_review",
+  "test_runs": [
+    "docs/taller-6/ejecuciones/20261118T155632Z-e2921703/s05-browser.json",
+    "docs/taller-6/ejecuciones/20261118T160230Z-283a97bd/checks.json"
   ]
 }

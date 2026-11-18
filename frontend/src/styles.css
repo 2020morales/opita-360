@@ -35,3 +35,8 @@
 /* S04: independent itinerary municipality selector. */
 .trip-municipality{box-sizing:border-box;width:100%;font:inherit;padding:.7rem;border:1px solid #145947;border-radius:.5rem;background:white;color:#183e32;margin-bottom:1rem}
 .trip-municipality:focus-visible{outline:3px solid #b35b08;outline-offset:3px}.result-empty{padding:1rem;border:1px solid #145947;border-radius:.5rem}
+.export-controls { padding-top: 1rem; padding-bottom: 1rem; }
+.export-button { padding: .8rem 1rem; border: 1px solid currentColor; border-radius: .7rem; cursor: pointer; font: inherit; }
+.export-button:disabled { opacity: .55; cursor: not-allowed; }
+.export-button:focus-visible { outline: 3px solid #206444; outline-offset: 3px; }
+.export-controls p { margin-top: .6rem; }

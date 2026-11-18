@@ -76,7 +76,7 @@ def technical_facts(spec, checks):
     return {"facts": facts,
             "basis": {"backend": {"sha256": digest(backend_path.read_bytes()), "analysis": "AST BaseModel + Field + typed handler"},
                       "frontend": {"sha256": digest(safe_path("frontend/src/main.jsx").read_bytes()), "analysis": "static pattern; not full browser proof"}},
-            "distinction": "Checks are regressions of base/harness. Generated spec cases are not implemented or executed.",
+            "distinction": "Generated test designs are not execution records; inspect the actual linked test runs.",
             "source_sha256": {"backend/app/main.py": digest(backend_path.read_bytes()), "frontend/src/main.jsx": digest(safe_path("frontend/src/main.jsx").read_bytes())},
             "limitation": "Spec facts check declared records, not independent proof of feature implementation or test execution."}
 

@@ -6,6 +6,7 @@ import DestinationDetail from "./destination-detail.jsx";
 import { getMunicipalities, validMunicipality, filterDestinations, parseMaxCost } from "./destination-filters.js";
 import { loadFavorites, saveFavorites, toggleFavorite, SESSION_NOTICE } from "./favorites.js";
 import { recommendationCandidates } from "./recommendation-municipality.js";
+import { downloadItinerary } from "./export-itinerary.js";
 
 const API = "http://127.0.0.1:8000";
 const COP = new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 });
@@ -44,6 +45,8 @@ function App() {
   const [budget, setBudget] = useState("200000");
   const [interests, setInterests] = useState(["naturaleza"]);
   const [result, setResult] = useState(null);
+  const [resultOrigin, setResultOrigin] = useState(null);
+  const [exportError, setExportError] = useState("");
   const [loading, setLoading] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [detail, setDetail] = useState(null);
@@ -109,12 +112,15 @@ function App() {
   async function makeTrip(e) {
     e.preventDefault();
     setLoading(true);
+    setExportError("");
     const payload = { days: Number(days), budget: Math.max(0, Number(budget) || 0), interests: interests.length ? interests : ["naturaleza"], ...(tripMunicipality ? { municipality: tripMunicipality } : {}) };
     try {
       const response = await fetch(`${API}/api/recommendations`, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload) });
       if (!response.ok) throw new Error("API");
       setResult(await response.json());
+      setResultOrigin("api");
     } catch {
+      setResultOrigin("demo");
       const candidates = recommendationCandidates(destinations, payload.municipality);
       const chosen = candidates.filter(d => d.tags.some(t => payload.interests.includes(t)) || payload.interests.includes(d.category.toLowerCase())).sort((a,b)=>a.price-b.price).slice(0, Number(days));
       const itinerary = chosen.length ? chosen : candidates.slice(0, Number(days));
@@ -124,6 +130,12 @@ function App() {
     }
     setLoading(false);
     setTimeout(() => document.getElementById("resultado")?.scrollIntoView({behavior:"smooth",block:"start"}), 80);
+  }
+
+  function exportTrip() {
+    setExportError("");
+    try { downloadItinerary(result, resultOrigin); }
+    catch { setExportError("No se pudo iniciar la descarga. Intenta de nuevo o genera otra propuesta."); }
   }
 
   return <div className="app-shell">
@@ -212,6 +224,7 @@ function App() {
         </form>
       </section>
 
+      <div className="export-controls section-pad"><button type="button" className="export-button" disabled={!result || loading} onClick={exportTrip}>Descargar itinerario JSON</button><p>Exporta la última propuesta mostrada. Los valores son orientativos.</p>{exportError && <p role="alert">{exportError}</p>}</div>
       {result && <section className="results section-pad" id="resultado"><div className="section-heading"><div><span className="section-kicker">TU PROPUESTA PERSONALIZADA</span><h2>Tu ruta empieza aquí<span className="dot">.</span></h2><p>{result.summary}</p></div><div className="result-total"><small>COSTO ESTIMADO</small><b>{COP.format(result.estimated_total)}</b><span>Saldo estimado: {COP.format(result.remaining_budget)}</span></div></div>{result.itinerary?.length===0 && <p className="result-empty" role="status">No hay destinos disponibles para esta selección. Prueba Todos los municipios u otro municipio.</p>}<div className="result-list">{(result.itinerary||[]).map((d,i)=><article className="result-item" key={d.id}><span className="result-day">DÍA {i+1}</span><div className="result-emoji">{d.emoji}</div><div className="result-details"><h3>{d.name}</h3><p><MapPin size={14}/> {d.municipality} · {d.category}</p><span>{d.description}</span></div><b>{COP.format(d.price)}</b></article>)}</div><p className="result-notice">{result.method} {result.notice}</p></section>}
 
       <section className="closing section-pad"><div className="closing-art"><div className="closing-sun"></div><Mountain className="closing-mountain one"/><Mountain className="closing-mountain two"/><Waves className="closing-waves"/></div><div className="closing-copy"><span className="section-kicker">EL ORGULLO DE NUESTRA TIERRA</span><h2>El Huila no se cuenta.<br/><em>Se vive.</em></h2><a className="button button-light" href="#aventura">Planea tu aventura <ArrowRight size={17}/></a></div></section>

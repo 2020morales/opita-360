@@ -111,3 +111,9 @@ class GroundingTests(unittest.TestCase):
         with contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit) as captured:
             main(["--help"])
         self.assertEqual(captured.exception.code, 0)
+
+    def test_s05_helper_context_includes_download_and_cleanup(self):
+        source = next(s for s in core.context("frontend") if s["path"] == "frontend/src/export-itinerary.js")
+        text = "\n".join(e["text"] for e in select_source(source)["excerpts"])
+        for symbol in ("serializeItinerary", "downloadItinerary", "revokeObjectURL"):
+            self.assertIn(symbol, text)
