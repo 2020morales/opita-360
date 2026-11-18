@@ -2,8 +2,8 @@
   "id": "003",
   "title": "Favoritos persistentes en el navegador",
   "amber": 4,
-  "status": "draft",
-  "implementation": "not_started",
+  "status": "approved",
+  "implementation": "implemented",
   "pull_request": null,
   "acceptance": [
     {
@@ -41,5 +41,9 @@
       "then": "estado accesible refleja guardado o no guardado",
       "layer": "browser"
     }
+  ],
+  "acceptance_status": "awaiting_human_review",
+  "test_runs": [
+    "docs/taller-6/ejecuciones/20261118T061049Z-9422d89f/s03-browser.json"
   ]
 }

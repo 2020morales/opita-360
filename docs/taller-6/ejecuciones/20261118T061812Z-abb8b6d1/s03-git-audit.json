@@ -1,0 +1,18 @@
+{
+  "spec": "003",
+  "branch": "taller6/003-favoritos",
+  "base": "0985273541e21579009cb6179546b9f3db845f7e",
+  "checks": "docs/taller-6/ejecuciones/20261118T061325Z-2d8514bb/checks.json",
+  "checks_snapshot_current": true,
+  "excluded_count": 16,
+  "staging": [],
+  "protected_paths_changed": [],
+  "s01_s02_incorporated": false,
+  "initialization_policy": "read_only; persist exclusively after user action",
+  "context_summary": "docs/taller-6/s03-contexto-agentes.json",
+  "limitations": [
+    "No merge authorized.",
+    "No automatic cross-tab synchronization.",
+    "Browser storage failures are controlled fixtures; actual local browser persistence also tested."
+  ]
+}

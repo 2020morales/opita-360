@@ -1,0 +1,304 @@
+{
+  "run_id": "24a8f1c1-e0c9-43be-8216-799558c05f8e",
+  "finished_at": "2026-11-18T06:23:56.054128+00:00",
+  "spec": "003",
+  "mode": "inventory",
+  "reports": [
+    {
+      "role": "orquestador",
+      "task": "review-orquestador",
+      "mode": "inventory",
+      "model": null,
+      "evidence": [
+        {
+          "path": "harness/agents/orquestador.md",
+          "sha256": "d580d8366495f8b936aa985263ccd0d1c339cc7eb16a5fec3fe06b1d447d9a26",
+          "bytes": 994
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "cbe2250fcb9405b27dfdcc76a510071e3e0eb9da6fe38db35d59079f686546a3",
+          "bytes": 5148
+        },
+        {
+          "path": "harness/README.md",
+          "sha256": "e1898b706c475cca5cf95ba4dff45b038b884e3297fcfa383570e925d4beb6a3",
+          "bytes": 8575
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "410d5bfc9d5834b9d1ef78ff21e5a8ad5be1b82fa972129025e41f736a2ff9de",
+          "bytes": 3961
+        },
+        {
+          "path": "docs/taller-6/s03-contexto-agentes.json",
+          "sha256": "f348b3727cd38ce8bd4c307ae425c87b9a9eeec21a35248992b8448538b843ff",
+          "bytes": 656
+        }
+      ],
+      "findings": [
+        "Contexto pertinente y criterios inventariados; sin inferencia."
+      ],
+      "limitations": [
+        "No ejecuta pruebas ni modifica codigo.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "frontend",
+      "task": "review-frontend",
+      "mode": "inventory",
+      "model": null,
+      "evidence": [
+        {
+          "path": "harness/agents/frontend.md",
+          "sha256": "ae40febfe784f9ba531b5992b286eaf5f86662493e7bdc9cc930d1a5b826a7bb",
+          "bytes": 989
+        },
+        {
+          "path": "frontend/AGENTS.md",
+          "sha256": "a68bd68b539fa06db5aa49a1684f498d86fb961a9f558cf62cf8f7618c576f0f",
+          "bytes": 859
+        },
+        {
+          "path": "frontend/src/main.jsx",
+          "sha256": "d72afe4441bd9d3e650f70d357d9182aa8c2e6e74c0c3a25697aa45ce6954e9c",
+          "bytes": 19929
+        },
+        {
+          "path": "frontend/src/destination-filters.js",
+          "sha256": "ed404efe3763c77fbc91286a48c0b081b28fdb1e854191cc69b626f720ca1d05",
+          "bytes": 833
+        },
+        {
+          "path": "frontend/src/styles.css",
+          "sha256": "8d1a8682e015a6107a927a904d45d5757f65694d68c9da24c113268fffb2287d",
+          "bytes": 18676
+        },
+        {
+          "path": ".agents/skills/opita-frontend/SKILL.md",
+          "sha256": "ae8d50fb9af5ae15230c91c8330570802213a0e6f8e87b3d9bb0531f14093b87",
+          "bytes": 1371
+        },
+        {
+          "path": "docs/taller-6/s03-contexto-agentes.json",
+          "sha256": "f348b3727cd38ce8bd4c307ae425c87b9a9eeec21a35248992b8448538b843ff",
+          "bytes": 656
+        },
+        {
+          "path": "frontend/src/favorites.js",
+          "sha256": "3bc1aeebc2e9936434f5a9e0170160a6f182f5ee1903bae14720659fde4ebc72",
+          "bytes": 1741
+        },
+        {
+          "path": "frontend/tests/favorites.test.js",
+          "sha256": "28b0f1eb91a54baf59b48eb8bc79b4ef5083dc20f3d1d688d761f214fd7aee4c",
+          "bytes": 2947
+        }
+      ],
+      "findings": [
+        "Contexto pertinente y criterios inventariados; sin inferencia."
+      ],
+      "limitations": [
+        "No ejecuta pruebas ni modifica codigo.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "backend",
+      "task": "review-backend",
+      "mode": "inventory",
+      "model": null,
+      "evidence": [
+        {
+          "path": "harness/agents/backend.md",
+          "sha256": "ac48ff174e54384bcc5c8e6fd10a2ac83331eae33b2b692564b6d6de8f510d35",
+          "bytes": 984
+        },
+        {
+          "path": "backend/AGENTS.md",
+          "sha256": "4ce801a1fd3c33cd4109ba4be967576b6b0caa794c59e2a626e07dd41561d385",
+          "bytes": 766
+        },
+        {
+          "path": "backend/app/main.py",
+          "sha256": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+          "bytes": 5185
+        },
+        {
+          "path": "backend/tests/test_api.py",
+          "sha256": "5794d395c00386e34e0bfd91d12752180c862107455dcbf1d19be9b09db0493c",
+          "bytes": 4069
+        },
+        {
+          "path": ".agents/skills/opita-backend/SKILL.md",
+          "sha256": "db92ea461477a69f8a22ec8e8a699efc94aa0e2224238998434c3545b3ea2574",
+          "bytes": 1261
+        },
+        {
+          "path": "docs/taller-6/s03-contexto-agentes.json",
+          "sha256": "f348b3727cd38ce8bd4c307ae425c87b9a9eeec21a35248992b8448538b843ff",
+          "bytes": 656
+        }
+      ],
+      "findings": [
+        "Contexto pertinente y criterios inventariados; sin inferencia."
+      ],
+      "limitations": [
+        "No ejecuta pruebas ni modifica codigo.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "calidad",
+      "task": "review-calidad",
+      "mode": "inventory",
+      "model": null,
+      "evidence": [
+        {
+          "path": "harness/agents/calidad.md",
+          "sha256": "40df2ea54e5adac5a147801ae2f6b8684387c787d2015a74f4b07718d1945c46",
+          "bytes": 983
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "c29942672abdb660c527a2fce73ab374375cbdcfd228570e82bb89403db8d096",
+          "bytes": 8295
+        },
+        {
+          "path": "harness/tests/test_harness.py",
+          "sha256": "d173c6a7f2f90652d5555ef1ec622aa4d8d7bdaade191acb5267a863b0f416c0",
+          "bytes": 7939
+        },
+        {
+          "path": ".agents/skills/brujula-semantica/SKILL.md",
+          "sha256": "32ecccc4412f680d4ad374b806460e550a52be5d7795174b7f5d1a7389f57a9f",
+          "bytes": 1504
+        },
+        {
+          "path": "harness/grounding.py",
+          "sha256": "1bf6b4aefe7b392db7b29b1b037f835d81e890fe96c6b4fe557ec77c43241cba",
+          "bytes": 8439
+        },
+        {
+          "path": "docs/taller-6/s03-contexto-agentes.json",
+          "sha256": "f348b3727cd38ce8bd4c307ae425c87b9a9eeec21a35248992b8448538b843ff",
+          "bytes": 656
+        }
+      ],
+      "findings": [
+        "Contexto pertinente y criterios inventariados; sin inferencia."
+      ],
+      "limitations": [
+        "No ejecuta pruebas ni modifica codigo.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "seguridad",
+      "task": "review-seguridad",
+      "mode": "inventory",
+      "model": null,
+      "evidence": [
+        {
+          "path": "harness/agents/seguridad.md",
+          "sha256": "c476565c77bf99bfb670ffc66366247220fa114302dd2c604d37b015b381c0ff",
+          "bytes": 989
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "cbe2250fcb9405b27dfdcc76a510071e3e0eb9da6fe38db35d59079f686546a3",
+          "bytes": 5148
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "410d5bfc9d5834b9d1ef78ff21e5a8ad5be1b82fa972129025e41f736a2ff9de",
+          "bytes": 3961
+        },
+        {
+          "path": "harness/runtime.py",
+          "sha256": "c104d8c93d7e087d694fcb5d8ee677cd52ae41c104fd896ccbf5304eee0c76e9",
+          "bytes": 9574
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "c29942672abdb660c527a2fce73ab374375cbdcfd228570e82bb89403db8d096",
+          "bytes": 8295
+        },
+        {
+          "path": "harness/grounding.py",
+          "sha256": "1bf6b4aefe7b392db7b29b1b037f835d81e890fe96c6b4fe557ec77c43241cba",
+          "bytes": 8439
+        },
+        {
+          "path": "docs/taller-6/s03-contexto-agentes.json",
+          "sha256": "f348b3727cd38ce8bd4c307ae425c87b9a9eeec21a35248992b8448538b843ff",
+          "bytes": 656
+        }
+      ],
+      "findings": [
+        "Contexto pertinente y criterios inventariados; sin inferencia."
+      ],
+      "limitations": [
+        "No ejecuta pruebas ni modifica codigo.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    }
+  ],
+  "traces": [],
+  "mcp": [],
+  "technical_facts": {
+    "facts": {
+      "pydantic_request_validation": {
+        "value": true,
+        "source": "backend/app/main.py"
+      },
+      "frontend_demo_fallback": {
+        "value": true,
+        "source": "frontend/src/main.jsx"
+      },
+      "base_checks_passed": {
+        "value": false,
+        "source": "operator_checks"
+      },
+      "spec_implementation_recorded": {
+        "value": true,
+        "source": "specs/taller-6/003-favoritos/spec.json"
+      },
+      "spec_tests_executed": {
+        "value": true,
+        "source": "specs/taller-6/003-favoritos/spec.json"
+      }
+    },
+    "basis": {
+      "backend": {
+        "sha256": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+        "analysis": "AST BaseModel + Field + typed handler"
+      },
+      "frontend": {
+        "sha256": "d72afe4441bd9d3e650f70d357d9182aa8c2e6e74c0c3a25697aa45ce6954e9c",
+        "analysis": "static pattern; not full browser proof"
+      }
+    },
+    "distinction": "Checks are regressions of base/harness. Generated spec cases are not implemented or executed.",
+    "source_sha256": {
+      "backend/app/main.py": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+      "frontend/src/main.jsx": "d72afe4441bd9d3e650f70d357d9182aa8c2e6e74c0c3a25697aa45ce6954e9c"
+    },
+    "limitation": "Spec facts check declared records, not independent proof of feature implementation or test execution."
+  },
+  "claim_audits": [],
+  "stage_events": [],
+  "elapsed_seconds": 0.344,
+  "total_limit_seconds": 600,
+  "code_modified": false,
+  "checks_source": null,
+  "context_selection": "symbols_and_line_ranges",
+  "approval": "operator_assertion_not_identity",
+  "next_gate": "human_review"
+}
