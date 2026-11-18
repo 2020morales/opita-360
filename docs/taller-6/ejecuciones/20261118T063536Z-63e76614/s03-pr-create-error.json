@@ -1,0 +1,14 @@
+{
+  "spec": "003",
+  "operation": "GitHub connector create_pull_request",
+  "repository": "2020morales/opita-360",
+  "head": "taller6/003-favoritos",
+  "base": "main",
+  "draft": true,
+  "observed_http_status": 403,
+  "observed_error_code": "FORBIDDEN",
+  "observed_message": "Resource not accessible by integration",
+  "pull_request_created": false,
+  "implementation_commit": "59c4c6f1e938444ab5d39e00314e07b82a83ae97",
+  "source": "actual connector response copied by operator; not an LLM simulation"
+}

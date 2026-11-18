@@ -74,7 +74,20 @@ class GroundingTests(unittest.TestCase):
         facts = technical_facts(self.spec, record)
         self.assertTrue(facts["facts"]["base_checks_passed"]["value"])
         self.assertFalse(facts["facts"]["spec_tests_executed"]["value"])
-        self.assertEqual(test_summary(record)["new_feature_tests"], "not_executed")
+        self.assertEqual(test_summary(record)["new_feature_tests"], "not_determined_by_suite_summary")
+
+    def test_javascript_context_keeps_storage_error_recovery(self):
+        source = next(s for s in core.context("frontend") if s["path"] == "frontend/src/favorites.js")
+        selected = select_source(source)
+        text = "\n".join(e["text"] for e in selected["excerpts"])
+        for token in ("JSON.parse(raw)", "saveFavorites", "catch { return { saved: false", "toggleFavorite"):
+            self.assertIn(token, text)
+
+    def test_missing_suite_summary_does_not_deny_external_feature_runs(self):
+        # Browser/operator reports can exist independently of a base check summary.
+        summary = test_summary(None)
+        self.assertEqual(summary["base_checks"], [])
+        self.assertEqual(summary["new_feature_tests"], "not_determined_by_suite_summary")
 
     def test_watchdog_reaps_its_actual_owned_worker(self):
         start = time.monotonic()

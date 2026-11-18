@@ -89,3 +89,5 @@ grounding.py selecciona codigo por simbolos y contrasta cinco hechos catalogados
 stages.py inicia workers propios, controla el tiempo de cada etapa y detiene solo esos procesos al vencer el plazo. Limites: LLM 150 s (cliente HTTP 145 s), MCP 60 s y revision total 600 s, mas limpieza acotada de hasta 10 s por timeout. --max-seconds permite reducir, nunca ampliar, el limite total. El padre registra etapa, rol, duracion y parciales incluso si falla el worker. No es un sandbox OS. No se atribuye una causa al TimeoutError historico sin detalle.
 
 La interpretacion de los hallazgos y la aceptacion final siguen siendo humanas. Resultados y fallos de estas correcciones en ../docs/taller-6/correcciones-partes-1-2.md. Las advertencias de dependencias se revisan en ../docs/taller-6/advertencias-dependencias.md, sin ocultarlas ni actualizar paquetes historicos.
+
+Para S03 los roles reciben además s03-contexto-agentes.json, resumen del operador derivado de informes reales; no se amplían permisos de shell/escritura. Los resultados del modelo siguen sujetos a contraste y aprobación humana.

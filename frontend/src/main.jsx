@@ -1,9 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import { ArrowDownRight, ArrowRight, Compass, MapPin, Sparkles, CalendarDays, Wallet, Heart, Menu, X, Mountain, Waves, Landmark, Search, ExternalLink } from "lucide-react";
 import "./styles.css";
 import DestinationDetail from "./destination-detail.jsx";
 import { getMunicipalities, validMunicipality, filterDestinations, parseMaxCost } from "./destination-filters.js";
+import { loadFavorites, saveFavorites, toggleFavorite, SESSION_NOTICE } from "./favorites.js";
 
 const API = "http://127.0.0.1:8000";
 const COP = new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 });
@@ -44,6 +45,11 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [detail, setDetail] = useState(null);
+  const [favorites, setFavorites] = useState(() => loadFavorites());
+  const [onlyFavorites, setOnlyFavorites] = useState(false);
+  const favoritesRef = useRef(favorites);
+  const favoritesFilterRef = useRef(null);
+  const pendingFavoriteFocus = useRef(false);
 
   useEffect(() => {
     fetch(`${API}/api/destinations`)
@@ -58,8 +64,27 @@ function App() {
     setMunicipality(current => validMunicipality(current, municipalities));
   }, [municipalities]);
 
-  const filtered = useMemo(() => filterDestinations(destinations, { category, municipality, search, maxCost }),
-    [destinations, category, municipality, search, maxCost]);
+  const filtered = useMemo(() => {
+    const matches = filterDestinations(destinations, { category, municipality, search, maxCost });
+    return onlyFavorites ? matches.filter(destination => favorites.ids.includes(destination.id)) : matches;
+  }, [destinations, category, municipality, search, maxCost, onlyFavorites, favorites.ids]);
+
+  useEffect(() => {
+    if (pendingFavoriteFocus.current) {
+      pendingFavoriteFocus.current = false;
+      favoritesFilterRef.current?.focus();
+    }
+  }, [favorites.ids]);
+
+  function toggleDestinationFavorite(id) {
+    const previous = favoritesRef.current;
+    const ids = toggleFavorite(previous.ids, id);
+    const persisted = previous.storageAvailable ? saveFavorites(ids) : { saved: false, notice: SESSION_NOTICE };
+    const next = { ids, storageAvailable: persisted.saved, notice: persisted.notice };
+    pendingFavoriteFocus.current = onlyFavorites && previous.ids.includes(id);
+    favoritesRef.current = next;
+    setFavorites(next);
+  }
 
   function applyMaxCost(event) {
     event.preventDefault();
@@ -139,15 +164,19 @@ function App() {
           {costError && <p id="max-cost-error" role="alert">{costError}</p>}
           <p className="cost-filter-status" role="status" aria-live="polite">{maxCost === null ? "Sin límite de costo" : `Costo máximo aplicado: ${COP.format(maxCost)}`}</p>
         </form>
+        <div className="favorites-controls"><label htmlFor="only-favorites"><input ref={favoritesFilterRef} id="only-favorites" type="checkbox" checked={onlyFavorites} onChange={event => setOnlyFavorites(event.target.checked)}/> Solo favoritos</label>
+          <p role="status" aria-live="polite">{favorites.ids.filter(id => destinations.some(destination => destination.id === id)).length} destinos favoritos en el catálogo.</p>
+          {favorites.notice && <p className="favorites-notice" role="alert">{favorites.notice}</p>}
+        </div>
         <div className="destination-grid">{filtered.map((d,i)=><article className={`destination-card card-${d.color || "green"}`} key={d.id}>
           <div className="destination-image" style={{backgroundImage:`linear-gradient(180deg,transparent 40%,rgba(9,28,24,.72)),url("${photos[d.name] || photos["Desierto de la Tatacoa"]}")`}}>
-            <span className="category-tag">{d.category}</span><button className="heart" title="Guardar destino" onClick={e=>e.currentTarget.classList.toggle("saved")}><Heart size={17}/></button>
+            <span className="category-tag">{d.category}</span><button type="button" className={favorites.ids.includes(d.id) ? "heart saved" : "heart"} aria-pressed={favorites.ids.includes(d.id)} aria-label={favorites.ids.includes(d.id) ? `Quitar ${d.name} de favoritos` : `Guardar ${d.name} en favoritos`} title={favorites.ids.includes(d.id) ? "Quitar favorito" : "Guardar favorito"} onClick={()=>toggleDestinationFavorite(d.id)}><Heart size={17} aria-hidden="true"/></button>
             <span className="destination-number">0{(i+1).toString().slice(-1)}</span>
             <div className="destination-title"><span>{d.municipality} · HUILA</span><h3>{d.name}</h3></div>
           </div>
           <div className="destination-info"><p>{d.description}</p><button type="button" className="detail-open" aria-label={`Ver detalle de ${d.name}`} onClick={event => setDetail({ destination: d, demo: apiStatus !== "conectada", trigger: event.currentTarget })}>Ver detalle</button><div className="destination-meta"><span><Wallet size={15}/> Desde {COP.format(d.price)}</span><a href="#aventura" aria-label={`Planear visita a ${d.name}`}><ArrowUpRightIcon/></a></div></div>
         </article>)}</div>
-        {filtered.length===0 && <div className="empty-state">No encontramos destinos con esos filtros. Prueba con otro municipio, nombre, categoría o quita el límite de costo.</div>}
+        {filtered.length===0 && <div className="empty-state">No encontramos destinos con esos filtros. Desactiva Solo favoritos, quita el límite de costo o revisa municipio, nombre y categoría.</div>}
       </section>
 
       <section className="map-section section-pad" id="mapa">
