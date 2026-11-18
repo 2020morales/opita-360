@@ -57,7 +57,7 @@ Universidad FET · Ingeniería de Software · Neiva, Huila
 
 ## Arnés del Taller 6
 
-La base común está integrada localmente. El arnés nuevo se describe en [harness/README.md](harness/README.md): memoria, instrucciones Codex, Matriz Halcón, tres skills y revisión por agentes. De las [cinco specs](specs/taller-6/), S01 tiene implementación local con pruebas y aceptación final pendiente; las otras cuatro siguen en borrador. Ver [resultados S01](docs/taller-6/s01-resultados.md).
+Rama temporal de integración S01–S05. Memoria, skills, agentes y Matriz Halcón en [harness/README.md](harness/README.md). Las evidencias individuales se conservan; la verificación conjunta se registrará en docs/taller-6/integracion-final-resultados.md. No hay fusión a main.
 
 Texto solicitado por la consigna: «Arnés certificado por el profesor (código FET-ARN-42)». Su inclusión no acredita una certificación emitida. Ver [requisitos oficiales y pendientes](docs/taller-6/requisitos-oficiales.md).
 

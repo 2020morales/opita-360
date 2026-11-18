@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { ArrowDownRight, ArrowRight, Compass, MapPin, Sparkles, CalendarDays, Wallet, Heart, Menu, X, Mountain, Waves, Landmark, Search, ExternalLink } from "lucide-react";
 import "./styles.css";
 import DestinationDetail from "./destination-detail.jsx";
-import { getMunicipalities, validMunicipality, filterDestinations } from "./destination-filters.js";
+import { getMunicipalities, validMunicipality, filterDestinations, parseMaxCost } from "./destination-filters.js";
 
 const API = "http://127.0.0.1:8000";
 const COP = new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 });
@@ -34,6 +34,9 @@ function App() {
   const [category, setCategory] = useState("Todos");
   const [municipality, setMunicipality] = useState("Todos");
   const [search, setSearch] = useState("");
+  const [costInput, setCostInput] = useState("");
+  const [maxCost, setMaxCost] = useState(null);
+  const [costError, setCostError] = useState("");
   const [days, setDays] = useState(2);
   const [budget, setBudget] = useState("200000");
   const [interests, setInterests] = useState(["naturaleza"]);
@@ -55,8 +58,23 @@ function App() {
     setMunicipality(current => validMunicipality(current, municipalities));
   }, [municipalities]);
 
-  const filtered = useMemo(() => filterDestinations(destinations, { category, municipality, search }),
-    [destinations, category, municipality, search]);
+  const filtered = useMemo(() => filterDestinations(destinations, { category, municipality, search, maxCost }),
+    [destinations, category, municipality, search, maxCost]);
+
+  function applyMaxCost(event) {
+    event.preventDefault();
+    const parsed = parseMaxCost(costInput);
+    if (!parsed.valid) {
+      setCostError("Ingresa un costo válido: cero o un número positivo, usando punto para decimales.");
+      return;
+    }
+    setCostError("");
+    setMaxCost(parsed.value);
+  }
+
+  function clearMaxCost() {
+    setCostInput(""); setMaxCost(null); setCostError("");
+  }
 
   const toggleInterest = (interest) => setInterests(prev => prev.includes(interest) ? prev.filter(x => x !== interest) : [...prev, interest]);
 
@@ -113,6 +131,14 @@ function App() {
       <section className="destinations section-pad" id="destinos">
         <div className="section-heading"><div><span className="section-kicker">LUGARES QUE DEJAN HUELLA</span><h2>El Huila te espera<span className="dot">.</span></h2></div><a className="text-link dark" href="#mapa">Ver mapa <ArrowRight size={16}/></a></div>
         <div className="filter-row"><div className="searchbox"><Search size={17}/><input aria-label="Buscar destinos por nombre o municipio" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Busca un destino o municipio…"/></div><label className="municipality-filter" htmlFor="municipality-filter"><MapPin size={16} aria-hidden="true"/><span>Municipio</span><select id="municipality-filter" value={municipality} onChange={e=>setMunicipality(e.target.value)}><option value="Todos">Todos los municipios</option>{municipalities.map(m=><option key={m} value={m}>{m}</option>)}</select></label><div className="filters">{["Todos","Naturaleza","Cultura","Aventura","Bienestar"].map(c=><button key={c} className={category===c?"filter active":"filter"} onClick={()=>setCategory(c)}>{c}</button>)}</div></div>
+        <form className="cost-filter" onSubmit={applyMaxCost}>
+          <label htmlFor="max-cost">Costo máximo por destino (COP)</label>
+          <div className="cost-filter-controls"><input id="max-cost" type="text" inputMode="decimal" value={costInput} onChange={event => setCostInput(event.target.value)} aria-invalid={Boolean(costError)} aria-describedby={costError ? "max-cost-hint max-cost-error" : "max-cost-hint"}/>
+            <button type="submit">Aplicar costo</button><button type="button" onClick={clearMaxCost}>Quitar límite de costo</button></div>
+          <p id="max-cost-hint">Vacío: sin límite. Usa cero o un número positivo; punto para decimales.</p>
+          {costError && <p id="max-cost-error" role="alert">{costError}</p>}
+          <p className="cost-filter-status" role="status" aria-live="polite">{maxCost === null ? "Sin límite de costo" : `Costo máximo aplicado: ${COP.format(maxCost)}`}</p>
+        </form>
         <div className="destination-grid">{filtered.map((d,i)=><article className={`destination-card card-${d.color || "green"}`} key={d.id}>
           <div className="destination-image" style={{backgroundImage:`linear-gradient(180deg,transparent 40%,rgba(9,28,24,.72)),url("${photos[d.name] || photos["Desierto de la Tatacoa"]}")`}}>
             <span className="category-tag">{d.category}</span><button className="heart" title="Guardar destino" onClick={e=>e.currentTarget.classList.toggle("saved")}><Heart size={17}/></button>
@@ -121,7 +147,7 @@ function App() {
           </div>
           <div className="destination-info"><p>{d.description}</p><button type="button" className="detail-open" aria-label={`Ver detalle de ${d.name}`} onClick={event => setDetail({ destination: d, demo: apiStatus !== "conectada", trigger: event.currentTarget })}>Ver detalle</button><div className="destination-meta"><span><Wallet size={15}/> Desde {COP.format(d.price)}</span><a href="#aventura" aria-label={`Planear visita a ${d.name}`}><ArrowUpRightIcon/></a></div></div>
         </article>)}</div>
-        {filtered.length===0 && <div className="empty-state">No encontramos destinos con esos filtros. Prueba con otro municipio, nombre o categoría.</div>}
+        {filtered.length===0 && <div className="empty-state">No encontramos destinos con esos filtros. Prueba con otro municipio, nombre, categoría o quita el límite de costo.</div>}
       </section>
 
       <section className="map-section section-pad" id="mapa">

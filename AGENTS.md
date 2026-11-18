@@ -38,7 +38,7 @@ Los comandos fueron ejecutados y sus resultados quedaron registrados en docs/tal
 ## Flujo SDD y controles humanos
 1. Leer memoria y spec; aclarar criterios ambiguos.
 2. Especificacion -> plan con Factor Ambar -> tareas -> casos; aprobacion humana antes de implementar.
-3. Una rama por spec. Solo S01 fue autorizada para implementacion local; las otras cuatro no.
+3. Integración local S01–S05 autorizada solo en taller6/integracion-final. No modificar main, ramas originales ni PR, no publicar.
 4. Pruebas y cambios minimos tras aprobacion. Registrar fallos reales y correcciones; no simular TDD.
 5. Orquestador coordina revisiones de frontend/backend/calidad/seguridad. El CLI review revisa, no escribe codigo. Implementacion futura a cargo de Codex/operador con alcance aprobado.
 6. Ejecutar calidad, revisar hallazgos y repetir solo cuando haya cambios o fallos. Dejar evidencia nueva con fecha, comando, salida y hash.

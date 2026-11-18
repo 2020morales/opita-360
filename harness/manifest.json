@@ -36,7 +36,8 @@
         "frontend/src/destination-filters.js",
         "frontend/src/styles.css",
         ".agents/skills/opita-frontend/SKILL.md",
-        "frontend/src/destination-detail.jsx"
+        "frontend/src/destination-detail.jsx",
+        "frontend/tests/max-cost.test.js"
       ],
       "write": false,
       "shell": false,

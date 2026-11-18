@@ -1,0 +1,43 @@
+{
+  "spec": "002",
+  "skill": "brújula-semántica",
+  "execution": "not_run",
+  "cases": [
+    {
+      "id": "TC-002-01",
+      "acceptance_id": "AC-01",
+      "arrange": "destino de 35000 COP y limite 35000",
+      "act": "aplicar costo maximo",
+      "assert": "el destino se incluye por limite inclusivo",
+      "layer": "unit",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-002-02",
+      "acceptance_id": "AC-02",
+      "arrange": "filtros activos y costo vacio",
+      "act": "filtrar catalogo",
+      "assert": "costo no limita; municipio, categoria y busqueda siguen activos",
+      "layer": "unit",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-002-03",
+      "acceptance_id": "AC-03",
+      "arrange": "catalogo actual con precios positivos",
+      "act": "aplicar limite cero",
+      "assert": "lista vacia y mensaje de recuperacion",
+      "layer": "browser",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-002-04",
+      "acceptance_id": "AC-04",
+      "arrange": "entrada negativa o no numerica",
+      "act": "intentar aplicar el limite",
+      "assert": "mensaje de validacion; no se aplica un filtro invalido",
+      "layer": "browser",
+      "status": "not_implemented"
+    }
+  ]
+}
