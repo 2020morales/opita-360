@@ -68,11 +68,15 @@ Dado detalle de A retrasado y listado con A y B; cuando abrir A, cerrar antes de
 
 Dado municipio Neiva, categoria Cultura y busqueda Malecon seleccionados; cuando abrir y cerrar detalle; repetir con viewport 360x800 y 1280x800; entonces filtros y tarjetas visibles se conservan; dialogo permite leer todos los campos mediante scroll sin desbordamiento horizontal; controles permanecen alcanzables por teclado.
 
-## Pruebas previstas y condicion de cierre
+## Pruebas ejecutadas y condicion de cierre
 
-AC-01/02/03: unittest y FastAPI TestClient en backend/tests/test_destination_detail.py (archivo futuro); igualdad con listado, errores y ausencia de mutacion. AC-04 a AC-10: navegador real automatizado con datos controlados/interceptacion mas recorrido humano de teclado; script futuro dedicado con salida nueva en docs/taller-6/ejecuciones/. AC-04 tambien requiere un recorrido con servidor FastAPI real: una respuesta interceptada no prueba integracion.
+AC-01/02/03: pruebas implementadas con unittest y FastAPI TestClient en backend/tests/test_destination_detail.py; comprueban igualdad con el listado, errores y ausencia de mutacion. AC-04 a AC-10: comprobaciones automatizadas en Chrome headless mediante harness/s01_browser.py. La apertura y las recomendaciones usan FastAPI real a traves del proxy exclusivo de pruebas; los fallos de red, HTTP 500/404 y las respuestas tardias se controlan con fixtures. No se presenta una respuesta interceptada como prueba de integracion real.
 
-Regresion prevista: suites existentes de API, filtros y agentes, harness checks --scope all y build. Accesibilidad: arbol accesible, nombre, foco y recorrido; auditor automatico solo si ya esta disponible, con sus limites documentados. Cada caso debe enlazar archivo de prueba, comando, ejecucion y PR. El conversor genera disenos con not_implemented / not_run por contrato; no es el registro de ejecucion. Las pruebas reales se registran por separado en docs/taller-6/s01-resultados.md. Cierre exige aprobacion humana y criterios demostrados; un check de estructura no cierra S01.
+La ejecucion de cierre registro 91 pruebas aprobadas (36 arnes, 34 agentes, 12 API y 9 filtros), 22 controles de navegador aprobados y build satisfactorio. Informes: docs/taller-6/ejecuciones/20261118T023506Z-b5efe4fb/checks.json y docs/taller-6/ejecuciones/20261118T023520Z-e30b1696/s01-browser.json. Estas evidencias corresponden al contenido probado del commit local e53faf30e0351d956716b81789d6791f012653a2, con la normalizacion LF/CRLF documentada; no son una ejecucion nueva de estas correcciones de redaccion.
+
+Accesibilidad automatizada comprobada: nombre en arbol accesible, foco inicial, Tab/Shift+Tab, fondo inerte, Escape/Cerrar, retorno del foco y dos viewports. Siguen pendientes el recorrido humano de teclado previsto para el cierre, lector de pantalla y aceptacion humana final. No se demuestra auditoria WCAG completa ni compatibilidad con otros navegadores/dispositivos.
+
+La trazabilidad AC -> TC -> archivo de prueba -> ejecucion esta documentada en docs/taller-6/s01-resultados.md y s01-cierre.md; el enlace al PR sigue pendiente porque no se ha creado. El conversor genera disenos con not_implemented / not_run por contrato y no reemplaza el registro de ejecucion. Cierre exige aprobacion humana; un check de estructura o una inferencia LLM no cierra S01.
 
 ## Implementacion local y evidencias
 
