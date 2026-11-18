@@ -1,0 +1,38 @@
+{
+  "id": "005",
+  "title": "Exportacion versionada del itinerario",
+  "amber": 3,
+  "status": "draft",
+  "implementation": "not_started",
+  "pull_request": null,
+  "acceptance": [
+    {
+      "id": "AC-01",
+      "given": "ninguna propuesta generada",
+      "when": "consultar accion exportar",
+      "then": "accion deshabilitada o ausente",
+      "layer": "browser"
+    },
+    {
+      "id": "AC-02",
+      "given": "propuesta valida",
+      "when": "exportar y analizar JSON",
+      "then": "version de formato 1, destinos y totales iguales a la propuesta",
+      "layer": "unit"
+    },
+    {
+      "id": "AC-03",
+      "given": "propuesta demo",
+      "when": "exportar JSON",
+      "then": "origen demo identificado explicitamente",
+      "layer": "unit"
+    },
+    {
+      "id": "AC-04",
+      "given": "propuesta visible",
+      "when": "activar exportacion",
+      "then": "descarga .json valida sin enviar datos a servicios externos",
+      "layer": "browser"
+    }
+  ]
+}

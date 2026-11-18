@@ -1,0 +1,34 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "-m",
+    "harness",
+    "validate"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"specs\": [{\"id\": \"001\", \"criteria\": 4, \"status\": \"draft\"}, {\"id\": \"002\", \"criteria\": 4, \"status\": \"draft\"}, {\"id\": \"003\", \"criteria\": 5, \"status\": \"draft\"}, {\"id\": \"004\", \"criteria\": 4, \"status\": \"draft\"}, {\"id\": \"005\", \"criteria\": 4, \"status\": \"draft\"}], \"status\": \"structure_valid_not_implemented\"}\n",
+  "stderr": "",
+  "finished_at": "2026-11-18T01:05:09.464615+00:00",
+  "combined_review": "docs/taller-6/ejecuciones/20261118T010014Z-aba6178e/review.json",
+  "claims_verified": 8,
+  "citations_supplied": 0,
+  "human_acceptance": false,
+  "historical_files": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "staging": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "whitespace_new_changes": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "warning: in the working copy of 'AGENTS.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\n"
+  },
+  "original_branches_unchanged": true,
+  "source_snapshot_current": true
+}

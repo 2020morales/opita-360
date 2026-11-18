@@ -54,3 +54,11 @@ Abre la dirección que Vite muestre, normalmente http://localhost:5173.
 - Pedro José Gonzales
 
 Universidad FET · Ingeniería de Software · Neiva, Huila
+
+## Arnés del Taller 6
+
+La base común está integrada localmente. El arnés nuevo se describe en [harness/README.md](harness/README.md): memoria, instrucciones Codex, Matriz Halcón, tres skills y revisión por agentes. Las [cinco specs](specs/taller-6/) son borradores sin implementación.
+
+Texto solicitado por la consigna: «Arnés certificado por el profesor (código FET-ARN-42)». Su inclusión no acredita una certificación emitida. Ver [requisitos oficiales y pendientes](docs/taller-6/requisitos-oficiales.md).
+
+Comandos desde la raíz: `python -B -m harness validate`, `python -B -m harness cases --spec 001`, `python -B -m harness checks --scope all`. Los [resultados nuevos](docs/taller-6/resultados-arnes.md) distinguen lo ejecutado de lo pendiente. No ejecutar agents.verify para nuevas evidencias: sobrescribe registros históricos.

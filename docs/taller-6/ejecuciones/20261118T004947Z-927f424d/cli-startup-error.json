@@ -1,0 +1,16 @@
+{
+  "status": "failed",
+  "exit_code": 1,
+  "command": [
+    "python",
+    "-B",
+    "-m",
+    "harness",
+    "checks",
+    "--scope",
+    "all"
+  ],
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"<WORKTREE_T6>\\harness\\__main__.py\", line 4, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"<WORKTREE_T6>\\harness\\cli.py\", line 88, in main\n    p.add_argument(\"--max-seconds\", type=int, help=\"Reducir limite global; maximo 480 segundos\")\n  File \"<LOCAL_USER>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\argparse.py\", line 1500, in add_argument\n    return self._add_action(action)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<LOCAL_USER>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\argparse.py\", line 1885, in _add_action\n    self._optionals._add_action(action)\n  File \"<LOCAL_USER>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\argparse.py\", line 1705, in _add_action\n    action = super(_ArgumentGroup, self)._add_action(action)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<LOCAL_USER>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\argparse.py\", line 1514, in _add_action\n    self._check_conflict(action)\n  File \"<LOCAL_USER>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\argparse.py\", line 1654, in _check_conflict\n    conflict_handler(action, confl_optionals)\n  File \"<LOCAL_USER>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\argparse.py\", line 1663, in _handle_conflict_error\n    raise ArgumentError(action, message % conflict_string)\nargparse.ArgumentError: argument --max-seconds: conflicting option string: --max-seconds\n",
+  "tests_started": false
+}

@@ -1,0 +1,175 @@
+{
+  "status": "failed",
+  "command": "review",
+  "error_type": "ReviewFailure",
+  "error": "frontend/llm: RuntimeError: frontend/llm: worker exit 1: Traceback (most recent call last):\r\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\r\n  File \"<frozen runpy>\", line 88, in _run_code\r\n  File \"<WORKTREE_T6>\\harness\\worker.py\", line 29, in <module>\r\n    main()\r\n  File \"<WORKTREE_T6>\\harness\\worker.py\", line 19, in main\r\n    answer, trace = local_review(role, payload)\r\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"<WORKTREE_T6>\\harness\\runtime.py\", line 50, in local_review\r\n    with opener.open(urllib.request.Request(ENDPOINT, data=body, headers={\"Content-Type\": \"application/json\"}), timeout=80) as response:\r\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"<LOCAL_USER>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\urllib\\request.py\", line 515, in open\r\n    response = self._open(req, data)\r\n               ^^^^^^^^^^^^^^^^^^^^^\r\n  File \"<LOCAL_USER>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\urllib\\request.py\", line 532, in _open\r\n    result = self._call_chain(self.handle_open, protocol, protocol +\r\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"<LOCAL_USER>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\urllib\\request.py\", line 492, in _call_chain\r\n    result = func(*args)\r\n             ^^^^^^^^^^^\r\n  File \"<LOCAL_USER>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\urllib\\request.py\", line 1373, in http_open\r\n    return self.do_open(http.client.HTTPConnection, req)\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"<LOCAL_USER>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\urllib\\request.py\", line 1348, in do_open\r\n    r = h.getresponse()\r\n        ^^^^^^^^^^^^^^^\r\n  File \"<LOCAL_USER>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\http\\client.py\", line 1430, in getresponse\r\n    response.begin()\r\n  File \"<LOCAL_USER>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\http\\client.py\", line 331, in begin\r\n    version, status, reason = self._read_status()\r\n                              ^^^^^^^^^^^^^^^^^^^\r\n  File \"<LOCAL_USER>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\http\\client.py\", line 292, in _read_status\r\n    line = str(self.fp.readline(_MAXLINE + 1), \"iso-8859-1\")\r\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"<LOCAL_USER>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\socket.py\", line 720, in readinto\r\n    return self._sock.recv_into(b)\r\n           ^^^^^^^^^^^^^^^^^^^^^^^\r\nTimeoutError: timed out\r\n",
+  "partial": {
+    "role": "frontend",
+    "stage": "llm",
+    "reports": [
+      {
+        "role": "orquestador",
+        "task": "review-orquestador",
+        "mode": "llm",
+        "model": "qwen3.5:4b",
+        "evidence": [
+          {
+            "path": "harness/agents/orquestador.md",
+            "sha256": "d580d8366495f8b936aa985263ccd0d1c339cc7eb16a5fec3fe06b1d447d9a26",
+            "bytes": 994
+          },
+          {
+            "path": "AGENTS.md",
+            "sha256": "2203f41963ad98abef77e69ee2f39e4cd62659eb207faeedf1f8a86a37d92829",
+            "bytes": 5073
+          },
+          {
+            "path": "harness/README.md",
+            "sha256": "7ca956cc96beedf67642f804a46ad8b971b67df9b1cafa1b84f244044c426795",
+            "bytes": 8098
+          },
+          {
+            "path": "harness/manifest.json",
+            "sha256": "f1e8184cc9d2bbc7a39f6a8edaad96b89fa70bbd04165b11adf31088450d010c",
+            "bytes": 3493
+          }
+        ],
+        "findings": [
+          "La especificación AC-04 asume un estado de 'API bloqueada' que no se verifica en los datos semilla actuales; el backend muestra validación estándar sin bloqueo aparente.",
+          "El caso TC-001-03 requiere interacción del navegador (pulsar Escape) que no puede ser ejecutada por el orquestador local sin un entorno de ejecución web activo."
+        ],
+        "limitations": [
+          "No se pueden ejecutar pruebas de capa frontend ni backend para la especificación 001 debido a que las tareas están marcadas como 'not_implemented' y el runtime no tiene acceso a shell ni capacidad de ejecución.",
+          "El estado de 'API bloqueada' descrito en AC-04 no corresponde con la configuración actual del backend, lo que invalida la prueba tal cual está definida.",
+          "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+        ],
+        "status": "awaiting_human_review"
+      }
+    ],
+    "traces": [
+      {
+        "role": "orquestador",
+        "model": "qwen3.5:4b",
+        "llm_executed": true,
+        "request_sha256": "d667f00a718af9cc6577176a528835f61e36ea70f79e71d6a5bddd99d5623ba9",
+        "response_sha256": "da72160afc2ac0d7652c8ca56f3c9214f422fb26ad74f07016168d2c303187f9",
+        "eval_count": 257,
+        "response": {
+          "findings": [
+            "La especificación AC-04 asume un estado de 'API bloqueada' que no se verifica en los datos semilla actuales; el backend muestra validación estándar sin bloqueo aparente.",
+            "El caso TC-001-03 requiere interacción del navegador (pulsar Escape) que no puede ser ejecutada por el orquestador local sin un entorno de ejecución web activo."
+          ],
+          "limitations": [
+            "No se pueden ejecutar pruebas de capa frontend ni backend para la especificación 001 debido a que las tareas están marcadas como 'not_implemented' y el runtime no tiene acceso a shell ni capacidad de ejecución.",
+            "El estado de 'API bloqueada' descrito en AC-04 no corresponde con la configuración actual del backend, lo que invalida la prueba tal cual está definida."
+          ],
+          "claims": [
+            {
+              "fact": "pydantic_request_validation",
+              "value": true
+            },
+            {
+              "fact": "frontend_demo_fallback",
+              "value": true
+            }
+          ],
+          "citations": []
+        }
+      }
+    ],
+    "mcp": [
+      {
+        "package": "@modelcontextprotocol/server-filesystem@2.3.0",
+        "node_package": "node@24.13.0",
+        "verified_node_version": "v24.13.0",
+        "transport": "stdio",
+        "role": "frontend",
+        "server": {
+          "name": "secure-filesystem-server",
+          "title": null,
+          "version": "2.3.0",
+          "websiteUrl": null,
+          "icons": null
+        },
+        "protocol": "2025-11-25",
+        "discovered_tools": [
+          "read_file",
+          "read_text_file",
+          "read_media_file",
+          "read_multiple_files",
+          "write_file",
+          "append_file",
+          "edit_file",
+          "create_directory",
+          "list_directory",
+          "list_directory_with_sizes",
+          "directory_tree",
+          "move_file",
+          "copy_file",
+          "search_files",
+          "get_file_info",
+          "list_allowed_directories"
+        ],
+        "called_tool": "read_text_file",
+        "source": "frontend/src/main.jsx",
+        "content_equal": true,
+        "sha256_utf8": "6da7f54fe616f6535975f4316453919aa2d0c693dde6ec82247add457f6fee1f",
+        "outside_scope_denied": true,
+        "llm_executed": false,
+        "limitation": "Servidor con permisos del usuario; staging no equivale a sandbox OS. Se anuncian herramientas de escritura que este cliente no permite invocar."
+      }
+    ],
+    "stage_events": [
+      {
+        "role": "orquestador",
+        "stage": "llm",
+        "limit_seconds": 90,
+        "started_at": "2026-11-18T00:49:56.218921+00:00",
+        "finished_at": "2026-11-18T00:50:56.324585+00:00",
+        "elapsed_seconds": 60.11,
+        "exit_code": 0,
+        "status": "passed"
+      },
+      {
+        "role": "frontend",
+        "stage": "mcp",
+        "limit_seconds": 60,
+        "started_at": "2026-11-18T00:50:56.361978+00:00",
+        "finished_at": "2026-11-18T00:51:05.292688+00:00",
+        "elapsed_seconds": 8.938,
+        "exit_code": 0,
+        "status": "passed"
+      }
+    ],
+    "claim_audits": [
+      {
+        "role": "orquestador",
+        "claims": [
+          {
+            "fact": "pydantic_request_validation",
+            "claimed": true,
+            "actual": true,
+            "source": "backend/app/main.py",
+            "status": "verified"
+          },
+          {
+            "fact": "frontend_demo_fallback",
+            "claimed": true,
+            "actual": true,
+            "source": "frontend/src/main.jsx",
+            "status": "verified"
+          }
+        ],
+        "citations": [],
+        "blocked_claims": 0,
+        "unverified_prose": [
+          "La especificación AC-04 asume un estado de 'API bloqueada' que no se verifica en los datos semilla actuales; el backend muestra validación estándar sin bloqueo aparente.",
+          "El caso TC-001-03 requiere interacción del navegador (pulsar Escape) que no puede ser ejecutada por el orquestador local sin un entorno de ejecución web activo."
+        ],
+        "human_acceptance": false,
+        "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+      }
+    ]
+  },
+  "finished_at": "2026-11-18T00:52:25.885257+00:00"
+}

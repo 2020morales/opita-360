@@ -1,0 +1,38 @@
+{
+  "id": "001",
+  "title": "Detalle accesible de destino",
+  "amber": 3,
+  "status": "draft",
+  "implementation": "not_started",
+  "pull_request": null,
+  "acceptance": [
+    {
+      "id": "AC-01",
+      "given": "catalogo con ID 1",
+      "when": "GET /api/destinations/1",
+      "then": "200 y destino cuyo id es 1",
+      "layer": "api"
+    },
+    {
+      "id": "AC-02",
+      "given": "ID inexistente 9999",
+      "when": "GET /api/destinations/9999",
+      "then": "404 sin otro destino",
+      "layer": "api"
+    },
+    {
+      "id": "AC-03",
+      "given": "tarjeta de un destino",
+      "when": "abrir detalle y pulsar Escape",
+      "then": "dialogo cerrado y foco devuelto al boton de origen",
+      "layer": "browser"
+    },
+    {
+      "id": "AC-04",
+      "given": "API bloqueada y catalogo demo",
+      "when": "abrir detalle de un destino",
+      "then": "datos del destino demo visibles sin bloqueo",
+      "layer": "browser"
+    }
+  ]
+}

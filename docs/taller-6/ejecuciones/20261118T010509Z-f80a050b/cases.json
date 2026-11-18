@@ -1,0 +1,43 @@
+{
+  "spec": "004",
+  "skill": "brújula-semántica",
+  "execution": "not_run",
+  "cases": [
+    {
+      "id": "TC-004-01",
+      "acceptance_id": "AC-01",
+      "arrange": "solicitud anterior sin municipio",
+      "act": "POST /api/recommendations",
+      "assert": "contrato y politica de presupuesto actuales conservados",
+      "layer": "api",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-004-02",
+      "acceptance_id": "AC-02",
+      "arrange": "solicitud con municipio Neiva",
+      "act": "pedir recomendaciones",
+      "assert": "todos los destinos pertenecen a Neiva",
+      "layer": "api",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-004-03",
+      "acceptance_id": "AC-03",
+      "arrange": "municipio sin destinos",
+      "act": "pedir recomendaciones",
+      "assert": "200 e itinerario vacio, sin fallback a otros municipios",
+      "layer": "api",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-004-04",
+      "acceptance_id": "AC-04",
+      "arrange": "API bloqueada y municipio Neiva seleccionado",
+      "act": "crear propuesta demo",
+      "assert": "ningun destino de otro municipio",
+      "layer": "browser",
+      "status": "not_implemented"
+    }
+  ]
+}

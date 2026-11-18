@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "command": "review",
+  "error_type": "PermissionError",
+  "error": "Se requiere aprobacion explicita del alcance de revision",
+  "finished_at": "2026-11-17T21:41:04.282299+00:00"
+}
