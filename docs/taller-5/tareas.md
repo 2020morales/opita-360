@@ -39,3 +39,13 @@ Cada tarea identifica agente, objetivo, archivos, herramientas y aceptación. La
 - T05 y T06 reciben el registro MCP; context_receipts registra su hash y los roles recibidos.
 - El PDF tiene tabla de cinco agentes, estructura centralizada, flujo real, comparación verificada, enlaces URI y código FET-QX7. Se protege de conversión de Git con `.gitattributes`.
 - Existen commits y el PR #2; la aceptación y cualquier nueva publicación siguen siendo humanas.
+
+## Tareas de corrección de rúbrica
+
+- Tabla y modelos: manifiesto ampliado sin añadir herramientas ni roles ficticios.
+- Puertas: resumen positivo y OK; identidad por contenido; hallazgos a revisión humana.
+- Evidencia: destinos nuevos requeridos y rechazo de sobrescritura.
+- Diagramas y matriz: frontend/backend, decisiones humanas, fallo y parada.
+- PDF: ocho páginas, cuatro secciones y código en encabezado.
+- Aclaraciones docentes y aceptación humana: pendientes; ver correccion-rubrica/plan.md.
+- Resultados ejecutados: ver correccion-rubrica/informe.md; no equivalen a aceptación.

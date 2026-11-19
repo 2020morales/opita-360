@@ -2,7 +2,7 @@
 import copy
 import unittest
 
-from agents.quality_gates import validate_checks, review_context
+from agents.quality_gates import validate_checks, review_context, human_review_gate
 
 
 class QualityGateTests(unittest.TestCase):
@@ -19,7 +19,7 @@ class QualityGateTests(unittest.TestCase):
         for name, command in commands.items():
             self.record["checks"].append({"check": name, "command": command,
                 "cwd": "backend" if name == "backend_compile" else "frontend" if name == "frontend_build" else ".",
-                "exit_code": 0, "stdout": "observed", "stderr": ""})
+                "exit_code": 0, "stdout": "observed", "stderr": "Ran 1 test in 0.001s\n\nOK\n"})
 
     def test_complete_checks_accepted(self):
         validate_checks(self.record, self.snapshot)
@@ -44,11 +44,31 @@ class QualityGateTests(unittest.TestCase):
                 validate_checks(record, self.snapshot)
 
     def test_stale_or_inconsistent_snapshot_rejected(self):
-        for key, value in (("sha256", "other"), ("files", {}), ("branch", "other")):
+        for key, value in (("sha256", "other"), ("files", {})):
             record = copy.deepcopy(self.record)
             record["snapshot"][key] = value
             with self.subTest(key=key), self.assertRaises(ValueError):
                 validate_checks(record, self.snapshot)
+
+    def test_git_metadata_does_not_invalidate_identical_content(self):
+        record = copy.deepcopy(self.record)
+        record["snapshot"].update(branch="review-branch", git_head="another-commit")
+        validate_checks(record, self.snapshot)
+
+    def test_empty_zero_and_failed_suite_summaries_rejected(self):
+        for name in ("agents", "backend"):
+            for output in ("", "Ran 0 tests in 0.000s\nOK", "Ran 2 tests in 0.001s\nFAILED (failures=1)"):
+                record = copy.deepcopy(self.record)
+                entry = next(c for c in record["checks"] if c["check"] == name)
+                entry.update(stdout="", stderr=output)
+                with self.subTest(name=name, output=output), self.assertRaises(ValueError):
+                    validate_checks(record, self.snapshot)
+
+    def test_findings_cannot_be_automatically_accepted(self):
+        self.assertEqual(human_review_gate([{"status": "blocked"}]), "blocked")
+        self.assertEqual(human_review_gate([{"status": "inspected", "findings": ["review me"]}]),
+                         "awaiting_human_findings_review")
+        self.assertEqual(human_review_gate([]), "awaiting_human_review")
 
     def test_timestamp_and_version_required(self):
         for key, value in (("finished_at", "invalid"), ("finished_at", "2026-11-14"), ("version", "unknown")):

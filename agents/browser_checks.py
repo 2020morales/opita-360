@@ -64,9 +64,12 @@ class CDP:
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--label", choices=["before", "after"], required=True)
+    parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args()
-    output = ROOT / "docs/taller-5/browser"
-    output.mkdir(exist_ok=True)
+    output = args.output_dir
+    output.mkdir(parents=True, exist_ok=True)
+    if any((output / (args.label + suffix)).exists() for suffix in (".json", "-desktop.png", "-mobile.png")):
+        raise FileExistsError("La evidencia de navegador ya existe")
     report = {"timestamp": datetime.now(timezone.utc).isoformat(), "snapshot": snapshot(),
               "label": args.label, "checks": [], "limitations": ["CDP con Chrome headless, no lector de pantalla humano ni auditoría WCAG completa.", "No se usa axe; se comprueban nombres accesibles y estados explícitos."]}
     processes = []

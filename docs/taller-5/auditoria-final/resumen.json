@@ -1,0 +1,19 @@
+{
+  "finished_at": "2026-11-19T03:41:43.431062+00:00",
+  "branch": "taller5/correccion-rubrica",
+  "head": "8cce952bace0763ac5e96208c70e93a304979fb4",
+  "original_taller5": "8cce952bace0763ac5e96208c70e93a304979fb4",
+  "counts": {
+    "agents": 42,
+    "backend": 8
+  },
+  "browser_passed": 14,
+  "browser_total": 14,
+  "pdf_sha256": "4ddb5b4d7eb56d1264ee9bac66a0146e1247eeed57f30d69cba89d05a9137915",
+  "pdf_unchanged_since_previous_validation": true,
+  "snapshot_sha256": "04168115e3316fd6532b92b948545c700ac337b802947b97adc2f40c7af3290d",
+  "staged": [],
+  "protected_changes": [],
+  "llm_mcp_repeated": false,
+  "assessment_estimate": 4.35
+}

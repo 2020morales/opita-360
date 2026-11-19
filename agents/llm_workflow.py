@@ -11,7 +11,7 @@ import jsonschema
 from .runtime import ROOT, authorize_read, authorize_tool, build_tasks, load_manifest, validate_report
 from .mcp_probe import probe
 from .snapshot import snapshot, digest
-from .quality_gates import validate_checks, review_context
+from .quality_gates import validate_checks, review_context, human_review_gate
 
 ANALYSIS_SCHEMA = {"type": "object", "additionalProperties": False,
     "required": ["findings", "limitations"], "properties": {
@@ -85,12 +85,12 @@ async def analyze(role, context, traces):
             context = {"original": context, "format_error": str(exc)[:500]}
 
 
-async def main_run(spec, approved=False):
+async def main_run(spec, approved=False, checks_file=None):
     if approved is not True:
         raise PermissionError("Aprobación humana de alcance requerida")
     tasks = build_tasks(spec)
     before = snapshot()
-    checks_path = ROOT / "docs/taller-5/checks.json"
+    checks_path = ROOT / "docs/taller-5/checks.json" if checks_file is None else ROOT / checks_file
     checks_bytes = checks_path.read_bytes()
     checks = json.loads(checks_bytes)
     validate_checks(checks, before)
@@ -141,7 +141,7 @@ async def main_run(spec, approved=False):
         "approval": {"source": "operator --approved; alcance autorizado en conversación", "scope_sha256": digest(spec.encode()),
                      "plan_sha256": digest(json.dumps(plan, sort_keys=True).encode()),
                      "generated_plan_reviewed_by_human": False, "final_review": "pending"},
-        "next_gate": "awaiting_human_review", "llm_executed": True,
+        "next_gate": human_review_gate(reports), "llm_executed": True,
         "limitations": ["Revisión LLM puede errar: no aprueba cambios ni ejecuta herramientas libres.",
                         "La comparación con la referencia es documental; no se ejecutaron sus proyectos.", "MCP no equivale a sandbox OS.",
                         "Evidencia de archivos es inventario del host. El modelo recibe extractos de hasta 4000 caracteres por fuente y código completo solo de main por MCP; consultar context_receipts."]}

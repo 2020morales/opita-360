@@ -1,0 +1,313 @@
+{
+  "finished_at": "2026-11-19T03:41:15.557708+00:00",
+  "pdf_sha256": "4ddb5b4d7eb56d1264ee9bac66a0146e1247eeed57f30d69cba89d05a9137915",
+  "generator_sha256": "f29840dddcd74c61785dda9f46893d5ccafd935824d1e6b86f75cb0d7375ae00",
+  "pages": [
+    {
+      "page": 1,
+      "size": [
+        595,
+        842
+      ],
+      "render_sha256": "3a1bb172ad47d8776ec8ae1d90cfbfb7cbe7fef0dfc50c8bb35c1b5f8e06b7a6",
+      "characters": 1701
+    },
+    {
+      "page": 2,
+      "size": [
+        595,
+        842
+      ],
+      "render_sha256": "e9d67392de50d208af7165bbbcb0bf84dd864d5c38eaa613290d38d18f0b149f",
+      "characters": 1948
+    },
+    {
+      "page": 3,
+      "size": [
+        595,
+        842
+      ],
+      "render_sha256": "a67c557861d455c3aefc572e81b50c3f9b286c3cfb1369fc30953dd86ea40763",
+      "characters": 2246
+    },
+    {
+      "page": 4,
+      "size": [
+        595,
+        842
+      ],
+      "render_sha256": "bda35117ca8aea1398809a54041d03390832cee37fa86be909b36ae9692d0436",
+      "characters": 1441
+    },
+    {
+      "page": 5,
+      "size": [
+        595,
+        842
+      ],
+      "render_sha256": "a2adbef4211af48578320c20f972c38086eabf7276d62f9cc5e8c844d82a68f2",
+      "characters": 1553
+    },
+    {
+      "page": 6,
+      "size": [
+        595,
+        842
+      ],
+      "render_sha256": "2a75ad614cdee29fc12d9301efc60f1a313948abb172bf642d19b7b58cdbcfa3",
+      "characters": 1951
+    },
+    {
+      "page": 7,
+      "size": [
+        595,
+        842
+      ],
+      "render_sha256": "21943c4e5c65ee398c4f0ac729d921881244bfea28d681f71851474bfd15ddf6",
+      "characters": 2449
+    },
+    {
+      "page": 8,
+      "size": [
+        595,
+        842
+      ],
+      "render_sha256": "f68c6a866b1418cac7ee272838a6926e60af5bbed1a899658c08707a4a52dfa4",
+      "characters": 1896
+    }
+  ],
+  "sections": 4,
+  "links": [
+    "https://github.com/2020morales/opita-360",
+    "https://github.com/2020morales/opita-360/pull/2",
+    "https://github.com/2020morales/opita-360/tree/8cce952bace0763ac5e96208c70e93a304979fb4/docs/taller-5",
+    "https://github.com/777wills/mi-restaurante-ms/tree/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5",
+    "https://github.com/777wills/mi-restaurante-ui/tree/33161da7c19bba7fdd995a502692ca5f69d67214",
+    "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/docs/diagrams/03-patron-orquestador.excalidraw",
+    "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/speckit-custom/presets/implement-orchestrator/commands/speckit.implement.md"
+  ],
+  "historical_evidence": [
+    {
+      "path": "docs/taller-5/browser/after-desktop.png",
+      "worktree_sha256": "b5ea8ec2dd0df9944d8bbc97742a23c4299cbd1748a6fd78d98a021fb091662e",
+      "commit_sha256": "b5ea8ec2dd0df9944d8bbc97742a23c4299cbd1748a6fd78d98a021fb091662e",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/browser/after-mobile.png",
+      "worktree_sha256": "acbf5148ea24832edfcb0c8129ebab8cc0d5907cb0c8809042ee36ac8881f5e9",
+      "commit_sha256": "acbf5148ea24832edfcb0c8129ebab8cc0d5907cb0c8809042ee36ac8881f5e9",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/browser/after.json",
+      "worktree_sha256": "e4d1eebb20c8d6c19d53456a311e897c1a923054fef40e895d9f348137126a48",
+      "commit_sha256": "e4d1eebb20c8d6c19d53456a311e897c1a923054fef40e895d9f348137126a48",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/browser/before-desktop.png",
+      "worktree_sha256": "c66324ada6ba9ef27333536f6435523c50fda2b0c32142d0f2015a40a7930e4d",
+      "commit_sha256": "c66324ada6ba9ef27333536f6435523c50fda2b0c32142d0f2015a40a7930e4d",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/browser/before-mobile.png",
+      "worktree_sha256": "acbf5148ea24832edfcb0c8129ebab8cc0d5907cb0c8809042ee36ac8881f5e9",
+      "commit_sha256": "acbf5148ea24832edfcb0c8129ebab8cc0d5907cb0c8809042ee36ac8881f5e9",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/browser/before.json",
+      "worktree_sha256": "fcd61d188a88bdabf2cdab668524669860bfddd7bb820deb02084306a8a6a599",
+      "commit_sha256": "0a93f4bc1a39eb018a753a76d516fccc1eb6be8d439b66443306b35e7ddb14c8",
+      "byte_equal": false,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/checks-llm-final.json",
+      "worktree_sha256": "1db6ff8ede980cbd9a997158d6eed17c40ee68be302f94c315bb8a016885ed5a",
+      "commit_sha256": "1db6ff8ede980cbd9a997158d6eed17c40ee68be302f94c315bb8a016885ed5a",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/checks-llm-historical.json",
+      "worktree_sha256": "75cd6de799d3e5bc8aa3186b4d61a5113c76beeb592c94621eed5b0941933345",
+      "commit_sha256": "b9292a293d92fdd226fc5c1db57c0b56b2e0677396bb1f44110b6b73391babb6",
+      "byte_equal": false,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/checks.json",
+      "worktree_sha256": "1db6ff8ede980cbd9a997158d6eed17c40ee68be302f94c315bb8a016885ed5a",
+      "commit_sha256": "1db6ff8ede980cbd9a997158d6eed17c40ee68be302f94c315bb8a016885ed5a",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/demo-report.json",
+      "worktree_sha256": "dbf69d70f37737b469271be97988e19ae0c074eea3de2587d4599a906c7fe886",
+      "commit_sha256": "62c1b8dfb9bcf28c19ad9ab8eed2c0870f7241430d1662c6928ae3efea2ef14d",
+      "byte_equal": false,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/frontend-repro.json",
+      "worktree_sha256": "760aa61e678fa5408f630e9c704faabcc50faaa4083a13d321cce13cb0c4161a",
+      "commit_sha256": "760aa61e678fa5408f630e9c704faabcc50faaa4083a13d321cce13cb0c4161a",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/history/README.md",
+      "worktree_sha256": "30d5b079dc027614fbccd558fc190b0930e4e27ecdfd6ab8816f5c037c83af3a",
+      "commit_sha256": "30d5b079dc027614fbccd558fc190b0930e4e27ecdfd6ab8816f5c037c83af3a",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/history/pre-delivery-audit/browser/after-desktop.png",
+      "worktree_sha256": "ddb83c56f878681f9918b76c5486ca549405d6e6bd9b95022acf83e13c59f0f6",
+      "commit_sha256": "ddb83c56f878681f9918b76c5486ca549405d6e6bd9b95022acf83e13c59f0f6",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/history/pre-delivery-audit/browser/after-mobile.png",
+      "worktree_sha256": "28f315638de0ea0c69d33cb7fc6d41110647fc8430f6bd7ac7105f88ee1d37b2",
+      "commit_sha256": "28f315638de0ea0c69d33cb7fc6d41110647fc8430f6bd7ac7105f88ee1d37b2",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/history/pre-delivery-audit/browser/after.json",
+      "worktree_sha256": "a0101f97fb6d7ca9b16a45aa139c8b3cc9204e3abbee8d64c7cdc6d5131177b0",
+      "commit_sha256": "a0101f97fb6d7ca9b16a45aa139c8b3cc9204e3abbee8d64c7cdc6d5131177b0",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/history/pre-delivery-audit/browser/before-desktop.png",
+      "worktree_sha256": "c66324ada6ba9ef27333536f6435523c50fda2b0c32142d0f2015a40a7930e4d",
+      "commit_sha256": "c66324ada6ba9ef27333536f6435523c50fda2b0c32142d0f2015a40a7930e4d",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/history/pre-delivery-audit/browser/before-mobile.png",
+      "worktree_sha256": "acbf5148ea24832edfcb0c8129ebab8cc0d5907cb0c8809042ee36ac8881f5e9",
+      "commit_sha256": "acbf5148ea24832edfcb0c8129ebab8cc0d5907cb0c8809042ee36ac8881f5e9",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/history/pre-delivery-audit/browser/before.json",
+      "worktree_sha256": "fcd61d188a88bdabf2cdab668524669860bfddd7bb820deb02084306a8a6a599",
+      "commit_sha256": "fcd61d188a88bdabf2cdab668524669860bfddd7bb820deb02084306a8a6a599",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/history/pre-delivery-audit/checks.json",
+      "worktree_sha256": "2631a428ff15a3c18807b225bdeafefceab63cd07cee65f87f096b37d9fd9fa2",
+      "commit_sha256": "2631a428ff15a3c18807b225bdeafefceab63cd07cee65f87f096b37d9fd9fa2",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/history/pre-delivery-audit/demo-report.json",
+      "worktree_sha256": "dbf69d70f37737b469271be97988e19ae0c074eea3de2587d4599a906c7fe886",
+      "commit_sha256": "dbf69d70f37737b469271be97988e19ae0c074eea3de2587d4599a906c7fe886",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/history/pre-delivery-audit/entrega.md",
+      "worktree_sha256": "6e5553e0247074743a022e19ef2e0758bb9fbcdccf6b41b0c668acefa55aa07d",
+      "commit_sha256": "6e5553e0247074743a022e19ef2e0758bb9fbcdccf6b41b0c668acefa55aa07d",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/history/pre-delivery-audit/frontend-repro.json",
+      "worktree_sha256": "d65c35eabb05d7cd23e4da9199497d4d946d3ff76ad0725ee64e1fe1eb06d299",
+      "commit_sha256": "d65c35eabb05d7cd23e4da9199497d4d946d3ff76ad0725ee64e1fe1eb06d299",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/history/pre-delivery-audit/llm-report.json",
+      "worktree_sha256": "5849c29c62e2482ef618ba7a8a92946547f61bdaaa32f15282cb2c773cc4ed47",
+      "commit_sha256": "5849c29c62e2482ef618ba7a8a92946547f61bdaaa32f15282cb2c773cc4ed47",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/history/pre-delivery-audit/resultados.md",
+      "worktree_sha256": "c0c5528c0693a26b0fdd2f58204f8282ab773125e060492f8df0bc2bc86b0fbb",
+      "commit_sha256": "c0c5528c0693a26b0fdd2f58204f8282ab773125e060492f8df0bc2bc86b0fbb",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/history/pre-delivery-audit/revision-hallazgos.md",
+      "worktree_sha256": "c852f52a13780dbb21567c1e686b24d1c11ce8639410923f5c91f4d0fca6f498",
+      "commit_sha256": "c852f52a13780dbb21567c1e686b24d1c11ce8639410923f5c91f4d0fca6f498",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/llm-report-final.json",
+      "worktree_sha256": "c4d5f07f41d980505b65914033062d940389825a0fd66cf9c4f1b09cbd59afbd",
+      "commit_sha256": "c4d5f07f41d980505b65914033062d940389825a0fd66cf9c4f1b09cbd59afbd",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/llm-report.json",
+      "worktree_sha256": "5849c29c62e2482ef618ba7a8a92946547f61bdaaa32f15282cb2c773cc4ed47",
+      "commit_sha256": "5b757b5843cf9ec8bbbeded16900272c2e2ed29f66a480ebf9ec21fc9c01259c",
+      "byte_equal": false,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/pdf-validation.json",
+      "worktree_sha256": "f0f724461cd1e2ffc06e8a1230c4749f7ad7f22e98d8372dff5486378c8cbb71",
+      "commit_sha256": "f0f724461cd1e2ffc06e8a1230c4749f7ad7f22e98d8372dff5486378c8cbb71",
+      "byte_equal": true,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/python-lock.txt",
+      "worktree_sha256": "7272dc01f39927d55072ee42f89ed36c3203017c4bc3b874a9a8f108437a2384",
+      "commit_sha256": "42f76607be21336f016db62b5771774d3b5d0f7bd549029d10347f61a8eef2fb",
+      "byte_equal": false,
+      "newline_equivalent": true
+    },
+    {
+      "path": "docs/taller-5/reference-evidence.json",
+      "worktree_sha256": "beb8beb4e5e0d44d95ad62ab9afc3e1abc29acf9c7bec3bc3b49667fcf2164db",
+      "commit_sha256": "beb8beb4e5e0d44d95ad62ab9afc3e1abc29acf9c7bec3bc3b49667fcf2164db",
+      "byte_equal": true,
+      "newline_equivalent": true
+    }
+  ],
+  "protected_paths_changed": [],
+  "preserved_previous_artifacts": 41,
+  "diff_check_exit_code": 0,
+  "checks_sha256": "4549d075f0c41a13162135d53bce64a1f3fab8df02af26893ffcedc6c705c2b3",
+  "current_source_snapshot_sha256": "04168115e3316fd6532b92b948545c700ac337b802947b97adc2f40c7af3290d",
+  "diff_check_warnings": "warning: in the working copy of 'agents/README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/browser_checks.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/llm_workflow.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/manifest.v1.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/quality_gates.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/repro_frontend.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/runtime.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/tests/test_quality_gates.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/verify.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/arquitectura.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/auditoria-entrega.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/comparacion-referencia.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/entrega.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/especificacion.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/generar_pdf.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/plan-aprobado.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/resultados.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/revision-hallazgos.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/rubrica.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/tareas.md', LF will be replaced by CRLF the next time Git touches it\n",
+  "suspicious_locations": [],
+  "limitations": [
+    "El escaneo por patrones no garantiza ausencia universal de secretos.",
+    "Cinco archivos históricos difieren del blob por LF/CRLF preexistente; no se reescriben.",
+    "Renderizado y extracción no sustituyen aceptación humana."
+  ]
+}

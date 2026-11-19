@@ -1,0 +1,74 @@
+{
+  "finished_at": "2026-11-19T03:52:15.497750+00:00",
+  "branch": "taller5/correccion-rubrica",
+  "changed_existing_files_this_phase": [
+    "agents/README.md"
+  ],
+  "preserved_files": 105,
+  "branch_refs_unchanged": true,
+  "staged": [],
+  "pdf_sha256": "4ddb5b4d7eb56d1264ee9bac66a0146e1247eeed57f30d69cba89d05a9137915",
+  "pdf_unchanged": true,
+  "pages": [
+    {
+      "page": 1,
+      "heading": "1. Proyecto y herramienta",
+      "render_sha256": "3a1bb172ad47d8776ec8ae1d90cfbfb7cbe7fef0dfc50c8bb35c1b5f8e06b7a6"
+    },
+    {
+      "page": 2,
+      "heading": "2. Sistema de agentes | tabla de responsabilidades",
+      "render_sha256": "e9d67392de50d208af7165bbbcb0bf84dd864d5c38eaa613290d38d18f0b149f"
+    },
+    {
+      "page": 3,
+      "heading": "2. Sistema de agentes | modelos y permisos mínimos",
+      "render_sha256": "a67c557861d455c3aefc572e81b50c3f9b286c3cfb1369fc30953dd86ea40763"
+    },
+    {
+      "page": 4,
+      "heading": "2. Sistema de agentes | diagrama de estructura",
+      "render_sha256": "bda35117ca8aea1398809a54041d03390832cee37fa86be909b36ae9692d0436"
+    },
+    {
+      "page": 5,
+      "heading": "2. Sistema de agentes | diagrama de flujo y puertas",
+      "render_sha256": "a2adbef4211af48578320c20f972c38086eabf7276d62f9cc5e8c844d82a68f2"
+    },
+    {
+      "page": 6,
+      "heading": "3. Calidad del código | matriz de controles",
+      "render_sha256": "2a75ad614cdee29fc12d9301efc60f1a313948abb172bf642d19b7b58cdbcfa3"
+    },
+    {
+      "page": 7,
+      "heading": "3. Calidad del código | resultados y pendientes",
+      "render_sha256": "21943c4e5c65ee398c4f0ac729d921881244bfea28d681f71851474bfd15ddf6"
+    },
+    {
+      "page": 8,
+      "heading": "4. Diferencias con el sistema de referencia",
+      "render_sha256": "f68c6a866b1418cac7ee272838a6926e60af5bbed1a899658c08707a4a52dfa4"
+    }
+  ],
+  "sections": 4,
+  "links": [
+    "https://github.com/2020morales/opita-360",
+    "https://github.com/2020morales/opita-360/pull/2",
+    "https://github.com/2020morales/opita-360/tree/8cce952bace0763ac5e96208c70e93a304979fb4/docs/taller-5",
+    "https://github.com/777wills/mi-restaurante-ms/tree/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5",
+    "https://github.com/777wills/mi-restaurante-ui/tree/33161da7c19bba7fdd995a502692ca5f69d67214",
+    "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/docs/diagrams/03-patron-orquestador.excalidraw",
+    "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/speckit-custom/presets/implement-orchestrator/commands/speckit.implement.md"
+  ],
+  "source_diff_from_pdf_tests": [
+    "agents/README.md"
+  ],
+  "release_file": "docs/taller-5/cierre-readme/release-569783e81dc04196bed70848989da64a.json",
+  "counts": {
+    "agents": 42,
+    "backend": 8
+  },
+  "diff_check": 0,
+  "diff_check_warnings": "warning: in the working copy of 'agents/README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/browser_checks.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/llm_workflow.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/manifest.v1.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/quality_gates.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/repro_frontend.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/runtime.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/tests/test_quality_gates.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'agents/verify.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/arquitectura.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/auditoria-entrega.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/comparacion-referencia.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/entrega.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/especificacion.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/generar_pdf.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/plan-aprobado.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/resultados.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/revision-hallazgos.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/rubrica.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-5/tareas.md', LF will be replaced by CRLF the next time Git touches it\n"
+}
