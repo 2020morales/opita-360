@@ -16,7 +16,8 @@
         "harness/agents/orquestador.md",
         "AGENTS.md",
         "harness/README.md",
-        "harness/manifest.json"
+        "harness/manifest.json",
+        "docs/taller-6/integracion-final-contexto.json"
       ],
       "write": false,
       "shell": false,
@@ -35,7 +36,16 @@
         "frontend/src/main.jsx",
         "frontend/src/destination-filters.js",
         "frontend/src/styles.css",
-        ".agents/skills/opita-frontend/SKILL.md"
+        ".agents/skills/opita-frontend/SKILL.md",
+        "frontend/src/destination-detail.jsx",
+        "frontend/tests/max-cost.test.js",
+        "frontend/src/favorites.js",
+        "frontend/tests/favorites.test.js",
+        "frontend/src/recommendation-municipality.js",
+        "frontend/tests/recommendation-municipality.test.js",
+        "frontend/src/export-itinerary.js",
+        "frontend/tests/export-itinerary.test.js",
+        "docs/taller-6/integracion-final-contexto.json"
       ],
       "write": false,
       "shell": false,
@@ -55,7 +65,11 @@
         "backend/AGENTS.md",
         "backend/app/main.py",
         "backend/tests/test_api.py",
-        ".agents/skills/opita-backend/SKILL.md"
+        ".agents/skills/opita-backend/SKILL.md",
+        "backend/tests/test_destination_detail.py",
+        "backend/tests/test_recommendation_municipality.py",
+        "docs/taller-6/integracion-final-contexto.json",
+        "backend/tests/test_integrated_features.py"
       ],
       "write": false,
       "shell": false,
@@ -74,7 +88,8 @@
         "harness/core.py",
         "harness/tests/test_harness.py",
         ".agents/skills/brujula-semantica/SKILL.md",
-        "harness/grounding.py"
+        "harness/grounding.py",
+        "docs/taller-6/integracion-final-contexto.json"
       ],
       "write": false,
       "shell": false,
@@ -94,7 +109,8 @@
         "harness/manifest.json",
         "harness/runtime.py",
         "harness/core.py",
-        "harness/grounding.py"
+        "harness/grounding.py",
+        "docs/taller-6/integracion-final-contexto.json"
       ],
       "write": false,
       "shell": false,

@@ -1,0 +1,645 @@
+{
+  "run_id": "b5ea97a1-711f-45fd-820f-ae7a49efebe1",
+  "finished_at": "2026-11-18T02:23:00.236356+00:00",
+  "spec": "001",
+  "mode": "llm",
+  "reports": [
+    {
+      "role": "orquestador",
+      "task": "review-orquestador",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/orquestador.md",
+          "sha256": "d580d8366495f8b936aa985263ccd0d1c339cc7eb16a5fec3fe06b1d447d9a26",
+          "bytes": 994
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "7fc2a2767bf007c8ecbfef2b0cd5e39dff6cae145876fb28a147b6b3ddf32943",
+          "bytes": 5183
+        },
+        {
+          "path": "harness/README.md",
+          "sha256": "61deb80752cd7d1a69a095cc3199aaab1250853533a883b16e890df1d20cfc5c",
+          "bytes": 8360
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "e09fbfc90f2a2304196e13e5cfe9287279b601fe0beaafbe99d67a538d058af6",
+          "bytes": 3719
+        }
+      ],
+      "findings": [
+        "La especificación AC-03 exige HTTP 422 para IDs inválidos (abc, 0, -1), pero la validación de Pydantic en `backend/app/main.py` solo permite enteros positivos; los casos numéricos negativos o cero podrían no generar el código de error correcto si no se define explícitamente un esquema estricto.",
+        "AC-06 y AC-07 dependen de un fallback local para texto cuando la API está bloqueada o falla. El análisis del frontend indica un patrón estático, pero no prueba que el diálogo muestre los campos completos sin desbordamiento ni dependa de conexión externa en todos los escenarios."
+      ],
+      "limitations": [
+        "Los casos de aceptación AC-04 a AC-10 son borradores; la ejecución de pruebas para estas funcionalidades está marcada como no realizada.",
+        "El análisis del frontend confirma un patrón estático, pero no garantiza que el diálogo sea completamente accesible por teclado en todos los tamaños de viewport.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "frontend",
+      "task": "review-frontend",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/frontend.md",
+          "sha256": "ae40febfe784f9ba531b5992b286eaf5f86662493e7bdc9cc930d1a5b826a7bb",
+          "bytes": 989
+        },
+        {
+          "path": "frontend/AGENTS.md",
+          "sha256": "a68bd68b539fa06db5aa49a1684f498d86fb961a9f558cf62cf8f7618c576f0f",
+          "bytes": 859
+        },
+        {
+          "path": "frontend/src/main.jsx",
+          "sha256": "068da3510bbfaa1a3179d4acb2f40f28962e1ad5c2160d0b8693dbcc13b857da",
+          "bytes": 18337
+        },
+        {
+          "path": "frontend/src/destination-filters.js",
+          "sha256": "ed404efe3763c77fbc91286a48c0b081b28fdb1e854191cc69b626f720ca1d05",
+          "bytes": 833
+        },
+        {
+          "path": "frontend/src/styles.css",
+          "sha256": "3144fe0aa758debb7514761c75fdfe2063c1001abe7c0a221ce5dc75706b7298",
+          "bytes": 19371
+        },
+        {
+          "path": ".agents/skills/opita-frontend/SKILL.md",
+          "sha256": "ae8d50fb9af5ae15230c91c8330570802213a0e6f8e87b3d9bb0531f14093b87",
+          "bytes": 1371
+        },
+        {
+          "path": "frontend/src/destination-detail.jsx",
+          "sha256": "b32aa4964fe2f31f6e8b3a56ed30c94ca8e0f9b36bc0c44c510f3d440b76e1d4",
+          "bytes": 3316
+        }
+      ],
+      "findings": [
+        "El componente `DestinationDetail` en `frontend/src/destination-detail.jsx` maneja la carga asíncrona con un temporizador de 5 segundos, pero no implementa el requisito AC-07 de cancelar la petición a los 5 segundos más 1 segundo de tolerancia de prueba (total 6s). El código actual aborta estrictamente al llegar a los 5 segundos (`setTimeout(() => controller.abort(), 5000)`), sin margen para la inc",
+        "certeza de la prueba. Además, no se verifica explícitamente el estado de cancelación antes de mostrar el aviso de fallo. La lógica de fallback en AC-07 requiere que el usuario vea una copia del destino seleccionado con aviso 'Datos del catálogo; detalle no disponible', lo cual ocurre en el `catch`, pero la condición de tiempo excedido no está cubierta por el código actual. El requisito AC-09 sobre"
+      ],
+      "limitations": [
+        "El diálogo no implementa scroll automático ni manejo de desbordamiento horizontal para campos largos, violando AC-10 en viewport 360x800 o 1280x800 si el contenido supera el ancho disponible. El CSS actual no define estilos específicos para `overflow` en el diálogo, y la estructura HTML usa un `<dialog>` estándar que puede comportarse de manera inconsistente sin ajustes explícitos de estilo o JS. ",
+        "La accesibilidad en AC-05 requiere foco inicial en 'Cerrar' y recorrido contenido con Tab/Shift+Tab, pero el código actual solo llama a `closeRef.current.focus()` al abrir y previene Tab para ir directo a cerrar. No se define un orden de tabulación explícito dentro del diálogo ni se asegura que los elementos sean alcanzables por teclado si no son nativos (aunque parecen ser HTML estándar). El foco",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "backend",
+      "task": "review-backend",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/backend.md",
+          "sha256": "ac48ff174e54384bcc5c8e6fd10a2ac83331eae33b2b692564b6d6de8f510d35",
+          "bytes": 984
+        },
+        {
+          "path": "backend/AGENTS.md",
+          "sha256": "4ce801a1fd3c33cd4109ba4be967576b6b0caa794c59e2a626e07dd41561d385",
+          "bytes": 766
+        },
+        {
+          "path": "backend/app/main.py",
+          "sha256": "8a2fd281596130ce8c66b3189806672f45b44d369637f6ca774217fa423199b1",
+          "bytes": 5400
+        },
+        {
+          "path": "backend/tests/test_api.py",
+          "sha256": "5794d395c00386e34e0bfd91d12752180c862107455dcbf1d19be9b09db0493c",
+          "bytes": 4069
+        },
+        {
+          "path": ".agents/skills/opita-backend/SKILL.md",
+          "sha256": "db92ea461477a69f8a22ec8e8a699efc94aa0e2224238998434c3545b3ea2574",
+          "bytes": 1261
+        },
+        {
+          "path": "backend/tests/test_destination_detail.py",
+          "sha256": "5290d8db5095fae69f33cdda6066a3c1a68c18e943c1ac31dfdc0cd36576bd64",
+          "bytes": 1633
+        }
+      ],
+      "findings": [
+        "La ruta GET /api/destinations/{destination_id} valida que el ID sea mayor a 0 mediante Pydantic, devolviendo HTTP 422 para entradas inválidas como 'abc', '0' o '-1'.",
+        "El endpoint devuelve HTTP 404 con detalle 'Destino no encontrado' cuando el ID existe en la ruta pero no coincide con ningún elemento del catálogo en memoria (ej. ID 9999). El código no incluye lógica de fallback ni sustitución de datos."
+      ],
+      "limitations": [
+        "Los criterios AC-04 a AC-10 corresponden a la capa frontend y comportamientos de UX; el backend actual solo gestiona la validación de entrada y la respuesta del catálogo sin implementar lógica de caché, manejo de fallos de red o cierres de diálogo.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "calidad",
+      "task": "review-calidad",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/calidad.md",
+          "sha256": "40df2ea54e5adac5a147801ae2f6b8684387c787d2015a74f4b07718d1945c46",
+          "bytes": 983
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "c29942672abdb660c527a2fce73ab374375cbdcfd228570e82bb89403db8d096",
+          "bytes": 8295
+        },
+        {
+          "path": "harness/tests/test_harness.py",
+          "sha256": "d173c6a7f2f90652d5555ef1ec622aa4d8d7bdaade191acb5267a863b0f416c0",
+          "bytes": 7939
+        },
+        {
+          "path": ".agents/skills/brujula-semantica/SKILL.md",
+          "sha256": "32ecccc4412f680d4ad374b806460e550a52be5d7795174b7f5d1a7389f57a9f",
+          "bytes": 1504
+        },
+        {
+          "path": "harness/grounding.py",
+          "sha256": "d041cf9e405e7ebc16768148b5395d0b624899b355bfeb0e8e73f20872800fd7",
+          "bytes": 8194
+        }
+      ],
+      "findings": [
+        "El criterio AC-04 asume que el botón 'Ver detalle' existe y es accesible, pero la especificación no define su estado inicial ni su localización en el listado. Sin esta precondición explícita, no se puede verificar si el evento de activación ocurre o si el foco se mueve correctamente.",
+        "El criterio AC-06 requiere mostrar un aviso 'Modo demostración' y campos del destino demo cuando la API está bloqueada. La evidencia técnica (`frontend_demo_fallback: true`) confirma patrones en `main.jsx`, pero no prueba que estos mensajes específicos se rendericen ni que el texto sea idéntico al esperado sin conexión externa."
+      ],
+      "limitations": [
+        "La especificación no incluye casos de prueba para la validación de rutas inválidas (AC-03) ni para comportamientos de red fallida (AC-07), a pesar de que los criterios existen en el documento.",
+        "No hay evidencia técnica que confirme la implementación del diálogo accesible con navegación por teclado y cierre correcto (AC-05), ya que solo se verifican patrones estáticos en el frontend.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "seguridad",
+      "task": "review-seguridad",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/seguridad.md",
+          "sha256": "c476565c77bf99bfb670ffc66366247220fa114302dd2c604d37b015b381c0ff",
+          "bytes": 989
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "7fc2a2767bf007c8ecbfef2b0cd5e39dff6cae145876fb28a147b6b3ddf32943",
+          "bytes": 5183
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "e09fbfc90f2a2304196e13e5cfe9287279b601fe0beaafbe99d67a538d058af6",
+          "bytes": 3719
+        },
+        {
+          "path": "harness/runtime.py",
+          "sha256": "e97cecbdfcd5e472b6bc0d3fda5f6fbf437e643e33c29679596fbfa9b4c95554",
+          "bytes": 9402
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "c29942672abdb660c527a2fce73ab374375cbdcfd228570e82bb89403db8d096",
+          "bytes": 8295
+        },
+        {
+          "path": "harness/grounding.py",
+          "sha256": "d041cf9e405e7ebc16768148b5395d0b624899b355bfeb0e8e73f20872800fd7",
+          "bytes": 8194
+        }
+      ],
+      "findings": [
+        "El diseño de la especificación AC-06 y AC-07 asume una conexión API activa, pero el contexto técnico confirma que el frontend implementa un fallback local (useState) para evitar peticiones bloqueadas.",
+        "La implementación del backend muestra validación Pydantic en la clase TripRequest, lo cual es consistente con los requisitos de validación de entrada descritos en AC-03 y AC-07."
+      ],
+      "limitations": [
+        "No se puede verificar el comportamiento del diálogo browser (AC-04 a AC-10) porque las pruebas de ejecución no están registradas ni ejecutadas.",
+        "La especificación define comportamientos complejos de manejo de errores y estados en el navegador que no tienen evidencia técnica en los archivos fuente revisados.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    }
+  ],
+  "traces": [
+    {
+      "role": "orquestador",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "27e2ca27c798ec524f15466cdd3b637141bf9ecc31e389050505c47545576e3f",
+      "response_sha256": "b8cde0745bd38cea2292b2d40c81c3e5caf5cf385b350473f7a194a2a623a470",
+      "eval_count": 386,
+      "response": {
+        "findings": [
+          "La especificación AC-03 exige HTTP 422 para IDs inválidos (abc, 0, -1), pero la validación de Pydantic en `backend/app/main.py` solo permite enteros positivos; los casos numéricos negativos o cero podrían no generar el código de error correcto si no se define explícitamente un esquema estricto.",
+          "AC-06 y AC-07 dependen de un fallback local para texto cuando la API está bloqueada o falla. El análisis del frontend indica un patrón estático, pero no prueba que el diálogo muestre los campos completos sin desbordamiento ni dependa de conexión externa en todos los escenarios."
+        ],
+        "limitations": [
+          "Los casos de aceptación AC-04 a AC-10 son borradores; la ejecución de pruebas para estas funcionalidades está marcada como no realizada.",
+          "El análisis del frontend confirma un patrón estático, pero no garantiza que el diálogo sea completamente accesible por teclado en todos los tamaños de viewport."
+        ],
+        "claims": [
+          {
+            "fact": "pydantic_request_validation",
+            "value": true
+          },
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          },
+          {
+            "fact": "base_checks_passed",
+            "value": true
+          }
+        ],
+        "citations": [
+          {
+            "path": "backend/app/main.py",
+            "line": 1,
+            "quote": "AST BaseModel + Field + typed handler"
+          },
+          {
+            "path": "frontend/src/main.jsx",
+            "line": 1,
+            "quote": "static pattern; not full browser proof"
+          }
+        ]
+      }
+    },
+    {
+      "role": "frontend",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "dd48dcfb2a3f80a49722bcdf5799f30ea5aa322777bcccea9c8aaf59aebacb97",
+      "response_sha256": "d1423cd7c71af590aeaf8b01c977ae17a932dcab967c82ae0b8c892a0202dda2",
+      "eval_count": 472,
+      "response": {
+        "findings": [
+          "El componente `DestinationDetail` en `frontend/src/destination-detail.jsx` maneja la carga asíncrona con un temporizador de 5 segundos, pero no implementa el requisito AC-07 de cancelar la petición a los 5 segundos más 1 segundo de tolerancia de prueba (total 6s). El código actual aborta estrictamente al llegar a los 5 segundos (`setTimeout(() => controller.abort(), 5000)`), sin margen para la inc",
+          "certeza de la prueba. Además, no se verifica explícitamente el estado de cancelación antes de mostrar el aviso de fallo. La lógica de fallback en AC-07 requiere que el usuario vea una copia del destino seleccionado con aviso 'Datos del catálogo; detalle no disponible', lo cual ocurre en el `catch`, pero la condición de tiempo excedido no está cubierta por el código actual. El requisito AC-09 sobre"
+        ],
+        "limitations": [
+          "El diálogo no implementa scroll automático ni manejo de desbordamiento horizontal para campos largos, violando AC-10 en viewport 360x800 o 1280x800 si el contenido supera el ancho disponible. El CSS actual no define estilos específicos para `overflow` en el diálogo, y la estructura HTML usa un `<dialog>` estándar que puede comportarse de manera inconsistente sin ajustes explícitos de estilo o JS. ",
+          "La accesibilidad en AC-05 requiere foco inicial en 'Cerrar' y recorrido contenido con Tab/Shift+Tab, pero el código actual solo llama a `closeRef.current.focus()` al abrir y previene Tab para ir directo a cerrar. No se define un orden de tabulación explícito dentro del diálogo ni se asegura que los elementos sean alcanzables por teclado si no son nativos (aunque parecen ser HTML estándar). El foco"
+        ],
+        "claims": [
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          },
+          {
+            "fact": "pydantic_request_validation",
+            "value": true
+          }
+        ],
+        "citations": []
+      }
+    },
+    {
+      "role": "backend",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "69169d37da4955960344638f7e5912890ccde4f9224104971c290ec777f717e0",
+      "response_sha256": "c07444b93b1f70181c9c50fc4ea4184e6085e3c0919dcace6b97f25cd820d805",
+      "eval_count": 237,
+      "response": {
+        "findings": [
+          "La ruta GET /api/destinations/{destination_id} valida que el ID sea mayor a 0 mediante Pydantic, devolviendo HTTP 422 para entradas inválidas como 'abc', '0' o '-1'.",
+          "El endpoint devuelve HTTP 404 con detalle 'Destino no encontrado' cuando el ID existe en la ruta pero no coincide con ningún elemento del catálogo en memoria (ej. ID 9999). El código no incluye lógica de fallback ni sustitución de datos."
+        ],
+        "limitations": [
+          "Los criterios AC-04 a AC-10 corresponden a la capa frontend y comportamientos de UX; el backend actual solo gestiona la validación de entrada y la respuesta del catálogo sin implementar lógica de caché, manejo de fallos de red o cierres de diálogo."
+        ],
+        "claims": [
+          {
+            "fact": "pydantic_request_validation",
+            "value": true
+          }
+        ],
+        "citations": []
+      }
+    },
+    {
+      "role": "calidad",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "ed10d6234ee8bb9b3a164d6d97f25f4c7a55bf81c34eacbc69b226c4dcc62fc7",
+      "response_sha256": "2e1a8ec45ed02c31c54a93aef04286b7997e68b9bdb0ff77f0a3c6ca6eaa7a8c",
+      "eval_count": 324,
+      "response": {
+        "findings": [
+          "El criterio AC-04 asume que el botón 'Ver detalle' existe y es accesible, pero la especificación no define su estado inicial ni su localización en el listado. Sin esta precondición explícita, no se puede verificar si el evento de activación ocurre o si el foco se mueve correctamente.",
+          "El criterio AC-06 requiere mostrar un aviso 'Modo demostración' y campos del destino demo cuando la API está bloqueada. La evidencia técnica (`frontend_demo_fallback: true`) confirma patrones en `main.jsx`, pero no prueba que estos mensajes específicos se rendericen ni que el texto sea idéntico al esperado sin conexión externa."
+        ],
+        "limitations": [
+          "La especificación no incluye casos de prueba para la validación de rutas inválidas (AC-03) ni para comportamientos de red fallida (AC-07), a pesar de que los criterios existen en el documento.",
+          "No hay evidencia técnica que confirme la implementación del diálogo accesible con navegación por teclado y cierre correcto (AC-05), ya que solo se verifican patrones estáticos en el frontend."
+        ],
+        "claims": [
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          },
+          {
+            "fact": "base_checks_passed",
+            "value": true
+          }
+        ],
+        "citations": []
+      }
+    },
+    {
+      "role": "seguridad",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "f08c20a992ffe740cee9d3ec9e0ce0deb0faf65d05af8bd1640ef76107570375",
+      "response_sha256": "3e5c9e9d2beadec4bb62dfa90059ea6145b9be483944c52b54d535c2a9b77090",
+      "eval_count": 248,
+      "response": {
+        "findings": [
+          "El diseño de la especificación AC-06 y AC-07 asume una conexión API activa, pero el contexto técnico confirma que el frontend implementa un fallback local (useState) para evitar peticiones bloqueadas.",
+          "La implementación del backend muestra validación Pydantic en la clase TripRequest, lo cual es consistente con los requisitos de validación de entrada descritos en AC-03 y AC-07."
+        ],
+        "limitations": [
+          "No se puede verificar el comportamiento del diálogo browser (AC-04 a AC-10) porque las pruebas de ejecución no están registradas ni ejecutadas.",
+          "La especificación define comportamientos complejos de manejo de errores y estados en el navegador que no tienen evidencia técnica en los archivos fuente revisados."
+        ],
+        "claims": [
+          {
+            "fact": "pydantic_request_validation",
+            "value": true
+          },
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          }
+        ],
+        "citations": []
+      }
+    }
+  ],
+  "mcp": [],
+  "technical_facts": {
+    "facts": {
+      "pydantic_request_validation": {
+        "value": true,
+        "source": "backend/app/main.py"
+      },
+      "frontend_demo_fallback": {
+        "value": true,
+        "source": "frontend/src/main.jsx"
+      },
+      "base_checks_passed": {
+        "value": true,
+        "source": "operator_checks"
+      },
+      "spec_implementation_recorded": {
+        "value": true,
+        "source": "specs/taller-6/001-detalle-destino/spec.json"
+      },
+      "spec_tests_executed": {
+        "value": true,
+        "source": "specs/taller-6/001-detalle-destino/spec.json"
+      }
+    },
+    "basis": {
+      "backend": {
+        "sha256": "8a2fd281596130ce8c66b3189806672f45b44d369637f6ca774217fa423199b1",
+        "analysis": "AST BaseModel + Field + typed handler"
+      },
+      "frontend": {
+        "sha256": "068da3510bbfaa1a3179d4acb2f40f28962e1ad5c2160d0b8693dbcc13b857da",
+        "analysis": "static pattern; not full browser proof"
+      }
+    },
+    "distinction": "Checks are regressions of base/harness. Generated spec cases are not implemented or executed.",
+    "source_sha256": {
+      "backend/app/main.py": "8a2fd281596130ce8c66b3189806672f45b44d369637f6ca774217fa423199b1",
+      "frontend/src/main.jsx": "068da3510bbfaa1a3179d4acb2f40f28962e1ad5c2160d0b8693dbcc13b857da"
+    },
+    "limitation": "Spec facts check declared records, not independent proof of feature implementation or test execution."
+  },
+  "claim_audits": [
+    {
+      "role": "orquestador",
+      "claims": [
+        {
+          "fact": "pydantic_request_validation",
+          "claimed": true,
+          "actual": true,
+          "source": "backend/app/main.py",
+          "status": "verified"
+        },
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        },
+        {
+          "fact": "base_checks_passed",
+          "claimed": true,
+          "actual": true,
+          "source": "operator_checks",
+          "status": "verified"
+        }
+      ],
+      "citations": [
+        {
+          "path": "backend/app/main.py",
+          "status": "invalid_or_not_supplied"
+        },
+        {
+          "path": "frontend/src/main.jsx",
+          "status": "invalid_or_not_supplied"
+        }
+      ],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La especificación AC-03 exige HTTP 422 para IDs inválidos (abc, 0, -1), pero la validación de Pydantic en `backend/app/main.py` solo permite enteros positivos; los casos numéricos negativos o cero podrían no generar el código de error correcto si no se define explícitamente un esquema estricto.",
+        "AC-06 y AC-07 dependen de un fallback local para texto cuando la API está bloqueada o falla. El análisis del frontend indica un patrón estático, pero no prueba que el diálogo muestre los campos completos sin desbordamiento ni dependa de conexión externa en todos los escenarios."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "frontend",
+      "claims": [
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        },
+        {
+          "fact": "pydantic_request_validation",
+          "claimed": true,
+          "actual": true,
+          "source": "backend/app/main.py",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "El componente `DestinationDetail` en `frontend/src/destination-detail.jsx` maneja la carga asíncrona con un temporizador de 5 segundos, pero no implementa el requisito AC-07 de cancelar la petición a los 5 segundos más 1 segundo de tolerancia de prueba (total 6s). El código actual aborta estrictamente al llegar a los 5 segundos (`setTimeout(() => controller.abort(), 5000)`), sin margen para la inc",
+        "certeza de la prueba. Además, no se verifica explícitamente el estado de cancelación antes de mostrar el aviso de fallo. La lógica de fallback en AC-07 requiere que el usuario vea una copia del destino seleccionado con aviso 'Datos del catálogo; detalle no disponible', lo cual ocurre en el `catch`, pero la condición de tiempo excedido no está cubierta por el código actual. El requisito AC-09 sobre"
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "backend",
+      "claims": [
+        {
+          "fact": "pydantic_request_validation",
+          "claimed": true,
+          "actual": true,
+          "source": "backend/app/main.py",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La ruta GET /api/destinations/{destination_id} valida que el ID sea mayor a 0 mediante Pydantic, devolviendo HTTP 422 para entradas inválidas como 'abc', '0' o '-1'.",
+        "El endpoint devuelve HTTP 404 con detalle 'Destino no encontrado' cuando el ID existe en la ruta pero no coincide con ningún elemento del catálogo en memoria (ej. ID 9999). El código no incluye lógica de fallback ni sustitución de datos."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "calidad",
+      "claims": [
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        },
+        {
+          "fact": "base_checks_passed",
+          "claimed": true,
+          "actual": true,
+          "source": "operator_checks",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "El criterio AC-04 asume que el botón 'Ver detalle' existe y es accesible, pero la especificación no define su estado inicial ni su localización en el listado. Sin esta precondición explícita, no se puede verificar si el evento de activación ocurre o si el foco se mueve correctamente.",
+        "El criterio AC-06 requiere mostrar un aviso 'Modo demostración' y campos del destino demo cuando la API está bloqueada. La evidencia técnica (`frontend_demo_fallback: true`) confirma patrones en `main.jsx`, pero no prueba que estos mensajes específicos se rendericen ni que el texto sea idéntico al esperado sin conexión externa."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "seguridad",
+      "claims": [
+        {
+          "fact": "pydantic_request_validation",
+          "claimed": true,
+          "actual": true,
+          "source": "backend/app/main.py",
+          "status": "verified"
+        },
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "El diseño de la especificación AC-06 y AC-07 asume una conexión API activa, pero el contexto técnico confirma que el frontend implementa un fallback local (useState) para evitar peticiones bloqueadas.",
+        "La implementación del backend muestra validación Pydantic en la clase TripRequest, lo cual es consistente con los requisitos de validación de entrada descritos en AC-03 y AC-07."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    }
+  ],
+  "stage_events": [
+    {
+      "role": "orquestador",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T02:15:50.382753+00:00",
+      "payload_chars": 9921,
+      "finished_at": "2026-11-18T02:17:18.242283+00:00",
+      "elapsed_seconds": 87.844,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "frontend",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T02:17:18.265655+00:00",
+      "payload_chars": 18887,
+      "finished_at": "2026-11-18T02:19:06.641614+00:00",
+      "elapsed_seconds": 108.344,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "backend",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T02:19:06.668232+00:00",
+      "payload_chars": 14434,
+      "finished_at": "2026-11-18T02:20:07.757799+00:00",
+      "elapsed_seconds": 61.078,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "calidad",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T02:20:07.787732+00:00",
+      "payload_chars": 20415,
+      "finished_at": "2026-11-18T02:21:37.787965+00:00",
+      "elapsed_seconds": 89.969,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "seguridad",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T02:21:37.818217+00:00",
+      "payload_chars": 24280,
+      "finished_at": "2026-11-18T02:23:00.150887+00:00",
+      "elapsed_seconds": 82.313,
+      "exit_code": 0,
+      "status": "passed"
+    }
+  ],
+  "elapsed_seconds": 429.938,
+  "total_limit_seconds": 600,
+  "code_modified": false,
+  "checks_source": "docs/taller-6/ejecuciones/20261118T021523Z-1e06f9bf/checks.json",
+  "context_selection": "symbols_and_line_ranges",
+  "approval": "operator_assertion_not_identity",
+  "next_gate": "human_review"
+}

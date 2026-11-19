@@ -1,0 +1,9 @@
+{
+  "operation": "final_report_link",
+  "source": "Operator observation of preceding failed command, not an application test.",
+  "status": "failed_then_corrected",
+  "error_type": "ValueError",
+  "message": "Absolute saved audit path was made relative to a relative docs path. The audit was already saved; final paragraph was not written.",
+  "fix": "Use explicit repository-relative report link.",
+  "application_or_test_sources_modified": false
+}

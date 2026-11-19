@@ -1,5 +1,13 @@
-# PR 004
+# PR preparado — S04 / 004
 
-Estado: no creado. URL: pendiente. Rama futura: taller6/004-recomendaciones-municipio. Base final: main, tras integrar la base comun mediante revision autorizada.
+Rama taller6/004-filtro-municipio, base main. Desde 0985273541e21579009cb6179546b9f3db845f7e, sin incorporar S01–S03. Estado: implementación y pruebas locales; publicación/PR pendientes.
 
-Incluir problema, comportamiento, criterios, comandos, enlaces a ejecuciones y limites. El PDF pide el texto «Spec revisada por el profesor»; registrarlo como texto requerido no demuestra que el docente haya revisado el PR. Confirmar esa revision antes de atribuirla. No hay autorizacion actual para commit, push o merge.
+Título: feat(S04): restringir recomendaciones por municipio.
+
+Descripción futura: campo opcional validado, candidatos locales antes de intereses/fallback, compatibilidad y presupuesto conservados, selector independiente y demo. Factor Ámbar aprobado 5/9. Evidencias y trazabilidad en docs/taller-6/s04-resultados.md. No modificar históricos ni fusionar automáticamente.
+
+Si el conector vuelve a rechazar la creación con 403, registrar respuesta real y facilitar comparación, sin inventar número/URL. Texto exigido: «Spec revisada por el profesor»; no hay revisión docente acreditada.
+
+## Estado observado en el ensayo de integración
+
+PR real: https://github.com/2020morales/opita-360/pull/8. Continúa abierto; esta combinación es local, sin merge del PR ni aceptación docente acreditada. El bloqueo histórico del conector no significa que el PR siga sin existir. Resultados conjuntos: docs/taller-6/integracion-final-resultados.md.

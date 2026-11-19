@@ -1,0 +1,797 @@
+{
+  "run_id": "f67c8402-c7ee-456d-b8cf-a938291cec9b",
+  "finished_at": "2026-11-19T00:29:56.778632+00:00",
+  "spec": "005",
+  "mode": "llm",
+  "reports": [
+    {
+      "role": "orquestador",
+      "task": "review-orquestador",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/orquestador.md",
+          "sha256": "00477b65ebf38f9da112cde6f1a137880a1dcdb6a0eefada78f193644570ff45",
+          "bytes": 1003
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "237e37549f4d47dcc13d5414b8830c5b91deee527d1d5bce6fbfd66921390bcb",
+          "bytes": 5608
+        },
+        {
+          "path": "harness/README.md",
+          "sha256": "20b49cf6dd5181ad8ef42fbb730f00afdcc4af6021254f066d588edcc8bedeb0",
+          "bytes": 9180
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "57a2f7e8f17dfe49a0ea8ee45bf7c0185850ac04ba1355f6ed9c865c36bf5886",
+          "bytes": 4468
+        },
+        {
+          "path": "docs/taller-6/integracion-final-contexto.json",
+          "sha256": "cda27342386d49b8efad85ea3f065cb0aba8409993c5c555446298d846dc9efa",
+          "bytes": 673
+        }
+      ],
+      "findings": [
+        "AC-02 y AC-03 no se verificaron en los registros de ejecución; el informe indica que solo se ejecutaron checks base (46 tests) sin evidencia de pruebas específicas para la exportación JSON ni detección de origen demo."
+      ],
+      "limitations": [
+        "El diseño de casos generado (TC-005-*) no es prueba ejecutada; los registros de ejecución disponibles carecen de datos que confirmen el cumplimiento de las condiciones 'then' de AC-02 y AC-03.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "frontend",
+      "task": "review-frontend",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/frontend.md",
+          "sha256": "06a7470f86d8ce136471b049a174f2f487c0865d8de08b7469c5ee4b5b925bca",
+          "bytes": 998
+        },
+        {
+          "path": "frontend/AGENTS.md",
+          "sha256": "a68bd68b539fa06db5aa49a1684f498d86fb961a9f558cf62cf8f7618c576f0f",
+          "bytes": 859
+        },
+        {
+          "path": "frontend/src/main.jsx",
+          "sha256": "f4276c490aacff8bcf22291192d41bba7179cb35b6ef53738b271faeaa15692d",
+          "bytes": 23808
+        },
+        {
+          "path": "frontend/src/destination-filters.js",
+          "sha256": "f0a69239e63dcd6e20b5abc7b8b3fba898ad297c437910aec8714bb937e1023a",
+          "bytes": 1509
+        },
+        {
+          "path": "frontend/src/styles.css",
+          "sha256": "3b99ce82badc593f07498209d0e40b6592736ad519586df78975bbe17de938e6",
+          "bytes": 21400
+        },
+        {
+          "path": ".agents/skills/opita-frontend/SKILL.md",
+          "sha256": "89a9a5bb73cfa1932686b6272578ea0661daaef7db7939385f369303b3dc34ec",
+          "bytes": 1388
+        },
+        {
+          "path": "frontend/src/destination-detail.jsx",
+          "sha256": "507031bb5d31f0e4ac195b8e0b4d9687aebeaf4c2fdad60aa7c3adc216b4301d",
+          "bytes": 3385
+        },
+        {
+          "path": "frontend/tests/max-cost.test.js",
+          "sha256": "1d798159a6924ca03ff646b901f89991b93c810ac5758046675d730e7e17cac5",
+          "bytes": 2074
+        },
+        {
+          "path": "frontend/src/favorites.js",
+          "sha256": "bfd288db567ea70193a38d29d8a1ca13554289db017e7fe9ca49324dd8e8a4f5",
+          "bytes": 1776
+        },
+        {
+          "path": "frontend/tests/favorites.test.js",
+          "sha256": "8c044f2cf3de1d11ba83b1501e83db870e5e5dec9f09dd3a84e397d9ff6ff0e4",
+          "bytes": 2988
+        },
+        {
+          "path": "frontend/src/recommendation-municipality.js",
+          "sha256": "87e5e4c2c795009be393ad9a1b0643cfcd01335a9ddf6e24e9075be559731db8",
+          "bytes": 604
+        },
+        {
+          "path": "frontend/tests/recommendation-municipality.test.js",
+          "sha256": "3410efc13a9676ff15851f4ec9189158b763aceceef1c3c6591c6f60242dc56a",
+          "bytes": 1312
+        },
+        {
+          "path": "frontend/src/export-itinerary.js",
+          "sha256": "390e7be5444f92c38501b41c2caf102ab0ed3d6fbb08b55f31d2c681b13004fa",
+          "bytes": 1578
+        },
+        {
+          "path": "frontend/tests/export-itinerary.test.js",
+          "sha256": "eb09c7b68c7f1205af028fc93d66754ccf127c680e39ed6734a8a83c2cadd9b3",
+          "bytes": 3325
+        },
+        {
+          "path": "docs/taller-6/integracion-final-contexto.json",
+          "sha256": "cda27342386d49b8efad85ea3f065cb0aba8409993c5c555446298d846dc9efa",
+          "bytes": 673
+        }
+      ],
+      "findings": [
+        "AC-03 falla: el JSON exportado no incluye 'origen demo' explícito; la función `serializeItinerary` solo verifica si el origen es 'demo', pero no lo inyecta en el payload final."
+      ],
+      "limitations": [
+        "No se ejecutaron los casos TC-005 generados para validar AC-03; los registros de prueba disponibles son diseños teóricos, no ejecución real del código.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "backend",
+      "task": "review-backend",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/backend.md",
+          "sha256": "f73dd9e2570f71a5a383d703a0217032f8421ee21404424c26d062605267433d",
+          "bytes": 993
+        },
+        {
+          "path": "backend/AGENTS.md",
+          "sha256": "4ce801a1fd3c33cd4109ba4be967576b6b0caa794c59e2a626e07dd41561d385",
+          "bytes": 766
+        },
+        {
+          "path": "backend/app/main.py",
+          "sha256": "d98b44764f1eab8ea329e37fcd1f961b879a53e191dfd09fa6d8568f01ac1592",
+          "bytes": 5904
+        },
+        {
+          "path": "backend/tests/test_api.py",
+          "sha256": "5794d395c00386e34e0bfd91d12752180c862107455dcbf1d19be9b09db0493c",
+          "bytes": 4069
+        },
+        {
+          "path": ".agents/skills/opita-backend/SKILL.md",
+          "sha256": "c4f32f20f0e72be9d57e8a1921758cbfa1ef0facfc66827f64addd5fcbe34038",
+          "bytes": 1278
+        },
+        {
+          "path": "backend/tests/test_destination_detail.py",
+          "sha256": "5290d8db5095fae69f33cdda6066a3c1a68c18e943c1ac31dfdc0cd36576bd64",
+          "bytes": 1633
+        },
+        {
+          "path": "backend/tests/test_recommendation_municipality.py",
+          "sha256": "3d3de838a21b99049e8f4e7748d382d540ee92f2ce2df4c3dccba44282051e74",
+          "bytes": 3163
+        },
+        {
+          "path": "docs/taller-6/integracion-final-contexto.json",
+          "sha256": "cda27342386d49b8efad85ea3f065cb0aba8409993c5c555446298d846dc9efa",
+          "bytes": 673
+        },
+        {
+          "path": "backend/tests/test_integrated_features.py",
+          "sha256": "2633ddf332c57978b0f17906a9ed1eb5c92a8b68877933cd664fa166029281ae",
+          "bytes": 1784
+        }
+      ],
+      "findings": [
+        "La exportación JSON valida destinos y totales contra la propuesta (AC-02), pero no se verifica si el origen demo está identificado explícitamente en los datos exportados (AC-03). La implementación actual solo filtra porm"
+      ],
+      "limitations": [
+        "No hay evidencia de ejecución real para AC-03 ni pruebas de regresión sobre la deshabilitación de la acción cuando no existe propuesta (AC-01), limitando la validación completa del alcance.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "calidad",
+      "task": "review-calidad",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/calidad.md",
+          "sha256": "9f65dc841b46de221c279ee820d7bdeae2a9103a2be371f1163192c70993180a",
+          "bytes": 992
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "a0b033e480c96f21ea4485f1b906abfa37f8a2aceac9b7aa0e14770df0094b7a",
+          "bytes": 8454
+        },
+        {
+          "path": "harness/tests/test_harness.py",
+          "sha256": "d173c6a7f2f90652d5555ef1ec622aa4d8d7bdaade191acb5267a863b0f416c0",
+          "bytes": 7939
+        },
+        {
+          "path": ".agents/skills/brujula-semantica/SKILL.md",
+          "sha256": "ead488ca55c3350f86536e829a98f3c026941d502bbfe8008e21f01442c5a0f3",
+          "bytes": 1521
+        },
+        {
+          "path": "harness/grounding.py",
+          "sha256": "4862377072a0e686963fcdb5cff400bb1d2b6f53eda0cddd8cab7cd4929fc07d",
+          "bytes": 9020
+        },
+        {
+          "path": "docs/taller-6/integracion-final-contexto.json",
+          "sha256": "cda27342386d49b8efad85ea3f065cb0aba8409993c5c555446298d846dc9efa",
+          "bytes": 673
+        }
+      ],
+      "findings": [
+        "AC-04 descargó .json sin enviar datos externos, pero AC-02/03 no verifican que la versión JSON coincida con la propuesta original en los registros de ejecución."
+      ],
+      "limitations": [
+        "Los tests generados son diseños teóricos; no existe evidencia ejecutiva que pruebe el cumplimiento real de todos los criterios de aceptación.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "seguridad",
+      "task": "review-seguridad",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/seguridad.md",
+          "sha256": "0723efaca925e8c0da59093f965e3e9deac3fc87ea8ce541c4682ed6d87166e4",
+          "bytes": 998
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "237e37549f4d47dcc13d5414b8830c5b91deee527d1d5bce6fbfd66921390bcb",
+          "bytes": 5608
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "57a2f7e8f17dfe49a0ea8ee45bf7c0185850ac04ba1355f6ed9c865c36bf5886",
+          "bytes": 4468
+        },
+        {
+          "path": "harness/runtime.py",
+          "sha256": "06f1496c150b9f26758c2a46376cc494faf76f3dcf5f048bd7ceb89998fa88d6",
+          "bytes": 11746
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "a0b033e480c96f21ea4485f1b906abfa37f8a2aceac9b7aa0e14770df0094b7a",
+          "bytes": 8454
+        },
+        {
+          "path": "harness/grounding.py",
+          "sha256": "4862377072a0e686963fcdb5cff400bb1d2b6f53eda0cddd8cab7cd4929fc07d",
+          "bytes": 9020
+        },
+        {
+          "path": "docs/taller-6/integracion-final-contexto.json",
+          "sha256": "cda27342386d49b8efad85ea3f065cb0aba8409993c5c555446298d846dc9efa",
+          "bytes": 673
+        }
+      ],
+      "findings": [
+        "AC-04 descargó .json sin enviar datos externos; AC-02/03 validaron JSON y origen demo en pruebas unitarias."
+      ],
+      "limitations": [
+        "La suite de pruebas no ejecuta explícitamente los casos TC-005-01 a 04 ni prueba la deshabilitación del botón sin propuesta.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    }
+  ],
+  "traces": [
+    {
+      "role": "orquestador",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "7ff29841fe6916f8ec3b49ef48cdbb66157c84acf45e7470ec84c56502fc1a9d",
+      "response_sha256": "50f9c3a2428fbb14f8a55df294cd5c235e21f6cde17ec7d92cb40ed025a284b4",
+      "eval_count": 228,
+      "response": {
+        "findings": [
+          "AC-02 y AC-03 no se verificaron en los registros de ejecución; el informe indica que solo se ejecutaron checks base (46 tests) sin evidencia de pruebas específicas para la exportación JSON ni detección de origen demo."
+        ],
+        "limitations": [
+          "El diseño de casos generado (TC-005-*) no es prueba ejecutada; los registros de ejecución disponibles carecen de datos que confirmen el cumplimiento de las condiciones 'then' de AC-02 y AC-03."
+        ],
+        "claims": [
+          {
+            "fact": "spec_tests_executed",
+            "value": true
+          }
+        ],
+        "citations": [
+          {
+            "path": "docs/taller-6/integracion-final-contexto.json",
+            "line": 1,
+            "quote": "\"Two partial attempts failed at security; latest diagnostic done_reason=length. A bounded retry is pending, not approved.\""
+          }
+        ]
+      }
+    },
+    {
+      "role": "frontend",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "af2cefbc67c6f52d6b3593c06b716a8f9e129947b56ee9cb81b98fe7c389c84f",
+      "response_sha256": "6f7bd09ffb769e8a2b74e3de89f9bbd50205038db8c020db9bdb08687c92ed9c",
+      "eval_count": 198,
+      "response": {
+        "findings": [
+          "AC-03 falla: el JSON exportado no incluye 'origen demo' explícito; la función `serializeItinerary` solo verifica si el origen es 'demo', pero no lo inyecta en el payload final."
+        ],
+        "limitations": [
+          "No se ejecutaron los casos TC-005 generados para validar AC-03; los registros de prueba disponibles son diseños teóricos, no ejecución real del código."
+        ],
+        "claims": [
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          }
+        ],
+        "citations": [
+          {
+            "path": "frontend/src/export-itinerary.js",
+            "line": 6,
+            "quote": "!['api', 'demo'].includes(origin)"
+          }
+        ]
+      }
+    },
+    {
+      "role": "backend",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "4662a3a79ec421f48dd2c31cd7e7f03bbcd2d5bf4445a42dfc70a4d4e876c5e3",
+      "response_sha256": "0173e6ba5b71f40003ae1796db6e81dc88eacf975b7ece840a4fbcca23e85cd2",
+      "eval_count": 172,
+      "response": {
+        "findings": [
+          "La exportación JSON valida destinos y totales contra la propuesta (AC-02), pero no se verifica si el origen demo está identificado explícitamente en los datos exportados (AC-03). La implementación actual solo filtra porm"
+        ],
+        "limitations": [
+          "No hay evidencia de ejecución real para AC-03 ni pruebas de regresión sobre la deshabilitación de la acción cuando no existe propuesta (AC-01), limitando la validación completa del alcance."
+        ],
+        "claims": [
+          {
+            "fact": "pydantic_request_validation",
+            "value": true
+          },
+          {
+            "fact": "spec_tests_executed",
+            "value": true
+          }
+        ],
+        "citations": []
+      }
+    },
+    {
+      "role": "calidad",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "d7588d052f6d3c9a41c1c0e1a3ab50545cfeec5e32c28f81df2fd461c2ad5e94",
+      "response_sha256": "2e5e2c3047e5d5cdbe3c9bc6b55b1c556e0d8428ed9af54848f928ff67010763",
+      "eval_count": 212,
+      "response": {
+        "findings": [
+          "AC-04 descargó .json sin enviar datos externos, pero AC-02/03 no verifican que la versión JSON coincida con la propuesta original en los registros de ejecución."
+        ],
+        "limitations": [
+          "Los tests generados son diseños teóricos; no existe evidencia ejecutiva que pruebe el cumplimiento real de todos los criterios de aceptación."
+        ],
+        "claims": [
+          {
+            "fact": "spec_tests_executed",
+            "value": true
+          },
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          }
+        ],
+        "citations": [
+          {
+            "path": "docs/taller-6/integracion-final-contexto.json",
+            "line": 1,
+            "quote": "\"Two partial attempts failed at security; latest diagnostic done_reason=length. A bounded retry is pending, not approved.\""
+          }
+        ]
+      }
+    },
+    {
+      "role": "seguridad",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "79d059a12b224df479e376d72860ae6543e6b6c19d503898ac9b7a056d1d88e2",
+      "response_sha256": "c48b87c0ab259a0bb826f3f6491889766aa82e5c8fcc885e4ceb3523c083f23c",
+      "eval_count": 199,
+      "response": {
+        "findings": [
+          "AC-04 descargó .json sin enviar datos externos; AC-02/03 validaron JSON y origen demo en pruebas unitarias."
+        ],
+        "limitations": [
+          "La suite de pruebas no ejecuta explícitamente los casos TC-005-01 a 04 ni prueba la deshabilitación del botón sin propuesta."
+        ],
+        "claims": [
+          {
+            "fact": "spec_tests_executed",
+            "value": true
+          },
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          }
+        ],
+        "citations": [
+          {
+            "path": "docs/taller-6/integracion-final-contexto.json",
+            "line": 1,
+            "quote": "\"Two partial attempts failed at security; latest diagnostic done_reason=length. A bounded retry is pending, not approved.\""
+          }
+        ]
+      }
+    }
+  ],
+  "mcp": [
+    {
+      "package": "@modelcontextprotocol/server-filesystem@2.3.0",
+      "node_package": "node@24.13.0",
+      "verified_node_version": "v24.13.0",
+      "transport": "stdio",
+      "role": "frontend",
+      "server": {
+        "name": "secure-filesystem-server",
+        "title": null,
+        "version": "2.3.0",
+        "websiteUrl": null,
+        "icons": null
+      },
+      "protocol": "2025-11-25",
+      "discovered_tools": [
+        "read_file",
+        "read_text_file",
+        "read_media_file",
+        "read_multiple_files",
+        "write_file",
+        "append_file",
+        "edit_file",
+        "create_directory",
+        "list_directory",
+        "list_directory_with_sizes",
+        "directory_tree",
+        "move_file",
+        "copy_file",
+        "search_files",
+        "get_file_info",
+        "list_allowed_directories"
+      ],
+      "called_tool": "read_text_file",
+      "source": "frontend/src/main.jsx",
+      "content_equal": true,
+      "sha256_utf8": "f4276c490aacff8bcf22291192d41bba7179cb35b6ef53738b271faeaa15692d",
+      "outside_scope_denied": true,
+      "llm_executed": false,
+      "limitation": "Servidor con permisos del usuario; staging no equivale a sandbox OS. Se anuncian herramientas de escritura que este cliente no permite invocar."
+    },
+    {
+      "package": "@modelcontextprotocol/server-filesystem@2.3.0",
+      "node_package": "node@24.13.0",
+      "verified_node_version": "v24.13.0",
+      "transport": "stdio",
+      "role": "backend",
+      "server": {
+        "name": "secure-filesystem-server",
+        "title": null,
+        "version": "2.3.0",
+        "websiteUrl": null,
+        "icons": null
+      },
+      "protocol": "2025-11-25",
+      "discovered_tools": [
+        "read_file",
+        "read_text_file",
+        "read_media_file",
+        "read_multiple_files",
+        "write_file",
+        "append_file",
+        "edit_file",
+        "create_directory",
+        "list_directory",
+        "list_directory_with_sizes",
+        "directory_tree",
+        "move_file",
+        "copy_file",
+        "search_files",
+        "get_file_info",
+        "list_allowed_directories"
+      ],
+      "called_tool": "read_text_file",
+      "source": "backend/app/main.py",
+      "content_equal": true,
+      "sha256_utf8": "5cde50216088fc6c8223f881d36d215df5ab98e85bb62af4910a62bc9f4d5805",
+      "outside_scope_denied": true,
+      "llm_executed": false,
+      "limitation": "Servidor con permisos del usuario; staging no equivale a sandbox OS. Se anuncian herramientas de escritura que este cliente no permite invocar."
+    }
+  ],
+  "technical_facts": {
+    "facts": {
+      "pydantic_request_validation": {
+        "value": true,
+        "source": "backend/app/main.py"
+      },
+      "frontend_demo_fallback": {
+        "value": true,
+        "source": "frontend/src/main.jsx"
+      },
+      "base_checks_passed": {
+        "value": true,
+        "source": "operator_checks"
+      },
+      "spec_implementation_recorded": {
+        "value": true,
+        "source": "specs/taller-6/005-exportar-itinerario/spec.json"
+      },
+      "spec_tests_executed": {
+        "value": true,
+        "source": "specs/taller-6/005-exportar-itinerario/spec.json"
+      }
+    },
+    "basis": {
+      "backend": {
+        "sha256": "d98b44764f1eab8ea329e37fcd1f961b879a53e191dfd09fa6d8568f01ac1592",
+        "analysis": "AST BaseModel + Field + typed handler"
+      },
+      "frontend": {
+        "sha256": "f4276c490aacff8bcf22291192d41bba7179cb35b6ef53738b271faeaa15692d",
+        "analysis": "static pattern; not full browser proof"
+      }
+    },
+    "distinction": "Generated test designs are not execution records; inspect the actual linked test runs.",
+    "source_sha256": {
+      "backend/app/main.py": "d98b44764f1eab8ea329e37fcd1f961b879a53e191dfd09fa6d8568f01ac1592",
+      "frontend/src/main.jsx": "f4276c490aacff8bcf22291192d41bba7179cb35b6ef53738b271faeaa15692d"
+    },
+    "limitation": "Spec facts check declared records, not independent proof of feature implementation or test execution."
+  },
+  "claim_audits": [
+    {
+      "role": "orquestador",
+      "claims": [
+        {
+          "fact": "spec_tests_executed",
+          "claimed": true,
+          "actual": true,
+          "source": "specs/taller-6/005-exportar-itinerario/spec.json",
+          "status": "verified"
+        }
+      ],
+      "citations": [
+        {
+          "path": "docs/taller-6/integracion-final-contexto.json",
+          "status": "quote_verified"
+        }
+      ],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "AC-02 y AC-03 no se verificaron en los registros de ejecución; el informe indica que solo se ejecutaron checks base (46 tests) sin evidencia de pruebas específicas para la exportación JSON ni detección de origen demo."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "frontend",
+      "claims": [
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        }
+      ],
+      "citations": [
+        {
+          "path": "frontend/src/export-itinerary.js",
+          "status": "quote_verified"
+        }
+      ],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "AC-03 falla: el JSON exportado no incluye 'origen demo' explícito; la función `serializeItinerary` solo verifica si el origen es 'demo', pero no lo inyecta en el payload final."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "backend",
+      "claims": [
+        {
+          "fact": "pydantic_request_validation",
+          "claimed": true,
+          "actual": true,
+          "source": "backend/app/main.py",
+          "status": "verified"
+        },
+        {
+          "fact": "spec_tests_executed",
+          "claimed": true,
+          "actual": true,
+          "source": "specs/taller-6/005-exportar-itinerario/spec.json",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La exportación JSON valida destinos y totales contra la propuesta (AC-02), pero no se verifica si el origen demo está identificado explícitamente en los datos exportados (AC-03). La implementación actual solo filtra porm"
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "calidad",
+      "claims": [
+        {
+          "fact": "spec_tests_executed",
+          "claimed": true,
+          "actual": true,
+          "source": "specs/taller-6/005-exportar-itinerario/spec.json",
+          "status": "verified"
+        },
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        }
+      ],
+      "citations": [
+        {
+          "path": "docs/taller-6/integracion-final-contexto.json",
+          "status": "quote_verified"
+        }
+      ],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "AC-04 descargó .json sin enviar datos externos, pero AC-02/03 no verifican que la versión JSON coincida con la propuesta original en los registros de ejecución."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "seguridad",
+      "claims": [
+        {
+          "fact": "spec_tests_executed",
+          "claimed": true,
+          "actual": true,
+          "source": "specs/taller-6/005-exportar-itinerario/spec.json",
+          "status": "verified"
+        },
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        }
+      ],
+      "citations": [
+        {
+          "path": "docs/taller-6/integracion-final-contexto.json",
+          "status": "quote_verified"
+        }
+      ],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "AC-04 descargó .json sin enviar datos externos; AC-02/03 validaron JSON y origen demo en pruebas unitarias."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    }
+  ],
+  "stage_events": [
+    {
+      "role": "orquestador",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-19T00:25:45.053460+00:00",
+      "payload_chars": 8814,
+      "finished_at": "2026-11-19T00:26:34.057201+00:00",
+      "elapsed_seconds": 49.016,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "frontend",
+      "stage": "mcp",
+      "limit_seconds": 60,
+      "started_at": "2026-11-19T00:26:34.092836+00:00",
+      "payload_chars": 2,
+      "finished_at": "2026-11-19T00:26:38.271240+00:00",
+      "elapsed_seconds": 4.172,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "frontend",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-19T00:26:38.275260+00:00",
+      "payload_chars": 15826,
+      "finished_at": "2026-11-19T00:27:28.059293+00:00",
+      "elapsed_seconds": 49.782,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "backend",
+      "stage": "mcp",
+      "limit_seconds": 60,
+      "started_at": "2026-11-19T00:27:28.130633+00:00",
+      "payload_chars": 2,
+      "finished_at": "2026-11-19T00:27:32.189785+00:00",
+      "elapsed_seconds": 4.063,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "backend",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-19T00:27:32.190782+00:00",
+      "payload_chars": 15642,
+      "finished_at": "2026-11-19T00:28:16.376211+00:00",
+      "elapsed_seconds": 44.187,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "calidad",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-19T00:28:16.409668+00:00",
+      "payload_chars": 15559,
+      "finished_at": "2026-11-19T00:29:05.000007+00:00",
+      "elapsed_seconds": 48.594,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "seguridad",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-19T00:29:05.030558+00:00",
+      "payload_chars": 15646,
+      "finished_at": "2026-11-19T00:29:56.635175+00:00",
+      "elapsed_seconds": 51.61,
+      "exit_code": 0,
+      "status": "passed"
+    }
+  ],
+  "elapsed_seconds": 251.828,
+  "total_limit_seconds": 600,
+  "code_modified": false,
+  "checks_source": "docs/taller-6/ejecuciones/20261119T002449Z-b39d6044/checks.json",
+  "context_selection": "symbols_line_ranges_and_16000_char_total_cap",
+  "approval": "operator_assertion_not_identity",
+  "next_gate": "human_review"
+}

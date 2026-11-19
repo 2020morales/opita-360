@@ -1,0 +1,15 @@
+{
+  "spec": "004",
+  "branch": "taller6/004-filtro-municipio",
+  "base": "0985273541e21579009cb6179546b9f3db845f7e",
+  "checks": "docs/taller-6/ejecuciones/20261118T070153Z-d6638cd3/checks.json",
+  "checks_snapshot_current": true,
+  "protected_changes": [],
+  "excluded_count": 16,
+  "staged": [],
+  "s01_s02_s03_incorporated": false,
+  "notes": [
+    "Scope: optional locality API plus independent planner selector and demo.",
+    "Budget policy preserved; no main merge."
+  ]
+}

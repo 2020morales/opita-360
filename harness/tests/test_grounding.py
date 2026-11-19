@@ -9,6 +9,10 @@ from harness.stages import StageTimeout, execute_stage
 class GroundingTests(unittest.TestCase):
     def setUp(self):
         self.spec, _ = core.load_spec("001")
+        # A draft fixture must not depend on the lifecycle of the real S01.
+        self.spec = copy.deepcopy(self.spec)
+        self.spec["implementation"] = "not_started"
+        self.spec["test_runs"] = []
         self.facts = technical_facts(self.spec, None)
 
     def test_pydantic_model_and_typed_handler_are_found(self):
@@ -70,7 +74,23 @@ class GroundingTests(unittest.TestCase):
         facts = technical_facts(self.spec, record)
         self.assertTrue(facts["facts"]["base_checks_passed"]["value"])
         self.assertFalse(facts["facts"]["spec_tests_executed"]["value"])
-        self.assertEqual(test_summary(record)["new_feature_tests"], "not_executed")
+        self.assertEqual(test_summary(record)["new_feature_tests"], "not_determined_by_suite_summary")
+
+    def test_javascript_context_keeps_storage_error_recovery(self):
+        source = next(s for s in core.context("frontend") if s["path"] == "frontend/src/favorites.js")
+        selected = select_source(source)
+        text = "\n".join(e["text"] for e in selected["excerpts"])
+        for token in ("JSON.parse(raw)", "saveFavorites", "catch { return { saved: false", "toggleFavorite"):
+            self.assertIn(token, text)
+
+    def test_missing_suite_summary_does_not_deny_external_feature_runs(self):
+        # Browser/operator reports can exist independently of a base check summary.
+        summary = test_summary(None)
+        self.assertEqual(summary["base_checks"], [])
+        self.assertEqual(summary["new_feature_tests"], "not_determined_by_suite_summary")
+
+    def test_missing_checks_do_not_deny_external_feature_runs(self):
+        self.assertEqual(test_summary(None)["new_feature_tests"], "not_determined_by_suite_summary")
 
     def test_watchdog_reaps_its_actual_owned_worker(self):
         start = time.monotonic()
@@ -91,3 +111,17 @@ class GroundingTests(unittest.TestCase):
         with contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit) as captured:
             main(["--help"])
         self.assertEqual(captured.exception.code, 0)
+
+    def test_s05_helper_context_includes_download_and_cleanup(self):
+        source = next(s for s in core.context("frontend") if s["path"] == "frontend/src/export-itinerary.js")
+        text = "\n".join(e["text"] for e in select_source(source)["excerpts"])
+        for symbol in ("serializeItinerary", "downloadItinerary", "revokeObjectURL"):
+            self.assertIn(symbol, text)
+
+    def test_integrated_context_retains_five_feature_behaviors(self):
+        source = next(s for s in core.context("frontend") if s["path"] == "frontend/src/main.jsx")
+        chosen = select_source(source)
+        text = "\n".join(e["text"] for e in chosen["excerpts"])
+        for token in ("async function makeTrip", "catch {", "payload.municipality", "setResultOrigin", "function exportTrip", "downloadItinerary", "maxCost", "favorites.ids", "function toggleDestinationFavorite"):
+            self.assertIn(token, text)
+        self.assertNotIn("const fallbackDestinations = [", text)

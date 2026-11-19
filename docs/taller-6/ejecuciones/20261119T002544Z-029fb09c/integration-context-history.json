@@ -1,0 +1,6 @@
+{
+  "path": "docs/taller-6/integracion-final-contexto.json",
+  "original_sha256": "13fd129f89e40a31f3f4a331d4e203f9b704f87cca575be5fbbaf9a010bc1433",
+  "original_text": "{\"scope\": \"Local integration of S01 detail, S02 max cost, S03 favorites, S04 municipal recommendations, S05 JSON export. Not merged into main or GitHub PRs.\", \"results\": \"135 tests passed (harness41 agents34 API22 frontend38), build0. All six browser scripts passed; reports in new execution directories.\", \"browser_controls\": 119, \"evidence\": \"docs/taller-6/integracion-final-resultados.md\", \"limits\": \"Real API via test proxy, demo blocked API, unknown municipality and storage denial are declared fixtures; no WCAG/human acceptance claim.\", \"correction\": \"Combined App exceeded context budget; selection now prioritizes complete behavioral blocks.\"}\n",
+  "reason": "Preserve exact operator context from previous review attempts before updating final counts."
+}

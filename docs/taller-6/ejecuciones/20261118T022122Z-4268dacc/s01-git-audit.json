@@ -1,0 +1,47 @@
+{
+  "finished_at": "2026-11-18T02:21:22.202549+00:00",
+  "worktree": "<WORKTREE_T6>",
+  "branch": {
+    "exit_code": 0,
+    "stdout": "taller6/001-detalle-destino\n",
+    "stderr": ""
+  },
+  "head": {
+    "exit_code": 0,
+    "stdout": "f5c5fc928d4afe90601aad6eacfe28e78372988f\n",
+    "stderr": ""
+  },
+  "tracked_changes": {
+    "exit_code": 0,
+    "stdout": "AGENTS.md\nREADME.md\nbackend/app/main.py\nfrontend/src/main.jsx\nfrontend/src/styles.css\nharness/README.md\nharness/manifest.json\nharness/tests/test_grounding.py\nharness/tests/test_harness.py\nspecs/taller-6/001-detalle-destino/plan.md\nspecs/taller-6/001-detalle-destino/pr.md\nspecs/taller-6/001-detalle-destino/spec.json\nspecs/taller-6/001-detalle-destino/spec.md\nspecs/taller-6/001-detalle-destino/tasks.md\n",
+    "stderr": "warning: in the working copy of 'backend/app/main.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'frontend/src/main.jsx', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'frontend/src/styles.css', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'specs/taller-6/001-detalle-destino/pr.md', LF will be replaced by CRLF the next time Git touches it\n"
+  },
+  "staged": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "whitespace": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "warning: in the working copy of 'backend/app/main.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'frontend/src/main.jsx', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'frontend/src/styles.css', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'specs/taller-6/001-detalle-destino/pr.md', LF will be replaced by CRLF the next time Git touches it\n"
+  },
+  "protected_paths": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "refs": {
+    "main": "4bb1626975c67dfeeee67ab1156322f2e6ce3eba",
+    "taller4/completar-entrega": "4a2321518560e7cd5f1e38d8b9df1140bab0148e",
+    "taller5/sistema-agentes": "8cce952bace0763ac5e96208c70e93a304979fb4",
+    "taller6/base-comun": "f5c5fc928d4afe90601aad6eacfe28e78372988f"
+  },
+  "checks_snapshot_current": true,
+  "patterns_scope": "new/modified files excluding previously excluded logs and public team names in existing root memory/readme",
+  "secret_personal_path_findings": [],
+  "limitations": [
+    "Pattern scan does not prove absolute absence of every possible secret.",
+    "Historical LF/CRLF and whitespace exceptions were not removed; diff check applies to current changes."
+  ]
+}

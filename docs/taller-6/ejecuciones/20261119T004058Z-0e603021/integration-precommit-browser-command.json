@@ -1,0 +1,7 @@
+{
+  "operation": "precommit regression",
+  "module": "harness.s02_browser",
+  "exit_code": 0,
+  "stdout": "real_api_catalogue True\ninclusive_boundary_35000 True\ninvalid_-1_keeps_last_valid True\ninvalid_abc_keeps_last_valid True\ninvalid_35abc_keeps_last_valid True\naccessible_cost_label True\nfour_filters_AND True\nempty_preserves_other_filters True\nzero_empty_and_recovery_message True\nrecovery_preserves_municipality_search_category True\ncost_controls_fit_360 True\ncost_controls_fit_1280 True\nkeyboard_enter_applies True\nrecommendations_real_api_unchanged True\ndemo_inclusive_filter True\ndemo_zero_empty True\ndemo_recovery True\nno_runtime_exceptions True\ndocs/taller-6/ejecuciones/20261119T004058Z-afc91d53/s02-browser.json\n",
+  "stderr": ""
+}

@@ -1,0 +1,52 @@
+{
+  "spec": "004",
+  "skill": "brújula-semántica",
+  "execution": "not_run",
+  "cases": [
+    {
+      "id": "TC-004-01",
+      "acceptance_id": "AC-01",
+      "arrange": "solicitud anterior sin municipio",
+      "act": "POST /api/recommendations",
+      "assert": "campos y politica presupuestaria anteriores conservados; omitir/null/vacio significa sin restriccion",
+      "layer": "api",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-004-02",
+      "acceptance_id": "AC-02",
+      "arrange": "solicitud con municipio Neiva",
+      "act": "pedir recomendaciones",
+      "assert": "solo destinos de Neiva, incluso si los intereses no coinciden y se usa recuperacion",
+      "layer": "api",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-004-03",
+      "acceptance_id": "AC-03",
+      "arrange": "municipio sin destinos",
+      "act": "pedir recomendaciones",
+      "assert": "HTTP 200, itinerary=[], estimated_total=0, remaining_budget=budget y sin sustitucion territorial",
+      "layer": "api",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-004-04",
+      "acceptance_id": "AC-04",
+      "arrange": "API bloqueada y municipio Neiva seleccionado",
+      "act": "crear propuesta demo",
+      "assert": "propuesta demo solo de Neiva; municipio sin candidatos produce lista vacia y aviso",
+      "layer": "browser",
+      "status": "not_implemented"
+    },
+    {
+      "id": "TC-004-05",
+      "acceptance_id": "AC-05",
+      "arrange": "formulario con selector propio de municipio y API disponible",
+      "act": "crear propuesta con Neiva y repetir con Todos los municipios",
+      "assert": "envia municipality=Neiva u omite el campo respectivamente, sin cambiar filtros del catalogo; selector etiquetado y operable con teclado",
+      "layer": "browser",
+      "status": "not_implemented"
+    }
+  ]
+}

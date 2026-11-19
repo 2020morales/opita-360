@@ -1,0 +1,7 @@
+{
+  "operation": "precommit regression",
+  "module": "harness.s05_browser",
+  "exit_code": 0,
+  "stdout": "initial_export_disabled True\nAPI submitted\nexport_no_transport_api True\nreal_download_matches_API True\nfilename_json_keyboard True\nexport_no_transport_api True\nexports_last_proposal_not_edited_form True\ndisabled_during_new_generation True\nexport_accessible_name True\nexport_fits_360 True\nexport_fits_1280 True\nexport_no_transport_demo True\ndemo_explicit_origin_and_visible_destinations True\ndemo_totals_visible True\nno_runtime_exceptions True\ndocs/taller-6/ejecuciones/20261119T004120Z-02d2924e/s05-browser.json\n",
+  "stderr": ""
+}

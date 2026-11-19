@@ -2,9 +2,9 @@
   "id": "003",
   "title": "Favoritos persistentes en el navegador",
   "amber": 4,
-  "status": "draft",
-  "implementation": "not_started",
-  "pull_request": null,
+  "status": "approved",
+  "implementation": "implemented",
+  "pull_request": "https://github.com/2020morales/opita-360/pull/7",
   "acceptance": [
     {
       "id": "AC-01",
@@ -41,5 +41,14 @@
       "then": "estado accesible refleja guardado o no guardado",
       "layer": "browser"
     }
-  ]
+  ],
+  "acceptance_status": "awaiting_human_review",
+  "test_runs": [
+    "docs/taller-6/ejecuciones/20261118T061049Z-9422d89f/s03-browser.json"
+  ],
+  "integration": {
+    "branch": "taller6/integracion-final",
+    "main": "not_integrated",
+    "human_review": "pending"
+  }
 }

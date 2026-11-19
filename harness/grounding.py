@@ -18,10 +18,15 @@ def select_source(source):
                 ranges.append((start, node.end_lineno))
         reason = "Imports, modelos Pydantic y handlers completos; sin repetir datos semilla."
     elif source["path"] == "frontend/src/main.jsx":
-        start = next((i for i, line in enumerate(lines, 1) if "function App()" in line), 1)
-        end = next((i-1 for i, line in enumerate(lines, 1) if "return <div" in line), len(lines))
-        ranges = [(1, 5), (start, end)]
-        reason = "Estado, fetch, filtros y makeTrip/fallback; interfaz visual omitida."
+        # Prioritize complete behavior blocks instead of truncating App before makeTrip.
+        for symbol in ("async function makeTrip", "function exportTrip", "const filtered = useMemo", "function toggleDestinationFavorite", "function applyMaxCost"):
+            start = next((i for i, line in enumerate(lines, 1) if symbol in line), None)
+            if start is not None:
+                end = next((i for i in range(start, len(lines)+1) if lines[i-1].startswith(("  }", "  }, ["))), start)
+                ranges.append((start, end))
+        ranges.extend((i, i) for i, line in enumerate(lines, 1) if
+                      line.startswith("import ") and "lucide-react" not in line)
+        reason = "Bloques completos prioritarios de recomendaciones, exportacion, filtros y favoritos; presupuesto acotado y catalogo semilla omitido."
     elif source["path"].endswith(".py") and "/tests/" in source["path"]:
         tree = ast.parse(text)
         ranges = [(n.lineno, n.lineno) for n in ast.walk(tree) if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))]
@@ -35,7 +40,7 @@ def select_source(source):
         ranges = [(1, len(lines))]
         reason = "Documento o funcion auxiliar."
     excerpts = []
-    budget = (1600 if "/tests/" in source["path"] else 4200) if source["path"].endswith((".py", ".jsx")) else 900
+    budget = (1600 if "/tests/" in source["path"] else 4200) if source["path"].endswith((".py", ".jsx", ".js")) else 900
     used = 0
     for start, end in ranges:
         block = []
@@ -76,11 +81,11 @@ def technical_facts(spec, checks):
     return {"facts": facts,
             "basis": {"backend": {"sha256": digest(backend_path.read_bytes()), "analysis": "AST BaseModel + Field + typed handler"},
                       "frontend": {"sha256": digest(safe_path("frontend/src/main.jsx").read_bytes()), "analysis": "static pattern; not full browser proof"}},
-            "distinction": "Checks are regressions of base/harness. Generated spec cases are not implemented or executed.",
+            "distinction": "Generated test designs are not execution records; inspect the actual linked test runs.",
             "source_sha256": {"backend/app/main.py": digest(backend_path.read_bytes()), "frontend/src/main.jsx": digest(safe_path("frontend/src/main.jsx").read_bytes())},
             "limitation": "Spec facts check declared records, not independent proof of feature implementation or test execution."}
 
-def verify_assertions(answer, sources, facts):
+def verify_assertions(answer, sources, facts, supplied_sources=None):
     claims = []
     for claim in answer.get("claims", []):
         if not isinstance(claim, dict) or set(claim) != {"fact", "value"} or type(claim.get("value")) is not bool:
@@ -104,8 +109,9 @@ def verify_assertions(answer, sources, facts):
             valid = isinstance(quote, str) and len(quote) >= 8 and 1 <= number <= len(full)
             valid = valid and quote in full[number-1]
             if valid:
-                excerpts = select_source(allowed[path])["excerpts"]
-                valid = any(e["start_line"] <= number <= e["end_line"] for e in excerpts)
+                excerpts = (next((s["excerpts"] for s in supplied_sources if s["path"] == path), [])
+                            if supplied_sources is not None else select_source(allowed[path])["excerpts"])
+                valid = any(e["start_line"] <= number <= e["end_line"] and quote in e["text"] for e in excerpts)
         citations.append({"path": citation.get("path") if isinstance(citation, dict) else None,
                           "status": "quote_verified" if valid else "invalid_or_not_supplied"})
     return {"claims": claims, "citations": citations,
@@ -116,12 +122,12 @@ def verify_assertions(answer, sources, facts):
 
 def test_summary(checks):
     if not checks:
-        return {"base_checks": [], "new_feature_tests": "not_executed"}
+        return {"base_checks": [], "new_feature_tests": "not_determined_by_suite_summary"}
     results = []
     for c in checks["checks"]:
         output = c.get("stdout", "") + c.get("stderr", "")
         match = re.search(r"Ran (\d+) tests|# tests (\d+)", output)
         results.append({"name": c["name"], "exit_code": c["exit_code"],
                         "test_count": int(next(g for g in match.groups() if g)) if match else None})
-    return {"base_checks": results, "new_feature_tests": "not_executed",
-            "note": "A passing base suite is not evidence that draft feature criteria were implemented."}
+    return {"base_checks": results, "new_feature_tests": "not_determined_by_suite_summary",
+            "note": "Suite counts alone neither prove nor disprove execution of feature criteria. Consult supplied operator reports and distinguish generated designs from actual runs."}
