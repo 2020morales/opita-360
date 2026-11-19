@@ -1,0 +1,104 @@
+{
+  "version": "1.1.0",
+  "finished_at": "2026-11-19T02:33:01.943594+00:00",
+  "snapshot": {
+    "branch": "taller5/correccion-rubrica",
+    "git_head": "8cce952bace0763ac5e96208c70e93a304979fb4",
+    "files": {
+      ".gitattributes": "9a2dee57af01039bba3957f1ec5ecf00dae32205dd259dfcf792a40f2c3a2ce3",
+      ".github/skills/backend-fastapi/SKILL.md": "91fdf6335b03b2858e59980ab4e904447fec79dc387894a908e6473bf4cc12f5",
+      ".github/skills/frontend-react/SKILL.md": "c29a3033d7b997c9e9fa4e69dfd37896b1c1677048ff04ec024cb757c4c7c1c9",
+      "agents/__init__.py": "8c0629676c1f5a9aedaa599459b22d28b6f6f1c3122eb4869a409d5516068091",
+      "agents/browser_checks.py": "6ab3ea310d6368bb6b0eae9684d0cfd0328974ffcd75151cde9ed0ea9f0053f2",
+      "agents/llm_workflow.py": "ecfcb10b83e0836c858a73c78f95bf0504d9d889ee9b20542a673c028ae64427",
+      "agents/manifest.v1.json": "609dfc797de4637d4cd5b0fc8eb4a2854ea694b57d7bc2f15060639b20fcbf5d",
+      "agents/mcp_probe.py": "9e64812a83fea6d05a164e1f5db4ceb264000d167d69df005159499774297f96",
+      "agents/quality_gates.py": "4830baf9324198514275c5615f38845b10625dd3ebb32d14bdf5447e4c98e903",
+      "agents/README.md": "1b7aa1fd6c668377927177e43575b33276926c7fd66dcc9a70a0c17a9a60a595",
+      "agents/report.schema.v1.json": "dbd3c0f1586248797159b383647d2bac5886626d3d2a9934d02a6236cc95a3ec",
+      "agents/repro_frontend.py": "d2c7bfad4388e942b2aa81edae63a30b7b8265a95c5627c3b45aa5ddc8b74efc",
+      "agents/requirements.txt": "960b0daea252df709f410ae320077328a7039689dcc8cd6f3a07b1ed051ab76f",
+      "agents/runtime.py": "06eb87b5bd527aaac043e414e62d4cee8f4129324cf6be3e7effbf11dd95f45e",
+      "agents/snapshot.py": "ca6c0a5bd0dbbadaba9651e28fd2d3357ccd7dfc0215466db94d7d03c3964a2a",
+      "agents/tests/test_llm_contracts.py": "802f5a00f02ef88447f37030a333815093aefcf56144ab7878fbf63140b64c05",
+      "agents/tests/test_quality_gates.py": "4cba361b73f118981a7f450ca6efce42f8334a0a540b918a4eb6d1a0b3b455c4",
+      "agents/tests/test_runtime.py": "b4814ec2e0d8dae7b598cb1267c34f847f4844cb9fed7c1371d1c939bf46150d",
+      "agents/verify.py": "76418980fc74d486ab585995bcc3a8d9adc3b6b4e9d5d9f47e456f48613a311b",
+      "AGENTS.md": "af90aa9602215a866de7d683e967c33e8b2636c67b56f38466dffdc0acf95c65",
+      "backend/AGENTS.md": "fbefef1295406b1f5c96f273939ed1ada0452ae05e40ce189d1dbd4b734e454a",
+      "backend/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/app/main.py": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+      "backend/requirements.txt": "aa4169d68655109a12af4cda3e5435546cfee5ba844ee3389466bc26e4a65c40",
+      "backend/tests/test_api.py": "0cf2d6d223d33a4b0918aa24804d4fdb345540ff993bfdc52160b892ec9c814a",
+      "database/schema.sql": "40a821bd175fd870325c88001977eb75c07df7e33bb02cb05c07f04fbf18247f",
+      "frontend/AGENTS.md": "42c38e5ae37909aade31f45e0bcc2a7b9e904684bc7746b0b701b8215f59ef67",
+      "frontend/package-lock.json": "600cb57885e7cd8c242420cfdf4378fc044cbc750f98b1494e1a8f79f8084680",
+      "frontend/package.json": "7bbe14e9404e94b6fd5d7a61791ece9067d00f07fcd66e9fd7b69c10e3cd2964",
+      "frontend/src/main.jsx": "28d2fec2732701e817b01cec50827451511f3cae9291eaf8784e111c8cee1757",
+      "frontend/src/styles.css": "600186bec72b4d34bd572ecb4ccc4916b93f2ceb6145d8f698c3e44af2319448",
+      "README.md": "d51aa2e32f9fcc68cb19d31c401609dfd11f9c1545960776451223f5f85b4aa8"
+    },
+    "sha256": "45f4ae3fbe0ca54a3427f4125a2e8861b6c8266b44164ce52c659debdfe0e642"
+  },
+  "checks": [
+    {
+      "check": "agents",
+      "command": [
+        "python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "agents/tests",
+        "-v"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_all_roles_have_explicit_models (test_llm_contracts.WorkflowTests.test_all_roles_have_explicit_models) ... ok\ntest_llm_requires_explicit_approval_before_io (test_llm_contracts.WorkflowTests.test_llm_requires_explicit_approval_before_io) ... ok\ntest_mcp_restricted_to_source_specialists (test_llm_contracts.WorkflowTests.test_mcp_restricted_to_source_specialists) ... ok\ntest_stale_checks_rejected_before_model_call (test_llm_contracts.WorkflowTests.test_stale_checks_rejected_before_model_call) ... ok\ntest_both_reviewers_receive_reports_checks_and_mcp (test_quality_gates.QualityGateTests.test_both_reviewers_receive_reports_checks_and_mcp) ... ok\ntest_complete_checks_accepted (test_quality_gates.QualityGateTests.test_complete_checks_accepted) ... ok\ntest_empty_partial_duplicate_unknown_checks_rejected (test_quality_gates.QualityGateTests.test_empty_partial_duplicate_unknown_checks_rejected) ... ok\ntest_empty_zero_and_failed_suite_summaries_rejected (test_quality_gates.QualityGateTests.test_empty_zero_and_failed_suite_summaries_rejected) ... ok\ntest_failed_or_incomplete_record_rejected (test_quality_gates.QualityGateTests.test_failed_or_incomplete_record_rejected) ... ok\ntest_findings_cannot_be_automatically_accepted (test_quality_gates.QualityGateTests.test_findings_cannot_be_automatically_accepted) ... ok\ntest_git_metadata_does_not_invalidate_identical_content (test_quality_gates.QualityGateTests.test_git_metadata_does_not_invalidate_identical_content) ... ok\ntest_incomplete_or_failed_mcp_ledger_rejected (test_quality_gates.QualityGateTests.test_incomplete_or_failed_mcp_ledger_rejected) ... ok\ntest_stale_or_inconsistent_snapshot_rejected (test_quality_gates.QualityGateTests.test_stale_or_inconsistent_snapshot_rejected) ... ok\ntest_timestamp_and_version_required (test_quality_gates.QualityGateTests.test_timestamp_and_version_required) ... ok\ntest_client_allows_only_the_declared_read_tool (test_runtime.McpPolicyTests.test_client_allows_only_the_declared_read_tool) ... ok\ntest_backend_can_read_assigned_source (test_runtime.RuntimeTests.test_backend_can_read_assigned_source) ... ok\ntest_demo_identifies_deterministic_mode_and_validates_reports (test_runtime.RuntimeTests.test_demo_identifies_deterministic_mode_and_validates_reports) ... ok\ntest_empty_report_is_rejected (test_runtime.RuntimeTests.test_empty_report_is_rejected) ... ok\ntest_execution_requires_human_approval (test_runtime.RuntimeTests.test_execution_requires_human_approval) ... ok\ntest_frontend_can_read_assigned_source (test_runtime.RuntimeTests.test_frontend_can_read_assigned_source) ... ok\ntest_frontend_cannot_read_backend_implementation (test_runtime.RuntimeTests.test_frontend_cannot_read_backend_implementation) ... ok\ntest_invalid_specifications_are_rejected (test_runtime.RuntimeTests.test_invalid_specifications_are_rejected) ... ok\ntest_limits_are_validated_and_consumed (test_runtime.RuntimeTests.test_limits_are_validated_and_consumed) ... ok\ntest_manifest_is_loaded_as_dictionary (test_runtime.RuntimeTests.test_manifest_is_loaded_as_dictionary) ... ok\ntest_manifest_rejects_expanded_privileges (test_runtime.RuntimeTests.test_manifest_rejects_expanded_privileges) ... ok\ntest_model_execution_is_not_claimed (test_runtime.RuntimeTests.test_model_execution_is_not_claimed) ... ok\ntest_paths_outside_allowlist_are_rejected (test_runtime.RuntimeTests.test_paths_outside_allowlist_are_rejected) ... ok\ntest_read_requires_role_tool_permission (test_runtime.RuntimeTests.test_read_requires_role_tool_permission) ... ok\ntest_report_rejects_invalid_status_role_and_evidence (test_runtime.RuntimeTests.test_report_rejects_invalid_status_role_and_evidence) ... ok\ntest_report_requires_complete_unique_task_evidence (test_runtime.RuntimeTests.test_report_requires_complete_unique_task_evidence) ... ok\ntest_reports_conform_to_published_json_schema (test_runtime.RuntimeTests.test_reports_conform_to_published_json_schema) ... ok\ntest_reports_require_issued_task_role_and_nonempty_evidence (test_runtime.RuntimeTests.test_reports_require_issued_task_role_and_nonempty_evidence) ... ok\ntest_tasks_cover_all_specialists_with_unique_ids (test_runtime.RuntimeTests.test_tasks_cover_all_specialists_with_unique_ids) ... ok\ntest_truthy_values_do_not_replace_explicit_approval (test_runtime.RuntimeTests.test_truthy_values_do_not_replace_explicit_approval) ... ok\ntest_unknown_report_properties_are_rejected (test_runtime.RuntimeTests.test_unknown_report_properties_are_rejected) ... ok\ntest_unknown_role_is_rejected (test_runtime.RuntimeTests.test_unknown_role_is_rejected) ... ok\ntest_well_formed_but_false_evidence_is_rejected (test_runtime.RuntimeTests.test_well_formed_but_false_evidence_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 37 tests in 1.689s\n\nOK\n"
+    },
+    {
+      "check": "backend",
+      "command": [
+        "python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "backend/tests",
+        "-v"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "<repo>\\.venv-taller5\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n  from starlette.testclient import TestClient as TestClient  # noqa\ntest_catalog_contract (test_api.ApiContractTests.test_catalog_contract) ... ok\ntest_cors_allows_local_frontend_only (test_api.ApiContractTests.test_cors_allows_local_frontend_only) ... ok\ntest_invalid_requests_return_422 (test_api.ApiContractTests.test_invalid_requests_return_422) ... ok\ntest_recommendation_contract_and_catalog_unchanged (test_api.ApiContractTests.test_recommendation_contract_and_catalog_unchanged) ... ok\ntest_request_boundaries (test_api.ApiContractTests.test_request_boundaries) ... ok\ntest_root_and_openapi (test_api.ApiContractTests.test_root_and_openapi) ... ok\ntest_unknown_or_empty_interests_keep_existing_fallback (test_api.ApiContractTests.test_unknown_or_empty_interests_keep_existing_fallback) ... ok\ntest_zero_budget_documents_existing_first_stop_exception (test_api.ApiContractTests.test_zero_budget_documents_existing_first_stop_exception) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.326s\n\nOK\n"
+    },
+    {
+      "check": "backend_compile",
+      "command": [
+        "python.exe",
+        "-m",
+        "compileall",
+        "app"
+      ],
+      "cwd": "backend",
+      "exit_code": 0,
+      "stdout": "Listing 'app'...\n",
+      "stderr": ""
+    },
+    {
+      "check": "frontend_build",
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "cwd": "frontend",
+      "exit_code": 0,
+      "stdout": "\n> opita-360-frontend@1.0.0 build\n> vite build\n\nvite v8.3.8 building client environment for production...\ntransforming...\n✓ 2081 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.59 kB │ gzip:  0.36 kB\ndist/assets/index-D3mH4Ltf.css   18.12 kB │ gzip:  4.97 kB\ndist/assets/index-C6gVmEIU.js   245.01 kB │ gzip: 77.09 kB\n\n✓ built in 1.73s\n",
+      "stderr": "\u001b[33m[MODULE_LEVEL_DIRECTIVE] \u001b[0mThe semantics of the module level directive \"use client\" in \"node_modules/lucide-react/dist/esm/context.mjs\" may not be preserved when bundling.\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m node_modules/lucide-react/dist/esm/context.mjs:2:1 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m2 │\u001b[0m \"use client\";\n \u001b[38;5;240m  │\u001b[0m ──────┬──────  \n \u001b[38;5;240m  │\u001b[0m       ╰──────── module level directive may not be preserved\n \u001b[38;5;240m  │\u001b[0m \n \u001b[38;5;240m  │\u001b[0m \u001b[38;5;115mHelp\u001b[0m: For more information, see https://rolldown.rs/in-depth/directives#other-directives\n\u001b[38;5;246m───╯\u001b[0m\n\n\u001b[33m[MODULE_LEVEL_DIRECTIVE] \u001b[0mThe semantics of the module level directive \"use client\" in \"node_modules/lucide-react/dist/esm/Icon.mjs\" may not be preserved when bundling.\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m node_modules/lucide-react/dist/esm/Icon.mjs:2:1 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m2 │\u001b[0m \"use client\";\n \u001b[38;5;240m  │\u001b[0m ──────┬──────  \n \u001b[38;5;240m  │\u001b[0m       ╰──────── module level directive may not be preserved\n \u001b[38;5;240m  │\u001b[0m \n \u001b[38;5;240m  │\u001b[0m \u001b[38;5;115mHelp\u001b[0m: For more information, see https://rolldown.rs/in-depth/directives#other-directives\n\u001b[38;5;246m───╯\u001b[0m\n\n"
+    }
+  ]
+}

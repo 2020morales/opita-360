@@ -1,3 +1,7 @@
+> Revisión posterior local: [informe de corrección](correccion-rubrica/informe.md).
+> El contenido siguiente conserva resultados y contexto de ejecuciones anteriores.
+> Las cifras históricas no acreditan automáticamente la revisión nueva.
+
 # Resultados de la auditoría final del Taller 5
 
 Fecha: 14 de noviembre de 2026. Rama: taller5/sistema-agentes. Base local: c72c3c925db3faef046e5eed50bb37641b3f8c05. Ya existen commits y el [PR #2](https://github.com/2020morales/opita-360/pull/2), abierto y sin fusionar en la consulta de GitHub. Esta ejecución no hizo nuevos commits, push ni merge. El código turístico no se modificó.
@@ -65,3 +69,8 @@ Requiere qwen3.5:4b disponible en Ollama loopback y permisos para iniciar Chrome
 La evidencia anterior se conserva en history/pre-delivery-audit/ sin sustituirla por la nueva. llm-report.json y checks-llm-historical.json son históricos. Sus afirmaciones antiguas o incorrectas no se reescriben para ocultarlas. Ver revision-hallazgos.md.
 
 No hay auditoría WCAG completa, lector de pantalla, rendimiento, cobertura medida, mutación o CI propio. PostgreSQL no está conectado. Node mantiene permisos del usuario: el cliente acotado no crea sandbox OS. Una respuesta JSON correcta no asegura análisis correcto. Quedan aceptación humana de la entrega y revisión de hallazgos; no se calcula una nota.
+
+## Mejora técnica posterior
+
+Ver [informe vigente](mejora-tecnica/informe.md): nueva puerta conjunta, oráculos fijos y resultados propios.
+Los resultados anteriores se conservan como antecedentes y no acreditan el código nuevo.

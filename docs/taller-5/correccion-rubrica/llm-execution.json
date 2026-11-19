@@ -1,0 +1,22 @@
+{
+  "status": "failed",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "LLM orquestador: intento 1\nTraceback (most recent call last):\n  File \"<user>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"<user>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\subprocess.py\", line 201, in communicate\n    stdin, stdout, stderr = await tasks.gather(stdin, stdout, stderr)\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<user>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\subprocess.py\", line 181, in _read_stream\n    output = await stream.read()\n             ^^^^^^^^^^^^^^^^^^^\n  File \"<user>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\streams.py\", line 706, in read\n    block = await self.read(self._limit)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<user>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\streams.py\", line 713, in read\n    await self._wait_for_data('read')\n  File \"<user>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\streams.py\", line 545, in _wait_for_data\n    await self._waiter\nasyncio.exceptions.CancelledError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"<repo>\\agents\\runtime.py\", line 185, in <module>\n    main()\n  File \"<repo>\\agents\\runtime.py\", line 170, in main\n    print(json.dumps(asyncio.run(main_run(args.spec, args.approved, args.checks_file)), ensure_ascii=True, indent=2))\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<user>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\runners.py\", line 195, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"<user>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<user>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\base_events.py\", line 691, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"<repo>\\agents\\llm_workflow.py\", line 115, in main_run\n    mcp = await asyncio.wait_for(probe(role, include_content=True), timeout=90)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<user>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"<repo>\\agents\\mcp_probe.py\", line 37, in probe\n    stdout, stderr = await asyncio.wait_for(process.communicate(), timeout=30)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<user>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\tasks.py\", line 519, in wait_for\n    async with timeouts.timeout(timeout):\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<user>\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\timeouts.py\", line 115, in __aexit__\n    raise TimeoutError from exc_val\nTimeoutError\n",
+  "started_at": "2026-11-19T02:33:27.397931+00:00",
+  "finished_at": "2026-11-19T02:36:04.536600+00:00",
+  "timeout_seconds": 600,
+  "command": [
+    "python",
+    "-B",
+    "-m",
+    "agents.runtime",
+    "--approved",
+    "--llm",
+    "--checks-file",
+    "docs/taller-5/correccion-rubrica/checks-02.json",
+    "--spec",
+    "Revisar frontend React y backend FastAPI; contrastar pruebas reales y permisos; no editar código turístico"
+  ],
+  "privacy_note": "Solo prefijos de usuario normalizados; comandos, fechas, resultados y mensajes del fallo conservados."
+}

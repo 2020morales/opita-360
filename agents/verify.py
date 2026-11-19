@@ -1,5 +1,6 @@
 """Comprobaciones fijas invocadas por el operador; no es una herramienta de agentes."""
 import json
+import argparse
 from pathlib import Path
 import shutil
 import subprocess
@@ -11,6 +12,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, required=True, help="Nuevo informe; no sobrescribe evidencia")
+    args = parser.parse_args()
+    if args.output.exists():
+        raise FileExistsError("El informe ya existe")
+    args.output.parent.mkdir(parents=True, exist_ok=True)
     before = snapshot()
     npm = shutil.which("npm.cmd") or shutil.which("npm")
     checks = [
@@ -39,7 +46,7 @@ def main():
         raise RuntimeError("Código cambió durante las pruebas")
     record = {"version": "1.1.0", "finished_at": datetime.now(timezone.utc).isoformat(),
               "snapshot": after, "checks": results}
-    (ROOT / "docs/taller-5/checks.json").write_text(json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
+    args.output.write_text(json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
     return 0 if all(result["exit_code"] == 0 for result in results) else 1
 
 

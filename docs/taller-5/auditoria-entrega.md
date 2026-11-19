@@ -36,3 +36,15 @@ Las inferencias nuevas siguen conteniendo fragmentos o interpretaciones equivoca
 ## Aprobaciones
 
 --approved registra la declaración de alcance del operador. generated_plan_reviewed_by_human=false evita atribuir aprobación individual al plan narrativo generado. El resultado permanece awaiting_human_review. Publicar cambios, editar el PR o fusionar requiere la siguiente revisión humana; no se hizo en esta ejecución.
+
+## Revisión local posterior de los seis criterios
+
+La matriz anterior permanece como registro de su momento. La revisión vigente
+se encuentra en [correccion-rubrica/informe.md](correccion-rubrica/informe.md).
+No constituye aprobación del profesor ni publicación. La matriz ampliada de
+riesgos, controles y límites está en [matriz-calidad.md](matriz-calidad.md).
+
+## Mejora técnica posterior
+
+Ver [informe vigente](mejora-tecnica/informe.md): nueva puerta conjunta, oráculos fijos y resultados propios.
+Los resultados anteriores se conservan como antecedentes y no acreditan el código nuevo.

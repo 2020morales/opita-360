@@ -1,6 +1,7 @@
 """npm ci y build en copia temporal, conservando frontend original."""
 from datetime import datetime, timezone
 import json
+import argparse
 from pathlib import Path
 import shutil
 import subprocess
@@ -11,6 +12,12 @@ from .snapshot import digest
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, required=True)
+    args = parser.parse_args()
+    if args.output.exists():
+        raise FileExistsError("El informe ya existe")
+    args.output.parent.mkdir(parents=True, exist_ok=True)
     npm = shutil.which("npm.cmd") or shutil.which("npm")
     if not npm:
         raise RuntimeError("npm no encontrado")
@@ -27,7 +34,7 @@ def main():
                 break
     record = {"timestamp": datetime.now(timezone.utc).isoformat(), "lock_sha256": digest((ROOT / "frontend/package-lock.json").read_bytes()),
               "checks": results, "isolation": "temporary copy, npm ci --ignore-scripts", "original_modified": False}
-    (ROOT / "docs/taller-5/frontend-repro.json").write_text(json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
+    args.output.write_text(json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(record, ensure_ascii=True, indent=2))
     return 0 if len(results) == 2 and all(r["exit_code"] == 0 for r in results) else 1
 

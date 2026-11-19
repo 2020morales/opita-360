@@ -34,3 +34,14 @@ Fuentes primarias:
 - [MCP frontend](https://github.com/777wills/mi-restaurante-ui/blob/33161da7c19bba7fdd995a502692ca5f69d67214/.mcp.json).
 
 La comparación reemplaza el pendiente anterior de referencia desconocida. No permite calcular una nota sin una escala de evaluación del profesor.
+
+## Confirmación de fuentes en la corrección local
+
+Se volvieron a leer los agentes developer en los commits fijados de ambos repositorios
+y el estado del PR #2 mediante GET de GitHub. Extractos íntegros de esos agentes:
+[referencia-consultada.json](correccion-rubrica/referencia-consultada.json).
+.NET permite read/search/edit/execute/browser/context7/todo; Angular añade angular-cli.
+OPITA limita el modelo a análisis y lectura por controlador: evita escribir funciones
+turísticas durante revisión y mantiene React/FastAPI. No son nombres nativos de Copilot.
+No se ejecutaron las aplicaciones del profesor. La leyenda de verificación por el
+profesor no se atribuye sin evidencia. El PDF incorpora una justificación por diferencia.

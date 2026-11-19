@@ -1,0 +1,22 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "stdout": "Reporte íntegro en llm-report-03.json",
+  "stderr": "LLM orquestador: intento 1\nSecure MCP Filesystem Server running on stdio\nEffective allowed directories (from the command line):\n  <user>\\AppData\\Local\\Temp\\opita-mcp-context-6ikjc5be\n  <user>\\AppData\\Local\\Temp\\opita-mcp-context-6ikjc5be\nClient does not support MCP Roots, using allowed directories set from server args: [\n  '<user>\\\\AppData\\\\Local\\\\Temp\\\\opita-mcp-context-6ikjc5be',\n  '<user>\\\\AppData\\\\Local\\\\Temp\\\\opita-mcp-context-6ikjc5be'\n]\nEffective allowed directories (from the command line):\n  <user>\\AppData\\Local\\Temp\\opita-mcp-context-6ikjc5be\n  <user>\\AppData\\Local\\Temp\\opita-mcp-context-6ikjc5be\nLLM frontend: intento 1\nSecure MCP Filesystem Server running on stdio\nEffective allowed directories (from the command line):\n  <user>\\AppData\\Local\\Temp\\opita-mcp-context-oooainky\n  <user>\\AppData\\Local\\Temp\\opita-mcp-context-oooainky\nClient does not support MCP Roots, using allowed directories set from server args: [\n  '<user>\\\\AppData\\\\Local\\\\Temp\\\\opita-mcp-context-oooainky',\n  '<user>\\\\AppData\\\\Local\\\\Temp\\\\opita-mcp-context-oooainky'\n]\nEffective allowed directories (from the command line):\n  <user>\\AppData\\Local\\Temp\\opita-mcp-context-oooainky\n  <user>\\AppData\\Local\\Temp\\opita-mcp-context-oooainky\nLLM backend: intento 1\nLLM calidad: intento 1\nLLM seguridad: intento 1\n",
+  "started_at": "2026-11-19T03:09:04.105760+00:00",
+  "finished_at": "2026-11-19T03:14:44.077263+00:00",
+  "timeout_seconds": 600,
+  "command": [
+    "python",
+    "-B",
+    "-m",
+    "agents.runtime",
+    "--approved",
+    "--llm",
+    "--checks-file",
+    "docs/taller-5/correccion-rubrica/checks-02.json",
+    "--spec",
+    "Revisar frontend React y backend FastAPI; contrastar pruebas reales y permisos; no editar código turístico"
+  ],
+  "privacy_note": "Solo prefijos de usuario normalizados; comandos, fechas, resultados y mensajes del fallo conservados."
+}

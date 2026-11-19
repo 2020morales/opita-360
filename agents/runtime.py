@@ -161,12 +161,13 @@ def main():
     parser.add_argument("--approved", action="store_true")
     parser.add_argument("--mcp", action="store_true", help="Probar MCP externo para frontend y backend; requiere descarga autorizada")
     parser.add_argument("--llm", action="store_true", help="Ejecutar los modelos locales reales; no simula respuestas")
+    parser.add_argument("--checks-file", help="Informe nuevo de agents.verify para el modo LLM")
     args = parser.parse_args()
     if args.llm:
         import asyncio
         from agents.llm_workflow import main_run
 
-        print(json.dumps(asyncio.run(main_run(args.spec, args.approved)), ensure_ascii=True, indent=2))
+        print(json.dumps(asyncio.run(main_run(args.spec, args.approved, args.checks_file)), ensure_ascii=True, indent=2))
         return
     result = run_demo(args.spec, args.approved)
     if args.mcp:

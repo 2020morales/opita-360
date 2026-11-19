@@ -24,7 +24,20 @@
         "validate_report",
         "llm_chat"
       ],
-      "read": []
+      "read": [],
+      "invocation": "Al inicio; operador",
+      "inputs": "Especificación y cuatro tareas fijas",
+      "outputs": "Plan narrativo; controlador reúne informes",
+      "model_reason": "Planificación acotada sin credenciales; no se midió superioridad",
+      "prohibited": [
+        "write",
+        "shell",
+        "secrets",
+        "database",
+        "commit",
+        "push",
+        "merge"
+      ]
     },
     "frontend": {
       "model_profile": "coder",
@@ -42,6 +55,19 @@
         "frontend/package.json",
         "frontend/src/main.jsx",
         "frontend/src/styles.css"
+      ],
+      "invocation": "T03; controlador tras plan",
+      "inputs": "Contexto React autorizado y main por MCP",
+      "outputs": "Hallazgos y limitaciones React",
+      "model_reason": "Inspección local React; revisión humana compensa errores del modelo pequeño",
+      "prohibited": [
+        "write",
+        "shell",
+        "secrets",
+        "database",
+        "commit",
+        "push",
+        "merge"
       ]
     },
     "backend": {
@@ -60,6 +86,19 @@
         "backend/app/main.py",
         "backend/requirements.txt",
         "database/schema.sql"
+      ],
+      "invocation": "T04; controlador tras T03",
+      "inputs": "FastAPI/Pydantic, esquema sin conexión y main por MCP",
+      "outputs": "Hallazgos y limitaciones API",
+      "model_reason": "Inspección local de contratos; pruebas TestClient contrastan opiniones",
+      "prohibited": [
+        "write",
+        "shell",
+        "secrets",
+        "database",
+        "commit",
+        "push",
+        "merge"
       ]
     },
     "calidad": {
@@ -75,6 +114,19 @@
         "backend/requirements.txt",
         "agents/tests/test_runtime.py",
         "backend/tests/test_api.py"
+      ],
+      "invocation": "T05; controlador tras T04",
+      "inputs": "Informes T03/T04, checks y dos verificaciones MCP",
+      "outputs": "Contraste de evidencias y carencias",
+      "model_reason": "Contexto de revisor separado; mismo modelo no garantiza independencia",
+      "prohibited": [
+        "write",
+        "shell",
+        "secrets",
+        "database",
+        "commit",
+        "push",
+        "merge"
       ]
     },
     "seguridad": {
@@ -89,6 +141,19 @@
         "agents/manifest.v1.json",
         "agents/runtime.py",
         "agents/mcp_probe.py"
+      ],
+      "invocation": "T06; controlador tras T05",
+      "inputs": "Políticas, informes previos, checks y registro MCP",
+      "outputs": "Riesgos y límites; no aceptación",
+      "model_reason": "Revisión local sin salida remota; no sustituye auditoría de seguridad",
+      "prohibited": [
+        "write",
+        "shell",
+        "secrets",
+        "database",
+        "commit",
+        "push",
+        "merge"
       ]
     }
   },
