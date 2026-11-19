@@ -1,0 +1,13 @@
+{
+  "command": [
+    "npm.cmd",
+    "ci",
+    "--ignore-scripts",
+    "--no-audit",
+    "--no-fund",
+    "--offline"
+  ],
+  "exit_code": 0,
+  "stdout": "\nadded 20 packages in 10s\n",
+  "stderr": ""
+}

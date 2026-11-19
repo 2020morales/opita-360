@@ -1,0 +1,15 @@
+{
+  "spec": "003",
+  "operation": "local merge",
+  "exit_code": 1,
+  "stdout": "Auto-merging AGENTS.md\nCONFLICT (content): Merge conflict in AGENTS.md\nAuto-merging README.md\nCONFLICT (content): Merge conflict in README.md\nAuto-merging frontend/src/main.jsx\nCONFLICT (content): Merge conflict in frontend/src/main.jsx\nAuto-merging frontend/src/styles.css\nCONFLICT (content): Merge conflict in frontend/src/styles.css\nAuto-merging harness/README.md\nCONFLICT (content): Merge conflict in harness/README.md\nAuto-merging harness/manifest.json\nCONFLICT (content): Merge conflict in harness/manifest.json\nAuto-merging harness/tests/test_grounding.py\nAutomatic merge failed; fix conflicts and then commit the result.\n",
+  "stderr": "",
+  "conflicts": [
+    "AGENTS.md",
+    "README.md",
+    "frontend/src/main.jsx",
+    "frontend/src/styles.css",
+    "harness/README.md",
+    "harness/manifest.json"
+  ]
+}

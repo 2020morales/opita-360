@@ -19,3 +19,7 @@ Pruebas auténticas: 99 aprobadas (38 arnés, 34 agentes, 8 API, 19 frontend), 2
 Pendientes: aceptación final, lector de pantalla humano, auditoría WCAG integral y compatibilidad fuera de Chrome. Persistencia por origen/perfil; no sincronización inmediata entre pestañas. La prosa del modelo sigue requiriendo contraste. Si main incorpora S01/S02 antes de S03, revisar cambios concurrentes. No fusionar automáticamente.
 
 Texto exigido por la consigna: «Spec revisada por el profesor». No hay revisión docente acreditada; no se afirma que haya ocurrido.
+
+## Estado observado en el ensayo de integración
+
+PR real: https://github.com/2020morales/opita-360/pull/7. Continúa abierto; esta combinación es local, sin merge del PR ni aceptación docente acreditada. El bloqueo histórico del conector no significa que el PR siga sin existir. Resultados conjuntos: docs/taller-6/integracion-final-resultados.md.

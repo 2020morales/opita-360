@@ -14,3 +14,7 @@ Estado real: T01..T09 ejecutadas; aceptacion final y publicacion pendientes. Ver
 - [ ] T10 Completar trazabilidad AC -> TC -> archivo -> ejecucion -> PR; revision humana.
 - [ ] T11 Con autorizacion especifica, commit y push de S01 y PR hacia main con diff aislado.
 - [ ] T12 Merge solo autorizado; comprobar resultados en main sin inventar publicacion.
+
+## Estado observado en el ensayo de integración
+
+PR real: https://github.com/2020morales/opita-360/pull/5. Continúa abierto; esta combinación es local, sin merge del PR ni aceptación docente acreditada. El bloqueo histórico del conector no significa que el PR siga sin existir. Resultados conjuntos: docs/taller-6/integracion-final-resultados.md.

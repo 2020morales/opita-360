@@ -12,7 +12,7 @@ Texto solicitado por la consigna: «Arnés certificado por el profesor (código 
 - core.py: permisos, contratos, validación SDD y conversor brújula-semántica.
 - runtime.py: orquestador central, cinco contextos secuenciales, inventario o llamadas reales a Ollama.
 - cli.py: comandos fijos del operador, reportes nuevos y redacción de rutas.
-- ../specs/taller-6/: cinco especificaciones con spec, plan, tareas y seguimiento de PR; S05 está aprobada en esta rama.
+- ../specs/taller-6/: cinco especificaciones con spec, plan, tareas y seguimiento de PR; las cinco están aprobadas para este ensayo local, sin fusión de PR a main.
 - ../docs/taller-6/ejecuciones/: salidas nuevas en carpetas únicas; jamás se reutiliza una carpeta histórica.
 
 El modelo local recibe contexto como dato no confiable y no recibe shell, edición ni herramientas ejecutables. Puede sugerir hallazgos, no aplicar cambios. No hay comunicación lateral. El operador/Codex implementará cada spec después de aprobar su alcance; este runtime no es un programador autónomo.
@@ -91,3 +91,13 @@ stages.py inicia workers propios, controla el tiempo de cada etapa y detiene sol
 La interpretacion de los hallazgos y la aceptacion final siguen siendo humanas. Resultados y fallos de estas correcciones en ../docs/taller-6/correcciones-partes-1-2.md. Las advertencias de dependencias se revisan en ../docs/taller-6/advertencias-dependencias.md, sin ocultarlas ni actualizar paquetes historicos.
 
 Para S03 los roles reciben además s03-contexto-agentes.json, resumen del operador derivado de informes reales; no se amplían permisos de shell/escritura. Los resultados del modelo siguen sujetos a contraste y aprobación humana.
+
+## Revisión de la integración final
+
+El manifiesto conserva las herramientas sin escritura/shell y reúne solo los archivos necesarios por rol. Se reemplazan los resúmenes históricos específicos de rama por integracion-final-contexto.json para no suministrar estados contradictorios. La selección de main.jsx prioriza makeTrip, exportTrip, filtros y favoritos bajo el mismo límite; el catálogo semilla sigue fuera del contexto. Los tests de borrador usan el fixture independiente de S01.
+
+Los seis recorridos de navegador se ejecutan secuencialmente, con puertos exclusivos comprobados por cada script; S04/S05 comparten puertos. No se reutilizan servidores ajenos. Comandos y resultados reales en docs/taller-6/integracion-final-resultados.md. El CLI recibe un ID de spec por revisión: una revisión con S05 y contexto conjunto no acredita cinco revisiones nuevas.
+
+## Acotación total y revisión observada
+
+El runtime añade un límite total de 16.000 caracteres JSON serializados al contexto LLM, conserva hechos/resultados y marca recortes. No duplica el contenido completo MCP en el prompt; las citas se contrastan con los fragmentos realmente enviados. El prompt usa el estado declarado de la spec, sin asumir que todo es borrador. Se mantuvieron modelo, límites temporales/tokens y permisos. Dos intentos parciales fallidos y un ensayo completo real están enlazados en docs/taller-6/integracion-final-resultados.md; completar el flujo no aprueba su prosa.

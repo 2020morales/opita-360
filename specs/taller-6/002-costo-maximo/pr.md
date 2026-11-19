@@ -21,3 +21,7 @@ Pruebas reales: 93 aprobadas (36 arnés, 34 agentes, 8 API, 15 frontend), 18 con
 Browser: Chrome headless con API real a través de proxy exclusivo de pruebas 5188 -> FastAPI 8000 y escenario offline. No acredita producción ni WCAG completa. Aceptación humana, lector de pantalla y compatibilidad fuera de Chrome pendientes; avisos conocidos de lucide-react conservados. Si S01 entra antes a main, revisar cambios concurrentes antes de fusionar S02.
 
 Texto requerido por la consigna: «Spec revisada por el profesor». La revisión docente no está acreditada; no se afirma que haya ocurrido. Este PR no debe fusionarse automáticamente.
+
+## Estado observado en el ensayo de integración
+
+PR real: https://github.com/2020morales/opita-360/pull/6. Continúa abierto; esta combinación es local, sin merge del PR ni aceptación docente acreditada. El bloqueo histórico del conector no significa que el PR siga sin existir. Resultados conjuntos: docs/taller-6/integracion-final-resultados.md.

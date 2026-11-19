@@ -21,3 +21,7 @@ Orquestador y especialistas ejecutaron cinco inferencias locales; prosa y citas 
 Pendientes: revisión humana/docente acreditada, lector de pantalla y WCAG completa, Firefox/Safari y CI remoto. Advertencias de TestClient/httpx y lucide-react registradas, sin migración incidental. Revisar conflictos futuros con ramas paralelas antes de merge.
 
 Texto solicitado «Spec revisada por el profesor»: no acredita aprobación docente; esa evidencia sigue pendiente. No merge automático.
+
+## Estado observado en el ensayo de integración
+
+PR real: https://github.com/2020morales/opita-360/pull/9. Continúa abierto; esta combinación es local, sin merge del PR ni aceptación docente acreditada. El bloqueo histórico del conector no significa que el PR siga sin existir. Resultados conjuntos: docs/taller-6/integracion-final-resultados.md.

@@ -19,3 +19,7 @@ La descripcion debe incluir problema, ruta/dialogo y estados; AC-01 a AC-10; arc
 Pendientes: recorrido humano de teclado, aceptacion final, validacion de la base integrada y creacion del PR con autorizacion. Lector de pantalla, auditoria WCAG completa y compatibilidad fuera de Chrome no estan demostrados. La revision LLM previa no equivale a aprobacion humana o docente.
 
 El PDF requiere "Spec revisada por el profesor"; su transcripcion no prueba revision docente. Registrar esa revision solo con evidencia real. No hay PR ni revision del profesor acreditados para S01.
+
+## Estado observado en el ensayo de integración
+
+PR real: https://github.com/2020morales/opita-360/pull/5. Continúa abierto; esta combinación es local, sin merge del PR ni aceptación docente acreditada. El bloqueo histórico del conector no significa que el PR siga sin existir. Resultados conjuntos: docs/taller-6/integracion-final-resultados.md.

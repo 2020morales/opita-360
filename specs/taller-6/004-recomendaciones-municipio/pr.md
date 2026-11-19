@@ -7,3 +7,7 @@ Título: feat(S04): restringir recomendaciones por municipio.
 Descripción futura: campo opcional validado, candidatos locales antes de intereses/fallback, compatibilidad y presupuesto conservados, selector independiente y demo. Factor Ámbar aprobado 5/9. Evidencias y trazabilidad en docs/taller-6/s04-resultados.md. No modificar históricos ni fusionar automáticamente.
 
 Si el conector vuelve a rechazar la creación con 403, registrar respuesta real y facilitar comparación, sin inventar número/URL. Texto exigido: «Spec revisada por el profesor»; no hay revisión docente acreditada.
+
+## Estado observado en el ensayo de integración
+
+PR real: https://github.com/2020morales/opita-360/pull/8. Continúa abierto; esta combinación es local, sin merge del PR ni aceptación docente acreditada. El bloqueo histórico del conector no significa que el PR siga sin existir. Resultados conjuntos: docs/taller-6/integracion-final-resultados.md.

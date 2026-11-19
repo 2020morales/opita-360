@@ -1,0 +1,6 @@
+{
+  "module": "harness.integration_browser",
+  "exit_code": 0,
+  "stdout": "all_controls_present True\ncost_favorites_municipality_category_search_AND True\ndetail_of_filtered_favorite True\ndetail_close_restores_origin_focus True\nremove_filtered_favorite_preserves_focus_and_storage True\nfavorites_survive_initialization_after_combined_filters True\ndownload_local_api True\ncatalogue_filters_do_not_restrict_planner True\nmunicipal_proposal_export_equals_real_API True\ndownload_local_api True\nedited_form_does_not_change_exported_municipal_proposal True\ndownload_local_api True\nzero_budget_exception_survives_export True\ndownload_local_api True\nempty_municipal_proposal_export True\ndownload_local_demo True\ndemo_recovery_ignores_catalogue_filters_and_stays_local True\ndemo_detail_of_persisted_favorite True\ndownload_local_demo True\nstorage_denial_keeps_detail_planner_and_export_usable True\nno_runtime_exceptions True\ndocs/taller-6/ejecuciones/20261118T235335Z-a537daa6/integration-browser.json\n",
+  "stderr": ""
+}

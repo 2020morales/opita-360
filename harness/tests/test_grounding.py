@@ -117,3 +117,11 @@ class GroundingTests(unittest.TestCase):
         text = "\n".join(e["text"] for e in select_source(source)["excerpts"])
         for symbol in ("serializeItinerary", "downloadItinerary", "revokeObjectURL"):
             self.assertIn(symbol, text)
+
+    def test_integrated_context_retains_five_feature_behaviors(self):
+        source = next(s for s in core.context("frontend") if s["path"] == "frontend/src/main.jsx")
+        chosen = select_source(source)
+        text = "\n".join(e["text"] for e in chosen["excerpts"])
+        for token in ("async function makeTrip", "catch {", "payload.municipality", "setResultOrigin", "function exportTrip", "downloadItinerary", "maxCost", "favorites.ids", "function toggleDestinationFavorite"):
+            self.assertIn(token, text)
+        self.assertNotIn("const fallbackDestinations = [", text)

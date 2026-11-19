@@ -4,7 +4,7 @@
   "amber": 5,
   "status": "approved",
   "implementation": "implemented",
-  "pull_request": null,
+  "pull_request": "https://github.com/2020morales/opita-360/pull/8",
   "acceptance": [
     {
       "id": "AC-01",
@@ -45,5 +45,10 @@
   "acceptance_status": "awaiting_human_review",
   "test_runs": [
     "docs/taller-6/ejecuciones/20261118T065921Z-77b06f39/s04-browser.json"
-  ]
+  ],
+  "integration": {
+    "branch": "taller6/integracion-final",
+    "main": "not_integrated",
+    "human_review": "pending"
+  }
 }

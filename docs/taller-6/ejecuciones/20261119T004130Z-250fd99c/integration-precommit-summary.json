@@ -1,0 +1,36 @@
+{
+  "checks": "docs/taller-6/ejecuciones/20261119T004033Z-d814f2a9/checks.json",
+  "runs": [
+    {
+      "module": "harness.s01_browser",
+      "exit_code": 0,
+      "command_report": "docs/taller-6/ejecuciones/20261119T004049Z-5a18ec68/integration-precommit-browser-command.json"
+    },
+    {
+      "module": "harness.s02_browser",
+      "exit_code": 0,
+      "command_report": "docs/taller-6/ejecuciones/20261119T004058Z-0e603021/integration-precommit-browser-command.json"
+    },
+    {
+      "module": "harness.s03_browser",
+      "exit_code": 0,
+      "command_report": "docs/taller-6/ejecuciones/20261119T004106Z-773a2179/integration-precommit-browser-command.json"
+    },
+    {
+      "module": "harness.s04_browser",
+      "exit_code": 0,
+      "command_report": "docs/taller-6/ejecuciones/20261119T004112Z-689ac29c/integration-precommit-browser-command.json"
+    },
+    {
+      "module": "harness.s05_browser",
+      "exit_code": 0,
+      "command_report": "docs/taller-6/ejecuciones/20261119T004120Z-c4e06824/integration-precommit-browser-command.json"
+    },
+    {
+      "module": "harness.integration_browser",
+      "exit_code": 0,
+      "command_report": "docs/taller-6/ejecuciones/20261119T004130Z-cc177065/integration-precommit-browser-command.json"
+    }
+  ],
+  "passed": true
+}

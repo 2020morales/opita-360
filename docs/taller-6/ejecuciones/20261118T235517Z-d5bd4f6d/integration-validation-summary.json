@@ -1,0 +1,55 @@
+{
+  "checks": "docs/taller-6/ejecuciones/20261118T234758Z-17dbcd9f/checks.json",
+  "browser_runs": [
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235306Z-5f2c4412/s01-browser.json",
+      "spec": "001",
+      "passed": true,
+      "count": 22,
+      "failed": [],
+      "unchanged": true
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235310Z-92ba8f80/s02-browser.json",
+      "spec": "002",
+      "passed": true,
+      "count": 18,
+      "failed": [],
+      "unchanged": true
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235316Z-74d72740/s03-browser.json",
+      "spec": "003",
+      "passed": true,
+      "count": 29,
+      "failed": [],
+      "unchanged": true
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235321Z-dd70ba7a/s04-browser.json",
+      "spec": "004",
+      "passed": true,
+      "count": 15,
+      "failed": [],
+      "unchanged": true
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235328Z-4ff7433f/s05-browser.json",
+      "spec": "005",
+      "passed": true,
+      "count": 14,
+      "failed": [],
+      "unchanged": true
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235335Z-a537daa6/integration-browser.json",
+      "spec": "integration",
+      "passed": true,
+      "count": 21,
+      "failed": [],
+      "unchanged": true
+    }
+  ],
+  "total_browser_controls": 119,
+  "note": "Counts include regressions and repeated controls, not distinct acceptance criteria."
+}

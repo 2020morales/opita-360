@@ -17,9 +17,7 @@
         "AGENTS.md",
         "harness/README.md",
         "harness/manifest.json",
-        "docs/taller-6/s03-contexto-agentes.json",
-        "docs/taller-6/s04-contexto-agentes.json",
-        "docs/taller-6/s05-contexto-agentes.json"
+        "docs/taller-6/integracion-final-contexto.json"
       ],
       "write": false,
       "shell": false,
@@ -41,15 +39,13 @@
         ".agents/skills/opita-frontend/SKILL.md",
         "frontend/src/destination-detail.jsx",
         "frontend/tests/max-cost.test.js",
-        "docs/taller-6/s03-contexto-agentes.json",
         "frontend/src/favorites.js",
         "frontend/tests/favorites.test.js",
-        "docs/taller-6/s04-contexto-agentes.json",
         "frontend/src/recommendation-municipality.js",
         "frontend/tests/recommendation-municipality.test.js",
-        "docs/taller-6/s05-contexto-agentes.json",
         "frontend/src/export-itinerary.js",
-        "frontend/tests/export-itinerary.test.js"
+        "frontend/tests/export-itinerary.test.js",
+        "docs/taller-6/integracion-final-contexto.json"
       ],
       "write": false,
       "shell": false,
@@ -71,10 +67,9 @@
         "backend/tests/test_api.py",
         ".agents/skills/opita-backend/SKILL.md",
         "backend/tests/test_destination_detail.py",
-        "docs/taller-6/s03-contexto-agentes.json",
-        "docs/taller-6/s04-contexto-agentes.json",
         "backend/tests/test_recommendation_municipality.py",
-        "docs/taller-6/s05-contexto-agentes.json"
+        "docs/taller-6/integracion-final-contexto.json",
+        "backend/tests/test_integrated_features.py"
       ],
       "write": false,
       "shell": false,
@@ -94,9 +89,7 @@
         "harness/tests/test_harness.py",
         ".agents/skills/brujula-semantica/SKILL.md",
         "harness/grounding.py",
-        "docs/taller-6/s03-contexto-agentes.json",
-        "docs/taller-6/s04-contexto-agentes.json",
-        "docs/taller-6/s05-contexto-agentes.json"
+        "docs/taller-6/integracion-final-contexto.json"
       ],
       "write": false,
       "shell": false,
@@ -117,9 +110,7 @@
         "harness/runtime.py",
         "harness/core.py",
         "harness/grounding.py",
-        "docs/taller-6/s03-contexto-agentes.json",
-        "docs/taller-6/s04-contexto-agentes.json",
-        "docs/taller-6/s05-contexto-agentes.json"
+        "docs/taller-6/integracion-final-contexto.json"
       ],
       "write": false,
       "shell": false,
