@@ -1,0 +1,18 @@
+{
+  "command": [
+    "npm.cmd",
+    "ci",
+    "--offline",
+    "--ignore-scripts",
+    "--no-audit",
+    "--no-fund",
+    "--logs-max=0"
+  ],
+  "cwd": "frontend",
+  "exit_code": 0,
+  "finished_at": "2026-11-20T06:48:25.066601+00:00",
+  "stdout": "\nadded 20 packages in 13s\n",
+  "stderr": "",
+  "network": "offline",
+  "declared_dependencies_changed": false
+}

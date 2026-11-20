@@ -1,0 +1,51 @@
+{
+  "method": "GitHub connector GET; no PR edited",
+  "base_main": "a5f3e3a218e32836388dc289509827a01932bdbe",
+  "pull_requests": [
+    {
+      "number": 5,
+      "url": "https://github.com/2020morales/opita-360/pull/5",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-19T01:11:40Z",
+      "body": " Taller 6 – Implementación de S01\n\nSe implementó la especificación S01 para consultar el detalle accesible de los destinos turísticos de OPITA 360.\n\nCambios realizados:\n- Implementación de la funcionalidad S01.\n- Actualización de la documentación y trazabilidad.\n- Incorporación de pruebas automatizadas y evidencias.\n- Registro de excepciones históricas.\n\nVerificaciones reportadas por Codex:\n- 91 pruebas ejecutadas.\n- 22 controles de navegador.\n- Compilación aprobada.\n- `git diff --check` sin errores.\n\nPendientes:\n- Validación manual de accesibilidad mediante teclado.\n- Revisión y aceptación humana de los resultados.\n\n",
+      "teacher_phrase_present": false
+    },
+    {
+      "number": 6,
+      "url": "https://github.com/2020morales/opita-360/pull/6",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-19T01:11:40Z",
+      "body": " Taller 6 – Implementación de S02\n\nSe implementó la especificación S02 para permitir filtrar los destinos turísticos de OPITA 360 según un costo máximo definido por el usuario.\n\nCambios realizados\n- Implementación del filtro de costo máximo en React.\n- Conservación de la API y las funcionalidades existentes.\n- Incorporación de pruebas y documentación técnica.\n- Registro de resultados y limitaciones conocidas.\n\n Verificaciones\n- Pruebas automatizadas y controles de navegador reportados por Codex.\n- Revisión de compilación y consistencia del código.\n- Evidencias documentadas en la rama de S02.\n\n Pendientes\n- Validación manual de accesibilidad mediante teclado.\n- Revisión de compatibilidad en otros navegadores.\n- Aceptación humana de los resultados.\n\n Trazabilidad\nLa implementación corresponde a S02 del Taller 6. Se mantienen separadas las funcionalidades S01 y las evidencias históricas de los Talleres 4 y 5.",
+      "teacher_phrase_present": false
+    },
+    {
+      "number": 7,
+      "url": "https://github.com/2020morales/opita-360/pull/7",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-19T01:11:39Z",
+      "body": " Taller 6 – Implementación de S03\n\nSe implementó la especificación S03 para permitir a los usuarios guardar, consultar y eliminar destinos turísticos favoritos en OPITA 360.\n\nCambios realizados\n- Implementación de la gestión de destinos favoritos.\n- Persistencia de favoritos mediante almacenamiento local.\n- Manejo de datos inválidos y errores de almacenamiento.\n- Integración con el catálogo de destinos turísticos.\n- Corrección de dos defectos detectados en el contexto del arnés de agentes.\n- Incorporación de pruebas de regresión y documentación de evidencias.\n\n Verificaciones\n- Ejecución de pruebas automatizadas reportadas por Codex.\n- Registro de defectos, correcciones y resultados.\n- Conservación de las evidencias originales de las pruebas fallidas.\n\n Limitaciones y pendientes\n- Validación manual de accesibilidad mediante teclado.\n- Verificación de compatibilidad en otros navegadores.\n- Revisión y aceptación humana de los resultados.\n\n",
+      "teacher_phrase_present": false
+    },
+    {
+      "number": 8,
+      "url": "https://github.com/2020morales/opita-360/pull/8",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-19T01:11:40Z",
+      "body": "Taller 6 – Implementación de S04\n\nSe implementó la funcionalidad S04 para ofrecer recomendaciones de destinos turísticos según el municipio seleccionado en OPITA 360.\n\nCambios realizados\n- Implementación de recomendaciones y filtrado por municipio.\n- Integración con las funcionalidades existentes.\n- Incorporación de pruebas automatizadas y documentación.\n- Registro de errores, correcciones y limitaciones.\n\nVerificaciones reportadas por Codex\n- 101 pruebas ejecutadas.\n- 15 controles de navegador.\n- Compilación satisfactoria.\n- Validación de cambios mediante Git.\n\nPendientes\n- Revisión manual de accesibilidad.\n- Verificación de compatibilidad en otros navegadores.\n- Aceptación final de los resultados.",
+      "teacher_phrase_present": false
+    },
+    {
+      "number": 9,
+      "url": "https://github.com/2020morales/opita-360/pull/9",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-19T01:11:40Z",
+      "body": "Taller 6 – Implementación de S05\n\nSe desarrolló la funcionalidad S05 de OPITA 360, orientada a permitir la exportación de itinerarios turísticos.\n\n Cambios realizados\n- Implementación de la exportación de itinerarios.\n- Integración con las funcionalidades existentes.\n- Incorporación de pruebas automatizadas y documentación técnica.\n- Registro de errores, correcciones y limitaciones conocidas.\n\n Verificaciones\n- Evidencias de implementación y pruebas documentadas en la rama S05.\n- Resultados de las verificaciones registrados durante el desarrollo.\n- Conservación de la trazabilidad de los cambios.\n\n\n\n",
+      "teacher_phrase_present": false
+    }
+  ]
+}
