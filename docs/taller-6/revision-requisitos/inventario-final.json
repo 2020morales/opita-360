@@ -1,0 +1,1572 @@
+{
+  "finished_at": "2026-11-20T06:53:30.249145+00:00",
+  "tracked_files_scanned": 352,
+  "files_with_matches": 141,
+  "inventory": [
+    {
+      "path": ".agents/skills/brujula-semantica/SKILL.md",
+      "sha256": "ead488ca55c3350f86536e829a98f3c026941d502bbfe8008e21f01442c5a0f3",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:2",
+          "line:6",
+          "line:17"
+        ]
+      }
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "b1f7a9b4afbf87f407770e63176c9535b9ef73637088c366956026daa1b15fd1",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:36"
+        ],
+        "factor-ambar": [
+          "line:40"
+        ]
+      }
+    },
+    {
+      "path": "README.md",
+      "sha256": "4f4aaacb1759e8631aff266b2d28ee018e3ba4021fb90664d7dc06ae733594c8",
+      "protected_history": false,
+      "matches": {
+        "certificacion-fet-arn-42": [
+          "line:76"
+        ],
+        "matriz-halcon": [
+          "line:70",
+          "line:74"
+        ],
+        "coeficiente-murcielago": [
+          "line:70"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/archivos-arnes.txt",
+      "sha256": "2b84d4aa6c2cdade7686065d2137f58a19107129523f76850ee377c14353ccaf",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:1"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261117T213703Z-29190148/checks.json",
+      "sha256": "d90341237ddc9a11cebc12041fd1b39cabcfa57f49fb1cfc1beeaa7716718d54",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261117T213704Z-645e3a94/codex-skills.json",
+      "sha256": "43f06f54fb7bd661cca9b55d3c785b0462e9d4217afaec9188b1d93c12698dc7",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:5",
+          "line:10"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261117T213841Z-214ecbc4/cases.json",
+      "sha256": "28dda3e559819327bd04cf4c769d97e9be1cbeef8ba21c940827411ec3e21719",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261117T213843Z-7d62b692/review.json",
+      "sha256": "4460985c4e2872d93af9f46202e3b79f6c01909e509501b7e8514ba5e4cfae64",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:150"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261117T214102Z-946abb32/cases.json",
+      "sha256": "4d72c899fd2a2bde1c34ce52db60e27ccdd548e9198285c5a4587e211fba6d7d",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261117T214103Z-5c043953/cases.json",
+      "sha256": "440a104a923731b28d6c979fb1e9f510cebb967d7d7fcd438b88209d96adeb16",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261117T214103Z-eaeb2e99/cases.json",
+      "sha256": "5b732740c71e9b4fd2cf13db54aa8f7d8380ed569da15b3fc14a0a835928544e",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261117T214103Z-f488a7ac/cases.json",
+      "sha256": "7b0464a1cd465300ddf63c79acb6243128c9b596b1554043659ec3c4aed6f590",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261117T235429Z-67310319/review.json",
+      "sha256": "aaa36cc888b595c151d3fb238e08d94ee0a33aefe4e01125467f9ea0b17c6251",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:150"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261117T235813Z-f80895af/checks.json",
+      "sha256": "90c17ccb06b52a959cfd4ed050941d34ad9cc4e11b75613af2d13660b162e823",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T000306Z-98c3691e/review.json",
+      "sha256": "ff1533f39dc3ad1da176c5fa156f324e8a289147769fd9fb6e440d1897249e66",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:157"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T004955Z-202b625a/checks.json",
+      "sha256": "96d68db9383f86ebb9b74cb5f343d1363549f1f96c65daf53314b49941e4df26",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T004955Z-2b41e7f6/codex-skills.json",
+      "sha256": "43f06f54fb7bd661cca9b55d3c785b0462e9d4217afaec9188b1d93c12698dc7",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:5",
+          "line:10"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T005541Z-8a2c029f/checks.json",
+      "sha256": "fa44929d94a0cdd5f79e70181425661ad17b6a4caec724f3595b4d1290c25f4c",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T010014Z-aba6178e/review.json",
+      "sha256": "f174e9820410ae8ae9c92d9ff97835ca2c55bc96920ead46cabc881b787cf374",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:158"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T010508Z-5919224c/cases.json",
+      "sha256": "7b0464a1cd465300ddf63c79acb6243128c9b596b1554043659ec3c4aed6f590",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T010508Z-7aa0df5e/cases.json",
+      "sha256": "28dda3e559819327bd04cf4c769d97e9be1cbeef8ba21c940827411ec3e21719",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T010508Z-96919adb/cases.json",
+      "sha256": "4d72c899fd2a2bde1c34ce52db60e27ccdd548e9198285c5a4587e211fba6d7d",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T010509Z-c3a582a7/cases.json",
+      "sha256": "5b732740c71e9b4fd2cf13db54aa8f7d8380ed569da15b3fc14a0a835928544e",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T010509Z-f80a050b/cases.json",
+      "sha256": "440a104a923731b28d6c979fb1e9f510cebb967d7d7fcd438b88209d96adeb16",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T015405Z-bb6b30b9/error.json",
+      "sha256": "3e8ae3fffc009306f7f617377ce89f1febea14d973eb37dca9bb90ab1980f445",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:5"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T015601Z-342c5386/cases.json",
+      "sha256": "cb57459bb58baf987944651558c15c823d19f44cf081c907a08d10fed756c12a",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T015603Z-deeaa95a/review.json",
+      "sha256": "8689cde383b56acd076f8fa4f682e01283d4197be6a3c5f22356476c87585e6c",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:152"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T015738Z-25f59340/cases.json",
+      "sha256": "28b3ea06a1be636e3b78603f7c17e54e6732557fca872f58ea51c7a58b058b21",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T015738Z-4889e6c8/review.json",
+      "sha256": "faf103fcaa480fb71ccc4ba1fff54db551ba172f6914ea91884ae2f39c69e80e",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:152"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T020633Z-f220178e/checks.json",
+      "sha256": "4cac46b1f580ae2d450c316f7111a6950543327e582c5da4b9f43d6e1fa04809",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T020842Z-9382abfd/s01-browser.json",
+      "sha256": "c0dda28562bcdee62d3f4c15dc254cb160b6de7115ca006da018312bc59da997",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T021012Z-f9b7c826/s01-browser.json",
+      "sha256": "c279ea6d30cd67d19e35e0f880c041461f11dcb7283b206aa89c17915a5d5319",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T021111Z-e09396fb/s01-browser.json",
+      "sha256": "4d12c0ce55a87416183905cb20561641d9c37d2be55f017af05eaf998c96bd49",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T021329Z-040d3084/s01-browser.json",
+      "sha256": "90b7c60e6a385e8d438b6c0e9daf76449730437f05e12387dd5e0cf1a151ba57",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T021523Z-1e06f9bf/checks.json",
+      "sha256": "bc6399ac9931684f04cfd82363ade75ddf878e4818514364ddb5adafacf16a62",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T021524Z-0027f335/cases.json",
+      "sha256": "28b3ea06a1be636e3b78603f7c17e54e6732557fca872f58ea51c7a58b058b21",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T021524Z-1117ed32/review.json",
+      "sha256": "65147197a0d04050042a63f0d2fd8cb32519ac426b71dd777734d83af716b059",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:162"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T022300Z-08efb205/review.json",
+      "sha256": "29f8fb6aedd9ac92e40e4f4e638b59019b8506fe684c01308b40198b93287900",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:167"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T023506Z-b5efe4fb/checks.json",
+      "sha256": "73114dac725cd87d85c91d219b9b2f607b713d228e2ea3a9df138434b2f73cc2",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T023520Z-e30b1696/s01-browser.json",
+      "sha256": "519349c86e897db75d30bfcd4b55d86d8255d37bd7bac1f417325d8895382bd9",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T052419Z-c6711f9a/cases.json",
+      "sha256": "4d72c899fd2a2bde1c34ce52db60e27ccdd548e9198285c5a4587e211fba6d7d",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T052526Z-03551682/checks.json",
+      "sha256": "3773ce6ee1a1a2a0bca96eea147ef76a596d43b01e734a74ae678a31fe85ec04",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T052732Z-400db009/s02-browser.json",
+      "sha256": "ceefbc4c40b965a09d95f7969a13df25c4f41187e7e89be5163b4f535e2f79a4",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T052855Z-f60c1aa9/review.json",
+      "sha256": "92b67a9eb4afd4c2b1ec07f56498cfec61fa46f05f3084846b37c4e7f3474067",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:157"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T052855Z-fa1dc3d8/checks.json",
+      "sha256": "bbab6a27ef586a54c161f843550a7ee52818dfaadb4ff45a6e04c4692d24d7d3",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T053608Z-fa13e5e6/review.json",
+      "sha256": "54f45c5fe10c3d2a9737f9f6034ebd949ea4574eb6bc8e9c428793eff4d94289",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:163"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T055944Z-b67268ea/cases.json",
+      "sha256": "7b0464a1cd465300ddf63c79acb6243128c9b596b1554043659ec3c4aed6f590",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T060731Z-30b39e75/checks.json",
+      "sha256": "1864087faf76be6afc7535713937eb98443731c04906085100b181bbd06d093d",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T061049Z-9422d89f/s03-browser.json",
+      "sha256": "3fd2906db04e66004cd9bb203c6e087446937cdeaa5fee505fb6bf810370d792",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T061325Z-2d8514bb/checks.json",
+      "sha256": "2b76bd46bff6522ff0782f6c5f83f373210ed6844ae7896bca0fe407bb6cae21",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T061326Z-3c91ab32/review.json",
+      "sha256": "05c792c118a344b716afc5648170b1fb643d8682a5132cac2a69b4fe22927840",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:177"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T062001Z-fa218fec/review.json",
+      "sha256": "312d07d46dadc6c7e4b63a6800f54a479fd8f584b1bdc3add3697bc4454d179c",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:183"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T062355Z-0c8be9aa/checks.json",
+      "sha256": "8cac21facbe34c4eacb7e1d1dff87223aca4d3c3017bd77c00f1c3422c448ea8",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T062356Z-2cdd8484/review.json",
+      "sha256": "a26a4bec61812e130f62d18d24248b239b317c837081998cd56853d05982c571",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:177"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T062600Z-10512263/checks.json",
+      "sha256": "804165d8a5196d5288a22ec1ae06ac5bd62416b07ddac98807e414937ef3d55e",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T062601Z-11597884/review.json",
+      "sha256": "f54be92b4e995ab5c557c086347917382a1222fe46356952ce0c7c8f3015f4ca",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:177"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T063221Z-91584bd8/review.json",
+      "sha256": "ef59a8301a0f1b29cdead4a84c02ad49381abf38579451dd1900b9ac1d772da4",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:182"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T065054Z-8b5cb69f/cases.json",
+      "sha256": "21dee193b84d06236f1a5bb64bdef24e5bc31ff86f2ab782fed1adfc42a7ba93",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T065520Z-d78b42d0/checks.json",
+      "sha256": "30d6c5a187fd2c116e8303b4f8abb08aa679b909b322f6b0096ad0bec2d27bd8",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T065921Z-77b06f39/s04-browser.json",
+      "sha256": "2b38ead94c6eae54974453c68ffbff272ea7bb1eb4b7256cf754eddfd71d032d",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T070153Z-d6638cd3/checks.json",
+      "sha256": "9d58db18b22cbb8d14dd5d148f00e979cd07c6b56ccf0a2cdb1a06aa5ace8aa0",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T070317Z-b86ca24f/review.json",
+      "sha256": "e252e595dca1dd2f69d03390d8d1eeff99e0303c83f0b58946e18cdbb639601d",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:182"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T070903Z-87e914db/review.json",
+      "sha256": "238a4f1f05ab3e6b25bf9ebf4924184800a4c1f658a303774de1664e4fdee141",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:188"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T154639Z-581815c4/cases.json",
+      "sha256": "5b732740c71e9b4fd2cf13db54aa8f7d8380ed569da15b3fc14a0a835928544e",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T154858Z-6635c2ab/checks.json",
+      "sha256": "65ba929ca84e24ecea560ac988f2898333b45af4063d7a725c05cb033d7047cc",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T155016Z-2822b8d7/s05-browser.json",
+      "sha256": "e1a60709d9ec373dd26688cee76b915683514edab194f5d444b43833a328d107",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T155158Z-c16ff788/s05-browser.json",
+      "sha256": "f44409171ae1ab698060487bce7feb0a0b273158fd237ab0a079c4839500b769",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T155632Z-e2921703/s05-browser.json",
+      "sha256": "054f28dc6e64de2ab337d8f962b9677d9715bde06321e41b71e5499531d10455",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T160046Z-f69011ed/checks.json",
+      "sha256": "c64524f94dd92e31212e238767ef4ff88ebfdcb9b171a7ccd61c16adda61660d",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ],
+        "factor-ambar": [
+          "line:101"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T160148Z-2d2a1e10/checks.json",
+      "sha256": "76e8ab8cfd30f6f963e3bee86d2ca389d5a5caeaf1d9038fe20b22160e0da9c2",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T160230Z-283a97bd/checks.json",
+      "sha256": "ec9a40faacbd06691b8463967c5cf34eda8afdbb892c18453a4a02201616b193",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T160300Z-7742429e/review.json",
+      "sha256": "b81da02eda140441693e0991283c7e7f7fa21566ea013b53b706878089e3a20b",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:177"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T161032Z-53669261/review.json",
+      "sha256": "e417c197a7eea5d8c27ca8d6249223fe3b6e03023b8cbdf46f65897cb1176925",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:183"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T234618Z-c2da049e/checks.json",
+      "sha256": "ee52aa3a50cd6a4e7d3538b6069c57ac61e143c803e47b9fbbe8b791b00873d1",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T234758Z-17dbcd9f/checks.json",
+      "sha256": "3c43fb0db52599a2fcbcd9bf24246ad130ff612960156ea5d4f7147aa2b8cb82",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235306Z-5f2c4412/s01-browser.json",
+      "sha256": "b753e5cef0a17398805da9c3091e925f38d1cb736a42281d0c4164b83ea1069e",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235310Z-92ba8f80/s02-browser.json",
+      "sha256": "cbf6f21701115a2d46a19d098e5d937848f2378d45f454293cdb6b7c53a3e5dc",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235316Z-74d72740/s03-browser.json",
+      "sha256": "dfa2f27af0f4fbac0d33956d860a633349b052277197f87cd4ae578c01ccb07f",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235321Z-dd70ba7a/s04-browser.json",
+      "sha256": "6b01cc7cd166a1fc5cab16262f8b53bca6c52bba4d652863a46bc759258ec088",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235328Z-4ff7433f/s05-browser.json",
+      "sha256": "e61f4291fd34951a4e5996d27b4c9b6f79563e868a79c833d92260785fd2a9db",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235335Z-a537daa6/integration-browser.json",
+      "sha256": "62ee3afea20d7382ac45eb5bb0a811d681ac6be8c6ac7e95401794b3be11b4b8",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235525Z-6151c0c1/checks.json",
+      "sha256": "8313f9c57401c3963961b24d1822612f682498604cd45a25a83879d21b736a86",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235714Z-25a6ccff/cases.json",
+      "sha256": "28b3ea06a1be636e3b78603f7c17e54e6732557fca872f58ea51c7a58b058b21",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235714Z-2fe57db0/cases.json",
+      "sha256": "4d72c899fd2a2bde1c34ce52db60e27ccdd548e9198285c5a4587e211fba6d7d",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235714Z-4b8653be/checks.json",
+      "sha256": "eb5fedd581c178f8bd31fc426719163c4e3126245f34fa9beb7be97f98c9c247",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235715Z-6e8bc88e/cases.json",
+      "sha256": "7b0464a1cd465300ddf63c79acb6243128c9b596b1554043659ec3c4aed6f590",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235715Z-8c6ffd12/cases.json",
+      "sha256": "21dee193b84d06236f1a5bb64bdef24e5bc31ff86f2ab782fed1adfc42a7ba93",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235715Z-ab86829b/cases.json",
+      "sha256": "5b732740c71e9b4fd2cf13db54aa8f7d8380ed569da15b3fc14a0a835928544e",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261118T235716Z-c8ed9da9/review.json",
+      "sha256": "50e341f2d3bd8d5caed4c14fdc2d381e26b90703de2dc48117ff9df95ea89760",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:222"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261119T000250Z-bb1c2b2b/error.json",
+      "sha256": "189cafe8951594d364efdebb820f11541bca604f1dfbb759cea1fab1e44db427",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:231"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261119T001433Z-1a2dcb10/checks.json",
+      "sha256": "da76b3242393694721434659967a0ffd1e7635f0761983c9aac503400c7701fe",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261119T002022Z-a6f1de0d/error.json",
+      "sha256": "7ff199088853514218518f7e595a8990fcef81ee9c7dea0c45be7f0c3150d0c2",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:225"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261119T002449Z-b39d6044/checks.json",
+      "sha256": "faa0d6139c2cc6e024778e8d795ea90602e46391df111243ee99dfdd2d6524d3",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261119T002956Z-5aab9623/review.json",
+      "sha256": "d4c1326bc4d51cc5bee80e3b091dc4350a5a7a398b7b33868ac11fd792cbd09f",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:222"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261119T003221Z-3c3c290e/checks.json",
+      "sha256": "1c97485269be5296c88a3b99425db5b1bfcc8a34ea6657d2b293a1bdb89078ce",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261119T004033Z-d814f2a9/checks.json",
+      "sha256": "08341d5e8cdf18790c1a83101dfb45bfa0ccef021e734ce493b10ff8b613adc6",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261119T004048Z-2e51b940/s01-browser.json",
+      "sha256": "e285391d128dc7eef559eec2677c3a35e9d85259d0a4a73a2c2dad00f27a25c2",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261119T004058Z-afc91d53/s02-browser.json",
+      "sha256": "734c01f6a720b25aa7e2fa022f10c878e9835d7bc276b22bcd0ef6352ed4fd88",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261119T004105Z-9e319067/s03-browser.json",
+      "sha256": "beafc35641aa81661a8bd732cdba6c7fa90d3b041aaa7c49e82bf336e50d6a80",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261119T004112Z-62e8cbf9/s04-browser.json",
+      "sha256": "2ef3472ca3f40c5b3118f0e69b849c5c4dca28ac7cd433efb5515fe91f4b9a69",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261119T004120Z-02d2924e/s05-browser.json",
+      "sha256": "778aef8a8eb339ee52340a0f6ddb7cf82675474acb3df2637dfa0933c8477589",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/ejecuciones/20261119T004129Z-5403da01/integration-browser.json",
+      "sha256": "9506c1f4269e4c0475bd7bcbb48028ca5ca065dd385e782d2ad20a1759cd4bb1",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/integracion-final-resultados.md",
+      "sha256": "853a23289be4c33c4ce22c3b6a3f324a42360db5e1fade166c390c2a42936210",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:64"
+        ],
+        "coeficiente-murcielago": [
+          "line:67",
+          "line:108"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/requisitos-oficiales.md",
+      "sha256": "2913f6fb3e7b9f9fecbfcdb1cf49d5e700dec52d409959dd2b847a0ea2effbe0",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:11",
+          "line:28"
+        ],
+        "certificacion-fet-arn-42": [
+          "line:21",
+          "line:29"
+        ],
+        "matriz-halcon": [
+          "line:12",
+          "line:30"
+        ],
+        "factor-ambar": [
+          "line:14",
+          "line:31"
+        ],
+        "revision-profesor": [
+          "line:18",
+          "line:32"
+        ],
+        "coeficiente-murcielago": [
+          "line:16",
+          "line:33",
+          "line:39",
+          "line:47"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/resultados-arnes.md",
+      "sha256": "3b1dc9c0b107b4ec69fcccf8820eba19717496065e8e8e08a4e7e2c4ee1f856f",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:16"
+        ],
+        "coeficiente-murcielago": [
+          "line:41"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/s01-planificacion.md",
+      "sha256": "3d5418a6ab45c695fa3185f9ddd372afe95fc4c5880a21eac528a9aee50df8b7",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:5"
+        ],
+        "factor-ambar": [
+          "line:21"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/s01-resultados.md",
+      "sha256": "137d3d6bcd6883ca0d629d766afa739d90415a2f9dae96d412bdc20e56e1679d",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:57"
+        ],
+        "coeficiente-murcielago": [
+          "line:63"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/s02-resultados.md",
+      "sha256": "ee1294f391898988b94c2cc8f2e3dfc951659253f1a97cdd4b0a48d3f5f608bf",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:42"
+        ],
+        "factor-ambar": [
+          "line:3"
+        ],
+        "coeficiente-murcielago": [
+          "line:52"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/s03-resultados.md",
+      "sha256": "971a49bff84090675bd42599ed0f57620ee4739946499966c053f9b0aaab9505",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:46"
+        ],
+        "factor-ambar": [
+          "line:3"
+        ],
+        "coeficiente-murcielago": [
+          "line:52"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/s04-resultados.md",
+      "sha256": "6b646e3d598bcd472d527b7d30a8d358f371ce6f5d7f9f933e08f54a80c51ad3",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:49"
+        ],
+        "factor-ambar": [
+          "line:3"
+        ],
+        "coeficiente-murcielago": [
+          "line:53"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/s05-resultados.md",
+      "sha256": "f127365a247e1984903d1f3033223bf1026c586e7bf1080ff229aa6098fdb8e2",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:37"
+        ],
+        "factor-ambar": [
+          "line:17"
+        ],
+        "coeficiente-murcielago": [
+          "line:43"
+        ]
+      }
+    },
+    {
+      "path": "docs/taller-6/validacion-arnes.json",
+      "sha256": "44bdde5f19dde3068f730a4a969763bdbab642cec4e0d4ce596c3f764b408a0d",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:21"
+        ]
+      }
+    },
+    {
+      "path": "harness/README.md",
+      "sha256": "b801add5ff529c244a15d7d6cbe2432e1d07d7615d86376f95de7f700c3b4c5b",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:26",
+          "line:58"
+        ],
+        "certificacion-fet-arn-42": [
+          "line:5"
+        ],
+        "matriz-halcon": [
+          "line:19",
+          "line:52",
+          "line:94"
+        ],
+        "coeficiente-murcielago": [
+          "line:19",
+          "line:94"
+        ]
+      }
+    },
+    {
+      "path": "harness/codex_probe.py",
+      "sha256": "6ee837ca40d95ca3b21e63b225d3f60e76723a61b2d1009389021f104088ae57",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:46"
+        ]
+      }
+    },
+    {
+      "path": "harness/core.py",
+      "sha256": "a0b033e480c96f21ea4485f1b906abfa37f8a2aceac9b7aa0e14770df0094b7a",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:96",
+          "line:137"
+        ],
+        "factor-ambar": [
+          "line:74",
+          "line:75",
+          "line:132",
+          "line:133"
+        ]
+      }
+    },
+    {
+      "path": "harness/manifest.json",
+      "sha256": "57a2f7e8f17dfe49a0ea8ee45bf7c0185850ac04ba1355f6ed9c865c36bf5886",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:90",
+          "line:97"
+        ]
+      }
+    },
+    {
+      "path": "harness/tests/test_harness.py",
+      "sha256": "d173c6a7f2f90652d5555ef1ec622aa4d8d7bdaade191acb5267a863b0f416c0",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:45"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/001-detalle-destino/plan.md",
+      "sha256": "424bef89bbae67107c27fd3df89b245dcf85e5f40b57b219f3ef7ee2ddf6076b",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:21"
+        ],
+        "factor-ambar": [
+          "line:3"
+        ],
+        "coeficiente-murcielago": [
+          "line:35"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/001-detalle-destino/pr.md",
+      "sha256": "0c84220b77e7353a6c8440f33634384625710f6b5eedffa7c966289d2e3072d3",
+      "protected_history": false,
+      "matches": {
+        "revision-profesor": [
+          "line:21",
+          "line:36"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/001-detalle-destino/spec.json",
+      "sha256": "5fbf1d1ad4c9f484c718f659af51394ad3550622c59bb8e6172a6bf5c4a79090",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:4"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/001-detalle-destino/tasks.md",
+      "sha256": "817523ba6714b0547ad254ee6f26981ef037d2f193706735f052399a06e1ce94",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:5"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/002-costo-maximo/plan.md",
+      "sha256": "acfeea57f19cbb13436eee01060d2da67a68f8603008714cd58fb0ecc36b2b95",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:23",
+          "line:29"
+        ],
+        "factor-ambar": [
+          "line:3",
+          "line:31"
+        ],
+        "coeficiente-murcielago": [
+          "line:31"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/002-costo-maximo/pr.md",
+      "sha256": "8620ff77b3890bb8bf7c0d05f762affd0f675e8c8ae7829fa30be6933ffda0b2",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:17"
+        ],
+        "revision-profesor": [
+          "line:23",
+          "line:38"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/002-costo-maximo/spec.json",
+      "sha256": "0ee7e75d9fc6d61d34223ebc9fc4246ce441b6b8d562f5178f648a15de7ec1e7",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:4"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/002-costo-maximo/spec.md",
+      "sha256": "4631c60ecbffd72ce446b5eac1d4b939bcc790f3782d80aac33657c0342969df",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/002-costo-maximo/tasks.md",
+      "sha256": "529f2081c6377d1deda3cdde8e84c92c1a9c08f2077d779d51317a1af962ddf7",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:4"
+        ],
+        "factor-ambar": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/003-favoritos/plan.md",
+      "sha256": "8f8f4e377259dcf6e6327c64d69f9fe79ed21b058cd493e256428cf917187a9e",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:21",
+          "line:29"
+        ],
+        "factor-ambar": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/003-favoritos/pr.md",
+      "sha256": "b327493e655cc9e60e0369273db7fc2b1cb99244b2b1015cbbec843fe74edd0c",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:15"
+        ],
+        "revision-profesor": [
+          "line:21",
+          "line:36"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/003-favoritos/spec.json",
+      "sha256": "940755193abad6b11703508ea703fb9cf13863f790f8b9237cf794ef9850ef22",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:4"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/003-favoritos/spec.md",
+      "sha256": "93983eb4e9fd08438215ac12fa1301f834e8338a0baf835a52ce3674c3260129",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/003-favoritos/tasks.md",
+      "sha256": "7663b0077383678723b12ee7717b73ed543bc5cc89decb7b5627d32e873feb4b",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:4"
+        ],
+        "factor-ambar": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/004-recomendaciones-municipio/plan.md",
+      "sha256": "13ab68b276da71e63bee81179eb38f6ba90fc32f628e2011555b37b9133a2aa1",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:22",
+          "line:28"
+        ],
+        "factor-ambar": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/004-recomendaciones-municipio/pr.md",
+      "sha256": "c85e48052f2bbee94407b2dd0a0c206d5e9979cda7d6517dbfcae009ff5de97b",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:7"
+        ],
+        "revision-profesor": [
+          "line:9",
+          "line:24"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/004-recomendaciones-municipio/spec.json",
+      "sha256": "7cc23020f36cdb1cfc676f9a2b46191a9ee2134c14d497e94c90955fc6f8c5b6",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:4"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/004-recomendaciones-municipio/spec.md",
+      "sha256": "dd02532fdc536ceafd45de52b4cae6a5afab1413b3cf42aa2403da394cb22d81",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/004-recomendaciones-municipio/tasks.md",
+      "sha256": "0d27505453a39cec4e1a8fdfa6f10271a265056c8bdcb67f41076ad6516fbcdd",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:4"
+        ],
+        "factor-ambar": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/005-exportar-itinerario/plan.md",
+      "sha256": "3aeb4b77766da262a5b8a3ec8243a392fe83a91105b1aa33f4c4f67504a5e1bb",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:6"
+        ],
+        "factor-ambar": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/005-exportar-itinerario/pr.md",
+      "sha256": "182b4bcc0e247db53c2df17bf3be18d9e8a687b08b7d8aa0858e22f8013ece9e",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:13"
+        ],
+        "revision-profesor": [
+          "line:23",
+          "line:38"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/005-exportar-itinerario/spec.json",
+      "sha256": "4664b9252adabb480ff86ee03b6f3d0692967b1b08cdc9be6b383f96d9829640",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:4"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/005-exportar-itinerario/spec.md",
+      "sha256": "36d60dd5c391b4afc92f1951b87af0e15deaca973212c9d8b5cec352d5a7968c",
+      "protected_history": false,
+      "matches": {
+        "factor-ambar": [
+          "line:3"
+        ]
+      }
+    },
+    {
+      "path": "specs/taller-6/005-exportar-itinerario/tasks.md",
+      "sha256": "ed4e6d423bb1f4b8a3d340d76f7c7800f73088a7070bfc9421835a8d31ab7d78",
+      "protected_history": false,
+      "matches": {
+        "brujula-semantica": [
+          "line:4"
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    {
+      "path": "docs/taller-6/OPITA_360_Taller_6.pptx",
+      "limitation": "XML de texto y notas; no OCR de imágenes o texto rasterizado"
+    }
+  ]
+}

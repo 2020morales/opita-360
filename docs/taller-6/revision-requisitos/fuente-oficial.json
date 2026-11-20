@@ -1,0 +1,46 @@
+{
+  "source": "Proyecto_Integrador (2).pdf",
+  "sha256": "65abca064398724c1eecd96e23c5effb778a3f6ded4bf231d0a5aca930d52ec0",
+  "pages_read": 7,
+  "items": [
+    {
+      "id": "brujula-semantica",
+      "required": true,
+      "page": 2,
+      "meaning": "Skill que traduce criterios de aceptación a casos de prueba"
+    },
+    {
+      "id": "FET-ARN-42",
+      "required": true,
+      "page": 2,
+      "meaning": "Literal solicitado en README; no demuestra certificación emitida"
+    },
+    {
+      "id": "Matriz Halcón",
+      "required": true,
+      "page": 3,
+      "meaning": "Sección README: relación entre skill y agente"
+    },
+    {
+      "id": "Factor Ámbar",
+      "required": true,
+      "page": 3,
+      "meaning": "Complejidad 1–9 en plan de cada spec; no fórmula oficial adicional"
+    },
+    {
+      "id": "Spec revisada por el profesor",
+      "required": true,
+      "page": 4,
+      "meaning": "Literal solicitado en descripción del PR; revisión docente requiere evidencia"
+    },
+    {
+      "id": "Coeficiente Murciélago",
+      "required": true,
+      "page": 4,
+      "meaning": "Reportar por mecanismo; fórmula no definida en las siete páginas"
+    }
+  ],
+  "teacher_certification_evidence": "not_accredited",
+  "teacher_spec_review_evidence": "not_accredited",
+  "formula_murcielago": "not_defined_in_provided_pdf"
+}

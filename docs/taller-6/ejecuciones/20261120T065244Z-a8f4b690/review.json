@@ -1,0 +1,349 @@
+{
+  "run_id": "5af24e1c-fb35-4aad-ab6b-76a3e631c054",
+  "finished_at": "2026-11-20T06:52:44.549829+00:00",
+  "spec": "005",
+  "mode": "inventory",
+  "reports": [
+    {
+      "role": "orquestador",
+      "task": "review-orquestador",
+      "mode": "inventory",
+      "model": null,
+      "evidence": [
+        {
+          "path": "harness/agents/orquestador.md",
+          "sha256": "00477b65ebf38f9da112cde6f1a137880a1dcdb6a0eefada78f193644570ff45",
+          "bytes": 1003
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "b1f7a9b4afbf87f407770e63176c9535b9ef73637088c366956026daa1b15fd1",
+          "bytes": 5707
+        },
+        {
+          "path": "harness/README.md",
+          "sha256": "b801add5ff529c244a15d7d6cbe2432e1d07d7615d86376f95de7f700c3b4c5b",
+          "bytes": 10709
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "57a2f7e8f17dfe49a0ea8ee45bf7c0185850ac04ba1355f6ed9c865c36bf5886",
+          "bytes": 4468
+        },
+        {
+          "path": "docs/taller-6/integracion-final-contexto.json",
+          "sha256": "cda27342386d49b8efad85ea3f065cb0aba8409993c5c555446298d846dc9efa",
+          "bytes": 673
+        }
+      ],
+      "findings": [
+        "Contexto pertinente y criterios inventariados; sin inferencia."
+      ],
+      "limitations": [
+        "No ejecuta pruebas ni modifica codigo.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "frontend",
+      "task": "review-frontend",
+      "mode": "inventory",
+      "model": null,
+      "evidence": [
+        {
+          "path": "harness/agents/frontend.md",
+          "sha256": "06a7470f86d8ce136471b049a174f2f487c0865d8de08b7469c5ee4b5b925bca",
+          "bytes": 998
+        },
+        {
+          "path": "frontend/AGENTS.md",
+          "sha256": "a68bd68b539fa06db5aa49a1684f498d86fb961a9f558cf62cf8f7618c576f0f",
+          "bytes": 859
+        },
+        {
+          "path": "frontend/src/main.jsx",
+          "sha256": "1f92fd9cbc7f5c832e7ea036ca10d756719a846319f8ca72f897f2a4668ca5a5",
+          "bytes": 24046
+        },
+        {
+          "path": "frontend/src/destination-filters.js",
+          "sha256": "f0a69239e63dcd6e20b5abc7b8b3fba898ad297c437910aec8714bb937e1023a",
+          "bytes": 1509
+        },
+        {
+          "path": "frontend/src/styles.css",
+          "sha256": "cc947b801d9646971ceae1e3666560785f7015890679c6a6f91aa5040a2f7015",
+          "bytes": 21442
+        },
+        {
+          "path": ".agents/skills/opita-frontend/SKILL.md",
+          "sha256": "89a9a5bb73cfa1932686b6272578ea0661daaef7db7939385f369303b3dc34ec",
+          "bytes": 1388
+        },
+        {
+          "path": "frontend/src/destination-detail.jsx",
+          "sha256": "507031bb5d31f0e4ac195b8e0b4d9687aebeaf4c2fdad60aa7c3adc216b4301d",
+          "bytes": 3385
+        },
+        {
+          "path": "frontend/tests/max-cost.test.js",
+          "sha256": "1d798159a6924ca03ff646b901f89991b93c810ac5758046675d730e7e17cac5",
+          "bytes": 2074
+        },
+        {
+          "path": "frontend/src/favorites.js",
+          "sha256": "bfd288db567ea70193a38d29d8a1ca13554289db017e7fe9ca49324dd8e8a4f5",
+          "bytes": 1776
+        },
+        {
+          "path": "frontend/tests/favorites.test.js",
+          "sha256": "8c044f2cf3de1d11ba83b1501e83db870e5e5dec9f09dd3a84e397d9ff6ff0e4",
+          "bytes": 2988
+        },
+        {
+          "path": "frontend/src/recommendation-municipality.js",
+          "sha256": "87e5e4c2c795009be393ad9a1b0643cfcd01335a9ddf6e24e9075be559731db8",
+          "bytes": 604
+        },
+        {
+          "path": "frontend/tests/recommendation-municipality.test.js",
+          "sha256": "3410efc13a9676ff15851f4ec9189158b763aceceef1c3c6591c6f60242dc56a",
+          "bytes": 1312
+        },
+        {
+          "path": "frontend/src/export-itinerary.js",
+          "sha256": "390e7be5444f92c38501b41c2caf102ab0ed3d6fbb08b55f31d2c681b13004fa",
+          "bytes": 1578
+        },
+        {
+          "path": "frontend/tests/export-itinerary.test.js",
+          "sha256": "eb09c7b68c7f1205af028fc93d66754ccf127c680e39ed6734a8a83c2cadd9b3",
+          "bytes": 3325
+        },
+        {
+          "path": "docs/taller-6/integracion-final-contexto.json",
+          "sha256": "cda27342386d49b8efad85ea3f065cb0aba8409993c5c555446298d846dc9efa",
+          "bytes": 673
+        }
+      ],
+      "findings": [
+        "Contexto pertinente y criterios inventariados; sin inferencia."
+      ],
+      "limitations": [
+        "No ejecuta pruebas ni modifica codigo.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "backend",
+      "task": "review-backend",
+      "mode": "inventory",
+      "model": null,
+      "evidence": [
+        {
+          "path": "harness/agents/backend.md",
+          "sha256": "f73dd9e2570f71a5a383d703a0217032f8421ee21404424c26d062605267433d",
+          "bytes": 993
+        },
+        {
+          "path": "backend/AGENTS.md",
+          "sha256": "4ce801a1fd3c33cd4109ba4be967576b6b0caa794c59e2a626e07dd41561d385",
+          "bytes": 766
+        },
+        {
+          "path": "backend/app/main.py",
+          "sha256": "d98b44764f1eab8ea329e37fcd1f961b879a53e191dfd09fa6d8568f01ac1592",
+          "bytes": 5904
+        },
+        {
+          "path": "backend/tests/test_api.py",
+          "sha256": "5794d395c00386e34e0bfd91d12752180c862107455dcbf1d19be9b09db0493c",
+          "bytes": 4069
+        },
+        {
+          "path": ".agents/skills/opita-backend/SKILL.md",
+          "sha256": "c4f32f20f0e72be9d57e8a1921758cbfa1ef0facfc66827f64addd5fcbe34038",
+          "bytes": 1278
+        },
+        {
+          "path": "backend/tests/test_destination_detail.py",
+          "sha256": "5290d8db5095fae69f33cdda6066a3c1a68c18e943c1ac31dfdc0cd36576bd64",
+          "bytes": 1633
+        },
+        {
+          "path": "backend/tests/test_recommendation_municipality.py",
+          "sha256": "3d3de838a21b99049e8f4e7748d382d540ee92f2ce2df4c3dccba44282051e74",
+          "bytes": 3163
+        },
+        {
+          "path": "docs/taller-6/integracion-final-contexto.json",
+          "sha256": "cda27342386d49b8efad85ea3f065cb0aba8409993c5c555446298d846dc9efa",
+          "bytes": 673
+        },
+        {
+          "path": "backend/tests/test_integrated_features.py",
+          "sha256": "2633ddf332c57978b0f17906a9ed1eb5c92a8b68877933cd664fa166029281ae",
+          "bytes": 1784
+        }
+      ],
+      "findings": [
+        "Contexto pertinente y criterios inventariados; sin inferencia."
+      ],
+      "limitations": [
+        "No ejecuta pruebas ni modifica codigo.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "calidad",
+      "task": "review-calidad",
+      "mode": "inventory",
+      "model": null,
+      "evidence": [
+        {
+          "path": "harness/agents/calidad.md",
+          "sha256": "9f65dc841b46de221c279ee820d7bdeae2a9103a2be371f1163192c70993180a",
+          "bytes": 992
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "a0b033e480c96f21ea4485f1b906abfa37f8a2aceac9b7aa0e14770df0094b7a",
+          "bytes": 8454
+        },
+        {
+          "path": "harness/tests/test_harness.py",
+          "sha256": "d173c6a7f2f90652d5555ef1ec622aa4d8d7bdaade191acb5267a863b0f416c0",
+          "bytes": 7939
+        },
+        {
+          "path": ".agents/skills/brujula-semantica/SKILL.md",
+          "sha256": "ead488ca55c3350f86536e829a98f3c026941d502bbfe8008e21f01442c5a0f3",
+          "bytes": 1521
+        },
+        {
+          "path": "harness/grounding.py",
+          "sha256": "fd0e5dea4c210325876ac7ebe40162361eef116da07c8cf157235920cb3770f0",
+          "bytes": 9153
+        },
+        {
+          "path": "docs/taller-6/integracion-final-contexto.json",
+          "sha256": "cda27342386d49b8efad85ea3f065cb0aba8409993c5c555446298d846dc9efa",
+          "bytes": 673
+        }
+      ],
+      "findings": [
+        "Contexto pertinente y criterios inventariados; sin inferencia."
+      ],
+      "limitations": [
+        "No ejecuta pruebas ni modifica codigo.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "seguridad",
+      "task": "review-seguridad",
+      "mode": "inventory",
+      "model": null,
+      "evidence": [
+        {
+          "path": "harness/agents/seguridad.md",
+          "sha256": "0723efaca925e8c0da59093f965e3e9deac3fc87ea8ce541c4682ed6d87166e4",
+          "bytes": 998
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "b1f7a9b4afbf87f407770e63176c9535b9ef73637088c366956026daa1b15fd1",
+          "bytes": 5707
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "57a2f7e8f17dfe49a0ea8ee45bf7c0185850ac04ba1355f6ed9c865c36bf5886",
+          "bytes": 4468
+        },
+        {
+          "path": "harness/runtime.py",
+          "sha256": "0d1446e7a8bc3f0cd2d3076300c73463c613ad372d0cb503a4aefa22409b961e",
+          "bytes": 11940
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "a0b033e480c96f21ea4485f1b906abfa37f8a2aceac9b7aa0e14770df0094b7a",
+          "bytes": 8454
+        },
+        {
+          "path": "harness/grounding.py",
+          "sha256": "fd0e5dea4c210325876ac7ebe40162361eef116da07c8cf157235920cb3770f0",
+          "bytes": 9153
+        },
+        {
+          "path": "docs/taller-6/integracion-final-contexto.json",
+          "sha256": "cda27342386d49b8efad85ea3f065cb0aba8409993c5c555446298d846dc9efa",
+          "bytes": 673
+        }
+      ],
+      "findings": [
+        "Contexto pertinente y criterios inventariados; sin inferencia."
+      ],
+      "limitations": [
+        "No ejecuta pruebas ni modifica codigo.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    }
+  ],
+  "traces": [],
+  "mcp": [],
+  "technical_facts": {
+    "facts": {
+      "pydantic_request_validation": {
+        "value": true,
+        "source": "backend/app/main.py"
+      },
+      "frontend_demo_fallback": {
+        "value": true,
+        "source": "frontend/src/main.jsx"
+      },
+      "base_checks_passed": {
+        "value": false,
+        "source": "operator_checks"
+      },
+      "spec_implementation_recorded": {
+        "value": true,
+        "source": "specs/taller-6/005-exportar-itinerario/spec.json"
+      },
+      "spec_tests_executed": {
+        "value": true,
+        "source": "specs/taller-6/005-exportar-itinerario/spec.json"
+      }
+    },
+    "basis": {
+      "backend": {
+        "sha256": "d98b44764f1eab8ea329e37fcd1f961b879a53e191dfd09fa6d8568f01ac1592",
+        "analysis": "AST BaseModel + Field + typed handler"
+      },
+      "frontend": {
+        "sha256": "1f92fd9cbc7f5c832e7ea036ca10d756719a846319f8ca72f897f2a4668ca5a5",
+        "analysis": "static pattern; not full browser proof"
+      }
+    },
+    "distinction": "Generated test designs are not execution records; inspect the actual linked test runs.",
+    "source_sha256": {
+      "backend/app/main.py": "d98b44764f1eab8ea329e37fcd1f961b879a53e191dfd09fa6d8568f01ac1592",
+      "frontend/src/main.jsx": "1f92fd9cbc7f5c832e7ea036ca10d756719a846319f8ca72f897f2a4668ca5a5"
+    },
+    "limitation": "Spec facts check declared records, not independent proof of feature implementation or test execution."
+  },
+  "claim_audits": [],
+  "stage_events": [],
+  "elapsed_seconds": 0.219,
+  "total_limit_seconds": 600,
+  "code_modified": false,
+  "checks_source": null,
+  "context_selection": "symbols_line_ranges_and_16000_char_total_cap",
+  "approval": "operator_assertion_not_identity",
+  "next_gate": "human_review"
+}

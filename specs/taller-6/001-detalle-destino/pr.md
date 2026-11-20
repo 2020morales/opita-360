@@ -23,3 +23,18 @@ El PDF requiere "Spec revisada por el profesor"; su transcripcion no prueba revi
 ## Estado observado en el ensayo de integración
 
 PR real: https://github.com/2020morales/opita-360/pull/5. Continúa abierto; esta combinación es local, sin merge del PR ni aceptación docente acreditada. El bloqueo histórico del conector no significa que el PR siga sin existir. Resultados conjuntos: docs/taller-6/integracion-final-resultados.md.
+
+## Contraste posterior con la consigna original
+
+Los apartados anteriores conservan la preparación y sus limitaciones históricas.
+PR real: https://github.com/2020morales/opita-360/pull/5. En la consulta de esta revisión figura fusionado.
+
+La fusión no acredita revisión del profesor. El PDF exige la frase «Spec revisada
+por el profesor» en la descripción; la descripción consultada no la contiene.
+Texto propuesto para una actualización humana, **no publicada por esta revisión**:
+
+> Texto exigido por la consigna: «Spec revisada por el profesor». La revisión
+> docente no está acreditada en las evidencias consultadas; pendiente de confirmación.
+
+No se edita el PR remoto ni se atribuye al profesor una aprobación no demostrada.
+Contraste y consulta verificable: docs/taller-6/revision-requisitos/informe.md.

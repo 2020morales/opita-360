@@ -1,0 +1,8 @@
+{
+  "type": "FileNotFoundError",
+  "scope": "script auxiliar de verificación, no suite del proyecto",
+  "attempted_file": "preservacion-inicial.json",
+  "actual_file": "preservacion.json",
+  "resolution": "Repetir comprobación con el inventario existente, sin alterar su contenido",
+  "final_status": "passed"
+}

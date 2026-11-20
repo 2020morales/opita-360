@@ -55,6 +55,20 @@ Abre la dirección que Vite muestre, normalmente http://localhost:5173.
 
 Universidad FET · Ingeniería de Software · Neiva, Huila
 
+## Estado de los requisitos del Taller 6
+
+Los seis términos cuestionados aparecen en el PDF oficial y se conservan.
+**Certificación y revisión docente: no acreditadas.** La frase literal solicitada
+no demuestra una certificación, firma ni revisión del profesor. La aprobación del
+usuario o la fusión de un PR tampoco las sustituyen.
+
+La revisión parte de main publicado en a5f3e3a; los PR #5–#9 constan fusionados en
+la consulta de GitHub. Las menciones siguientes a «ensayo local» o «sin fusión»
+describen la etapa anterior, no el estado actual de esas cinco funcionalidades.
+Esta rama de corrección no realiza merges ni altera sus implementaciones.
+
+[Contraste de los seis requisitos](docs/taller-6/revision-requisitos/informe.md). Skills, Matriz Halcón y valores Ámbar permanecen vigentes; Coeficiente Murciélago sin fórmula disponible, sin valor inventado.
+
 ## Arnés del Taller 6
 
 Rama temporal de integración S01–S05. Memoria, skills, agentes y Matriz Halcón en [harness/README.md](harness/README.md). Las evidencias individuales se conservan; la verificación conjunta está documentada en docs/taller-6/integracion-final-resultados.md. No hay fusión a main.
