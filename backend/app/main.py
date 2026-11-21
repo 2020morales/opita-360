@@ -1,7 +1,11 @@
 from fastapi import FastAPI, HTTPException, Path
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field, StrictStr
-from typing import List, Optional
+from pydantic import BaseModel, Field, StrictStr, StringConstraints
+from typing import Annotated, List, Optional
+
+# El catálogo de demostración del frontend (frontend/src/fallback-destinations.json)
+# debe ser idéntico a DESTINATIONS; backend/tests/test_review_fixes.py lo verifica.
+Interest = Annotated[str, StringConstraints(strip_whitespace=True, max_length=40)]
 
 app = FastAPI(
     title="OPITA 360 API",
@@ -79,8 +83,8 @@ DESTINATIONS = [
 class TripRequest(BaseModel):
     days: int = Field(default=2, ge=1, le=14)
     budget: int = Field(default=200000, ge=0, le=100000000)
-    interests: List[str] = Field(default_factory=lambda: ["naturaleza"])
-    municipality: Optional[StrictStr] = None
+    interests: List[Interest] = Field(default_factory=lambda: ["naturaleza"], max_length=20)
+    municipality: Optional[StrictStr] = Field(default=None, max_length=100)
 
 @app.get("/")
 def root():
@@ -119,6 +123,11 @@ def recommend_trip(request: TripRequest):
             itinerary.append(destination)
             total += destination["price"]
     remaining = max(request.budget - total, 0)
+    warnings = ""
+    if total > request.budget:
+        warnings += "La primera parada supera tu presupuesto; se incluye como referencia. "
+    if itinerary and len(itinerary) < request.days:
+        warnings += f"Solo hay {len(itinerary)} parada(s) para {request.days} día(s) con estos filtros. "
     return {
         "summary": f"Propuesta de {len(itinerary)} parada(s) para {request.days} día(s).",
         "method": "Recomendación basada en reglas: intereses, duración y presupuesto.",
@@ -126,5 +135,5 @@ def recommend_trip(request: TripRequest):
         "estimated_total": total,
         "budget": request.budget,
         "remaining_budget": remaining,
-        "notice": ("No hay destinos disponibles para el municipio seleccionado. " if municipality and not candidates else "") + "Valores orientativos para demostración; confirma precios, horarios y transporte antes de viajar."
+        "notice": ("No hay destinos disponibles para el municipio seleccionado. " if municipality and not candidates else "") + warnings + "Valores orientativos para demostración; confirma precios, horarios y transporte antes de viajar."
     }

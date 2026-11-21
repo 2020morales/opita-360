@@ -1,0 +1,43 @@
+name: Pruebas
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r backend/requirements.txt -r agents/requirements.txt
+      - name: Backend
+        run: python -B -m unittest discover -s backend/tests -v
+      - name: Agentes (Taller 5)
+        run: python -B -m unittest discover -s agents/tests -v
+      - name: Arnés (Taller 6)
+        run: python -B -m unittest discover -s harness/tests -v
+      - name: Validación SDD
+        run: python -B -m harness validate
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm test
+      - run: npm run build

@@ -57,12 +57,12 @@ Universidad FET · Ingeniería de Software · Neiva, Huila
 
 ## Arnés del Taller 6
 
-Rama temporal de integración S01–S05. Memoria, skills, agentes y Matriz Halcón en [harness/README.md](harness/README.md). Las evidencias individuales se conservan; la verificación conjunta está documentada en docs/taller-6/integracion-final-resultados.md. No hay fusión a main.
+Integración S01–S05 (fusionada a main mediante el PR #10). Memoria, skills, agentes y Matriz Halcón en [harness/README.md](harness/README.md). Las evidencias individuales se conservan; la verificación conjunta está documentada en docs/taller-6/integracion-final-resultados.md.
 
 Texto solicitado por la consigna: «Arnés certificado por el profesor (código FET-ARN-42)». Su inclusión no acredita una certificación emitida. Ver [requisitos oficiales y pendientes](docs/taller-6/requisitos-oficiales.md).
 
 Comandos desde la raíz: `python -B -m harness validate`, `python -B -m harness cases --spec 001`, `python -B -m harness checks --scope all`. Los [resultados nuevos](docs/taller-6/resultados-arnes.md) distinguen lo ejecutado de lo pendiente. No ejecutar agents.verify para nuevas evidencias: sobrescribe registros históricos.
 
-## Integración final S01–S05, solo local
+## Integración final S01–S05
 
-Esta rama combina detalle accesible, costo máximo, favoritos, recomendaciones por municipio y exportación JSON. [Plan y decisiones](docs/taller-6/integracion-final-plan.md), [resultados conjuntos y límites](docs/taller-6/integracion-final-resultados.md). Las cinco ramas/PR originales permanecen intactas y main no se modifica. Los informes individuales conservan su contexto histórico; no sustituyen la regresión conjunta.
+La integración combina detalle accesible, costo máximo, favoritos, recomendaciones por municipio y exportación JSON. [Plan y decisiones](docs/taller-6/integracion-final-plan.md), [resultados conjuntos y límites](docs/taller-6/integracion-final-resultados.md). La integración se fusionó a main mediante el PR #10; las cinco ramas originales se conservan. Los informes individuales conservan su contexto histórico; no sustituyen la regresión conjunta.
