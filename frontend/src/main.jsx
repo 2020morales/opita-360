@@ -8,7 +8,7 @@ import { loadFavorites, saveFavorites, toggleFavorite, SESSION_NOTICE } from "./
 import { recommendationCandidates } from "./recommendation-municipality.js";
 import { downloadItinerary } from "./export-itinerary.js";
 import { buildItinerary, itineraryNotices } from "./demo-recommendation.js";
-import { MAX_BUDGET, parseBudget, recommendationOutcome } from "./trip-request.js";
+import { MAX_BUDGET, apiStatusAfter, parseBudget, recommendationOutcome } from "./trip-request.js";
 // Copia exacta del catálogo de la API (verificada por backend/tests/test_review_fixes.py).
 import fallbackDestinations from "./fallback-destinations.json";
 
@@ -128,8 +128,10 @@ function App() {
       if (outcome !== "api") throw new Error("API");
       setResult(await response.json());
       setResultOrigin("api");
+      setApiStatus(current => apiStatusAfter("api", current));
     } catch {
       setResultOrigin("demo");
+      setApiStatus(current => apiStatusAfter("demo", current));
       const candidates = recommendationCandidates(destinations, payload.municipality);
       const { itinerary, total, matched } = buildItinerary(candidates, payload);
       const localityNotice = payload.municipality && !candidates.length ? "No hay destinos disponibles para el municipio seleccionado. " : "";

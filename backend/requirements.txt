@@ -1,7 +1,8 @@
-# Versiones fijadas: las mismas verificadas por el equipo en docs/taller-5/python-lock.txt.
+# fastapi, starlette, pydantic y uvicorn: versiones verificadas por el equipo en docs/taller-5/python-lock.txt.
 fastapi==0.162.7
 starlette==1.10.0
 pydantic==2.14.3
 uvicorn[standard]==0.54.0
-# Necesario para las pruebas (fastapi.testclient).
-httpx==0.28.1
+# Cliente de pruebas: starlette 1.10 usa httpx2 (httpx queda deprecado allí).
+# httpx 0.28.1 sigue en agents/requirements.txt porque lo usa mcp.
+httpx2==2.16.2

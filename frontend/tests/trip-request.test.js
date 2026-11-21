@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { MAX_BUDGET, parseBudget, recommendationOutcome } from '../src/trip-request.js';
+import { MAX_BUDGET, apiStatusAfter, parseBudget, recommendationOutcome } from '../src/trip-request.js';
 
 test('REV2-01 el tope del presupuesto coincide con la API', () => {
   assert.equal(MAX_BUDGET, 100000000);
@@ -30,4 +30,12 @@ test('REV2-01 un 422 de la API es error de validación, no modo demo', () => {
   assert.equal(recommendationOutcome(200), 'api');
   assert.equal(recommendationOutcome(422), 'invalid');
   for (const status of [404, 500, 503]) assert.equal(recommendationOutcome(status), 'demo');
+});
+
+test('REV3-01 el indicador de API refleja la última petición de recomendación', () => {
+  assert.equal(apiStatusAfter('demo', 'conectada'), 'demostración');
+  assert.equal(apiStatusAfter('api', 'demostración'), 'conectada');
+  // Un 422 demuestra que la API responde: el indicador no cambia.
+  assert.equal(apiStatusAfter('invalid', 'conectada'), 'conectada');
+  assert.equal(apiStatusAfter('invalid', 'demostración'), 'demostración');
 });

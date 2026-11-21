@@ -21,3 +21,11 @@ export function recommendationOutcome(status) {
   if (status === 422) return "invalid";
   return "demo";
 }
+
+// El indicador de la cabecera refleja la última petición, no solo la carga inicial
+// del catálogo. Un 422 prueba que la API responde, así que no cambia el estado.
+export function apiStatusAfter(outcome, current) {
+  if (outcome === "api") return "conectada";
+  if (outcome === "demo") return "demostración";
+  return current;
+}
