@@ -6,6 +6,15 @@
     <meta name="theme-color" content="#102b27" />
     <meta name="description" content="OPITA 360: descubre destinos turísticos del Huila y crea tu aventura." />
     <title>OPITA 360 · Explora el Huila</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <!-- Misma URL que .hero-photo en styles.css: el navegador la pide antes de cargar CSS y JS. -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&amp;fit=crop&amp;w=1200&amp;q=75" fetchpriority="high">
+    <!-- Fuentes sin bloquear el primer pintado: se aplican al cargar (display=swap). -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"></noscript>
   </head>
   <body>
     <div id="root"></div>

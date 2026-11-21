@@ -14,16 +14,20 @@ import fallbackDestinations from "./fallback-destinations.json";
 
 const API = "http://127.0.0.1:8000";
 const COP = new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 });
+// Fotos base; cada tarjeta pide el ancho que necesita su pantalla (srcset).
 const photos = {
-  "Desierto de la Tatacoa":"https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=900&q=85",
-  "Parque Arqueológico de San Agustín":"https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=900&q=85",
-  "Malecón del río Magdalena":"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=85",
-  "Salto de Bordones":"https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=900&q=85",
-  "Estrecho del río Magdalena":"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85",
-  "Termales de Rivera":"https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=85",
-  "Represa de Betania":"https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=85",
-  "Centro de Neiva y tradición opita":"https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85"
+  "Desierto de la Tatacoa":"https://images.unsplash.com/photo-1509316785289-025f5b846b35",
+  "Parque Arqueológico de San Agustín":"https://images.unsplash.com/photo-1565538810643-b5bdb714032a",
+  "Malecón del río Magdalena":"https://images.unsplash.com/photo-1500375592092-40eb2168fd21",
+  "Salto de Bordones":"https://images.unsplash.com/photo-1432405972618-c60b0225b8f9",
+  "Estrecho del río Magdalena":"https://images.unsplash.com/photo-1470770841072-f978cf4d019e",
+  "Termales de Rivera":"https://images.unsplash.com/photo-1540541338287-41700207dee6",
+  "Represa de Betania":"https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+  "Centro de Neiva y tradición opita":"https://images.unsplash.com/photo-1511795409834-ef04bbd61622"
 };
+const photoSrc = (base, width) => `${base}?auto=format&fit=crop&w=${width}&q=70`;
+// Columnas de .destination-grid: 1 hasta 380px, 2 hasta 1050px y 4 por encima.
+const CARD_SIZES = "(max-width: 380px) 100vw, (max-width: 1050px) 50vw, 25vw";
 
 function App() {
   const [destinations, setDestinations] = useState(fallbackDestinations);
@@ -153,7 +157,7 @@ function App() {
 
     <div className="announcement"><span className="pulse"></span> Hecho en el Huila, pensado para quienes quieren descubrirlo <span className={`api-pill ${apiStatus}`}>{apiStatus === "conectada" ? "API conectada" : apiStatus === "probando" ? "Conectando API…" : "Modo demostración"}</span></div>
     <header className="nav-wrap">
-      <a className="brand" href="#inicio" aria-label="OPITA 360 inicio"><span className="brand-mark"><Compass size={23}/></span><span>OPITA <b>360</b><small>EL HUILA POR DESCUBRIR</small></span></a>
+      <a className="brand" href="#inicio" aria-label="OPITA 360 El Huila por descubrir, inicio"><span className="brand-mark"><Compass size={23}/></span><span>OPITA <b>360</b> <small>EL HUILA POR DESCUBRIR</small></span></a>
       <button className="mobile-toggle" onClick={()=>setMobileMenu(!mobileMenu)} aria-label={mobileMenu ? "Cerrar menú" : "Abrir menú"} aria-expanded={mobileMenu} aria-controls="main-navigation">{mobileMenu?<X/>:<Menu/>}</button>
       <nav id="main-navigation" className={mobileMenu ? "nav-links open" : "nav-links"}>
         <a href="#destinos" onClick={()=>setMobileMenu(false)}>Destinos</a><a href="#mapa" onClick={()=>setMobileMenu(false)}>Mapa</a><a href="#aventura" onClick={()=>setMobileMenu(false)}>Diseña tu aventura</a>
@@ -171,7 +175,7 @@ function App() {
           <div className="hero-actions"><a href="#destinos" className="button button-light">Explorar destinos <ArrowDownRight size={18}/></a><a href="#aventura" className="text-link">Crear mi itinerario <ArrowRight size={16}/></a></div>
           <div className="hero-proof"><div className="proof-icons"><span>🌵</span><span>🗿</span><span>💧</span></div><div><b>Una región, mil historias</b><small>Experiencias naturales y culturales</small></div></div>
         </div>
-        <div className="hero-stamp"><span>DESCUBRE</span><b>HUILA</b><small>CON OJOS NUEVOS</small><Compass size={24}/></div>
+        <div className="hero-stamp" aria-hidden="true"><span>DESCUBRE</span><b>HUILA</b><small>CON OJOS NUEVOS</small><Compass size={24}/></div>
         <div className="hero-bottom"><span><MapPin size={15}/> Neiva, Huila, Colombia</span><span>02° 55′ N · 75° 18′ O</span></div>
       </section>
 
@@ -196,7 +200,8 @@ function App() {
           {favorites.notice && <p className="favorites-notice" role="alert">{favorites.notice}</p>}
         </div>
         <div className="destination-grid">{filtered.map((d,i)=><article className={`destination-card card-${d.color || "green"}`} key={d.id}>
-          <div className="destination-image" style={{backgroundImage:`linear-gradient(180deg,transparent 40%,rgba(9,28,24,.72)),url("${photos[d.name] || photos["Desierto de la Tatacoa"]}")`}}>
+          <div className="destination-image">
+            <img className="destination-photo" src={photoSrc(photos[d.name] || photos["Desierto de la Tatacoa"], 400)} srcSet={[400, 800].map(width => `${photoSrc(photos[d.name] || photos["Desierto de la Tatacoa"], width)} ${width}w`).join(", ")} sizes={CARD_SIZES} alt="" loading="lazy" decoding="async" width="600" height="400"/>
             <span className="category-tag">{d.category}</span><button type="button" className={favorites.ids.includes(d.id) ? "heart saved" : "heart"} aria-pressed={favorites.ids.includes(d.id)} aria-label={favorites.ids.includes(d.id) ? `Quitar ${d.name} de favoritos` : `Guardar ${d.name} en favoritos`} title={favorites.ids.includes(d.id) ? "Quitar favorito" : "Guardar favorito"} onClick={()=>toggleDestinationFavorite(d.id)}><Heart size={17} aria-hidden="true"/></button>
             <span className="destination-number">{String(i+1).padStart(2, "0")}</span>
             <div className="destination-title"><span>{d.municipality} · HUILA</span><h3>{d.name}</h3></div>
@@ -241,7 +246,7 @@ function App() {
       <section className="closing section-pad"><div className="closing-art"><div className="closing-sun"></div><Mountain className="closing-mountain one"/><Mountain className="closing-mountain two"/><Waves className="closing-waves"/></div><div className="closing-copy"><span className="section-kicker">EL ORGULLO DE NUESTRA TIERRA</span><h2>El Huila no se cuenta.<br/><em>Se vive.</em></h2><a className="button button-light" href="#aventura">Planea tu aventura <ArrowRight size={17}/></a></div></section>
     </main>
 
-    <footer className="footer"><a className="brand footer-brand" href="#inicio"><span className="brand-mark"><Compass size={21}/></span><span>OPITA <b>360</b><small>EL HUILA POR DESCUBRIR</small></span></a><p>Proyecto integrador · Ingeniería de Software · FET</p><p>Neiva, Huila, Colombia · 2026</p><span className="footer-line"></span><small>Proyecto académico. Información turística y costos sujetos a verificación.</small></footer>
+    <footer className="footer"><a className="brand footer-brand" href="#inicio"><span className="brand-mark"><Compass size={21}/></span><span>OPITA <b>360</b> <small>EL HUILA POR DESCUBRIR</small></span></a><p>Proyecto integrador · Ingeniería de Software · FET</p><p>Neiva, Huila, Colombia · 2026</p><span className="footer-line"></span><small>Proyecto académico. Información turística y costos sujetos a verificación.</small></footer>
   </div>;
 }
 
