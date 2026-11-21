@@ -78,7 +78,7 @@ Integración S01–S05 (fusionada a main mediante el PR #10). Memoria, skills, a
 
 Texto solicitado por la consigna: «Arnés certificado por el profesor (código FET-ARN-42)». Su inclusión no acredita una certificación emitida. Ver [requisitos oficiales y pendientes](docs/taller-6/requisitos-oficiales.md).
 
-Comandos desde la raíz: `python -B -m harness validate`, `python -B -m harness cases --spec 001`, `python -B -m harness checks --scope all`. Los [resultados nuevos](docs/taller-6/resultados-arnes.md) distinguen lo ejecutado de lo pendiente. No ejecutar agents.verify para nuevas evidencias: sobrescribe registros históricos.
+Comandos desde la raíz: `python -B -m harness validate`, `python -B -m harness cases --spec 001`, `python -B -m harness checks --scope all`. Los [resultados nuevos](docs/taller-6/resultados-arnes.md) distinguen lo ejecutado de lo pendiente. Desde el PR #11, `agents.verify` exige `--output` hacia un archivo nuevo y no sobrescribe registros históricos.
 
 ## Integración final S01–S05
 
