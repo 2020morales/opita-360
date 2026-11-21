@@ -96,3 +96,9 @@ test('A11Y-04 existe favicon y está enlazado', () => {
   assert.match(html, /<link rel="icon" type="image\/svg\+xml" href="\/favicon\.svg">/);
   assert.ok(existsSync(new URL('../public/favicon.svg', import.meta.url)));
 });
+
+test('UI-01 el sello de la portada no tapa contenido en móvil ni en tablet', () => {
+  // Medido en Chrome de 320 a 1366px: abajo tapaba "Crear mi itinerario" (móvil) y el título (721-1050px).
+  assert.match(css, /@media\(max-width:720px\)\{[^@]*\.hero-stamp\{width:64px;height:64px;right:5%;top:12px;bottom:auto;/);
+  assert.match(css, /@media\(min-width:721px\) and \(max-width:1050px\)\{\.hero-stamp\{width:100px;height:100px;top:14px;bottom:auto;right:4%\}/);
+});
