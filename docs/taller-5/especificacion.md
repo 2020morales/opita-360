@@ -39,3 +39,10 @@ Los contratos no conceden permisos. Los reintentos acotados corrigen formato, no
 ## Criterios académicos y pendientes
 
 La ponderación y las cuatro secciones están en `rubrica.md`. Las referencias ya fueron inspeccionadas sin ejecutar sus proyectos: ver `comparacion-referencia.md`. Las pruebas no ejecutadas se identifican expresamente. No se incluye persistencia ni despliegue. Existen commits previos y un PR abierto; esta corrección no publica cambios ni fusiona el PR.
+
+## Revisión de corrección autorizada
+
+La especificación de esta fase está en [correccion-rubrica/plan.md](correccion-rubrica/plan.md).
+No se cambia el alcance turístico. Cinco roles reales, sin escritura del modelo.
+Aceptación automática prohibida; permisos Python no equivalen a permisos nativos del IDE.
+Los requisitos ambiguos del enunciado no se presumen cumplidos.

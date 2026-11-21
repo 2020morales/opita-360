@@ -14,10 +14,11 @@ No hay una instruccion VS Code universal que cree agentes automaticamente. AGENT
 - Cambios pequenos y acotados al plan aprobado. Python snake_case; funciones JS puras para logica; no mutar catalogos ni estado React.
 - IDs de criterio AC-NN, casos TC-spec-NN y trazabilidad hasta prueba, ejecucion y PR. Tareas pendientes no se marcan hechas por generar un archivo.
 - No editar docs/taller-4, docs/taller-5, sus PDF, evidencias, skills originales o agents/ durante el Taller 6. Las adaptaciones nuevas van en harness/. No modificar ramas originales ni main.
+- Excepcion autorizada: el PR #11 (correccion del Taller 5 segun la rubrica) modifico agents/ y docs/taller-5, incluido taller5.pdf, despues de la linea base del Taller 6. Los hashes de "archivos protegidos" en docs/taller-6/ejecuciones registran el estado del 18/11/2026; no describen main posterior al PR #11.
 - No introducir secretos, tokens, nombres de cuentas o rutas locales en reportes nuevos. Anonimizar el entorno sin cambiar resultados; conservar hashes historicos con su contexto.
 - No ejecutar comandos destructivos, shell propuesto por modelos, descargas o proveedores de pago sin aprobacion. Commit, push, PR y merge requieren autorizacion especifica.
 - Mantener API/demo y accesibilidad. La API permite una primera parada por encima del presupuesto: contrato existente, no corregirlo incidentalmente.
-- agents.verify y verificadores historicos escriben en carpetas anteriores: NO usarlos para nuevas evidencias sin adaptar la salida.
+- Desde el PR #11, agents.verify y agents.repro_frontend exigen --output, y agents.browser_checks exige --output-dir; se niegan a sobrescribir archivos existentes. Usar siempre un destino nuevo. Los verificadores historicos de docs/taller-4 aun escriben en su carpeta: no usarlos para nuevas evidencias sin adaptar la salida.
 - MCP de lectura no equivale a sandbox OS. --approved es declaracion del operador, no autenticacion humana.
 
 ## Comandos de verificacion

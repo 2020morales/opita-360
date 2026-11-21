@@ -2,46 +2,87 @@
 
 ## 1. Proyecto y herramienta
 
-OPITA 360 permite explorar destinos del Huila con React/Vite, lucide-react y FastAPI/Pydantic. Los datos están en memoria; PostgreSQL solo tiene un esquema preparado. El taller añade revisión asistida por agentes sin cambiar las funciones turísticas.
+OPITA 360 usa React/Vite y FastAPI/Pydantic; PostgreSQL tiene un esquema, sin conexión persistente.
+Un sistema común revisa ambos stacks sin cambiar las funcionalidades turísticas.
+Codex se usó para elaborar el trabajo; Ollama local ejecuta qwen3.5:4b.
+El profesor enumera Copilot VS Code, Claude Code u OpenCode: la aceptación de esta
+alternativa sigue pendiente. Los permisos del controlador Python no son permisos nativos de esas herramientas.
 
-La herramienta de desarrollo fue Codex. Las inferencias reales usan Ollama local y qwen3.5:4b, elegido por disponibilidad en el equipo y ausencia de credenciales remotas, no por un benchmark de superioridad.
-
-El [repositorio](https://github.com/2020morales/opita-360) contiene commits y el [PR #2](https://github.com/2020morales/opita-360/pull/2) está abierto y sin fusionar en la consulta. La base local es c72c3c9; esta corrección permanece local para revisión. No se publicaron cambios en esta ejecución.
+El [repositorio](https://github.com/2020morales/opita-360) conserva la base 8cce952.
+El [PR #2](https://github.com/2020morales/opita-360/pull/2) está fusionado según consulta GET registrada.
+Esta corrección está en taller5/correccion-rubrica, todavía sin commit ni publicación.
+No se acredita qué PDF fue adjuntado a Q10.
 
 ## 2. Sistema de agentes
 
-El controlador Python emite T03-T06 y restringe rutas, herramientas y secuencia. El LLM propone un plan narrativo y hallazgos; no elige permisos ni genera tareas nuevas. Los cinco roles usan el mismo modelo en contextos separados.
+El controlador emite cuatro tareas fijas; el LLM propone un plan narrativo.
+No existe comunicación lateral ni selección libre de comandos o permisos.
 
-| Agente | Responsabilidad | Herramientas permitidas |
-|---|---|---|
-| Orquestador | Plan y coordinación controlada | delegate, validate_report, llm_chat |
-| Frontend T03 | React, filtros, API, accesibilidad y demo | read_context, llm_chat, external_mcp |
-| Backend T04 | FastAPI, contrato y validaciones | read_context, llm_chat, external_mcp |
-| Calidad T05 | Reportes, checks y registro MCP | read_context, llm_chat |
-| Seguridad T06 | Políticas, reportes, checks y registro MCP | read_context, llm_chat |
+| Agente | Invocación | Entrada | Salida | Herramientas Python | Motivo del modelo |
+|---|---|---|---|---|---|
+| orquestador | Al inicio; operador | Especificación y cuatro tareas fijas | Plan narrativo; controlador reúne informes | delegate, validate_report, llm_chat | Planificación acotada sin credenciales; no se midió superioridad |
+| frontend | T03; controlador tras plan | Contexto React autorizado y main por MCP | Hallazgos y limitaciones React | read_context, llm_chat, external_mcp | Inspección local React; revisión humana compensa errores del modelo pequeño |
+| backend | T04; controlador tras T03 | FastAPI/Pydantic, esquema sin conexión y main por MCP | Hallazgos y limitaciones API | read_context, llm_chat, external_mcp | Inspección local de contratos; pruebas TestClient contrastan opiniones |
+| calidad | T05; controlador tras T04 | Informes T03/T04, checks y dos verificaciones MCP | Contraste de evidencias y carencias | read_context, llm_chat | Contexto de revisor separado; mismo modelo no garantiza independencia |
+| seguridad | T06; controlador tras T05 | Políticas, informes previos, checks y registro MCP | Riesgos y límites; no aceptación | read_context, llm_chat | Revisión local sin salida remota; no sustituye auditoría de seguridad |
 
-Las listas exactas de archivos están en agents/manifest.v1.json y el PDF las resume por rol. No hay edición, shell libre, secretos, base real ni herramientas de publicación. El cliente MCP solo autoriza read_text_file. Node conserva permisos del usuario: copia temporal no significa sandbox OS.
+Todos usan ollama-local/qwen3.5:4b; perfiles planner/coder/reviewer no implican modelos diferentes.
+Las rutas exactas están en manifest.v1.json y en el PDF. Denegado para todos:
+escritura, shell libre, secretos, base de datos, commit, push y merge. Solo los dos
+especialistas de stack reciben MCP. El cliente limita read_text_file; el servidor
+filesystem 2.3.0 se ejecuta por stdio con Node portátil 24.13.0. No es sandbox OS.
 
-Filesystem 2.3.0 usa stdio y Node portátil 24.13.0. Frontend/backend reciben main completo por MCP y extractos adicionales de hasta 4000 caracteres, con recibos que identifican truncamientos. Calidad/seguridad reciben las dos verificaciones MCP y se registra el hash del contexto entregado.
+Contrato: version, task_id, agent, status, evidence, findings y limitations.
+Se comprueban tarea-agente, archivos autorizados, hashes/tamaños y duplicados.
+El host inventaría archivos completos, pero context_receipts revela extractos
+máximos de 4000 caracteres; main llega completo por MCP. No atribuir lectura total.
 
---approved representa autorización de alcance, no identidad autenticada. El plan generado no tiene aprobación humana individual. El resultado queda awaiting_human_review; los modelos no aplican automáticamente sus propuestas. Los diagramas vectoriales y Mermaid muestran estructura centralizada y flujo secuencial, sin comunicación lateral.
+Los [diagramas de estructura y flujo](arquitectura.md) están también en el PDF.
+G1 exige cuatro comprobaciones vigentes y suites positivas; G2 valida contratos y
+MCP; G3 comprueba estabilidad. Fallo, timeout o intentos agotados detienen.
+Hay como máximo dos correcciones de formato (tres intentos), sin autocorrección de código.
+Todo hallazgo requiere revisión humana, fuera del ejecutor. --approved declara
+alcance, no identidad ni aprobación del plan generado. No existe publicación automática.
 
 ## 3. Calidad del código
 
-La auditoría corrigió dos defectos: aceptación de checks vacíos y ausencia del registro MCP en el contexto de revisores. La puerta exige cuatro resultados completos y vigentes con nombres únicos, comandos/directorios previstos, código entero 0, salidas y fecha con zona.
+La [matriz de calidad](matriz-calidad.md) identifica problema, responsable, momento,
+evidencia, bloqueo y límite para ambos stacks. Regresiones nuevas rechazan salidas
+vacías/cero pruebas y separan procedencia Git de identidad por contenido.
+`inspected` nunca significa aprobado: awaiting_human_findings_review mantiene
+pendientes los hallazgos. El resumen de ejecuciones está en
+[correccion-rubrica/informe.md](correccion-rubrica/informe.md).
 
-Pasaron **34 pruebas de agentes y 8 de API**, además de compileall y build. La reproducción limpia ejecutó npm ci y build con código 0, Vite 8.3.5. Chrome real pasó **14/14** comprobaciones de filtros, API, demostración, teclado, nombres accesibles y ancho móvil.
+Los informes históricos permanecen intactos. Las ejecuciones nuevas se guardan en
+correccion-rubrica, incluyendo fallos. No hay cobertura medida, mutación, CI propio,
+auditoría WCAG completa, lector de pantalla humano, todas las plataformas ni pruebas PostgreSQL.
+Un JSON válido, hash o compilación no certifica corrección semántica. El escaneo
+por patrones tampoco demuestra ausencia universal de secretos.
 
-El reporte final registra **cinco inferencias reales y dos sesiones MCP**. Las huellas y recibos fueron contrastados; se conservaron respuestas originales aunque contengan errores. revision-hallazgos.md distingue opiniones del modelo de hechos comprobados por código y pruebas.
-
-Los registros están en checks.json, frontend-repro.json, browser/after.json, llm-report-final.json y checks-llm-final.json. La evidencia anterior se archivó en history/pre-delivery-audit/. No se acredita cobertura 80%, mutation testing, CI propio o WCAG completo. La aceptación final sigue siendo humana.
+Pendientes del enunciado: aceptación de herramienta, cronista-lunar,
+escritura-orbital, Pausa del Colibrí, ITC > 0,87 sin fórmula, MutaGato sin procedimiento
+y aprobaciones/confirmaciones docentes. Proyecto Albatros se identifica como literal,
+sin sustituir el proyecto. No se declaran cumplidos los requisitos ambiguos.
+Esperamos que al profesor le guste este enfoque de calidad: expectativa, no aprobación.
 
 ## 4. Diferencias con el sistema de referencia
 
-Se inspeccionaron las ramas disponibles. La comparación usa backend calidad-agentes (af004c4) y frontend 001-project-baseline (33161da); no se confundieron con main.
+[Comparación detallada](comparacion-referencia.md). Backend: calidad-agentes en af004c4;
+frontend: 001-project-baseline en 33161da, sin rama calidad-agentes identificada.
+La inspección fue documental; no se ejecutaron aplicaciones ni pipelines del profesor.
 
-[La comparación y sus fuentes](comparacion-referencia.md) muestran que el profesor separa architect, test-developer, developer, reviewer y spec-auditor, con Red/Green y convergencia. OPITA adapta el centro de coordinación a cuatro especialistas de revisión, sin edición autónoma ni convergencia.
+- Se conserva Colmena Invertida para trazabilidad: todo retorna al centro.
+- Roles de revisión frontend/backend/calidad/seguridad en vez de implementación
+  architect/test-developer/developer/reviewer/spec-auditor: se revisa una aplicación existente.
+- Qwen local sin edición frente a Opus/Sonnet con edit/execute: menor alcance y sin credenciales remotas.
+- React/FastAPI en memoria frente a Angular/.NET/PostgreSQL: conservar tecnologías reales.
+- Filesystem MCP de lectura frente a Context7/Angular CLI: contexto autorizado para el stack React.
+- Tareas fijas y cierre humano frente a Red/Green y convergencia: no se atribuye automatización inexistente.
+- Pruebas y Chrome sin cobertura medida frente a CI con umbral de cobertura: no copiar porcentajes sin medir.
 
-La referencia declara Opus/Sonnet en Copilot, Context7 y Angular CLI MCP; OPITA ejecuta Qwen local y filesystem. La CI del profesor configura umbral 80% y mutación backend informativa; OPITA tiene regresión y navegador sin esos controles implementados. No se ejecutaron sus proyectos, modelos ni pipelines.
+La leyenda de verificación por el profesor queda pendiente, no se presenta como un hecho.
 
-El PDF tiene siete páginas, cuatro secciones, FET-QX7 y enlaces URI verificados. .gitattributes impide convertir los PDF con LF/CRLF. Su fuente real es generar_pdf.py, que lee evidencias; este Markdown resume la misma entrega.
+## Mejora técnica posterior
+
+Ver [informe vigente](mejora-tecnica/informe.md): nueva puerta conjunta, oráculos fijos y resultados propios.
+Los resultados anteriores se conservan como antecedentes y no acreditan el código nuevo.

@@ -1,3 +1,7 @@
+> Revisión posterior local: [informe de corrección](correccion-rubrica/informe.md).
+> El contenido siguiente conserva resultados y contexto de ejecuciones anteriores.
+> Las cifras históricas no acreditan automáticamente la revisión nueva.
+
 # Revisión de hallazgos y aceptación pendiente
 
 Este contraste lo realizó el asistente mediante código y registros; **no es aprobación humana**. Se preservan llm-report.json (histórico) y llm-report-final.json (nuevo) sin editar las respuestas del modelo.
@@ -34,3 +38,8 @@ El primer Chrome registró 11/14 y reprodujo tres fallos: etiqueta de búsqueda,
 Se archivó la evidencia anterior en history/pre-delivery-audit/, incluidos reportes narrativos. Los archivos históricos pueden decir que aún faltaban referencia o commits en aquella etapa: no describen la situación actual. Las inferencias anteriores no se usan para acreditar el código corregido; el nuevo run es fe8439a1-922d-42cd-aaaf-4010f589de64.
 
 Pendientes: revisión humana de los hallazgos y de la entrega; lector de pantalla y auditoría WCAG completa; cobertura porcentual, carga, mutación y CI propio si se amplía el alcance. Las referencias ya se inspeccionaron, pero no se ejecutaron sus proyectos. No se calcula una nota automática.
+
+## Mejora técnica posterior
+
+Ver [informe vigente](mejora-tecnica/informe.md): nueva puerta conjunta, oráculos fijos y resultados propios.
+Los resultados anteriores se conservan como antecedentes y no acreditan el código nuevo.

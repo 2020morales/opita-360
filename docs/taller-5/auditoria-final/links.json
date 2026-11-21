@@ -1,0 +1,37 @@
+[
+  {
+    "url": "https://github.com/2020morales/opita-360",
+    "ok": true,
+    "method": "GitHub connector GET"
+  },
+  {
+    "url": "https://github.com/2020morales/opita-360/pull/2",
+    "ok": true,
+    "method": "GitHub connector GET"
+  },
+  {
+    "url": "https://github.com/2020morales/opita-360/tree/8cce952bace0763ac5e96208c70e93a304979fb4/docs/taller-5",
+    "ok": true,
+    "method": "GitHub connector GET"
+  },
+  {
+    "url": "https://github.com/777wills/mi-restaurante-ms/tree/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5",
+    "ok": true,
+    "method": "GitHub connector GET"
+  },
+  {
+    "url": "https://github.com/777wills/mi-restaurante-ui/tree/33161da7c19bba7fdd995a502692ca5f69d67214",
+    "ok": true,
+    "method": "GitHub connector GET"
+  },
+  {
+    "url": "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/docs/diagrams/03-patron-orquestador.excalidraw",
+    "ok": true,
+    "method": "GitHub connector GET"
+  },
+  {
+    "url": "https://github.com/777wills/mi-restaurante-ms/blob/af004c49610dab2ab3a7a6bc0e6c8c22e357e2a5/speckit-custom/presets/implement-orchestrator/commands/speckit.implement.md",
+    "ok": true,
+    "method": "GitHub connector GET"
+  }
+]

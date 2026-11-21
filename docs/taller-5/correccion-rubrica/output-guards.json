@@ -1,0 +1,55 @@
+{
+  "finished_at": "2026-11-19T03:17:47.220153+00:00",
+  "checks": [
+    {
+      "module": "agents.verify",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "agents.verify",
+        "--output",
+        "docs/taller-5/checks.json"
+      ],
+      "exit_code": 1,
+      "passed": true,
+      "historical_sha256_before": "1db6ff8ede980cbd9a997158d6eed17c40ee68be302f94c315bb8a016885ed5a",
+      "historical_sha256_after": "1db6ff8ede980cbd9a997158d6eed17c40ee68be302f94c315bb8a016885ed5a",
+      "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"<repo>\\agents\\verify.py\", line 54, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"<repo>\\agents\\verify.py\", line 19, in main\n    raise FileExistsError(\"El informe ya existe\")\nFileExistsError: El informe ya existe\n"
+    },
+    {
+      "module": "agents.repro_frontend",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "agents.repro_frontend",
+        "--output",
+        "docs/taller-5/frontend-repro.json"
+      ],
+      "exit_code": 1,
+      "passed": true,
+      "historical_sha256_before": "760aa61e678fa5408f630e9c704faabcc50faaa4083a13d321cce13cb0c4161a",
+      "historical_sha256_after": "760aa61e678fa5408f630e9c704faabcc50faaa4083a13d321cce13cb0c4161a",
+      "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"<repo>\\agents\\repro_frontend.py\", line 43, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"<repo>\\agents\\repro_frontend.py\", line 19, in main\n    raise FileExistsError(\"El informe ya existe\")\nFileExistsError: El informe ya existe\n"
+    },
+    {
+      "module": "agents.browser_checks",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "agents.browser_checks",
+        "--label",
+        "after",
+        "--output-dir",
+        "docs/taller-5/browser"
+      ],
+      "exit_code": 1,
+      "passed": true,
+      "historical_sha256_before": "e4d1eebb20c8d6c19d53456a311e897c1a923054fef40e895d9f348137126a48",
+      "historical_sha256_after": "e4d1eebb20c8d6c19d53456a311e897c1a923054fef40e895d9f348137126a48",
+      "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"<repo>\\agents\\browser_checks.py\", line 175, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"<repo>\\agents\\browser_checks.py\", line 72, in main\n    raise FileExistsError(\"La evidencia de navegador ya existe\")\nFileExistsError: La evidencia de navegador ya existe\n"
+    }
+  ]
+}

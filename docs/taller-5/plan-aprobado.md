@@ -47,3 +47,9 @@ La aprobación de este alcance ya fue recibida. Instalar las dependencias necesa
 ## Entrega revisable
 
 Las declaraciones y contratos son la especificación ejecutable; `arquitectura.md` explica estructura y flujo; `tareas.md` vincula responsabilidades con evidencias; `resultados.md` registra exclusivamente lo ejecutado. No se sustituye una prueba funcional por compilación ni una simulación por una ejecución con modelo.
+
+## Plan de corrección local posterior
+
+El usuario autorizó la fase de corrección de rúbrica, no la aprobación del profesor
+ni una publicación. Plan y aceptación verificable: [plan](correccion-rubrica/plan.md).
+Se conserva este plan original como antecedente. Rama independiente correccion-rubrica.

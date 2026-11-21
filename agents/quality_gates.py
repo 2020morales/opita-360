@@ -1,5 +1,6 @@
 """Puertas del operador: conjunto completo, sin sustituir auditoría humana."""
 from datetime import datetime
+import re
 
 COMMANDS = {
     "agents": (["-B", "-m", "unittest", "discover", "-s", "agents/tests", "-v"], "."),
@@ -12,7 +13,11 @@ COMMANDS = {
 def validate_checks(record, expected_snapshot):
     if not isinstance(record, dict) or record.get("version") != "1.1.0":
         raise ValueError("Versión de comprobaciones inválida")
-    if record.get("snapshot") != expected_snapshot:
+    recorded_snapshot = record.get("snapshot", {})
+    if not isinstance(recorded_snapshot, dict) or any(
+        recorded_snapshot.get(key) != expected_snapshot.get(key) or not recorded_snapshot.get(key)
+        for key in ("sha256", "files")
+    ):
         raise ValueError("Primero ejecutar agents.verify con este código; checks obsoleto")
     try:
         timestamp = datetime.fromisoformat(record["finished_at"])
@@ -36,6 +41,20 @@ def validate_checks(record, expected_snapshot):
             raise ValueError("Comprobación fallida o directorio incorrecto")
         if not all(isinstance(item.get(key), str) for key in ("stdout", "stderr")):
             raise ValueError("Salida de ejecución incompleta")
+        if item["check"] in ("agents", "backend"):
+            output = item["stdout"] + "\n" + item["stderr"]
+            summary = re.search(r"^Ran ([1-9][0-9]*) tests? in .+$", output, re.MULTILINE)
+            if not summary or not re.search(r"^OK(?: \([^\n]*\))?\s*$", output, re.MULTILINE):
+                raise ValueError("La suite debe ejecutar pruebas reales y terminar en OK")
+
+
+def human_review_gate(reports):
+    """Inspección no equivale a aceptación: todo hallazgo requiere revisión humana."""
+    if any(report.get("status") == "blocked" for report in reports):
+        return "blocked"
+    if any(report.get("findings") for report in reports):
+        return "awaiting_human_findings_review"
+    return "awaiting_human_review"
 
 
 def review_context(role, reports, checks, mcp_results):
