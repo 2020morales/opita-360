@@ -1,0 +1,25 @@
+{
+  "historical": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "staging": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "new_diff_whitespace": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "warning: in the working copy of 'AGENTS.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\n"
+  },
+  "source_snapshot_current": true,
+  "original_branch_refs_unchanged": true,
+  "evidence_json_count": 13,
+  "native_skills_detected": [
+    "brújula-semántica",
+    "opita-backend",
+    "opita-frontend"
+  ]
+}

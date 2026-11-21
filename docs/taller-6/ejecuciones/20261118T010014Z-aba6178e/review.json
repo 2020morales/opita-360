@@ -1,0 +1,698 @@
+{
+  "run_id": "f30e1adf-3549-4fcc-a870-e0dc3dd1c589",
+  "finished_at": "2026-11-18T01:00:14.818058+00:00",
+  "spec": "001",
+  "mode": "llm",
+  "reports": [
+    {
+      "role": "orquestador",
+      "task": "review-orquestador",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/orquestador.md",
+          "sha256": "d580d8366495f8b936aa985263ccd0d1c339cc7eb16a5fec3fe06b1d447d9a26",
+          "bytes": 994
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "2203f41963ad98abef77e69ee2f39e4cd62659eb207faeedf1f8a86a37d92829",
+          "bytes": 5073
+        },
+        {
+          "path": "harness/README.md",
+          "sha256": "0d92589305a9f2ee217364094b62c511383351df91285f2880c660cbb28ebd0c",
+          "bytes": 8120
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "5cd0992c5de0f7b8834805692151ed36e3eb4a9b4d2e0b7944f4c9e9af6969a9",
+          "bytes": 3493
+        }
+      ],
+      "findings": [
+        "La especificación AC-01 (GET /api/destinations/1) se basa en un backend con validación de Pydantic, pero la implementación del catálogo no ha comenzado.",
+        "El fallback de React para el caso AC-04 está presente en el código fuente, aunque los datos semilla difieren de las entradas del cliente."
+      ],
+      "limitations": [
+        "Los casos de prueba TC-001-* no se han ejecutado y la implementación de la funcionalidad es 'not_started'.",
+        "El orquestador solo puede leer contextos; no tiene permisos para escribir ni ejecutar shell.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "frontend",
+      "task": "review-frontend",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/frontend.md",
+          "sha256": "ae40febfe784f9ba531b5992b286eaf5f86662493e7bdc9cc930d1a5b826a7bb",
+          "bytes": 989
+        },
+        {
+          "path": "frontend/AGENTS.md",
+          "sha256": "a68bd68b539fa06db5aa49a1684f498d86fb961a9f558cf62cf8f7618c576f0f",
+          "bytes": 859
+        },
+        {
+          "path": "frontend/src/main.jsx",
+          "sha256": "4ace511e6a76d84563685f2f93c55ff750b9b0f7b04ed9b95439d1c3801004c1",
+          "bytes": 18054
+        },
+        {
+          "path": "frontend/src/destination-filters.js",
+          "sha256": "ed404efe3763c77fbc91286a48c0b081b28fdb1e854191cc69b626f720ca1d05",
+          "bytes": 833
+        },
+        {
+          "path": "frontend/src/styles.css",
+          "sha256": "600186bec72b4d34bd572ecb4ccc4916b93f2ceb6145d8f698c3e44af2319448",
+          "bytes": 18216
+        },
+        {
+          "path": ".agents/skills/opita-frontend/SKILL.md",
+          "sha256": "ae8d50fb9af5ae15230c91c8330570802213a0e6f8e87b3d9bb0531f14093b87",
+          "bytes": 1371
+        }
+      ],
+      "findings": [
+        "La especificación AC-01 (GET /api/destinations/1) depende de un endpoint individual que no se menciona en el código fuente analizado (`main.jsx` solo llama a `/api/destinations`).",
+        "El manejo del caso AC-02 (ID inexistente 9999) requiere lógica de validación en la API o una respuesta específica del frontend, pero `main.jsx` no contiene handlers para rutas individuales ni manejo explícito de errores por ID faltante más allá del fallback general."
+      ],
+      "limitations": [
+        "El código fuente proporcionado (`main.jsx`) muestra solo el listado de destinos y la lógica de recomendación; falta la implementación visual o lógica del componente de 'detalle' que cubre AC-03 y AC-04.",
+        "No se puede verificar si el diálogo de detalle cierra correctamente al pulsar Escape (AC-03) ni cómo se maneja la experiencia en modo demo para un destino específico (AC-04), ya que no hay componentes de detalle en los archivos revisados.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "backend",
+      "task": "review-backend",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/backend.md",
+          "sha256": "ac48ff174e54384bcc5c8e6fd10a2ac83331eae33b2b692564b6d6de8f510d35",
+          "bytes": 984
+        },
+        {
+          "path": "backend/AGENTS.md",
+          "sha256": "4ce801a1fd3c33cd4109ba4be967576b6b0caa794c59e2a626e07dd41561d385",
+          "bytes": 766
+        },
+        {
+          "path": "backend/app/main.py",
+          "sha256": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+          "bytes": 5185
+        },
+        {
+          "path": "backend/tests/test_api.py",
+          "sha256": "5794d395c00386e34e0bfd91d12752180c862107455dcbf1d19be9b09db0493c",
+          "bytes": 4069
+        },
+        {
+          "path": ".agents/skills/opita-backend/SKILL.md",
+          "sha256": "db92ea461477a69f8a22ec8e8a699efc94aa0e2224238998434c3545b3ea2574",
+          "bytes": 1261
+        }
+      ],
+      "findings": [
+        "La especificación AC-01 define un endpoint GET /api/destinations/{id}. El código actual en backend/app/main.py solo implementa GET /api/destinations (lista) y POST /api/recommendaciones. No existe la ruta para detalles individuales.",
+        "El requisito AC-02 exige devolver 404 para IDs inexistentes. Dado que no hay endpoint definido, cualquier petición a /api/destinations/{id} resultará en 404 por falta de definición, cumpliendo accidentalmente el criterio pero sin lógica específica de validación de destino único implementada aún."
+      ],
+      "limitations": [
+        "La implementación del backend es 'not_started' para esta funcionalidad. Los datos semilla (DESTINATIONS) existen en memoria pero no se acceden mediante un endpoint de detalle.",
+        "Los criterios AC-03 y AC-04 dependen de una capa de navegador ('browser') que no está cubierta por los checks actuales del backend.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "calidad",
+      "task": "review-calidad",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/calidad.md",
+          "sha256": "40df2ea54e5adac5a147801ae2f6b8684387c787d2015a74f4b07718d1945c46",
+          "bytes": 983
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "c29942672abdb660c527a2fce73ab374375cbdcfd228570e82bb89403db8d096",
+          "bytes": 8295
+        },
+        {
+          "path": "harness/tests/test_harness.py",
+          "sha256": "13587cbf5c02403f6221741905a6c130e7709f7c41dbec84be8e816917093e57",
+          "bytes": 7748
+        },
+        {
+          "path": ".agents/skills/brujula-semantica/SKILL.md",
+          "sha256": "32ecccc4412f680d4ad374b806460e550a52be5d7795174b7f5d1a7389f57a9f",
+          "bytes": 1504
+        },
+        {
+          "path": "harness/grounding.py",
+          "sha256": "d041cf9e405e7ebc16768148b5395d0b624899b355bfeb0e8e73f20872800fd7",
+          "bytes": 8194
+        }
+      ],
+      "findings": [
+        "La especificación AC-04 asume una condición ('API bloqueada') que no se puede verificar mediante pruebas automáticas en el entorno actual, ya que la implementación de bloqueo y catálogo demo no está registrada como ejecutada ni implementada.",
+        "El criterio AC-03 requiere interacción con el navegador (pulsar Escape) y retorno de foco, lo cual es un caso observable solo en ejecución real del cliente, no inferible desde el código backend o frontend aislado."
+      ],
+      "limitations": [
+        "No se puede validar la lógica de 'API bloqueada' sin acceso a la capa de red simulada o al estado de bloqueo real, dado que la implementación está marcada como 'not_started'.",
+        "La prueba AC-04 depende de un escenario externo (bloqueo) que no es una propiedad intrínseca del código fuente analizado.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "seguridad",
+      "task": "review-seguridad",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/seguridad.md",
+          "sha256": "c476565c77bf99bfb670ffc66366247220fa114302dd2c604d37b015b381c0ff",
+          "bytes": 989
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "2203f41963ad98abef77e69ee2f39e4cd62659eb207faeedf1f8a86a37d92829",
+          "bytes": 5073
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "5cd0992c5de0f7b8834805692151ed36e3eb4a9b4d2e0b7944f4c9e9af6969a9",
+          "bytes": 3493
+        },
+        {
+          "path": "harness/runtime.py",
+          "sha256": "e97cecbdfcd5e472b6bc0d3fda5f6fbf437e643e33c29679596fbfa9b4c95554",
+          "bytes": 9402
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "c29942672abdb660c527a2fce73ab374375cbdcfd228570e82bb89403db8d096",
+          "bytes": 8295
+        },
+        {
+          "path": "harness/grounding.py",
+          "sha256": "d041cf9e405e7ebc16768148b5395d0b624899b355bfeb0e8e73f20872800fd7",
+          "bytes": 8194
+        }
+      ],
+      "findings": [
+        "La especificación define casos de aceptación para una funcionalidad no implementada (estado: not_started).",
+        "Los datos semilla del catálogo y las pruebas de la característica están marcados como no ejecutados o inexistentes en el sistema."
+      ],
+      "limitations": [
+        "No se puede verificar si los endpoints API devuelven 200/404 correctamente ni si el diálogo del navegador cierra al pulsar Escape.",
+        "La ausencia de ejecución de pruebas impide confirmar que la lógica de bloqueo y datos demo funciona según los criterios AC-01 a AC-04.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    }
+  ],
+  "traces": [
+    {
+      "role": "orquestador",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "bf0006ec549117780d370d650ad5f9ac20f9b549ba0690a057814a7fb2cc6c94",
+      "response_sha256": "56dc6907393c8586e5c1954138736c1f02e69f45e47fe65cf0d6301294ebaa5a",
+      "eval_count": 203,
+      "response": {
+        "findings": [
+          "La especificación AC-01 (GET /api/destinations/1) se basa en un backend con validación de Pydantic, pero la implementación del catálogo no ha comenzado.",
+          "El fallback de React para el caso AC-04 está presente en el código fuente, aunque los datos semilla difieren de las entradas del cliente."
+        ],
+        "limitations": [
+          "Los casos de prueba TC-001-* no se han ejecutado y la implementación de la funcionalidad es 'not_started'.",
+          "El orquestador solo puede leer contextos; no tiene permisos para escribir ni ejecutar shell."
+        ],
+        "claims": [
+          {
+            "fact": "pydantic_request_validation",
+            "value": true
+          },
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          }
+        ],
+        "citations": []
+      }
+    },
+    {
+      "role": "frontend",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "974c4bf348f8c487c07b642dfff49b14c717fe5a779b3fb05a1fe2f9d582db73",
+      "response_sha256": "052a03ee89fc53ae2714090fea4db8989791c420debe9bf5be6c025ec2b544df",
+      "eval_count": 284,
+      "response": {
+        "findings": [
+          "La especificación AC-01 (GET /api/destinations/1) depende de un endpoint individual que no se menciona en el código fuente analizado (`main.jsx` solo llama a `/api/destinations`).",
+          "El manejo del caso AC-02 (ID inexistente 9999) requiere lógica de validación en la API o una respuesta específica del frontend, pero `main.jsx` no contiene handlers para rutas individuales ni manejo explícito de errores por ID faltante más allá del fallback general."
+        ],
+        "limitations": [
+          "El código fuente proporcionado (`main.jsx`) muestra solo el listado de destinos y la lógica de recomendación; falta la implementación visual o lógica del componente de 'detalle' que cubre AC-03 y AC-04.",
+          "No se puede verificar si el diálogo de detalle cierra correctamente al pulsar Escape (AC-03) ni cómo se maneja la experiencia en modo demo para un destino específico (AC-04), ya que no hay componentes de detalle en los archivos revisados."
+        ],
+        "claims": [
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          }
+        ],
+        "citations": []
+      }
+    },
+    {
+      "role": "backend",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "0483ff172b1bab63a591af3b88c3e019546fa38a98de6f3d2a2f87355375e63c",
+      "response_sha256": "8e4540eff38d64f176bccb2bbe48e3c0da3495c662550b97f5c3896084c87b40",
+      "eval_count": 269,
+      "response": {
+        "findings": [
+          "La especificación AC-01 define un endpoint GET /api/destinations/{id}. El código actual en backend/app/main.py solo implementa GET /api/destinations (lista) y POST /api/recommendaciones. No existe la ruta para detalles individuales.",
+          "El requisito AC-02 exige devolver 404 para IDs inexistentes. Dado que no hay endpoint definido, cualquier petición a /api/destinations/{id} resultará en 404 por falta de definición, cumpliendo accidentalmente el criterio pero sin lógica específica de validación de destino único implementada aún."
+        ],
+        "limitations": [
+          "La implementación del backend es 'not_started' para esta funcionalidad. Los datos semilla (DESTINATIONS) existen en memoria pero no se acceden mediante un endpoint de detalle.",
+          "Los criterios AC-03 y AC-04 dependen de una capa de navegador ('browser') que no está cubierta por los checks actuales del backend."
+        ],
+        "claims": [
+          {
+            "fact": "pydantic_request_validation",
+            "value": true
+          }
+        ],
+        "citations": []
+      }
+    },
+    {
+      "role": "calidad",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "34b42525b899e9f9c2f20379268ee3ef4f2e7c7b2833309ad69f542e8cd1159a",
+      "response_sha256": "ec18ca958adc87461e8dfc9aac55bae208db0e50a723b9e3456e33d375cfb156",
+      "eval_count": 268,
+      "response": {
+        "findings": [
+          "La especificación AC-04 asume una condición ('API bloqueada') que no se puede verificar mediante pruebas automáticas en el entorno actual, ya que la implementación de bloqueo y catálogo demo no está registrada como ejecutada ni implementada.",
+          "El criterio AC-03 requiere interacción con el navegador (pulsar Escape) y retorno de foco, lo cual es un caso observable solo en ejecución real del cliente, no inferible desde el código backend o frontend aislado."
+        ],
+        "limitations": [
+          "No se puede validar la lógica de 'API bloqueada' sin acceso a la capa de red simulada o al estado de bloqueo real, dado que la implementación está marcada como 'not_started'.",
+          "La prueba AC-04 depende de un escenario externo (bloqueo) que no es una propiedad intrínseca del código fuente analizado."
+        ],
+        "claims": [
+          {
+            "fact": "spec_implementation_recorded",
+            "value": false
+          },
+          {
+            "fact": "spec_tests_executed",
+            "value": false
+          }
+        ],
+        "citations": []
+      }
+    },
+    {
+      "role": "seguridad",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "7883bbcf950f3a0ba41efbf78d5eab9913af733c303b106766c0ea44f5991963",
+      "response_sha256": "59305089429ae20e89a25d953ae999591f44b29c132d0fe009e5093cec7bd76a",
+      "eval_count": 209,
+      "response": {
+        "findings": [
+          "La especificación define casos de aceptación para una funcionalidad no implementada (estado: not_started).",
+          "Los datos semilla del catálogo y las pruebas de la característica están marcados como no ejecutados o inexistentes en el sistema."
+        ],
+        "limitations": [
+          "No se puede verificar si los endpoints API devuelven 200/404 correctamente ni si el diálogo del navegador cierra al pulsar Escape.",
+          "La ausencia de ejecución de pruebas impide confirmar que la lógica de bloqueo y datos demo funciona según los criterios AC-01 a AC-04."
+        ],
+        "claims": [
+          {
+            "fact": "spec_implementation_recorded",
+            "value": false
+          },
+          {
+            "fact": "spec_tests_executed",
+            "value": false
+          }
+        ],
+        "citations": []
+      }
+    }
+  ],
+  "mcp": [
+    {
+      "package": "@modelcontextprotocol/server-filesystem@2.3.0",
+      "node_package": "node@24.13.0",
+      "verified_node_version": "v24.13.0",
+      "transport": "stdio",
+      "role": "frontend",
+      "server": {
+        "name": "secure-filesystem-server",
+        "title": null,
+        "version": "2.3.0",
+        "websiteUrl": null,
+        "icons": null
+      },
+      "protocol": "2025-11-25",
+      "discovered_tools": [
+        "read_file",
+        "read_text_file",
+        "read_media_file",
+        "read_multiple_files",
+        "write_file",
+        "append_file",
+        "edit_file",
+        "create_directory",
+        "list_directory",
+        "list_directory_with_sizes",
+        "directory_tree",
+        "move_file",
+        "copy_file",
+        "search_files",
+        "get_file_info",
+        "list_allowed_directories"
+      ],
+      "called_tool": "read_text_file",
+      "source": "frontend/src/main.jsx",
+      "content_equal": true,
+      "sha256_utf8": "6da7f54fe616f6535975f4316453919aa2d0c693dde6ec82247add457f6fee1f",
+      "outside_scope_denied": true,
+      "llm_executed": false,
+      "limitation": "Servidor con permisos del usuario; staging no equivale a sandbox OS. Se anuncian herramientas de escritura que este cliente no permite invocar."
+    },
+    {
+      "package": "@modelcontextprotocol/server-filesystem@2.3.0",
+      "node_package": "node@24.13.0",
+      "verified_node_version": "v24.13.0",
+      "transport": "stdio",
+      "role": "backend",
+      "server": {
+        "name": "secure-filesystem-server",
+        "title": null,
+        "version": "2.3.0",
+        "websiteUrl": null,
+        "icons": null
+      },
+      "protocol": "2025-11-25",
+      "discovered_tools": [
+        "read_file",
+        "read_text_file",
+        "read_media_file",
+        "read_multiple_files",
+        "write_file",
+        "append_file",
+        "edit_file",
+        "create_directory",
+        "list_directory",
+        "list_directory_with_sizes",
+        "directory_tree",
+        "move_file",
+        "copy_file",
+        "search_files",
+        "get_file_info",
+        "list_allowed_directories"
+      ],
+      "called_tool": "read_text_file",
+      "source": "backend/app/main.py",
+      "content_equal": true,
+      "sha256_utf8": "4afb1133e6cbe382765b23827a185a3ee60a2bc416b6722aaf28f7d322d13e7c",
+      "outside_scope_denied": true,
+      "llm_executed": false,
+      "limitation": "Servidor con permisos del usuario; staging no equivale a sandbox OS. Se anuncian herramientas de escritura que este cliente no permite invocar."
+    }
+  ],
+  "technical_facts": {
+    "facts": {
+      "pydantic_request_validation": {
+        "value": true,
+        "source": "backend/app/main.py"
+      },
+      "frontend_demo_fallback": {
+        "value": true,
+        "source": "frontend/src/main.jsx"
+      },
+      "base_checks_passed": {
+        "value": true,
+        "source": "operator_checks"
+      },
+      "spec_implementation_recorded": {
+        "value": false,
+        "source": "specs/taller-6/001-detalle-destino/spec.json"
+      },
+      "spec_tests_executed": {
+        "value": false,
+        "source": "specs/taller-6/001-detalle-destino/spec.json"
+      }
+    },
+    "basis": {
+      "backend": {
+        "sha256": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+        "analysis": "AST BaseModel + Field + typed handler"
+      },
+      "frontend": {
+        "sha256": "4ace511e6a76d84563685f2f93c55ff750b9b0f7b04ed9b95439d1c3801004c1",
+        "analysis": "static pattern; not full browser proof"
+      }
+    },
+    "distinction": "Checks are regressions of base/harness. Generated spec cases are not implemented or executed.",
+    "source_sha256": {
+      "backend/app/main.py": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+      "frontend/src/main.jsx": "4ace511e6a76d84563685f2f93c55ff750b9b0f7b04ed9b95439d1c3801004c1"
+    },
+    "limitation": "Spec facts check declared records, not independent proof of feature implementation or test execution."
+  },
+  "claim_audits": [
+    {
+      "role": "orquestador",
+      "claims": [
+        {
+          "fact": "pydantic_request_validation",
+          "claimed": true,
+          "actual": true,
+          "source": "backend/app/main.py",
+          "status": "verified"
+        },
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La especificación AC-01 (GET /api/destinations/1) se basa en un backend con validación de Pydantic, pero la implementación del catálogo no ha comenzado.",
+        "El fallback de React para el caso AC-04 está presente en el código fuente, aunque los datos semilla difieren de las entradas del cliente."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "frontend",
+      "claims": [
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La especificación AC-01 (GET /api/destinations/1) depende de un endpoint individual que no se menciona en el código fuente analizado (`main.jsx` solo llama a `/api/destinations`).",
+        "El manejo del caso AC-02 (ID inexistente 9999) requiere lógica de validación en la API o una respuesta específica del frontend, pero `main.jsx` no contiene handlers para rutas individuales ni manejo explícito de errores por ID faltante más allá del fallback general."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "backend",
+      "claims": [
+        {
+          "fact": "pydantic_request_validation",
+          "claimed": true,
+          "actual": true,
+          "source": "backend/app/main.py",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La especificación AC-01 define un endpoint GET /api/destinations/{id}. El código actual en backend/app/main.py solo implementa GET /api/destinations (lista) y POST /api/recommendaciones. No existe la ruta para detalles individuales.",
+        "El requisito AC-02 exige devolver 404 para IDs inexistentes. Dado que no hay endpoint definido, cualquier petición a /api/destinations/{id} resultará en 404 por falta de definición, cumpliendo accidentalmente el criterio pero sin lógica específica de validación de destino único implementada aún."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "calidad",
+      "claims": [
+        {
+          "fact": "spec_implementation_recorded",
+          "claimed": false,
+          "actual": false,
+          "source": "specs/taller-6/001-detalle-destino/spec.json",
+          "status": "verified"
+        },
+        {
+          "fact": "spec_tests_executed",
+          "claimed": false,
+          "actual": false,
+          "source": "specs/taller-6/001-detalle-destino/spec.json",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La especificación AC-04 asume una condición ('API bloqueada') que no se puede verificar mediante pruebas automáticas en el entorno actual, ya que la implementación de bloqueo y catálogo demo no está registrada como ejecutada ni implementada.",
+        "El criterio AC-03 requiere interacción con el navegador (pulsar Escape) y retorno de foco, lo cual es un caso observable solo en ejecución real del cliente, no inferible desde el código backend o frontend aislado."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "seguridad",
+      "claims": [
+        {
+          "fact": "spec_implementation_recorded",
+          "claimed": false,
+          "actual": false,
+          "source": "specs/taller-6/001-detalle-destino/spec.json",
+          "status": "verified"
+        },
+        {
+          "fact": "spec_tests_executed",
+          "claimed": false,
+          "actual": false,
+          "source": "specs/taller-6/001-detalle-destino/spec.json",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La especificación define casos de aceptación para una funcionalidad no implementada (estado: not_started).",
+        "Los datos semilla del catálogo y las pruebas de la característica están marcados como no ejecutados o inexistentes en el sistema."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    }
+  ],
+  "stage_events": [
+    {
+      "role": "orquestador",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T00:55:41.725274+00:00",
+      "payload_chars": 7254,
+      "finished_at": "2026-11-18T00:56:15.035704+00:00",
+      "elapsed_seconds": 33.313,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "frontend",
+      "stage": "mcp",
+      "limit_seconds": 60,
+      "started_at": "2026-11-18T00:56:15.059713+00:00",
+      "payload_chars": 2,
+      "finished_at": "2026-11-18T00:56:19.192643+00:00",
+      "elapsed_seconds": 4.125,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "frontend",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T00:56:19.193641+00:00",
+      "payload_chars": 13164,
+      "finished_at": "2026-11-18T00:57:12.106584+00:00",
+      "elapsed_seconds": 52.922,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "backend",
+      "stage": "mcp",
+      "limit_seconds": 60,
+      "started_at": "2026-11-18T00:57:12.136501+00:00",
+      "payload_chars": 2,
+      "finished_at": "2026-11-18T00:57:16.186752+00:00",
+      "elapsed_seconds": 4.047,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "backend",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T00:57:16.187141+00:00",
+      "payload_chars": 12342,
+      "finished_at": "2026-11-18T00:58:06.886988+00:00",
+      "elapsed_seconds": 50.703,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "calidad",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T00:58:06.906465+00:00",
+      "payload_chars": 19544,
+      "finished_at": "2026-11-18T00:59:12.661458+00:00",
+      "elapsed_seconds": 65.75,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "seguridad",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T00:59:12.686852+00:00",
+      "payload_chars": 23441,
+      "finished_at": "2026-11-18T01:00:14.745576+00:00",
+      "elapsed_seconds": 62.063,
+      "exit_code": 0,
+      "status": "passed"
+    }
+  ],
+  "elapsed_seconds": 273.187,
+  "total_limit_seconds": 600,
+  "code_modified": false,
+  "checks_source": "docs/taller-6/ejecuciones/20261118T005541Z-8a2c029f/checks.json",
+  "context_selection": "symbols_and_line_ranges",
+  "approval": "operator_assertion_not_identity",
+  "next_gate": "human_review"
+}

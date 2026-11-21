@@ -1,0 +1,681 @@
+{
+  "status": "failed",
+  "command": "review",
+  "error_type": "ReviewFailure",
+  "error": "seguridad/llm: RuntimeError: seguridad/llm: worker exit 1: Traceback (most recent call last):\r\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\r\n  File \"<frozen runpy>\", line 88, in _run_code\r\n  File \"<WORKTREE_T6>\\harness\\worker.py\", line 29, in <module>\r\n    main()\r\n  File \"<WORKTREE_T6>\\harness\\worker.py\", line 19, in main\r\n    answer, trace = local_review(role, payload)\r\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"<WORKTREE_T6>\\harness\\runtime.py\", line 56, in local_review\r\n    raise ValueError(\"Wrong model or incomplete inference\")\r\nValueError: Wrong model or incomplete inference\r\n",
+  "partial": {
+    "role": "seguridad",
+    "stage": "llm",
+    "reports": [
+      {
+        "role": "orquestador",
+        "task": "review-orquestador",
+        "mode": "llm",
+        "model": "qwen3.5:4b",
+        "evidence": [
+          {
+            "path": "harness/agents/orquestador.md",
+            "sha256": "00477b65ebf38f9da112cde6f1a137880a1dcdb6a0eefada78f193644570ff45",
+            "bytes": 1003
+          },
+          {
+            "path": "AGENTS.md",
+            "sha256": "237e37549f4d47dcc13d5414b8830c5b91deee527d1d5bce6fbfd66921390bcb",
+            "bytes": 5608
+          },
+          {
+            "path": "harness/README.md",
+            "sha256": "20b49cf6dd5181ad8ef42fbb730f00afdcc4af6021254f066d588edcc8bedeb0",
+            "bytes": 9180
+          },
+          {
+            "path": "harness/manifest.json",
+            "sha256": "57a2f7e8f17dfe49a0ea8ee45bf7c0185850ac04ba1355f6ed9c865c36bf5886",
+            "bytes": 4468
+          },
+          {
+            "path": "docs/taller-6/integracion-final-contexto.json",
+            "sha256": "13fd129f89e40a31f3f4a331d4e203f9b704f87cca575be5fbbaf9a010bc1433",
+            "bytes": 654
+          }
+        ],
+        "findings": [
+          "La implementación de la especificación 'Exportacion versionada del itinerario' (ID: 005) está registrada en el sistema, pero los datos semilla no confirman la ejecución real de los criterios de aceptación AC-01 a AC-04.",
+          "El orquestador opera bajo restricciones estrictas: no tiene permisos de escritura ni acceso a shell, y su modelo (qwen3.5:4b) se ejecuta localmente sin comunicación lateral con GitHub o servicios externos."
+        ],
+        "limitations": [
+          "Los informes de ejecución vinculados en el borrador son diseños generados, no registros de pruebas completas que validen la funcionalidad final.",
+          "El fallback de React para casos demo está presente en el código fuente, pero no se ha verificado su comportamiento real frente a servicios externos.",
+          "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+        ],
+        "status": "awaiting_human_review"
+      },
+      {
+        "role": "frontend",
+        "task": "review-frontend",
+        "mode": "llm",
+        "model": "qwen3.5:4b",
+        "evidence": [
+          {
+            "path": "harness/agents/frontend.md",
+            "sha256": "06a7470f86d8ce136471b049a174f2f487c0865d8de08b7469c5ee4b5b925bca",
+            "bytes": 998
+          },
+          {
+            "path": "frontend/AGENTS.md",
+            "sha256": "a68bd68b539fa06db5aa49a1684f498d86fb961a9f558cf62cf8f7618c576f0f",
+            "bytes": 859
+          },
+          {
+            "path": "frontend/src/main.jsx",
+            "sha256": "f4276c490aacff8bcf22291192d41bba7179cb35b6ef53738b271faeaa15692d",
+            "bytes": 23808
+          },
+          {
+            "path": "frontend/src/destination-filters.js",
+            "sha256": "f0a69239e63dcd6e20b5abc7b8b3fba898ad297c437910aec8714bb937e1023a",
+            "bytes": 1509
+          },
+          {
+            "path": "frontend/src/styles.css",
+            "sha256": "3b99ce82badc593f07498209d0e40b6592736ad519586df78975bbe17de938e6",
+            "bytes": 21400
+          },
+          {
+            "path": ".agents/skills/opita-frontend/SKILL.md",
+            "sha256": "89a9a5bb73cfa1932686b6272578ea0661daaef7db7939385f369303b3dc34ec",
+            "bytes": 1388
+          },
+          {
+            "path": "frontend/src/destination-detail.jsx",
+            "sha256": "507031bb5d31f0e4ac195b8e0b4d9687aebeaf4c2fdad60aa7c3adc216b4301d",
+            "bytes": 3385
+          },
+          {
+            "path": "frontend/tests/max-cost.test.js",
+            "sha256": "1d798159a6924ca03ff646b901f89991b93c810ac5758046675d730e7e17cac5",
+            "bytes": 2074
+          },
+          {
+            "path": "frontend/src/favorites.js",
+            "sha256": "bfd288db567ea70193a38d29d8a1ca13554289db017e7fe9ca49324dd8e8a4f5",
+            "bytes": 1776
+          },
+          {
+            "path": "frontend/tests/favorites.test.js",
+            "sha256": "8c044f2cf3de1d11ba83b1501e83db870e5e5dec9f09dd3a84e397d9ff6ff0e4",
+            "bytes": 2988
+          },
+          {
+            "path": "frontend/src/recommendation-municipality.js",
+            "sha256": "87e5e4c2c795009be393ad9a1b0643cfcd01335a9ddf6e24e9075be559731db8",
+            "bytes": 604
+          },
+          {
+            "path": "frontend/tests/recommendation-municipality.test.js",
+            "sha256": "3410efc13a9676ff15851f4ec9189158b763aceceef1c3c6591c6f60242dc56a",
+            "bytes": 1312
+          },
+          {
+            "path": "frontend/src/export-itinerary.js",
+            "sha256": "390e7be5444f92c38501b41c2caf102ab0ed3d6fbb08b55f31d2c681b13004fa",
+            "bytes": 1578
+          },
+          {
+            "path": "frontend/tests/export-itinerary.test.js",
+            "sha256": "eb09c7b68c7f1205af028fc93d66754ccf127c680e39ed6734a8a83c2cadd9b3",
+            "bytes": 3325
+          },
+          {
+            "path": "docs/taller-6/integracion-final-contexto.json",
+            "sha256": "13fd129f89e40a31f3f4a331d4e203f9b704f87cca575be5fbbaf9a010bc1433",
+            "bytes": 654
+          }
+        ],
+        "findings": [
+          "El módulo `saveFavorites` en `frontend/src/favorites.js` implementa una estrategia de recuperación ante fallos al leer datos corruptos del almacenamiento local. Si la lectura falla o devuelve un JSON inválido, el código captura la excepción y devuelve explícitamente una lista vacía (`ids: []`) junto con un mensaje de notificación explicativo, evitando que la aplicación entre en estado inconsistido",
+          "La función `loadFavorites` valida estrictamente la estructura del objeto guardado (requiere `version: 1` y `ids` como array). Si el JSON no cumple este esquema o contiene datos manipulados (como IDs negativos, decimales o cadenas), se ejecuta una limpieza automática que filtra solo los enteros positivos únicos válidos antes de devolverlos al usuario, garantizando la integridad de los favoritos sin"
+        ],
+        "limitations": [
+          "La validación de datos en `loadFavorites` asume que el almacenamiento local siempre devuelve un objeto JSON; si el formato cambia drásticamente o se rompe completamente, la recuperación podría no ser perfecta",
+          "El mensaje de notificación generado al detectar datos corruptos es estático y no proporciona detalles específicos sobre qué parte del archivo falló",
+          "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+        ],
+        "status": "awaiting_human_review"
+      },
+      {
+        "role": "backend",
+        "task": "review-backend",
+        "mode": "llm",
+        "model": "qwen3.5:4b",
+        "evidence": [
+          {
+            "path": "harness/agents/backend.md",
+            "sha256": "f73dd9e2570f71a5a383d703a0217032f8421ee21404424c26d062605267433d",
+            "bytes": 993
+          },
+          {
+            "path": "backend/AGENTS.md",
+            "sha256": "4ce801a1fd3c33cd4109ba4be967576b6b0caa794c59e2a626e07dd41561d385",
+            "bytes": 766
+          },
+          {
+            "path": "backend/app/main.py",
+            "sha256": "d98b44764f1eab8ea329e37fcd1f961b879a53e191dfd09fa6d8568f01ac1592",
+            "bytes": 5904
+          },
+          {
+            "path": "backend/tests/test_api.py",
+            "sha256": "5794d395c00386e34e0bfd91d12752180c862107455dcbf1d19be9b09db0493c",
+            "bytes": 4069
+          },
+          {
+            "path": ".agents/skills/opita-backend/SKILL.md",
+            "sha256": "c4f32f20f0e72be9d57e8a1921758cbfa1ef0facfc66827f64addd5fcbe34038",
+            "bytes": 1278
+          },
+          {
+            "path": "backend/tests/test_destination_detail.py",
+            "sha256": "5290d8db5095fae69f33cdda6066a3c1a68c18e943c1ac31dfdc0cd36576bd64",
+            "bytes": 1633
+          },
+          {
+            "path": "backend/tests/test_recommendation_municipality.py",
+            "sha256": "3d3de838a21b99049e8f4e7748d382d540ee92f2ce2df4c3dccba44282051e74",
+            "bytes": 3163
+          },
+          {
+            "path": "docs/taller-6/integracion-final-contexto.json",
+            "sha256": "13fd129f89e40a31f3f4a331d4e203f9b704f87cca575be5fbbaf9a010bc1433",
+            "bytes": 654
+          },
+          {
+            "path": "backend/tests/test_integrated_features.py",
+            "sha256": "2633ddf332c57978b0f17906a9ed1eb5c92a8b68877933cd664fa166029281ae",
+            "bytes": 1784
+          }
+        ],
+        "findings": [
+          "La implementación actual en `backend/app/main.py` define el endpoint `/api/recommendations` con validación Pydantic, pero carece del endpoint de exportación (`/api/export`) y la lógica para generar archivos JSON descargables.",
+          "Los criterios AC-01 a AC-04 requieren funcionalidad de exportación que no existe en el código fuente revisado; por tanto, las acciones de exportación están deshabilitadas o ausentes según lo esperado en AC-01 y AC-04."
+        ],
+        "limitations": [
+          "No se puede verificar la descarga del archivo .json ni su contenido sin ejecutar la funcionalidad específica, la cual no está presente en el código analizado.",
+          "Los datos semilla (`DESTINATIONS`) están en memoria según `backend/AGENTS.md`, lo que implica que cualquier exportación dependería de este estado temporal si existiera.",
+          "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+        ],
+        "status": "awaiting_human_review"
+      },
+      {
+        "role": "calidad",
+        "task": "review-calidad",
+        "mode": "llm",
+        "model": "qwen3.5:4b",
+        "evidence": [
+          {
+            "path": "harness/agents/calidad.md",
+            "sha256": "9f65dc841b46de221c279ee820d7bdeae2a9103a2be371f1163192c70993180a",
+            "bytes": 992
+          },
+          {
+            "path": "harness/core.py",
+            "sha256": "a0b033e480c96f21ea4485f1b906abfa37f8a2aceac9b7aa0e14770df0094b7a",
+            "bytes": 8454
+          },
+          {
+            "path": "harness/tests/test_harness.py",
+            "sha256": "d173c6a7f2f90652d5555ef1ec622aa4d8d7bdaade191acb5267a863b0f416c0",
+            "bytes": 7939
+          },
+          {
+            "path": ".agents/skills/brujula-semantica/SKILL.md",
+            "sha256": "ead488ca55c3350f86536e829a98f3c026941d502bbfe8008e21f01442c5a0f3",
+            "bytes": 1521
+          },
+          {
+            "path": "harness/grounding.py",
+            "sha256": "9014481f61d6a285d939a565ce82288015cf60a208005de05e11affc3dca93e6",
+            "bytes": 8834
+          },
+          {
+            "path": "docs/taller-6/integracion-final-contexto.json",
+            "sha256": "13fd129f89e40a31f3f4a331d4e203f9b704f87cca575be5fbbaf9a010bc1433",
+            "bytes": 654
+          }
+        ],
+        "findings": [
+          "La implementación cumple los criterios AC-01 y AC-04: la exportación está deshabilitada si no hay propuesta, y descarga un JSON válido localmente sin enviar datos externos cuando la propuesta es visible.",
+          "Se verifica técnicamente que el backend utiliza validación Pydantic (`BaseModel`, `Field`) para la solicitud de viaje y que el frontend implementa patrones estáticos para la exportación, aunque no se ha ejecutado una prueba de navegador completa que demuestre el comportamiento en tiempo real del cliente final (AC-04). Los hashes SHA256 de los archivos fuente coinciden con las versiones analizadas,"
+        ],
+        "limitations": [
+          "No se determinó si los casos de prueba específicos para esta funcionalidad (TC-005-*) fueron ejecutados exitosamente en el ciclo de pruebas actual; la suma de tests del suite no confirma ni niega la ejecución de criterios individuales.",
+          "El análisis estático del frontend muestra patrones de exportación, pero carece de evidencia de ejecución real en un entorno navegador para validar el flujo completo de UI a descarga.",
+          "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+        ],
+        "status": "awaiting_human_review"
+      }
+    ],
+    "traces": [
+      {
+        "role": "orquestador",
+        "model": "qwen3.5:4b",
+        "llm_executed": true,
+        "request_sha256": "33add2bb2878bbac0c4074ba64736871a25d8d7126d3586cd5dbb2bb8a4d0fb3",
+        "response_sha256": "5e321cde4aec74230b4b6d2af7954c5a8487dcef11825a3a01d5fbbd369fee8e",
+        "eval_count": 258,
+        "response": {
+          "findings": [
+            "La implementación de la especificación 'Exportacion versionada del itinerario' (ID: 005) está registrada en el sistema, pero los datos semilla no confirman la ejecución real de los criterios de aceptación AC-01 a AC-04.",
+            "El orquestador opera bajo restricciones estrictas: no tiene permisos de escritura ni acceso a shell, y su modelo (qwen3.5:4b) se ejecuta localmente sin comunicación lateral con GitHub o servicios externos."
+          ],
+          "limitations": [
+            "Los informes de ejecución vinculados en el borrador son diseños generados, no registros de pruebas completas que validen la funcionalidad final.",
+            "El fallback de React para casos demo está presente en el código fuente, pero no se ha verificado su comportamiento real frente a servicios externos."
+          ],
+          "claims": [
+            {
+              "fact": "pydantic_request_validation",
+              "value": true
+            },
+            {
+              "fact": "frontend_demo_fallback",
+              "value": true
+            }
+          ],
+          "citations": []
+        }
+      },
+      {
+        "role": "frontend",
+        "model": "qwen3.5:4b",
+        "llm_executed": true,
+        "request_sha256": "0f611a84d67e1ec789b66b77339d76fcecad653f75fa024aa8e3a5de35a2c111",
+        "response_sha256": "7ebd1c94db9ddefcf20145fd2e5f3c4fc90720d999e3eb322cc5424a72a46c9f",
+        "eval_count": 403,
+        "response": {
+          "findings": [
+            "El módulo `saveFavorites` en `frontend/src/favorites.js` implementa una estrategia de recuperación ante fallos al leer datos corruptos del almacenamiento local. Si la lectura falla o devuelve un JSON inválido, el código captura la excepción y devuelve explícitamente una lista vacía (`ids: []`) junto con un mensaje de notificación explicativo, evitando que la aplicación entre en estado inconsistido",
+            "La función `loadFavorites` valida estrictamente la estructura del objeto guardado (requiere `version: 1` y `ids` como array). Si el JSON no cumple este esquema o contiene datos manipulados (como IDs negativos, decimales o cadenas), se ejecuta una limpieza automática que filtra solo los enteros positivos únicos válidos antes de devolverlos al usuario, garantizando la integridad de los favoritos sin"
+          ],
+          "limitations": [
+            "La validación de datos en `loadFavorites` asume que el almacenamiento local siempre devuelve un objeto JSON; si el formato cambia drásticamente o se rompe completamente, la recuperación podría no ser perfecta",
+            "El mensaje de notificación generado al detectar datos corruptos es estático y no proporciona detalles específicos sobre qué parte del archivo falló"
+          ],
+          "claims": [
+            {
+              "fact": "pydantic_request_validation",
+              "value": true
+            },
+            {
+              "fact": "frontend_demo_fallback",
+              "value": true
+            }
+          ],
+          "citations": [
+            {
+              "path": "frontend/src/favorites.js",
+              "line": 20,
+              "quote": "return { ids: [], storageAvailable: true, notice: \"Los datos guardados de favoritos no son válidos. Se inicia una lista vacía sin sobrescribirlos hasta que guardes un cambio.\" };"
+            }
+          ]
+        }
+      },
+      {
+        "role": "backend",
+        "model": "qwen3.5:4b",
+        "llm_executed": true,
+        "request_sha256": "8b64faad2451130c3492256f36a9155419a608dc0c7480884cd501f788472f67",
+        "response_sha256": "0648d8175b5fc36f259b0713e2a0aa5447256f570d52e1fdaa6cf7d8d5da0ded",
+        "eval_count": 272,
+        "response": {
+          "findings": [
+            "La implementación actual en `backend/app/main.py` define el endpoint `/api/recommendations` con validación Pydantic, pero carece del endpoint de exportación (`/api/export`) y la lógica para generar archivos JSON descargables.",
+            "Los criterios AC-01 a AC-04 requieren funcionalidad de exportación que no existe en el código fuente revisado; por tanto, las acciones de exportación están deshabilitadas o ausentes según lo esperado en AC-01 y AC-04."
+          ],
+          "limitations": [
+            "No se puede verificar la descarga del archivo .json ni su contenido sin ejecutar la funcionalidad específica, la cual no está presente en el código analizado.",
+            "Los datos semilla (`DESTINATIONS`) están en memoria según `backend/AGENTS.md`, lo que implica que cualquier exportación dependería de este estado temporal si existiera."
+          ],
+          "claims": [
+            {
+              "fact": "pydantic_request_validation",
+              "value": true
+            },
+            {
+              "fact": "frontend_demo_fallback",
+              "value": true
+            }
+          ],
+          "citations": []
+        }
+      },
+      {
+        "role": "calidad",
+        "model": "qwen3.5:4b",
+        "llm_executed": true,
+        "request_sha256": "b34065d435fcfd004c19c1d9d8d395005f1a962ecf96b7f6f62df73589fa29ca",
+        "response_sha256": "f341ca29f482960201bc03e5c8154af4c54fcee8ea54c0fc97420f24dee6dce9",
+        "eval_count": 373,
+        "response": {
+          "findings": [
+            "La implementación cumple los criterios AC-01 y AC-04: la exportación está deshabilitada si no hay propuesta, y descarga un JSON válido localmente sin enviar datos externos cuando la propuesta es visible.",
+            "Se verifica técnicamente que el backend utiliza validación Pydantic (`BaseModel`, `Field`) para la solicitud de viaje y que el frontend implementa patrones estáticos para la exportación, aunque no se ha ejecutado una prueba de navegador completa que demuestre el comportamiento en tiempo real del cliente final (AC-04). Los hashes SHA256 de los archivos fuente coinciden con las versiones analizadas,"
+          ],
+          "limitations": [
+            "No se determinó si los casos de prueba específicos para esta funcionalidad (TC-005-*) fueron ejecutados exitosamente en el ciclo de pruebas actual; la suma de tests del suite no confirma ni niega la ejecución de criterios individuales.",
+            "El análisis estático del frontend muestra patrones de exportación, pero carece de evidencia de ejecución real en un entorno navegador para validar el flujo completo de UI a descarga."
+          ],
+          "claims": [
+            {
+              "fact": "pydantic_request_validation",
+              "value": true
+            },
+            {
+              "fact": "frontend_demo_fallback",
+              "value": true
+            }
+          ],
+          "citations": [
+            {
+              "path": "backend/app/main.py",
+              "line": 14,
+              "quote": "def safe_path(relative):"
+            },
+            {
+              "path": "harness/core.py",
+              "line": 25,
+              "quote": "def manifest():"
+            }
+          ]
+        }
+      }
+    ],
+    "mcp": [
+      {
+        "package": "@modelcontextprotocol/server-filesystem@2.3.0",
+        "node_package": "node@24.13.0",
+        "verified_node_version": "v24.13.0",
+        "transport": "stdio",
+        "role": "frontend",
+        "server": {
+          "name": "secure-filesystem-server",
+          "title": null,
+          "version": "2.3.0",
+          "websiteUrl": null,
+          "icons": null
+        },
+        "protocol": "2025-11-25",
+        "discovered_tools": [
+          "read_file",
+          "read_text_file",
+          "read_media_file",
+          "read_multiple_files",
+          "write_file",
+          "append_file",
+          "edit_file",
+          "create_directory",
+          "list_directory",
+          "list_directory_with_sizes",
+          "directory_tree",
+          "move_file",
+          "copy_file",
+          "search_files",
+          "get_file_info",
+          "list_allowed_directories"
+        ],
+        "called_tool": "read_text_file",
+        "source": "frontend/src/main.jsx",
+        "content_equal": true,
+        "sha256_utf8": "f4276c490aacff8bcf22291192d41bba7179cb35b6ef53738b271faeaa15692d",
+        "outside_scope_denied": true,
+        "llm_executed": false,
+        "limitation": "Servidor con permisos del usuario; staging no equivale a sandbox OS. Se anuncian herramientas de escritura que este cliente no permite invocar."
+      },
+      {
+        "package": "@modelcontextprotocol/server-filesystem@2.3.0",
+        "node_package": "node@24.13.0",
+        "verified_node_version": "v24.13.0",
+        "transport": "stdio",
+        "role": "backend",
+        "server": {
+          "name": "secure-filesystem-server",
+          "title": null,
+          "version": "2.3.0",
+          "websiteUrl": null,
+          "icons": null
+        },
+        "protocol": "2025-11-25",
+        "discovered_tools": [
+          "read_file",
+          "read_text_file",
+          "read_media_file",
+          "read_multiple_files",
+          "write_file",
+          "append_file",
+          "edit_file",
+          "create_directory",
+          "list_directory",
+          "list_directory_with_sizes",
+          "directory_tree",
+          "move_file",
+          "copy_file",
+          "search_files",
+          "get_file_info",
+          "list_allowed_directories"
+        ],
+        "called_tool": "read_text_file",
+        "source": "backend/app/main.py",
+        "content_equal": true,
+        "sha256_utf8": "5cde50216088fc6c8223f881d36d215df5ab98e85bb62af4910a62bc9f4d5805",
+        "outside_scope_denied": true,
+        "llm_executed": false,
+        "limitation": "Servidor con permisos del usuario; staging no equivale a sandbox OS. Se anuncian herramientas de escritura que este cliente no permite invocar."
+      }
+    ],
+    "stage_events": [
+      {
+        "role": "orquestador",
+        "stage": "llm",
+        "limit_seconds": 150,
+        "started_at": "2026-11-18T23:57:16.519983+00:00",
+        "payload_chars": 8678,
+        "finished_at": "2026-11-18T23:58:12.347667+00:00",
+        "elapsed_seconds": 55.828,
+        "exit_code": 0,
+        "status": "passed"
+      },
+      {
+        "role": "frontend",
+        "stage": "mcp",
+        "limit_seconds": 60,
+        "started_at": "2026-11-18T23:58:12.400512+00:00",
+        "payload_chars": 2,
+        "finished_at": "2026-11-18T23:58:20.051247+00:00",
+        "elapsed_seconds": 7.641,
+        "exit_code": 0,
+        "status": "passed"
+      },
+      {
+        "role": "frontend",
+        "stage": "llm",
+        "limit_seconds": 150,
+        "started_at": "2026-11-18T23:58:20.052040+00:00",
+        "payload_chars": 32548,
+        "finished_at": "2026-11-18T23:59:30.403416+00:00",
+        "elapsed_seconds": 70.359,
+        "exit_code": 0,
+        "status": "passed"
+      },
+      {
+        "role": "backend",
+        "stage": "mcp",
+        "limit_seconds": 60,
+        "started_at": "2026-11-18T23:59:30.452871+00:00",
+        "payload_chars": 2,
+        "finished_at": "2026-11-18T23:59:34.679641+00:00",
+        "elapsed_seconds": 4.235,
+        "exit_code": 0,
+        "status": "passed"
+      },
+      {
+        "role": "backend",
+        "stage": "llm",
+        "limit_seconds": 150,
+        "started_at": "2026-11-18T23:59:34.680691+00:00",
+        "payload_chars": 17372,
+        "finished_at": "2026-11-19T00:00:39.107394+00:00",
+        "elapsed_seconds": 64.422,
+        "exit_code": 0,
+        "status": "passed"
+      },
+      {
+        "role": "calidad",
+        "stage": "llm",
+        "limit_seconds": 150,
+        "started_at": "2026-11-19T00:00:39.147726+00:00",
+        "payload_chars": 21144,
+        "finished_at": "2026-11-19T00:01:57.995801+00:00",
+        "elapsed_seconds": 78.859,
+        "exit_code": 0,
+        "status": "passed"
+      },
+      {
+        "role": "seguridad",
+        "stage": "llm",
+        "limit_seconds": 150,
+        "started_at": "2026-11-19T00:01:58.029496+00:00",
+        "payload_chars": 25009,
+        "finished_at": "2026-11-19T00:02:50.557150+00:00",
+        "elapsed_seconds": 52.532,
+        "exit_code": 1,
+        "status": "worker_failed",
+        "worker_reaped": true
+      }
+    ],
+    "claim_audits": [
+      {
+        "role": "orquestador",
+        "claims": [
+          {
+            "fact": "pydantic_request_validation",
+            "claimed": true,
+            "actual": true,
+            "source": "backend/app/main.py",
+            "status": "verified"
+          },
+          {
+            "fact": "frontend_demo_fallback",
+            "claimed": true,
+            "actual": true,
+            "source": "frontend/src/main.jsx",
+            "status": "verified"
+          }
+        ],
+        "citations": [],
+        "blocked_claims": 0,
+        "unverified_prose": [
+          "La implementación de la especificación 'Exportacion versionada del itinerario' (ID: 005) está registrada en el sistema, pero los datos semilla no confirman la ejecución real de los criterios de aceptación AC-01 a AC-04.",
+          "El orquestador opera bajo restricciones estrictas: no tiene permisos de escritura ni acceso a shell, y su modelo (qwen3.5:4b) se ejecuta localmente sin comunicación lateral con GitHub o servicios externos."
+        ],
+        "human_acceptance": false,
+        "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+      },
+      {
+        "role": "frontend",
+        "claims": [
+          {
+            "fact": "pydantic_request_validation",
+            "claimed": true,
+            "actual": true,
+            "source": "backend/app/main.py",
+            "status": "verified"
+          },
+          {
+            "fact": "frontend_demo_fallback",
+            "claimed": true,
+            "actual": true,
+            "source": "frontend/src/main.jsx",
+            "status": "verified"
+          }
+        ],
+        "citations": [
+          {
+            "path": "frontend/src/favorites.js",
+            "status": "quote_verified"
+          }
+        ],
+        "blocked_claims": 0,
+        "unverified_prose": [
+          "El módulo `saveFavorites` en `frontend/src/favorites.js` implementa una estrategia de recuperación ante fallos al leer datos corruptos del almacenamiento local. Si la lectura falla o devuelve un JSON inválido, el código captura la excepción y devuelve explícitamente una lista vacía (`ids: []`) junto con un mensaje de notificación explicativo, evitando que la aplicación entre en estado inconsistido",
+          "La función `loadFavorites` valida estrictamente la estructura del objeto guardado (requiere `version: 1` y `ids` como array). Si el JSON no cumple este esquema o contiene datos manipulados (como IDs negativos, decimales o cadenas), se ejecuta una limpieza automática que filtra solo los enteros positivos únicos válidos antes de devolverlos al usuario, garantizando la integridad de los favoritos sin"
+        ],
+        "human_acceptance": false,
+        "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+      },
+      {
+        "role": "backend",
+        "claims": [
+          {
+            "fact": "pydantic_request_validation",
+            "claimed": true,
+            "actual": true,
+            "source": "backend/app/main.py",
+            "status": "verified"
+          },
+          {
+            "fact": "frontend_demo_fallback",
+            "claimed": true,
+            "actual": true,
+            "source": "frontend/src/main.jsx",
+            "status": "verified"
+          }
+        ],
+        "citations": [],
+        "blocked_claims": 0,
+        "unverified_prose": [
+          "La implementación actual en `backend/app/main.py` define el endpoint `/api/recommendations` con validación Pydantic, pero carece del endpoint de exportación (`/api/export`) y la lógica para generar archivos JSON descargables.",
+          "Los criterios AC-01 a AC-04 requieren funcionalidad de exportación que no existe en el código fuente revisado; por tanto, las acciones de exportación están deshabilitadas o ausentes según lo esperado en AC-01 y AC-04."
+        ],
+        "human_acceptance": false,
+        "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+      },
+      {
+        "role": "calidad",
+        "claims": [
+          {
+            "fact": "pydantic_request_validation",
+            "claimed": true,
+            "actual": true,
+            "source": "backend/app/main.py",
+            "status": "verified"
+          },
+          {
+            "fact": "frontend_demo_fallback",
+            "claimed": true,
+            "actual": true,
+            "source": "frontend/src/main.jsx",
+            "status": "verified"
+          }
+        ],
+        "citations": [
+          {
+            "path": "backend/app/main.py",
+            "status": "invalid_or_not_supplied"
+          },
+          {
+            "path": "harness/core.py",
+            "status": "quote_verified"
+          }
+        ],
+        "blocked_claims": 0,
+        "unverified_prose": [
+          "La implementación cumple los criterios AC-01 y AC-04: la exportación está deshabilitada si no hay propuesta, y descarga un JSON válido localmente sin enviar datos externos cuando la propuesta es visible.",
+          "Se verifica técnicamente que el backend utiliza validación Pydantic (`BaseModel`, `Field`) para la solicitud de viaje y que el frontend implementa patrones estáticos para la exportación, aunque no se ha ejecutado una prueba de navegador completa que demuestre el comportamiento en tiempo real del cliente final (AC-04). Los hashes SHA256 de los archivos fuente coinciden con las versiones analizadas,"
+        ],
+        "human_acceptance": false,
+        "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+      }
+    ]
+  },
+  "finished_at": "2026-11-19T00:02:50.561410+00:00"
+}

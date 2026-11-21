@@ -1,0 +1,7 @@
+{
+  "operation": "precommit regression",
+  "module": "harness.s01_browser",
+  "exit_code": 0,
+  "stdout": "real_api_detail_enter True\naccessible_dialog_name True\nfocus_initial_and_tab_trap True\nmodal_background_inert True\nescape_restores_focus True\nclose_button_restores_focus True\nnetwork_loading_announced True\nnetwork_catalogue_fallback True\nserver_loading_announced True\nserver_catalogue_fallback True\nslow_loading_announced True\nslow_catalogue_fallback True\ndeadline_aborts_request True\n404_no_catalogue_fallback True\nlate_response_does_not_overwrite_B True\nresponsive_360 True\nfilters_preserved_360 True\nresponsive_1280 True\nfilters_preserved_1280 True\nexisting_recommendations_real_api True\noffline_demo_detail True\nno_runtime_exceptions True\ndocs/taller-6/ejecuciones/20261119T004048Z-2e51b940/s01-browser.json\n",
+  "stderr": ""
+}

@@ -1,0 +1,6 @@
+{
+  "module": "harness.s04_browser",
+  "exit_code": 0,
+  "stdout": "real_api_catalogue True\nconnected_Neiva_payload_and_restricted_recovery True\nplanner_selector_independent_of_catalogue True\nTodos_omits_field_and_preserves_legacy_result True\nunknown_API_empty_no_fallback True\nexisting_first_stop_budget_exception_kept True\nselector_has_accessible_name True\nselector_operable_with_keyboard True\nselector_fits_360 True\nselector_fits_1280 True\ndemo_Neiva_recovery_never_escapes True\ndemo_selector_keeps_catalogue_independent True\ndemo_unknown_empty_no_global_fallback True\ndemo_Todos_recovers_legacy_flow True\nno_runtime_exceptions True\ndocs/taller-6/ejecuciones/20261118T235321Z-dd70ba7a/s04-browser.json\n",
+  "stderr": ""
+}

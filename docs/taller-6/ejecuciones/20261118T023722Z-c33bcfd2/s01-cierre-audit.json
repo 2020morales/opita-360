@@ -1,0 +1,60 @@
+{
+  "finished_at": "2026-11-18T02:37:20.896814+00:00",
+  "worktree": "<WORKTREE_T6>",
+  "branch": "taller6/001-detalle-destino",
+  "checks": "docs/taller-6/ejecuciones/20261118T023506Z-b5efe4fb/checks.json",
+  "browser": "docs/taller-6/ejecuciones/20261118T023520Z-e30b1696/s01-browser.json",
+  "checks_snapshot_current": true,
+  "browser_snapshot_current": true,
+  "automated_tests_passed": 91,
+  "browser_checks_passed": 22,
+  "browser_acceptance": [
+    "AC-04",
+    "AC-05",
+    "AC-06",
+    "AC-07",
+    "AC-08",
+    "AC-09",
+    "AC-10"
+  ],
+  "api_acceptance": [
+    "AC-01",
+    "AC-02",
+    "AC-03"
+  ],
+  "protected_changes": [],
+  "staged_paths": [],
+  "whitespace_exit": 0,
+  "refs": {
+    "main": "4bb1626975c67dfeeee67ab1156322f2e6ce3eba",
+    "taller4/completar-entrega": "4a2321518560e7cd5f1e38d8b9df1140bab0148e",
+    "taller5/sistema-agentes": "8cce952bace0763ac5e96208c70e93a304979fb4",
+    "taller6/base-comun": "f5c5fc928d4afe90601aad6eacfe28e78372988f"
+  },
+  "excluded_paths": [
+    "docs/taller-6/integracion/20261117T202613Z/README.md",
+    "docs/taller-6/integracion/20261117T202613Z/agentes.log",
+    "docs/taller-6/integracion/20261117T202613Z/backend.log",
+    "docs/taller-6/integracion/20261117T202613Z/frontend-build.log",
+    "docs/taller-6/integracion/20261117T202613Z/frontend.log",
+    "docs/taller-6/integracion/20261117T202613Z/npm-ci.log",
+    "docs/taller-6/revision-final/20261117T203627Z/agentes.log",
+    "docs/taller-6/revision-final/20261117T203627Z/backend.log",
+    "docs/taller-6/revision-final/20261117T203627Z/browser.log",
+    "docs/taller-6/revision-final/20261117T203627Z/browser/api-server.log",
+    "docs/taller-6/revision-final/20261117T203627Z/browser/build.log",
+    "docs/taller-6/revision-final/20261117T203627Z/browser/chrome.log",
+    "docs/taller-6/revision-final/20261117T203627Z/browser/unit.log",
+    "docs/taller-6/revision-final/20261117T203627Z/browser/vite-server.log",
+    "docs/taller-6/revision-final/20261117T203627Z/build.log",
+    "docs/taller-6/revision-final/20261117T203627Z/frontend.log"
+  ],
+  "local_main_to_base_commit_count": 8,
+  "notes": [
+    "No code/spec edits in this verification; new evidence and closure inventory only.",
+    "No LLM/MCP rerun; previous inference evidence preserved.",
+    "Human keyboard walkthrough, screen reader, full WCAG audit and non-Chrome compatibility remain unverified.",
+    "spec.md has obsolete future-file wording; pr.md describes branch creation in future and an unverified published base. Correct these before publication.",
+    "Local refs only: remote GitHub state was not refreshed or verified."
+  ]
+}

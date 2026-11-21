@@ -1,0 +1,652 @@
+{
+  "run_id": "84928534-a7a0-49ba-b421-7e4e6af24b7b",
+  "finished_at": "2026-11-18T06:20:01.544208+00:00",
+  "spec": "003",
+  "mode": "llm",
+  "reports": [
+    {
+      "role": "orquestador",
+      "task": "review-orquestador",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/orquestador.md",
+          "sha256": "d580d8366495f8b936aa985263ccd0d1c339cc7eb16a5fec3fe06b1d447d9a26",
+          "bytes": 994
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "cbe2250fcb9405b27dfdcc76a510071e3e0eb9da6fe38db35d59079f686546a3",
+          "bytes": 5148
+        },
+        {
+          "path": "harness/README.md",
+          "sha256": "e1898b706c475cca5cf95ba4dff45b038b884e3297fcfa383570e925d4beb6a3",
+          "bytes": 8575
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "410d5bfc9d5834b9d1ef78ff21e5a8ad5be1b82fa972129025e41f736a2ff9de",
+          "bytes": 3961
+        },
+        {
+          "path": "docs/taller-6/s03-contexto-agentes.json",
+          "sha256": "f348b3727cd38ce8bd4c307ae425c87b9a9eeec21a35248992b8448538b843ff",
+          "bytes": 656
+        }
+      ],
+      "findings": [
+        "La implementación de la especificación S03 está registrada en `specs/taller-6/003-favoritos/spec.json`, pero los casos de prueba generados para las funcionalidades no se ejecutaron (`new_feature_tests: not_executed`).",
+        "Los resultados positivos reportados (ej. `browser_passed: 29`) corresponden a la ejecución de un diseño previo o base, no a la validación de los criterios de aceptación actuales del borrador."
+      ],
+      "limitations": [
+        "No existe evidencia técnica de que los casos de prueba específicos para el borrador actual (TC-003-01 a TC-003-05) hayan sido ejecutados o superados.",
+        "La afirmación de `acceptance_status: awaiting_human_review` es consistente con la falta de ejecución de pruebas nuevas.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "frontend",
+      "task": "review-frontend",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/frontend.md",
+          "sha256": "ae40febfe784f9ba531b5992b286eaf5f86662493e7bdc9cc930d1a5b826a7bb",
+          "bytes": 989
+        },
+        {
+          "path": "frontend/AGENTS.md",
+          "sha256": "a68bd68b539fa06db5aa49a1684f498d86fb961a9f558cf62cf8f7618c576f0f",
+          "bytes": 859
+        },
+        {
+          "path": "frontend/src/main.jsx",
+          "sha256": "d72afe4441bd9d3e650f70d357d9182aa8c2e6e74c0c3a25697aa45ce6954e9c",
+          "bytes": 19929
+        },
+        {
+          "path": "frontend/src/destination-filters.js",
+          "sha256": "ed404efe3763c77fbc91286a48c0b081b28fdb1e854191cc69b626f720ca1d05",
+          "bytes": 833
+        },
+        {
+          "path": "frontend/src/styles.css",
+          "sha256": "8d1a8682e015a6107a927a904d45d5757f65694d68c9da24c113268fffb2287d",
+          "bytes": 18676
+        },
+        {
+          "path": ".agents/skills/opita-frontend/SKILL.md",
+          "sha256": "ae8d50fb9af5ae15230c91c8330570802213a0e6f8e87b3d9bb0531f14093b87",
+          "bytes": 1371
+        },
+        {
+          "path": "docs/taller-6/s03-contexto-agentes.json",
+          "sha256": "f348b3727cd38ce8bd4c307ae425c87b9a9eeec21a35248992b8448538b843ff",
+          "bytes": 656
+        },
+        {
+          "path": "frontend/src/favorites.js",
+          "sha256": "3bc1aeebc2e9936434f5a9e0170160a6f182f5ee1903bae14720659fde4ebc72",
+          "bytes": 1741
+        },
+        {
+          "path": "frontend/tests/favorites.test.js",
+          "sha256": "28b0f1eb91a54baf59b48eb8bc79b4ef5083dc20f3d1d688d761f214fd7aee4c",
+          "bytes": 2947
+        }
+      ],
+      "findings": [
+        "La implementación en `frontend/src/main.jsx` maneja la persistencia mediante `localStorage`, pero no valida explícitamente si el almacenamiento está disponible antes de intentar leer/escribir, lo que podría causar fallos silenciosos o advertencias en consola si el navegador bloquea el acceso.",
+        "El código actual usa un patrón de estado derivado (`useMemo`) para filtrar destinos según favoritos y filtros combinados, cumpliendo parcialmente con la instrucción de evitar mutaciones directas, pero no se verifica que los datos semilla (`fallbackDestinations`) sean consistentes con la estructura esperada por `filterDestinations`."
+      ],
+      "limitations": [
+        "No hay evidencia en el código fuente de que se maneje explícitamente un caso donde `localStorage` devuelve JSON corrupto, a pesar de que el criterio AC-03 lo exige.",
+        "La función `toggleDestinationFavorite` no verifica si el almacenamiento está disponible antes de intentar guardar; si falla, podría propagar el error en lugar de mostrar el aviso `SESSION_NOTICE`.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "backend",
+      "task": "review-backend",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/backend.md",
+          "sha256": "ac48ff174e54384bcc5c8e6fd10a2ac83331eae33b2b692564b6d6de8f510d35",
+          "bytes": 984
+        },
+        {
+          "path": "backend/AGENTS.md",
+          "sha256": "4ce801a1fd3c33cd4109ba4be967576b6b0caa794c59e2a626e07dd41561d385",
+          "bytes": 766
+        },
+        {
+          "path": "backend/app/main.py",
+          "sha256": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+          "bytes": 5185
+        },
+        {
+          "path": "backend/tests/test_api.py",
+          "sha256": "5794d395c00386e34e0bfd91d12752180c862107455dcbf1d19be9b09db0493c",
+          "bytes": 4069
+        },
+        {
+          "path": ".agents/skills/opita-backend/SKILL.md",
+          "sha256": "db92ea461477a69f8a22ec8e8a699efc94aa0e2224238998434c3545b3ea2574",
+          "bytes": 1261
+        },
+        {
+          "path": "docs/taller-6/s03-contexto-agentes.json",
+          "sha256": "f348b3727cd38ce8bd4c307ae425c87b9a9eeec21a35248992b8448538b843ff",
+          "bytes": 656
+        }
+      ],
+      "findings": [
+        "La especificación AC-03 (localStorage corrupto) y AC-04 (almacenamiento no disponible) se refieren a persistencia en el navegador o fallos de almacenamiento local, pero el backend actual (`app/main.py`) maneja los destinos exclusivamente en memoria sin lógica de recuperación o validación de `localStorage`.",
+        "El código del backend no contiene handlers para gestionar estados de sesión ni avisos sobre la falta de persistencia, lo que contradice los criterios AC-04 que exigen un estado utilizable y aviso específico cuando el almacenamiento falla."
+      ],
+      "limitations": [
+        "Los datos semilla (`DESTINATIONS`) en `app/main.py` no son entradas del cliente ni reflejan la lógica de persistencia requerida por los criterios.",
+        "La ejecución de pruebas para los casos específicos de la especificación (TC-003-01 a TC-003-05) está marcada como 'not_run' en el diseño de pruebas, y no hay evidencia de que se hayan ejecutado pruebas que validen la recuperación de datos corruptos o la gestión de fallos de almacenamiento.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "calidad",
+      "task": "review-calidad",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/calidad.md",
+          "sha256": "40df2ea54e5adac5a147801ae2f6b8684387c787d2015a74f4b07718d1945c46",
+          "bytes": 983
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "c29942672abdb660c527a2fce73ab374375cbdcfd228570e82bb89403db8d096",
+          "bytes": 8295
+        },
+        {
+          "path": "harness/tests/test_harness.py",
+          "sha256": "d173c6a7f2f90652d5555ef1ec622aa4d8d7bdaade191acb5267a863b0f416c0",
+          "bytes": 7939
+        },
+        {
+          "path": ".agents/skills/brujula-semantica/SKILL.md",
+          "sha256": "32ecccc4412f680d4ad374b806460e550a52be5d7795174b7f5d1a7389f57a9f",
+          "bytes": 1504
+        },
+        {
+          "path": "harness/grounding.py",
+          "sha256": "d041cf9e405e7ebc16768148b5395d0b624899b355bfeb0e8e73f20872800fd7",
+          "bytes": 8194
+        },
+        {
+          "path": "docs/taller-6/s03-contexto-agentes.json",
+          "sha256": "f348b3727cd38ce8bd4c307ae425c87b9a9eeec21a35248992b8448538b843ff",
+          "bytes": 656
+        }
+      ],
+      "findings": [
+        "La especificación AC-03 (localStorage corrupto) y AC-04 (almacenamiento no disponible) se declaran implementadas, pero los casos de prueba correspondientes (TC-003-03, TC-003-04) están marcados como 'not_run' en el diseño de pruebas.",
+        "El informe de ejecución del navegador (`s03-browser.json`) muestra `browser_passed: 29`, pero no detalla si los casos específicos de manejo de errores de almacenamiento fueron ejecutados o validados en ese contexto."
+      ],
+      "limitations": [
+        "La ausencia de ejecución de los casos de prueba para AC-03 y AC-04 impide verificar empíricamente la recuperación de datos corruptos o el comportamiento ante fallos de almacenamiento.",
+        "El hecho de que `frontend_demo_fallback` sea verdadero en el código fuente no garantiza que la lógica de fallback se haya probado bajo las condiciones específicas de AC-03 y AC-04.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "seguridad",
+      "task": "review-seguridad",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/seguridad.md",
+          "sha256": "c476565c77bf99bfb670ffc66366247220fa114302dd2c604d37b015b381c0ff",
+          "bytes": 989
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "cbe2250fcb9405b27dfdcc76a510071e3e0eb9da6fe38db35d59079f686546a3",
+          "bytes": 5148
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "410d5bfc9d5834b9d1ef78ff21e5a8ad5be1b82fa972129025e41f736a2ff9de",
+          "bytes": 3961
+        },
+        {
+          "path": "harness/runtime.py",
+          "sha256": "e97cecbdfcd5e472b6bc0d3fda5f6fbf437e643e33c29679596fbfa9b4c95554",
+          "bytes": 9402
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "c29942672abdb660c527a2fce73ab374375cbdcfd228570e82bb89403db8d096",
+          "bytes": 8295
+        },
+        {
+          "path": "harness/grounding.py",
+          "sha256": "d041cf9e405e7ebc16768148b5395d0b624899b355bfeb0e8e73f20872800fd7",
+          "bytes": 8194
+        },
+        {
+          "path": "docs/taller-6/s03-contexto-agentes.json",
+          "sha256": "f348b3727cd38ce8bd4c307ae425c87b9a9eeec21a35248992b8448538b843ff",
+          "bytes": 656
+        }
+      ],
+      "findings": [
+        "La especificación AC-03 (localStorage corrupto) y AC-04 (almacenamiento no disponible) están declaradas como implementadas, pero los datos semilla indican que las pruebas de la característica son 'not_executed'.",
+        "El análisis del código fuente muestra patrones estáticos en React para el fallback, pero no existe evidencia de lógica de recuperación o manejo de errores en el backend ni persistencia real."
+      ],
+      "limitations": [
+        "La ejecución de casos de prueba específicos (TC-003-01 a TC-003-05) no se ha realizado; los resultados reportados corresponden a la suite base.",
+        "No se puede verificar si el estado de sesión es utilizable cuando falla el almacenamiento, ni si se muestra un aviso sin prometer persistencia.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    }
+  ],
+  "traces": [
+    {
+      "role": "orquestador",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "c365d29a6a8e42922e4ca4f7826fe0ede2dd7d686b4cbacd62d8471f9e9267ea",
+      "response_sha256": "14fd0b65fcd08a913a29b26c77c6145b60c0a5eb2caa42755b75fb3273e51b07",
+      "eval_count": 259,
+      "response": {
+        "findings": [
+          "La implementación de la especificación S03 está registrada en `specs/taller-6/003-favoritos/spec.json`, pero los casos de prueba generados para las funcionalidades no se ejecutaron (`new_feature_tests: not_executed`).",
+          "Los resultados positivos reportados (ej. `browser_passed: 29`) corresponden a la ejecución de un diseño previo o base, no a la validación de los criterios de aceptación actuales del borrador."
+        ],
+        "limitations": [
+          "No existe evidencia técnica de que los casos de prueba específicos para el borrador actual (TC-003-01 a TC-003-05) hayan sido ejecutados o superados.",
+          "La afirmación de `acceptance_status: awaiting_human_review` es consistente con la falta de ejecución de pruebas nuevas."
+        ],
+        "claims": [
+          {
+            "fact": "spec_tests_executed",
+            "value": true
+          },
+          {
+            "fact": "base_checks_passed",
+            "value": true
+          }
+        ],
+        "citations": []
+      }
+    },
+    {
+      "role": "frontend",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "fa9bf8252af754759a645e2726a31b1f2b4dd110aa6a4b6103b9dc2a4a1bebee",
+      "response_sha256": "170f091795120b476d403d4e539ad1e32540748a8d089c212ae36e9ccb1faa5d",
+      "eval_count": 300,
+      "response": {
+        "findings": [
+          "La implementación en `frontend/src/main.jsx` maneja la persistencia mediante `localStorage`, pero no valida explícitamente si el almacenamiento está disponible antes de intentar leer/escribir, lo que podría causar fallos silenciosos o advertencias en consola si el navegador bloquea el acceso.",
+          "El código actual usa un patrón de estado derivado (`useMemo`) para filtrar destinos según favoritos y filtros combinados, cumpliendo parcialmente con la instrucción de evitar mutaciones directas, pero no se verifica que los datos semilla (`fallbackDestinations`) sean consistentes con la estructura esperada por `filterDestinations`."
+        ],
+        "limitations": [
+          "No hay evidencia en el código fuente de que se maneje explícitamente un caso donde `localStorage` devuelve JSON corrupto, a pesar de que el criterio AC-03 lo exige.",
+          "La función `toggleDestinationFavorite` no verifica si el almacenamiento está disponible antes de intentar guardar; si falla, podría propagar el error en lugar de mostrar el aviso `SESSION_NOTICE`."
+        ],
+        "claims": [
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          },
+          {
+            "fact": "base_checks_passed",
+            "value": true
+          }
+        ],
+        "citations": []
+      }
+    },
+    {
+      "role": "backend",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "76391649b68031d4d3039262489b2ae00910af1f9fe638e16da0238c7763554b",
+      "response_sha256": "eba7ae788f84d8e36f7c1617afe39623dc95203b0f4029029b7d2c6d5281b2d7",
+      "eval_count": 318,
+      "response": {
+        "findings": [
+          "La especificación AC-03 (localStorage corrupto) y AC-04 (almacenamiento no disponible) se refieren a persistencia en el navegador o fallos de almacenamiento local, pero el backend actual (`app/main.py`) maneja los destinos exclusivamente en memoria sin lógica de recuperación o validación de `localStorage`.",
+          "El código del backend no contiene handlers para gestionar estados de sesión ni avisos sobre la falta de persistencia, lo que contradice los criterios AC-04 que exigen un estado utilizable y aviso específico cuando el almacenamiento falla."
+        ],
+        "limitations": [
+          "Los datos semilla (`DESTINATIONS`) en `app/main.py` no son entradas del cliente ni reflejan la lógica de persistencia requerida por los criterios.",
+          "La ejecución de pruebas para los casos específicos de la especificación (TC-003-01 a TC-003-05) está marcada como 'not_run' en el diseño de pruebas, y no hay evidencia de que se hayan ejecutado pruebas que validen la recuperación de datos corruptos o la gestión de fallos de almacenamiento."
+        ],
+        "claims": [
+          {
+            "fact": "pydantic_request_validation",
+            "value": true
+          },
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          }
+        ],
+        "citations": []
+      }
+    },
+    {
+      "role": "calidad",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "4c9edec5d7df6efdb354f01d5aeb6aa10a5ea7f16433733c29a95754b4dbc5f9",
+      "response_sha256": "d7d4cba889b50e6ad50b6ffc2b49db3e560ca548e77232235bb5a90de56b27bc",
+      "eval_count": 294,
+      "response": {
+        "findings": [
+          "La especificación AC-03 (localStorage corrupto) y AC-04 (almacenamiento no disponible) se declaran implementadas, pero los casos de prueba correspondientes (TC-003-03, TC-003-04) están marcados como 'not_run' en el diseño de pruebas.",
+          "El informe de ejecución del navegador (`s03-browser.json`) muestra `browser_passed: 29`, pero no detalla si los casos específicos de manejo de errores de almacenamiento fueron ejecutados o validados en ese contexto."
+        ],
+        "limitations": [
+          "La ausencia de ejecución de los casos de prueba para AC-03 y AC-04 impide verificar empíricamente la recuperación de datos corruptos o el comportamiento ante fallos de almacenamiento.",
+          "El hecho de que `frontend_demo_fallback` sea verdadero en el código fuente no garantiza que la lógica de fallback se haya probado bajo las condiciones específicas de AC-03 y AC-04."
+        ],
+        "claims": [
+          {
+            "fact": "spec_tests_executed",
+            "value": false
+          },
+          {
+            "fact": "base_checks_passed",
+            "value": true
+          }
+        ],
+        "citations": []
+      }
+    },
+    {
+      "role": "seguridad",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "e215123966712a850af970d9a9484da7c1e5c464f67cabb2d7ec5175a7d68bf0",
+      "response_sha256": "9b75fbf89b29c520eb33e1bbda31eb15cae00ab8e9b86923ed0aac4e9ebdc876",
+      "eval_count": 253,
+      "response": {
+        "findings": [
+          "La especificación AC-03 (localStorage corrupto) y AC-04 (almacenamiento no disponible) están declaradas como implementadas, pero los datos semilla indican que las pruebas de la característica son 'not_executed'.",
+          "El análisis del código fuente muestra patrones estáticos en React para el fallback, pero no existe evidencia de lógica de recuperación o manejo de errores en el backend ni persistencia real."
+        ],
+        "limitations": [
+          "La ejecución de casos de prueba específicos (TC-003-01 a TC-003-05) no se ha realizado; los resultados reportados corresponden a la suite base.",
+          "No se puede verificar si el estado de sesión es utilizable cuando falla el almacenamiento, ni si se muestra un aviso sin prometer persistencia."
+        ],
+        "claims": [
+          {
+            "fact": "spec_tests_executed",
+            "value": false
+          },
+          {
+            "fact": "base_checks_passed",
+            "value": true
+          }
+        ],
+        "citations": []
+      }
+    }
+  ],
+  "mcp": [],
+  "technical_facts": {
+    "facts": {
+      "pydantic_request_validation": {
+        "value": true,
+        "source": "backend/app/main.py"
+      },
+      "frontend_demo_fallback": {
+        "value": true,
+        "source": "frontend/src/main.jsx"
+      },
+      "base_checks_passed": {
+        "value": true,
+        "source": "operator_checks"
+      },
+      "spec_implementation_recorded": {
+        "value": true,
+        "source": "specs/taller-6/003-favoritos/spec.json"
+      },
+      "spec_tests_executed": {
+        "value": true,
+        "source": "specs/taller-6/003-favoritos/spec.json"
+      }
+    },
+    "basis": {
+      "backend": {
+        "sha256": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+        "analysis": "AST BaseModel + Field + typed handler"
+      },
+      "frontend": {
+        "sha256": "d72afe4441bd9d3e650f70d357d9182aa8c2e6e74c0c3a25697aa45ce6954e9c",
+        "analysis": "static pattern; not full browser proof"
+      }
+    },
+    "distinction": "Checks are regressions of base/harness. Generated spec cases are not implemented or executed.",
+    "source_sha256": {
+      "backend/app/main.py": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+      "frontend/src/main.jsx": "d72afe4441bd9d3e650f70d357d9182aa8c2e6e74c0c3a25697aa45ce6954e9c"
+    },
+    "limitation": "Spec facts check declared records, not independent proof of feature implementation or test execution."
+  },
+  "claim_audits": [
+    {
+      "role": "orquestador",
+      "claims": [
+        {
+          "fact": "spec_tests_executed",
+          "claimed": true,
+          "actual": true,
+          "source": "specs/taller-6/003-favoritos/spec.json",
+          "status": "verified"
+        },
+        {
+          "fact": "base_checks_passed",
+          "claimed": true,
+          "actual": true,
+          "source": "operator_checks",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La implementación de la especificación S03 está registrada en `specs/taller-6/003-favoritos/spec.json`, pero los casos de prueba generados para las funcionalidades no se ejecutaron (`new_feature_tests: not_executed`).",
+        "Los resultados positivos reportados (ej. `browser_passed: 29`) corresponden a la ejecución de un diseño previo o base, no a la validación de los criterios de aceptación actuales del borrador."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "frontend",
+      "claims": [
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        },
+        {
+          "fact": "base_checks_passed",
+          "claimed": true,
+          "actual": true,
+          "source": "operator_checks",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La implementación en `frontend/src/main.jsx` maneja la persistencia mediante `localStorage`, pero no valida explícitamente si el almacenamiento está disponible antes de intentar leer/escribir, lo que podría causar fallos silenciosos o advertencias en consola si el navegador bloquea el acceso.",
+        "El código actual usa un patrón de estado derivado (`useMemo`) para filtrar destinos según favoritos y filtros combinados, cumpliendo parcialmente con la instrucción de evitar mutaciones directas, pero no se verifica que los datos semilla (`fallbackDestinations`) sean consistentes con la estructura esperada por `filterDestinations`."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "backend",
+      "claims": [
+        {
+          "fact": "pydantic_request_validation",
+          "claimed": true,
+          "actual": true,
+          "source": "backend/app/main.py",
+          "status": "verified"
+        },
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La especificación AC-03 (localStorage corrupto) y AC-04 (almacenamiento no disponible) se refieren a persistencia en el navegador o fallos de almacenamiento local, pero el backend actual (`app/main.py`) maneja los destinos exclusivamente en memoria sin lógica de recuperación o validación de `localStorage`.",
+        "El código del backend no contiene handlers para gestionar estados de sesión ni avisos sobre la falta de persistencia, lo que contradice los criterios AC-04 que exigen un estado utilizable y aviso específico cuando el almacenamiento falla."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "calidad",
+      "claims": [
+        {
+          "fact": "spec_tests_executed",
+          "claimed": false,
+          "actual": true,
+          "source": "specs/taller-6/003-favoritos/spec.json",
+          "status": "contradicted"
+        },
+        {
+          "fact": "base_checks_passed",
+          "claimed": true,
+          "actual": true,
+          "source": "operator_checks",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 1,
+      "unverified_prose": [
+        "La especificación AC-03 (localStorage corrupto) y AC-04 (almacenamiento no disponible) se declaran implementadas, pero los casos de prueba correspondientes (TC-003-03, TC-003-04) están marcados como 'not_run' en el diseño de pruebas.",
+        "El informe de ejecución del navegador (`s03-browser.json`) muestra `browser_passed: 29`, pero no detalla si los casos específicos de manejo de errores de almacenamiento fueron ejecutados o validados en ese contexto."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "seguridad",
+      "claims": [
+        {
+          "fact": "spec_tests_executed",
+          "claimed": false,
+          "actual": true,
+          "source": "specs/taller-6/003-favoritos/spec.json",
+          "status": "contradicted"
+        },
+        {
+          "fact": "base_checks_passed",
+          "claimed": true,
+          "actual": true,
+          "source": "operator_checks",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 1,
+      "unverified_prose": [
+        "La especificación AC-03 (localStorage corrupto) y AC-04 (almacenamiento no disponible) están declaradas como implementadas, pero los datos semilla indican que las pruebas de la característica son 'not_executed'.",
+        "El análisis del código fuente muestra patrones estáticos en React para el fallback, pero no existe evidencia de lógica de recuperación o manejo de errores en el backend ni persistencia real."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    }
+  ],
+  "stage_events": [
+    {
+      "role": "orquestador",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T06:14:10.892581+00:00",
+      "payload_chars": 8492,
+      "finished_at": "2026-11-18T06:15:12.321647+00:00",
+      "elapsed_seconds": 61.422,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "frontend",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T06:15:12.349796+00:00",
+      "payload_chars": 16893,
+      "finished_at": "2026-11-18T06:16:25.143993+00:00",
+      "elapsed_seconds": 72.796,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "backend",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T06:16:25.182112+00:00",
+      "payload_chars": 11718,
+      "finished_at": "2026-11-18T06:17:29.484280+00:00",
+      "elapsed_seconds": 64.297,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "calidad",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T06:17:29.519900+00:00",
+      "payload_chars": 19061,
+      "finished_at": "2026-11-18T06:18:45.263987+00:00",
+      "elapsed_seconds": 75.75,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "seguridad",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T06:18:45.299857+00:00",
+      "payload_chars": 22772,
+      "finished_at": "2026-11-18T06:20:01.453928+00:00",
+      "elapsed_seconds": 76.14,
+      "exit_code": 0,
+      "status": "passed"
+    }
+  ],
+  "elapsed_seconds": 350.844,
+  "total_limit_seconds": 600,
+  "code_modified": false,
+  "checks_source": "docs/taller-6/ejecuciones/20261118T061325Z-2d8514bb/checks.json",
+  "context_selection": "symbols_and_line_ranges",
+  "approval": "operator_assertion_not_identity",
+  "next_gate": "human_review"
+}

@@ -1,0 +1,300 @@
+{
+  "spec": "003",
+  "started_at": "2026-11-18T23:53:11.398505+00:00",
+  "command": [
+    "python",
+    "-B",
+    "-m",
+    "harness.s03_browser"
+  ],
+  "source_snapshot": {
+    ".agents/skills/brujula-semantica/SKILL.md": "ead488ca55c3350f86536e829a98f3c026941d502bbfe8008e21f01442c5a0f3",
+    ".agents/skills/opita-backend/SKILL.md": "c4f32f20f0e72be9d57e8a1921758cbfa1ef0facfc66827f64addd5fcbe34038",
+    ".agents/skills/opita-frontend/SKILL.md": "89a9a5bb73cfa1932686b6272578ea0661daaef7db7939385f369303b3dc34ec",
+    "agents/__init__.py": "df38a053e3f1255b20151a0f42d3ba07459bab02b03afc7502aa453b866a98b3",
+    "agents/browser_checks.py": "1114e5056230e3d94096096d7ff02f5d35a549d6219327788ac453ca98f742a7",
+    "agents/llm_workflow.py": "e97c0ef05ff8e8aa61ad217e58e115c64bf2df9c67e97d86b40ac4d0b649a045",
+    "agents/manifest.v1.json": "609c6e5400ef9ebc50d5ef3c463c8e8c89e38136fd0e9b54583860f091ca6a5f",
+    "agents/mcp_probe.py": "1ce9de620151881aab3d8db0dcf62a5336c156722531ebe9d26ab89cb6868ed1",
+    "agents/quality_gates.py": "3b0458c9ebf530b9c8c0661957207b95ffd9617cfe1c3c4df0e114a210ce861c",
+    "agents/README.md": "b003c408830d1e01533359fdad2deb082f2fcee6aca1cf905bea2944d27e8b64",
+    "agents/report.schema.v1.json": "e463a84cd3d5e143aaf4595a1c2ddb352b2e5f316f0f637f0e1246254d14259a",
+    "agents/repro_frontend.py": "b7dfb6c171de77d6a196a99dff58cf5454b494123743f33473565066a20e5693",
+    "agents/requirements.txt": "9548671bc77ac7b14a3107789b71f7b0e257a52e6dfa2d879795be95b005c14c",
+    "agents/runtime.py": "c196b59ec2e0a3e083d979859fac079d23433e48f183a5da1382bd883b26b87b",
+    "agents/snapshot.py": "b9aed6e80a3600a05d6e86de4a0e19e43afd7999586484cbe7e40567cd8856f9",
+    "agents/tests/test_llm_contracts.py": "21cbfa692513651a01e5ed2e19f042e384ced56e1aa7424a7743e714f1ee0b97",
+    "agents/tests/test_quality_gates.py": "b343777164d3427a7078a4850c8df641f154a9efc658478fa1ea3b86980d3df9",
+    "agents/tests/test_runtime.py": "8cdc3624ca9579e93085af8237380b6269e5e8947fd2b5b4b9d2a30289d98301",
+    "agents/verify.py": "fdc15e8d0353c5508004f4357f345cba2548e16aeb30b9162fa4fb48f89d53c7",
+    "AGENTS.md": "78653c053fb039981956c283bc95a0963b4ff64f14724fead8a2357b0477243a",
+    "backend/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/app/main.py": "d98b44764f1eab8ea329e37fcd1f961b879a53e191dfd09fa6d8568f01ac1592",
+    "backend/requirements.txt": "aa4169d68655109a12af4cda3e5435546cfee5ba844ee3389466bc26e4a65c40",
+    "backend/tests/test_api.py": "5794d395c00386e34e0bfd91d12752180c862107455dcbf1d19be9b09db0493c",
+    "backend/tests/test_destination_detail.py": "5290d8db5095fae69f33cdda6066a3c1a68c18e943c1ac31dfdc0cd36576bd64",
+    "backend/tests/test_integrated_features.py": "2633ddf332c57978b0f17906a9ed1eb5c92a8b68877933cd664fa166029281ae",
+    "backend/tests/test_recommendation_municipality.py": "3d3de838a21b99049e8f4e7748d382d540ee92f2ce2df4c3dccba44282051e74",
+    "frontend/package-lock.json": "600cb57885e7cd8c242420cfdf4378fc044cbc750f98b1494e1a8f79f8084680",
+    "frontend/package.json": "f10d3a64ed50d42f0d6981868541651d7de5ec7e4e3dd258f6243bbb8fe20317",
+    "frontend/src/destination-detail.jsx": "507031bb5d31f0e4ac195b8e0b4d9687aebeaf4c2fdad60aa7c3adc216b4301d",
+    "frontend/src/destination-filters.js": "f0a69239e63dcd6e20b5abc7b8b3fba898ad297c437910aec8714bb937e1023a",
+    "frontend/src/export-itinerary.js": "390e7be5444f92c38501b41c2caf102ab0ed3d6fbb08b55f31d2c681b13004fa",
+    "frontend/src/favorites.js": "bfd288db567ea70193a38d29d8a1ca13554289db017e7fe9ca49324dd8e8a4f5",
+    "frontend/src/main.jsx": "f4276c490aacff8bcf22291192d41bba7179cb35b6ef53738b271faeaa15692d",
+    "frontend/src/recommendation-municipality.js": "87e5e4c2c795009be393ad9a1b0643cfcd01335a9ddf6e24e9075be559731db8",
+    "frontend/src/styles.css": "3b99ce82badc593f07498209d0e40b6592736ad519586df78975bbe17de938e6",
+    "frontend/tests/destination-filters.test.js": "83403ba2742ddece2f29145a2113f77d93795e644300457eb4c285eacdbfb269",
+    "frontend/tests/export-itinerary.test.js": "eb09c7b68c7f1205af028fc93d66754ccf127c680e39ed6734a8a83c2cadd9b3",
+    "frontend/tests/favorites.test.js": "8c044f2cf3de1d11ba83b1501e83db870e5e5dec9f09dd3a84e397d9ff6ff0e4",
+    "frontend/tests/integration.vite.config.mjs": "4e88eae249f91908f952953ec8117a759f1dca2266d74c1fe54aad9b339f1cdf",
+    "frontend/tests/max-cost.test.js": "1d798159a6924ca03ff646b901f89991b93c810ac5758046675d730e7e17cac5",
+    "frontend/tests/recommendation-municipality.test.js": "3410efc13a9676ff15851f4ec9189158b763aceceef1c3c6591c6f60242dc56a",
+    "frontend/tests/s01.vite.config.mjs": "f93535cf222cc8d739b50d5004f85bdd5eb20064fac54a4bd33f2526e5dbeb7d",
+    "frontend/tests/s02.vite.config.mjs": "2f5819f3fc278ea75118ea35a93c3f2923e6144d9df2d471240146fc1feb581e",
+    "frontend/tests/s03.vite.config.mjs": "e9a93975f182865ccff858615a481698c2b4da5ad37726c07412cf84aaa58568",
+    "frontend/tests/s04.vite.config.mjs": "a60c15cd303124faeaed1d14e875fda7669e40156125ef161ae5235a868067c3",
+    "frontend/tests/s05.vite.config.mjs": "eeb523371b2e80fe74a7840d6cbecebf2664d8c11750803a9b4e19fd3126b1b7",
+    "harness/__init__.py": "abb2cd75278033e4707d8feee177234da87a38939252a8b659197c91b0cc06a0",
+    "harness/__main__.py": "d220d88dd9a25cd0629c5176dd6532a2db1da40eb014a8e80796b0ddeb134918",
+    "harness/agents/backend.md": "f73dd9e2570f71a5a383d703a0217032f8421ee21404424c26d062605267433d",
+    "harness/agents/calidad.md": "9f65dc841b46de221c279ee820d7bdeae2a9103a2be371f1163192c70993180a",
+    "harness/agents/frontend.md": "06a7470f86d8ce136471b049a174f2f487c0865d8de08b7469c5ee4b5b925bca",
+    "harness/agents/orquestador.md": "00477b65ebf38f9da112cde6f1a137880a1dcdb6a0eefada78f193644570ff45",
+    "harness/agents/seguridad.md": "0723efaca925e8c0da59093f965e3e9deac3fc87ea8ce541c4682ed6d87166e4",
+    "harness/AGENTS.md": "c636a1bc3f6461fe4058f75ead633e265562779448299599500fd59cf755288a",
+    "harness/cli.py": "e11621b6713b18fdfac2a32b7f39f50b44bb9ae1fbbcb23f8ca78e72535b2474",
+    "harness/codex_probe.py": "6ee837ca40d95ca3b21e63b225d3f60e76723a61b2d1009389021f104088ae57",
+    "harness/core.py": "a0b033e480c96f21ea4485f1b906abfa37f8a2aceac9b7aa0e14770df0094b7a",
+    "harness/grounding.py": "9014481f61d6a285d939a565ce82288015cf60a208005de05e11affc3dca93e6",
+    "harness/integration_browser.py": "a1cc95a665504250d23ba10f178b9088d4f56bc36c7f854e6dd4f9432d5a6707",
+    "harness/manifest.json": "51ec5226810eaf66b27ad37a5712d9385a4962f8d90c35913dca1a7e56aaa7fd",
+    "harness/README.md": "45b532a8b36c976e72f5065ae9f637a0bd7846ad7233186b7ce230c46ed105ba",
+    "harness/report.schema.json": "5d55d83866c0b06774c02e51ab57988018d7e48da200e6aa915686ebb2076c31",
+    "harness/runtime.py": "c104d8c93d7e087d694fcb5d8ee677cd52ae41c104fd896ccbf5304eee0c76e9",
+    "harness/s01_browser.py": "ac29ff28dc4e19d44b0526433da71e703624e12f8c3d9b123636b0995a71dd0b",
+    "harness/s02_browser.py": "72a4d1e7d6c7557673a230b7db7fdba3826914e9f6929a4dbf8a385c0860c6ce",
+    "harness/s03_browser.py": "0db7e96b32d80a150e2e3e1d9ddc3a2e8b7e606c8c629000aa44e68079b8cc6b",
+    "harness/s04_browser.py": "7129e479f1c91458225ee7c6ec16744b08ea3461ab238c585922cd7164acc67c",
+    "harness/s05_browser.py": "a3bf58382669c4a111e24875e9fbff452945bc62ed2d556eeec510636a9ad6a8",
+    "harness/stages.py": "68d50c44abf9a649b4ba9edf405bcb18cfa50f7018e407ad683bb5c9df90aee8",
+    "harness/tests/test_grounding.py": "c78c417c36f4a3ba0bf013362d6321d206b6c9db634083249eea5cf49e594316",
+    "harness/tests/test_harness.py": "d173c6a7f2f90652d5555ef1ec622aa4d8d7bdaade191acb5267a863b0f416c0",
+    "harness/worker.py": "2083357d48b25fb6230646a592d381baab5c4cdd0afc9518c1e30c753485f499",
+    "README.md": "033e41519571161ea8c2afca5c6c163f762214829931c5dfabc7ffe153bf7be4",
+    "specs/taller-6/001-detalle-destino/plan.md": "424bef89bbae67107c27fd3df89b245dcf85e5f40b57b219f3ef7ee2ddf6076b",
+    "specs/taller-6/001-detalle-destino/pr.md": "c4f64b61447cab792159563cca15cfe39dac8f1ab8d3c69bf3c40455db3e1aca",
+    "specs/taller-6/001-detalle-destino/spec.json": "7ab5ffe2995691906e15976d48a80f677fdd420dd992a7b1d63b2b57155e6bf9",
+    "specs/taller-6/001-detalle-destino/spec.md": "d7b49ce741259911d52a89589ad4961195fc97e750476ef8cc61eb3ab78a4883",
+    "specs/taller-6/001-detalle-destino/tasks.md": "3d17afde11ab9817b1bd9fda0565ee979f8abe19ee95573ce10c8cd44d7f5241",
+    "specs/taller-6/002-costo-maximo/plan.md": "acfeea57f19cbb13436eee01060d2da67a68f8603008714cd58fb0ecc36b2b95",
+    "specs/taller-6/002-costo-maximo/pr.md": "0afc74a6498fb5813d769588867987e25a123f0aaf0406a64cb0e7319a650cc0",
+    "specs/taller-6/002-costo-maximo/spec.json": "bc3b2a733d0e1fa93887597c97ae60e8cb9a9d8ff17c2c86d06e6c7cb3066cf2",
+    "specs/taller-6/002-costo-maximo/spec.md": "4631c60ecbffd72ce446b5eac1d4b939bcc790f3782d80aac33657c0342969df",
+    "specs/taller-6/002-costo-maximo/tasks.md": "fbbe1dc9ff0b9efaee96ac89bf31f7d462dde1368255966e855684811542536d",
+    "specs/taller-6/003-favoritos/plan.md": "8f8f4e377259dcf6e6327c64d69f9fe79ed21b058cd493e256428cf917187a9e",
+    "specs/taller-6/003-favoritos/pr.md": "1572f3907086de4c7844e05cecb2b270ab23ef65c09d87c5133b826740b2db18",
+    "specs/taller-6/003-favoritos/spec.json": "1c60f07831fca8a8ef4560b7654744baad300580c7bfacadd13d48f9acbcf934",
+    "specs/taller-6/003-favoritos/spec.md": "93983eb4e9fd08438215ac12fa1301f834e8338a0baf835a52ce3674c3260129",
+    "specs/taller-6/003-favoritos/tasks.md": "ee05ae0abc8b9042b1106718ae14f2caf23adfd373bbde292be20e3bfa558b67",
+    "specs/taller-6/004-recomendaciones-municipio/plan.md": "13ab68b276da71e63bee81179eb38f6ba90fc32f628e2011555b37b9133a2aa1",
+    "specs/taller-6/004-recomendaciones-municipio/pr.md": "d32f13160fe24b68f388bb5f3cf88a93ec3cd995f84f9e29b4dacd4494ca841f",
+    "specs/taller-6/004-recomendaciones-municipio/spec.json": "5b7b393abcc80d6cfbef6357dac88fd74abe9622a43da8df8b65167f105afead",
+    "specs/taller-6/004-recomendaciones-municipio/spec.md": "dd02532fdc536ceafd45de52b4cae6a5afab1413b3cf42aa2403da394cb22d81",
+    "specs/taller-6/004-recomendaciones-municipio/tasks.md": "44f206b8c887aca617ccae6eb53eda13a75122376c76fbe530fe38ff9fdbc2f0",
+    "specs/taller-6/005-exportar-itinerario/plan.md": "3aeb4b77766da262a5b8a3ec8243a392fe83a91105b1aa33f4c4f67504a5e1bb",
+    "specs/taller-6/005-exportar-itinerario/pr.md": "931d711755fc5b45576a39526381ae3e5bf3942804b91693756c3e4ced704f13",
+    "specs/taller-6/005-exportar-itinerario/spec.json": "badb036914795a5a62bb6687abd768b54fc675bf3040fd0e991f66088220af78",
+    "specs/taller-6/005-exportar-itinerario/spec.md": "36d60dd5c391b4afc92f1951b87af0e15deaca973212c9d8b5cec352d5a7968c",
+    "specs/taller-6/005-exportar-itinerario/tasks.md": "cc4edfba9c283e2902529b21871c2774af1f218bc2803fd755a146b1a05acfc9"
+  },
+  "checks": [
+    {
+      "name": "real_api_catalogue",
+      "acceptance": "regression",
+      "passed": true,
+      "observed": 8
+    },
+    {
+      "name": "initialization_no_write",
+      "acceptance": "AC-01",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "save_ID3_only",
+      "acceptance": "AC-01",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "reload_preserves_ID3_without_initial_write",
+      "acceptance": "AC-01",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "only_favorites_shows_saved_destination",
+      "acceptance": "AC-01",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "remove_in_only_mode_moves_focus",
+      "acceptance": "AC-02",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "removal_survives_reload",
+      "acceptance": "AC-02",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "existing_and_unknown_IDs_not_overwritten",
+      "acceptance": "AC-01",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "favorites_AND_existing_filters",
+      "acceptance": "regression",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "unknown_ID_retained_and_filters_unchanged",
+      "acceptance": "AC-02",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "leaving_only_mode_restores_filtered_results",
+      "acceptance": "regression",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "corrupt_JSON_recovers_without_write",
+      "acceptance": "AC-03",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "corrupt_storage_replaced_only_after_user_action",
+      "acceptance": "AC-03",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "manipulated_IDs_safe_no_initial_overwrite",
+      "acceptance": "AC-03",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "user_write_sanitizes_and_preserves_unknown_ID",
+      "acceptance": "AC-03",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "getterblocked_session_toggle_and_notice",
+      "acceptance": "AC-04",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "getterblocked_session_removal_works",
+      "acceptance": "AC-04",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "readblocked_session_toggle_and_notice",
+      "acceptance": "AC-04",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "readblocked_session_removal_works",
+      "acceptance": "AC-04",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "writeblocked_session_toggle_and_notice",
+      "acceptance": "AC-04",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "writeblocked_session_removal_works",
+      "acceptance": "AC-04",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "Enter_updates_accessible_state_and_keeps_focus",
+      "acceptance": "AC-05",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "Space_updates_accessible_state_and_keeps_focus",
+      "acceptance": "AC-05",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "AX_toggle_button_name_and_pressed_state",
+      "acceptance": "AC-05",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "other_storage_key_untouched",
+      "acceptance": "regression",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "real_api_recommendations_unchanged",
+      "acceptance": "regression",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "demo_uses_same_favorite_IDs",
+      "acceptance": "AC-01",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "demo_remove_and_focus",
+      "acceptance": "AC-02",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "no_runtime_exceptions",
+      "acceptance": "regression",
+      "passed": true,
+      "observed": []
+    }
+  ],
+  "limitations": [
+    "Chrome headless/CDP, not human screen-reader or full WCAG audit.",
+    "API success uses a test-only same-origin proxy in Vite 5189 to real FastAPI 8000; production API URL and CORS unchanged.",
+    "Offline scenario blocks API requests; no remote production deployment tested."
+  ],
+  "browser": "Chrome/157.0.8103.38",
+  "server_logs": [
+    "INFO:     Started server process [33100]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)\nINFO:     127.0.0.1:57208 - \"GET / HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64533 - \"GET /api/destinations HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51461 - \"GET /api/destinations HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53986 - \"GET /api/destinations HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60079 - \"GET /api/destinations HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64246 - \"GET /api/destinations HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:57105 - \"GET /api/destinations HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55696 - \"GET /api/destinations HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61066 - \"GET /api/destinations HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61372 - \"GET /api/destinations HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:56581 - \"GET /api/destinations HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:56582 - \"POST /api/recommendations HTTP/1.1\" 200 OK\n",
+    "\n> opita-360-frontend@1.0.0 dev\n> vite --host 0.0.0.0 --host 127.0.0.1 --strictPort --port 5189 --config tests/s03.vite.config.mjs\n\n\n  VITE v8.3.5  ready in 263 ms\n\n  ➜  Local:   http://127.0.0.1:5189/\n"
+  ],
+  "finished_at": "2026-11-18T23:53:16.856828+00:00",
+  "source_unchanged_during_run": true,
+  "passed": true
+}

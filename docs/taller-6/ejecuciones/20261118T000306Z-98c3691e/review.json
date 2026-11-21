@@ -1,0 +1,319 @@
+{
+  "run_id": "d0cd1653-9518-40b4-93f5-8f0ec3951bbf",
+  "finished_at": "2026-11-18T00:03:06.853447+00:00",
+  "spec": "001",
+  "mode": "llm",
+  "reports": [
+    {
+      "role": "orquestador",
+      "task": "review-orquestador",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/orquestador.md",
+          "sha256": "d580d8366495f8b936aa985263ccd0d1c339cc7eb16a5fec3fe06b1d447d9a26",
+          "bytes": 994
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "45faa1edc0bba8a72e0b22451086a39f4a8bc3df3dce619866e3d0ce1baa7783",
+          "bytes": 4571
+        },
+        {
+          "path": "harness/README.md",
+          "sha256": "02ec2537d5aa79297d85e0823a857b11f35c321b8c461c82c524acf3457c9a5d",
+          "bytes": 6377
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "434333cbe7f7e85eb8a7e7eb889237d666137fc5686ec68899d03d4c36825354",
+          "bytes": 3333
+        }
+      ],
+      "findings": [
+        "El orquestador está configurado para no ejecutar pruebas ni generar código, pero el diseño de prueba (`test_design`) marca todos los casos como `not_implemented` y la ejecución está marcada como `not_run`, lo que indica una desconexión entre la capacidad de revisión delegada y la ejecución real de casos de prueba en este contexto.",
+        "La especificación incluye un criterio de aceptación (AC-04) para mostrar datos de demo cuando la API está bloqueada, pero no existe evidencia en los registros de ejecución (`stdout_tail`) ni en el inventario de herramientas que demuestre que esta lógica de fallback se ha validado o implementado."
+      ],
+      "limitations": [
+        "El entorno actual restringe al orquestador a la lectura de contexto y revisión mediante LLM, prohibiéndole explícitamente cualquier acción de escritura, ejecución de shell o generación de código, lo que impide cerrar el ciclo de pruebas sin intervención humana.",
+        "El modelo recibe extractos de 1000 caracteres; los hashes inventarian archivos completos del host."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "frontend",
+      "task": "review-frontend",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/frontend.md",
+          "sha256": "ae40febfe784f9ba531b5992b286eaf5f86662493e7bdc9cc930d1a5b826a7bb",
+          "bytes": 989
+        },
+        {
+          "path": "frontend/AGENTS.md",
+          "sha256": "a68bd68b539fa06db5aa49a1684f498d86fb961a9f558cf62cf8f7618c576f0f",
+          "bytes": 859
+        },
+        {
+          "path": "frontend/src/main.jsx",
+          "sha256": "4ace511e6a76d84563685f2f93c55ff750b9b0f7b04ed9b95439d1c3801004c1",
+          "bytes": 18054
+        },
+        {
+          "path": "frontend/src/destination-filters.js",
+          "sha256": "ed404efe3763c77fbc91286a48c0b081b28fdb1e854191cc69b626f720ca1d05",
+          "bytes": 833
+        },
+        {
+          "path": "frontend/src/styles.css",
+          "sha256": "600186bec72b4d34bd572ecb4ccc4916b93f2ceb6145d8f698c3e44af2319448",
+          "bytes": 18216
+        },
+        {
+          "path": ".agents/skills/opita-frontend/SKILL.md",
+          "sha256": "ae8d50fb9af5ae15230c91c8330570802213a0e6f8e87b3d9bb0531f14093b87",
+          "bytes": 1371
+        }
+      ],
+      "findings": [
+        "El diseño de prueba (`test_design`) marca todos los casos como `not_implemented` y la ejecución como `not_run`, a pesar de que el orquestador ejecutó pruebas de frontend (9/9 pasadas) en un entorno diferente, lo que indica una desconexión entre el estado del proyecto y la capacidad de revisión delegada.",
+        "La especificación incluye AC-04 para mostrar datos de demo cuando la API está bloqueada, pero no existe evidencia en los registros (`stdout_tail`) ni en el inventario de herramientas que demuestre que esta lógica de fallback se ha validado o implementado."
+      ],
+      "limitations": [
+        "El entorno actual restringe al frontend a la lectura de contexto y revisión mediante LLM, prohibiéndole explícitamente cualquier acción de escritura, ejecución de shell o generación de código, lo que impide cerrar el ciclo de pruebas sin intervención humana.",
+        "El modelo recibe extractos de 1000 caracteres; los hashes inventarian archivos completos del host.",
+        "El modelo recibe extractos de 1000 caracteres; los hashes inventarian archivos completos del host."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "backend",
+      "task": "review-backend",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/backend.md",
+          "sha256": "ac48ff174e54384bcc5c8e6fd10a2ac83331eae33b2b692564b6d6de8f510d35",
+          "bytes": 984
+        },
+        {
+          "path": "backend/AGENTS.md",
+          "sha256": "4ce801a1fd3c33cd4109ba4be967576b6b0caa794c59e2a626e07dd41561d385",
+          "bytes": 766
+        },
+        {
+          "path": "backend/app/main.py",
+          "sha256": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+          "bytes": 5185
+        },
+        {
+          "path": "backend/tests/test_api.py",
+          "sha256": "5794d395c00386e34e0bfd91d12752180c862107455dcbf1d19be9b09db0493c",
+          "bytes": 4069
+        },
+        {
+          "path": ".agents/skills/opita-backend/SKILL.md",
+          "sha256": "db92ea461477a69f8a22ec8e8a699efc94aa0e2224238998434c3545b3ea2574",
+          "bytes": 1261
+        }
+      ],
+      "findings": [
+        "El archivo `backend/app/main.py` define los destinos en una lista global (`DESTINATIONS`) sin validación de entrada mediante Pydantic, lo que viola el criterio de 'no confiar en datos enviados por el cliente' establecido en `backend/AGENTS.md`, ya que la API actual no protege contra payloads malformados ni inyecciones en la estructura de datos interna.",
+        "La especificación incluye AC-04 para mostrar datos de demo cuando la API está bloqueada, pero el análisis del código fuente y los registros de ejecución (`stdout_tail`) no muestran ninguna implementación lógica de fallback o manejo de estado de bloqueo en `backend/app/main.py`, ni evidencia de validación de este escenario en las pruebas existentes."
+      ],
+      "limitations": [
+        "El entorno operativo restringe al backend a la lectura de contexto y revisión mediante LLM, prohibiendo explícitamente cualquier acción de escritura, ejecución de shell o generación de código, lo que impide cerrar el ciclo de pruebas sin intervención humana.",
+        "El modelo recibe extractos limitados de 1000 caracteres; los hashes inventarian archivos completos del host, lo que puede generar pérdida de contexto relevante en revisiones detalladas.",
+        "El modelo recibe extractos de 1000 caracteres; los hashes inventarian archivos completos del host."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "calidad",
+      "task": "review-calidad",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/calidad.md",
+          "sha256": "40df2ea54e5adac5a147801ae2f6b8684387c787d2015a74f4b07718d1945c46",
+          "bytes": 983
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "c29942672abdb660c527a2fce73ab374375cbdcfd228570e82bb89403db8d096",
+          "bytes": 8295
+        },
+        {
+          "path": "harness/tests/test_harness.py",
+          "sha256": "d96d4382a4263aa1848ba8aebdd0215070c0b5695b3f228bede210204d8a530a",
+          "bytes": 7746
+        },
+        {
+          "path": ".agents/skills/brujula-semantica/SKILL.md",
+          "sha256": "32ecccc4412f680d4ad374b806460e550a52be5d7795174b7f5d1a7389f57a9f",
+          "bytes": 1504
+        }
+      ],
+      "findings": [
+        "El criterio AC-04 especifica que los datos de demo deben ser visibles cuando la API está bloqueada, pero el análisis del código fuente (`backend/app/main.py`) no muestra ninguna implementación lógica de fallback ni manejo de estado de bloqueo, violando la premisa de aceptación.",
+        "La especificación define casos de prueba en `test_design` con el estado `not_implemented`, lo que contradice los hallazgos previos donde se ejecutaron pruebas de frontend y backend exitosamente en entornos separados, indicando una desconexión entre el diseño de pruebas y la ejecución real."
+      ],
+      "limitations": [
+        "El entorno operativo restringe al agente a la lectura de contexto y revisión mediante LLM, prohibiendo explícitamente cualquier acción de escritura, ejecución de shell o generación de código.",
+        "El modelo recibe extractos limitados de 1000 caracteres; los hashes inventarian archivos completos del host, lo que puede generar pérdida de contexto relevante en revisiones detalladas.",
+        "El modelo recibe extractos de 1000 caracteres; los hashes inventarian archivos completos del host."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "seguridad",
+      "task": "review-seguridad",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/seguridad.md",
+          "sha256": "c476565c77bf99bfb670ffc66366247220fa114302dd2c604d37b015b381c0ff",
+          "bytes": 989
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "45faa1edc0bba8a72e0b22451086a39f4a8bc3df3dce619866e3d0ce1baa7783",
+          "bytes": 4571
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "434333cbe7f7e85eb8a7e7eb889237d666137fc5686ec68899d03d4c36825354",
+          "bytes": 3333
+        },
+        {
+          "path": "harness/runtime.py",
+          "sha256": "dff0748439b806433669d25e57f78275d54a2b461b486139f78de058aa8d0dee",
+          "bytes": 6558
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "c29942672abdb660c527a2fce73ab374375cbdcfd228570e82bb89403db8d096",
+          "bytes": 8295
+        }
+      ],
+      "findings": [
+        "El backend (`backend/app/main.py`) define destinos en una lista global sin validación de entrada mediante Pydantic, violando el criterio de 'no confiar en datos enviados por el cliente' establecido en `backend/AGENTS.md`, lo que expone la API a payloads malformados.",
+        "La especificación incluye AC-04 para mostrar datos de demo cuando la API está bloqueada, pero no existe evidencia en el código fuente (`backend/app/main.py`) ni en los registros de ejecución que demuestre una implementación lógica de fallback o manejo de estado de bloqueo."
+      ],
+      "limitations": [
+        "El entorno operativo restringe a todos los agentes a la lectura de contexto y revisión mediante LLM, prohibiendo explícitamente cualquier acción de escritura, ejecución de shell o generación de código.",
+        "El modelo recibe extractos limitados de 1000 caracteres; los hashes inventarian archivos completos del host, lo que puede generar pérdida de contexto relevante en revisiones detalladas.",
+        "El modelo recibe extractos de 1000 caracteres; los hashes inventarian archivos completos del host."
+      ],
+      "status": "awaiting_human_review"
+    }
+  ],
+  "traces": [
+    {
+      "role": "orquestador",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "b24d11c564c35a646772b20cf2a92e86d2110f494177158c06bd9d27a861de5e",
+      "response_sha256": "b237256efae397eb480d5687b52b0162994b19b2f3a832a1b53340fa1fd9f9f8",
+      "eval_count": 218,
+      "response": {
+        "findings": [
+          "El orquestador está configurado para no ejecutar pruebas ni generar código, pero el diseño de prueba (`test_design`) marca todos los casos como `not_implemented` y la ejecución está marcada como `not_run`, lo que indica una desconexión entre la capacidad de revisión delegada y la ejecución real de casos de prueba en este contexto.",
+          "La especificación incluye un criterio de aceptación (AC-04) para mostrar datos de demo cuando la API está bloqueada, pero no existe evidencia en los registros de ejecución (`stdout_tail`) ni en el inventario de herramientas que demuestre que esta lógica de fallback se ha validado o implementado."
+        ],
+        "limitations": [
+          "El entorno actual restringe al orquestador a la lectura de contexto y revisión mediante LLM, prohibiéndole explícitamente cualquier acción de escritura, ejecución de shell o generación de código, lo que impide cerrar el ciclo de pruebas sin intervención humana.",
+          "El modelo recibe extractos de 1000 caracteres; los hashes inventarian archivos completos del host."
+        ]
+      }
+    },
+    {
+      "role": "frontend",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "52f04279766a59835996a08344a8de248e7acb7d4fd40f2130c0fa5320796287",
+      "response_sha256": "746d693b3e80c3675c329ce0197578ff66e6c6041d4a2b41b93105276eea23e9",
+      "eval_count": 235,
+      "response": {
+        "findings": [
+          "El diseño de prueba (`test_design`) marca todos los casos como `not_implemented` y la ejecución como `not_run`, a pesar de que el orquestador ejecutó pruebas de frontend (9/9 pasadas) en un entorno diferente, lo que indica una desconexión entre el estado del proyecto y la capacidad de revisión delegada.",
+          "La especificación incluye AC-04 para mostrar datos de demo cuando la API está bloqueada, pero no existe evidencia en los registros (`stdout_tail`) ni en el inventario de herramientas que demuestre que esta lógica de fallback se ha validado o implementado."
+        ],
+        "limitations": [
+          "El entorno actual restringe al frontend a la lectura de contexto y revisión mediante LLM, prohibiéndole explícitamente cualquier acción de escritura, ejecución de shell o generación de código, lo que impide cerrar el ciclo de pruebas sin intervención humana.",
+          "El modelo recibe extractos de 1000 caracteres; los hashes inventarian archivos completos del host.",
+          "El modelo recibe extractos de 1000 caracteres; los hashes inventarian archivos completos del host."
+        ]
+      }
+    },
+    {
+      "role": "backend",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "3d05bb9668d3338d106303e83a2e4cd64038437bbc7213b20950fab73ad360b8",
+      "response_sha256": "43160db239f82dc0eb7da1c88046dedf64774c2ba017dc2ca027affba13a4150",
+      "eval_count": 268,
+      "response": {
+        "findings": [
+          "El archivo `backend/app/main.py` define los destinos en una lista global (`DESTINATIONS`) sin validación de entrada mediante Pydantic, lo que viola el criterio de 'no confiar en datos enviados por el cliente' establecido en `backend/AGENTS.md`, ya que la API actual no protege contra payloads malformados ni inyecciones en la estructura de datos interna.",
+          "La especificación incluye AC-04 para mostrar datos de demo cuando la API está bloqueada, pero el análisis del código fuente y los registros de ejecución (`stdout_tail`) no muestran ninguna implementación lógica de fallback o manejo de estado de bloqueo en `backend/app/main.py`, ni evidencia de validación de este escenario en las pruebas existentes."
+        ],
+        "limitations": [
+          "El entorno operativo restringe al backend a la lectura de contexto y revisión mediante LLM, prohibiendo explícitamente cualquier acción de escritura, ejecución de shell o generación de código, lo que impide cerrar el ciclo de pruebas sin intervención humana.",
+          "El modelo recibe extractos limitados de 1000 caracteres; los hashes inventarian archivos completos del host, lo que puede generar pérdida de contexto relevante en revisiones detalladas.",
+          "El modelo recibe extractos de 1000 caracteres; los hashes inventarian archivos completos del host."
+        ]
+      }
+    },
+    {
+      "role": "calidad",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "a1bc7d447b5136249358bd2252109a8e5f33d8207b662865f1696295c5d0c5f5",
+      "response_sha256": "6303ebc8a1d17903e4809484a2f61b02524d42c5eb274478310404826c4fa80a",
+      "eval_count": 229,
+      "response": {
+        "findings": [
+          "El criterio AC-04 especifica que los datos de demo deben ser visibles cuando la API está bloqueada, pero el análisis del código fuente (`backend/app/main.py`) no muestra ninguna implementación lógica de fallback ni manejo de estado de bloqueo, violando la premisa de aceptación.",
+          "La especificación define casos de prueba en `test_design` con el estado `not_implemented`, lo que contradice los hallazgos previos donde se ejecutaron pruebas de frontend y backend exitosamente en entornos separados, indicando una desconexión entre el diseño de pruebas y la ejecución real."
+        ],
+        "limitations": [
+          "El entorno operativo restringe al agente a la lectura de contexto y revisión mediante LLM, prohibiendo explícitamente cualquier acción de escritura, ejecución de shell o generación de código.",
+          "El modelo recibe extractos limitados de 1000 caracteres; los hashes inventarian archivos completos del host, lo que puede generar pérdida de contexto relevante en revisiones detalladas.",
+          "El modelo recibe extractos de 1000 caracteres; los hashes inventarian archivos completos del host."
+        ]
+      }
+    },
+    {
+      "role": "seguridad",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "4d856fbeea84f218e5d2fe0201d07262af448fc17f5f2556850eccdb7b428954",
+      "response_sha256": "7bb423716a163a52cac110c8726a7c560eb2f5fb5e736a7d4031af7b64d0058c",
+      "eval_count": 227,
+      "response": {
+        "findings": [
+          "El backend (`backend/app/main.py`) define destinos en una lista global sin validación de entrada mediante Pydantic, violando el criterio de 'no confiar en datos enviados por el cliente' establecido en `backend/AGENTS.md`, lo que expone la API a payloads malformados.",
+          "La especificación incluye AC-04 para mostrar datos de demo cuando la API está bloqueada, pero no existe evidencia en el código fuente (`backend/app/main.py`) ni en los registros de ejecución que demuestre una implementación lógica de fallback o manejo de estado de bloqueo."
+        ],
+        "limitations": [
+          "El entorno operativo restringe a todos los agentes a la lectura de contexto y revisión mediante LLM, prohibiendo explícitamente cualquier acción de escritura, ejecución de shell o generación de código.",
+          "El modelo recibe extractos limitados de 1000 caracteres; los hashes inventarian archivos completos del host, lo que puede generar pérdida de contexto relevante en revisiones detalladas.",
+          "El modelo recibe extractos de 1000 caracteres; los hashes inventarian archivos completos del host."
+        ]
+      }
+    }
+  ],
+  "mcp": [],
+  "code_modified": false,
+  "checks_source": "docs/taller-6/ejecuciones/20261117T235813Z-f80895af/checks.json",
+  "context_excerpt_chars": 1000,
+  "approval": "operator_assertion_not_identity",
+  "next_gate": "human_review"
+}

@@ -1,0 +1,213 @@
+{
+  "run_id": "dd04b4fa-27a6-4bf4-9ac8-7038e9929fb1",
+  "finished_at": "2026-11-17T21:38:43.353444+00:00",
+  "spec": "001",
+  "mode": "inventory",
+  "reports": [
+    {
+      "role": "orquestador",
+      "task": "review-orquestador",
+      "mode": "inventory",
+      "model": null,
+      "evidence": [
+        {
+          "path": "harness/agents/orquestador.md",
+          "sha256": "d580d8366495f8b936aa985263ccd0d1c339cc7eb16a5fec3fe06b1d447d9a26",
+          "bytes": 994
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "45faa1edc0bba8a72e0b22451086a39f4a8bc3df3dce619866e3d0ce1baa7783",
+          "bytes": 4571
+        },
+        {
+          "path": "harness/README.md",
+          "sha256": "8cc66d9baff2409a1cc16ebc1ce9a793198a65e0424d871fe19eeddd45c62c74",
+          "bytes": 6377
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "a984a091635d1dece7c219d02b09979ba3db3e28d88fb96be04803ce9c8437ce",
+          "bytes": 3299
+        }
+      ],
+      "findings": [
+        "Contexto y criterios inventariados; no hay inferencia ni dictamen semantico."
+      ],
+      "limitations": [
+        "No ejecuta pruebas ni modifica codigo."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "frontend",
+      "task": "review-frontend",
+      "mode": "inventory",
+      "model": null,
+      "evidence": [
+        {
+          "path": "harness/agents/frontend.md",
+          "sha256": "ae40febfe784f9ba531b5992b286eaf5f86662493e7bdc9cc930d1a5b826a7bb",
+          "bytes": 989
+        },
+        {
+          "path": "frontend/AGENTS.md",
+          "sha256": "a68bd68b539fa06db5aa49a1684f498d86fb961a9f558cf62cf8f7618c576f0f",
+          "bytes": 859
+        },
+        {
+          "path": "frontend/src/main.jsx",
+          "sha256": "4ace511e6a76d84563685f2f93c55ff750b9b0f7b04ed9b95439d1c3801004c1",
+          "bytes": 18054
+        },
+        {
+          "path": "frontend/src/destination-filters.js",
+          "sha256": "ed404efe3763c77fbc91286a48c0b081b28fdb1e854191cc69b626f720ca1d05",
+          "bytes": 833
+        },
+        {
+          "path": "frontend/src/styles.css",
+          "sha256": "600186bec72b4d34bd572ecb4ccc4916b93f2ceb6145d8f698c3e44af2319448",
+          "bytes": 18216
+        },
+        {
+          "path": ".agents/skills/opita-frontend/SKILL.md",
+          "sha256": "ae8d50fb9af5ae15230c91c8330570802213a0e6f8e87b3d9bb0531f14093b87",
+          "bytes": 1371
+        }
+      ],
+      "findings": [
+        "Contexto y criterios inventariados; no hay inferencia ni dictamen semantico."
+      ],
+      "limitations": [
+        "No ejecuta pruebas ni modifica codigo.",
+        "El modelo recibe extractos de 8000 caracteres; los hashes inventarian archivos completos del host."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "backend",
+      "task": "review-backend",
+      "mode": "inventory",
+      "model": null,
+      "evidence": [
+        {
+          "path": "harness/agents/backend.md",
+          "sha256": "ac48ff174e54384bcc5c8e6fd10a2ac83331eae33b2b692564b6d6de8f510d35",
+          "bytes": 984
+        },
+        {
+          "path": "backend/AGENTS.md",
+          "sha256": "4ce801a1fd3c33cd4109ba4be967576b6b0caa794c59e2a626e07dd41561d385",
+          "bytes": 766
+        },
+        {
+          "path": "backend/app/main.py",
+          "sha256": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+          "bytes": 5185
+        },
+        {
+          "path": "backend/tests/test_api.py",
+          "sha256": "5794d395c00386e34e0bfd91d12752180c862107455dcbf1d19be9b09db0493c",
+          "bytes": 4069
+        },
+        {
+          "path": ".agents/skills/opita-backend/SKILL.md",
+          "sha256": "db92ea461477a69f8a22ec8e8a699efc94aa0e2224238998434c3545b3ea2574",
+          "bytes": 1261
+        }
+      ],
+      "findings": [
+        "Contexto y criterios inventariados; no hay inferencia ni dictamen semantico."
+      ],
+      "limitations": [
+        "No ejecuta pruebas ni modifica codigo."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "calidad",
+      "task": "review-calidad",
+      "mode": "inventory",
+      "model": null,
+      "evidence": [
+        {
+          "path": "harness/agents/calidad.md",
+          "sha256": "40df2ea54e5adac5a147801ae2f6b8684387c787d2015a74f4b07718d1945c46",
+          "bytes": 983
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "c29942672abdb660c527a2fce73ab374375cbdcfd228570e82bb89403db8d096",
+          "bytes": 8295
+        },
+        {
+          "path": "harness/tests/test_harness.py",
+          "sha256": "21aa260004da335412d50e9443b016172c6ecc3f406f040822fdf06a2a48c2e2",
+          "bytes": 6932
+        },
+        {
+          "path": ".agents/skills/brujula-semantica/SKILL.md",
+          "sha256": "32ecccc4412f680d4ad374b806460e550a52be5d7795174b7f5d1a7389f57a9f",
+          "bytes": 1504
+        }
+      ],
+      "findings": [
+        "Contexto y criterios inventariados; no hay inferencia ni dictamen semantico."
+      ],
+      "limitations": [
+        "No ejecuta pruebas ni modifica codigo.",
+        "El modelo recibe extractos de 8000 caracteres; los hashes inventarian archivos completos del host."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "seguridad",
+      "task": "review-seguridad",
+      "mode": "inventory",
+      "model": null,
+      "evidence": [
+        {
+          "path": "harness/agents/seguridad.md",
+          "sha256": "c476565c77bf99bfb670ffc66366247220fa114302dd2c604d37b015b381c0ff",
+          "bytes": 989
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "45faa1edc0bba8a72e0b22451086a39f4a8bc3df3dce619866e3d0ce1baa7783",
+          "bytes": 4571
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "a984a091635d1dece7c219d02b09979ba3db3e28d88fb96be04803ce9c8437ce",
+          "bytes": 3299
+        },
+        {
+          "path": "harness/runtime.py",
+          "sha256": "c2640cbfe744f8fdffb8c5f541b53e88e159f5368d0e42cae0e8937d3980f6e1",
+          "bytes": 5819
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "c29942672abdb660c527a2fce73ab374375cbdcfd228570e82bb89403db8d096",
+          "bytes": 8295
+        }
+      ],
+      "findings": [
+        "Contexto y criterios inventariados; no hay inferencia ni dictamen semantico."
+      ],
+      "limitations": [
+        "No ejecuta pruebas ni modifica codigo.",
+        "El modelo recibe extractos de 8000 caracteres; los hashes inventarian archivos completos del host."
+      ],
+      "status": "awaiting_human_review"
+    }
+  ],
+  "traces": [],
+  "mcp": [],
+  "code_modified": false,
+  "checks_source": null,
+  "context_excerpt_chars": 8000,
+  "approval": "operator_assertion_not_identity",
+  "next_gate": "human_review"
+}

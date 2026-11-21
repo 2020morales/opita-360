@@ -1,0 +1,18 @@
+{
+  "spec": "005",
+  "branch": "taller6/005-exportar-itinerario",
+  "base": "0985273541e21579009cb6179546b9f3db845f7e",
+  "checks": "docs/taller-6/ejecuciones/20261118T160230Z-283a97bd/checks.json",
+  "checks_snapshot_current": true,
+  "browser": "docs/taller-6/ejecuciones/20261118T155632Z-e2921703/s05-browser.json",
+  "browser_functional_files_unchanged": [
+    "frontend/src/main.jsx",
+    "frontend/src/styles.css",
+    "frontend/src/export-itinerary.js",
+    "frontend/tests/s05.vite.config.mjs",
+    "harness/s05_browser.py"
+  ],
+  "protected_changes": [],
+  "excluded_count": 16,
+  "historical_evidence_overwritten": false
+}

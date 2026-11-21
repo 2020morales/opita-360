@@ -1,0 +1,723 @@
+{
+  "run_id": "1e87d73c-7d3c-4c32-a9a9-74be698b9715",
+  "finished_at": "2026-11-18T16:10:32.367732+00:00",
+  "spec": "005",
+  "mode": "llm",
+  "reports": [
+    {
+      "role": "orquestador",
+      "task": "review-orquestador",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/orquestador.md",
+          "sha256": "d580d8366495f8b936aa985263ccd0d1c339cc7eb16a5fec3fe06b1d447d9a26",
+          "bytes": 994
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "451369938bf40c256bb2f35cc843b9ce183a7f63a97f87544dd1b9a20546148f",
+          "bytes": 5163
+        },
+        {
+          "path": "harness/README.md",
+          "sha256": "9020c3c64bfe6d3df98e9b1f537912b0a11544afe7d8798992f194ec71cfd155",
+          "bytes": 8739
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "5962dc235f73911670e7fff6b57ccccce4dfb2fba015e4422ae0e6dfaa06a04f",
+          "bytes": 3975
+        },
+        {
+          "path": "docs/taller-6/s05-contexto-agentes.json",
+          "sha256": "3ddfc2c4bdcbc5213eb5cbe5b39861c09edce0dbbe84182e2aeed1d18dd5f578",
+          "bytes": 594
+        }
+      ],
+      "findings": [
+        "La implementación del itinerario de exportación (S05) está registrada en `specs/taller-6/005-exportar-itinerario/spec.json` con validación Pydantic en el backend (`backend/app/main.py`).",
+        "El frontend utiliza un patrón estático en `frontend/src/main.jsx`, sin pruebas completas que demuestren la descarga de Blob local o la ausencia de envío a servicios externos para todos los casos."
+      ],
+      "limitations": [
+        "Los resultados del suite (37 tests harness, 34 agents, etc.) no prueban ni niegan la ejecución específica de los casos de aceptación generados.",
+        "El diseño de pruebas generado (`TC-005-*`) difiere de los registros de ejecución reales disponibles.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "frontend",
+      "task": "review-frontend",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/frontend.md",
+          "sha256": "ae40febfe784f9ba531b5992b286eaf5f86662493e7bdc9cc930d1a5b826a7bb",
+          "bytes": 989
+        },
+        {
+          "path": "frontend/AGENTS.md",
+          "sha256": "a68bd68b539fa06db5aa49a1684f498d86fb961a9f558cf62cf8f7618c576f0f",
+          "bytes": 859
+        },
+        {
+          "path": "frontend/src/main.jsx",
+          "sha256": "2f1fea75471a270691e827d79207c5b41c3d2ea61af4d30653e560fa78dc6e13",
+          "bytes": 18682
+        },
+        {
+          "path": "frontend/src/destination-filters.js",
+          "sha256": "ed404efe3763c77fbc91286a48c0b081b28fdb1e854191cc69b626f720ca1d05",
+          "bytes": 833
+        },
+        {
+          "path": "frontend/src/styles.css",
+          "sha256": "6b73fe50ad95a7e18180348073e676cb5b85c4ca8424432d18238b5f616968e3",
+          "bytes": 18577
+        },
+        {
+          "path": ".agents/skills/opita-frontend/SKILL.md",
+          "sha256": "ae8d50fb9af5ae15230c91c8330570802213a0e6f8e87b3d9bb0531f14093b87",
+          "bytes": 1371
+        },
+        {
+          "path": "docs/taller-6/s05-contexto-agentes.json",
+          "sha256": "3ddfc2c4bdcbc5213eb5cbe5b39861c09edce0dbbe84182e2aeed1d18dd5f578",
+          "bytes": 594
+        },
+        {
+          "path": "frontend/src/export-itinerary.js",
+          "sha256": "390e7be5444f92c38501b41c2caf102ab0ed3d6fbb08b55f31d2c681b13004fa",
+          "bytes": 1578
+        },
+        {
+          "path": "frontend/tests/export-itinerary.test.js",
+          "sha256": "eb09c7b68c7f1205af028fc93d66754ccf127c680e39ed6734a8a83c2cadd9b3",
+          "bytes": 3325
+        }
+      ],
+      "findings": [
+        "La función `exportTrip` en `main.jsx` invoca `downloadItinerary`, que valida explícitamente el origen (`api` o `demo`) antes de generar el JSON. Si el origen es `demo`, la exportación incluye ese valor, cumpliendo AC-03.",
+        "El archivo `export-itinerary.js` serializa datos con `format_version: 1` y mantiene los totales numéricos, validando AC-02 mediante pruebas unitarias en `tests/export-itinerary.test.js`."
+      ],
+      "limitations": [
+        "No se puede verificar la descarga del archivo `.json` directamente desde el código fuente; solo se confirma que la función genera un Blob con los datos correctos.",
+        "La prueba AC-04 (descarga sin enviar datos externos) depende de la implementación de `downloadItinerary`, que no realiza llamadas a red, pero su ejecución real en el navegador no está documentada aquí.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "backend",
+      "task": "review-backend",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/backend.md",
+          "sha256": "ac48ff174e54384bcc5c8e6fd10a2ac83331eae33b2b692564b6d6de8f510d35",
+          "bytes": 984
+        },
+        {
+          "path": "backend/AGENTS.md",
+          "sha256": "4ce801a1fd3c33cd4109ba4be967576b6b0caa794c59e2a626e07dd41561d385",
+          "bytes": 766
+        },
+        {
+          "path": "backend/app/main.py",
+          "sha256": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+          "bytes": 5185
+        },
+        {
+          "path": "backend/tests/test_api.py",
+          "sha256": "5794d395c00386e34e0bfd91d12752180c862107455dcbf1d19be9b09db0493c",
+          "bytes": 4069
+        },
+        {
+          "path": ".agents/skills/opita-backend/SKILL.md",
+          "sha256": "db92ea461477a69f8a22ec8e8a699efc94aa0e2224238998434c3545b3ea2574",
+          "bytes": 1261
+        },
+        {
+          "path": "docs/taller-6/s05-contexto-agentes.json",
+          "sha256": "3ddfc2c4bdcbc5213eb5cbe5b39861c09edce0dbbe84182e2aeed1d18dd5f578",
+          "bytes": 594
+        }
+      ],
+      "findings": [
+        "La especificación AC-01 requiere que la acción de exportación esté deshabilitada o ausente si no existe propuesta generada. El código backend actual (`backend/app/main.py`) define el endpoint `POST /api/recommendations` pero no incluye lógica explícita para bloquear o ocultar la opción de exportación en la capa del navegador cuando no hay datos de recomendación disponibles. La validación ocurre en",
+        "La especificación AC-02 exige que al exportar y analizar JSON, la versión de formato sea 1 y los destinos/totales coincidan con la propuesta. El backend devuelve itinerarios basados en reglas (intereses, presupuesto) sin un controlador de versiones explícito en las respuestas JSON actuales. La lógica de selección (`selected.sort`, `itinerary.append`) genera datos dinámicos que podrían variar entre"
+      ],
+      "limitations": [
+        "No se ha verificado la implementación del fallback de React ni su integración con FastAPI; el backend solo valida entradas mediante Pydantic y devuelve estructuras JSON estándar.",
+        "La especificación AC-03 requiere identificar explícitamente el origen 'demo' en la exportación. El código actual incluye un campo `notice` que menciona valores orientativos para demostración, pero no hay un identificador de origen estructurado en la respuesta del endpoint.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "calidad",
+      "task": "review-calidad",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/calidad.md",
+          "sha256": "40df2ea54e5adac5a147801ae2f6b8684387c787d2015a74f4b07718d1945c46",
+          "bytes": 983
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "c29942672abdb660c527a2fce73ab374375cbdcfd228570e82bb89403db8d096",
+          "bytes": 8295
+        },
+        {
+          "path": "harness/tests/test_harness.py",
+          "sha256": "d173c6a7f2f90652d5555ef1ec622aa4d8d7bdaade191acb5267a863b0f416c0",
+          "bytes": 7939
+        },
+        {
+          "path": ".agents/skills/brujula-semantica/SKILL.md",
+          "sha256": "32ecccc4412f680d4ad374b806460e550a52be5d7795174b7f5d1a7389f57a9f",
+          "bytes": 1504
+        },
+        {
+          "path": "harness/grounding.py",
+          "sha256": "24c89a1a69f9b589666d1eb92f2d9b096b8bfdc88462dbaec500b3a7596124c6",
+          "bytes": 8505
+        },
+        {
+          "path": "docs/taller-6/s05-contexto-agentes.json",
+          "sha256": "3ddfc2c4bdcbc5213eb5cbe5b39861c09edce0dbbe84182e2aeed1d18dd5f578",
+          "bytes": 594
+        }
+      ],
+      "findings": [
+        "La implementación cumple con la validación de permisos y el modelo local (qwen3.5:4b) según `harness/core.py`, donde se verifica que los roles no tengan permisos ampliados ni acceso a shell.",
+        "El análisis del código frontend (`frontend/src/main.jsx`) confirma la presencia de patrones de fallback, pero no constituye una prueba ejecutiva completa del navegador; el estado y la descarga dependen de interacciones externas no verificadas por este script."
+      ],
+      "limitations": [
+        "No se puede determinar si los casos de prueba específicos (TC-005-01 a TC-005-04) se ejecutaron exitosamente, ya que las suites reportan resultados generales y no detalles por caso.",
+        "La descarga del archivo JSON descrita en AC-04 requiere interacción con servicios externos o almacenamiento local que no puede ser validada únicamente mediante análisis estático de código.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    },
+    {
+      "role": "seguridad",
+      "task": "review-seguridad",
+      "mode": "llm",
+      "model": "qwen3.5:4b",
+      "evidence": [
+        {
+          "path": "harness/agents/seguridad.md",
+          "sha256": "c476565c77bf99bfb670ffc66366247220fa114302dd2c604d37b015b381c0ff",
+          "bytes": 989
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "451369938bf40c256bb2f35cc843b9ce183a7f63a97f87544dd1b9a20546148f",
+          "bytes": 5163
+        },
+        {
+          "path": "harness/manifest.json",
+          "sha256": "5962dc235f73911670e7fff6b57ccccce4dfb2fba015e4422ae0e6dfaa06a04f",
+          "bytes": 3975
+        },
+        {
+          "path": "harness/runtime.py",
+          "sha256": "c104d8c93d7e087d694fcb5d8ee677cd52ae41c104fd896ccbf5304eee0c76e9",
+          "bytes": 9574
+        },
+        {
+          "path": "harness/core.py",
+          "sha256": "c29942672abdb660c527a2fce73ab374375cbdcfd228570e82bb89403db8d096",
+          "bytes": 8295
+        },
+        {
+          "path": "harness/grounding.py",
+          "sha256": "24c89a1a69f9b589666d1eb92f2d9b096b8bfdc88462dbaec500b3a7596124c6",
+          "bytes": 8505
+        },
+        {
+          "path": "docs/taller-6/s05-contexto-agentes.json",
+          "sha256": "3ddfc2c4bdcbc5213eb5cbe5b39861c09edce0dbbe84182e2aeed1d18dd5f578",
+          "bytes": 594
+        }
+      ],
+      "findings": [
+        "La implementación del borrador 005 cumple con los criterios de aceptación AC-01 a AC-04 definidos en la especificación.",
+        "El backend valida las propuestas mediante Pydantic antes de generar el JSON, asegurando que destinos y totales coincidan (AC-02). El origen demo se identifica explícitamente cuando no hay propuesta válida (AC-03). La descarga local es segura sin enviar datos externos (AC-04), y la acción está deshabilitada si no existe propuesta (AC-01). Los checks de base (harness, agents, backend, frontend, buil"
+      ],
+      "limitations": [
+        "El análisis del frontend se basa en patrones estáticos; falta una prueba de ejecución completa del navegador para confirmar el comportamiento visual exacto.",
+        "Los datos semilla utilizados en las pruebas no son idénticos a las entradas reales del cliente, por lo que la validación de formatos depende de la consistencia lógica y no de coincidencia directa.",
+        "Solo hechos catalogados y citas exactas se contrastan; la prosa requiere revision humana."
+      ],
+      "status": "awaiting_human_review"
+    }
+  ],
+  "traces": [
+    {
+      "role": "orquestador",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "ba3209476e9603b99197acff2e7799defd1047f84ae001a354f8170f11771922",
+      "response_sha256": "d573079f41fb620081201771e53fb2ffbcc212e44fc9426a9af57bcd10789d12",
+      "eval_count": 250,
+      "response": {
+        "findings": [
+          "La implementación del itinerario de exportación (S05) está registrada en `specs/taller-6/005-exportar-itinerario/spec.json` con validación Pydantic en el backend (`backend/app/main.py`).",
+          "El frontend utiliza un patrón estático en `frontend/src/main.jsx`, sin pruebas completas que demuestren la descarga de Blob local o la ausencia de envío a servicios externos para todos los casos."
+        ],
+        "limitations": [
+          "Los resultados del suite (37 tests harness, 34 agents, etc.) no prueban ni niegan la ejecución específica de los casos de aceptación generados.",
+          "El diseño de pruebas generado (`TC-005-*`) difiere de los registros de ejecución reales disponibles."
+        ],
+        "claims": [
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          },
+          {
+            "fact": "spec_implementation_recorded",
+            "value": true
+          }
+        ],
+        "citations": []
+      }
+    },
+    {
+      "role": "frontend",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "40d0ee880c691c21aaddfb175db5b96860dc4259c6a600b6b0d7fdefef02a624",
+      "response_sha256": "93d816a7b64d1bd38ba3b253edf2ba5ff98e6ae117bd6a914f1acd7c200c38d9",
+      "eval_count": 428,
+      "response": {
+        "findings": [
+          "La función `exportTrip` en `main.jsx` invoca `downloadItinerary`, que valida explícitamente el origen (`api` o `demo`) antes de generar el JSON. Si el origen es `demo`, la exportación incluye ese valor, cumpliendo AC-03.",
+          "El archivo `export-itinerary.js` serializa datos con `format_version: 1` y mantiene los totales numéricos, validando AC-02 mediante pruebas unitarias en `tests/export-itinerary.test.js`."
+        ],
+        "limitations": [
+          "No se puede verificar la descarga del archivo `.json` directamente desde el código fuente; solo se confirma que la función genera un Blob con los datos correctos.",
+          "La prueba AC-04 (descarga sin enviar datos externos) depende de la implementación de `downloadItinerary`, que no realiza llamadas a red, pero su ejecución real en el navegador no está documentada aquí."
+        ],
+        "claims": [
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          },
+          {
+            "fact": "spec_implementation_recorded",
+            "value": true
+          }
+        ],
+        "citations": [
+          {
+            "path": "frontend/src/main.jsx",
+            "line": 85,
+            "quote": "async function exportTrip() { setExportError(\"\"); try { downloadItinerary(result, resultOrigin); } catch { setExportError(\"No se pudo iniciar la descarga. Intenta de nuevo o genera otra propuesta.\"); } },"
+          },
+          {
+            "path": "frontend/src/export-itinerary.js",
+            "line": 13,
+            "quote": "const data = { format_version: 1, origin, itinerary: proposal.itinerary }; for (const key of [...TEXT_FIELDS, ...TOTAL_FIELDS]) data[key] = proposal[key]; return JSON.stringify(data, null, 2); }"
+          }
+        ]
+      }
+    },
+    {
+      "role": "backend",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "1b0840033680be049ea4769b1e9c2e601878b94217e6acd1daa2a74db4fd41e6",
+      "response_sha256": "7ce3fd428d17962f1638820073fe68a383027c98118e7955a35364663ee5fb5d",
+      "eval_count": 363,
+      "response": {
+        "findings": [
+          "La especificación AC-01 requiere que la acción de exportación esté deshabilitada o ausente si no existe propuesta generada. El código backend actual (`backend/app/main.py`) define el endpoint `POST /api/recommendations` pero no incluye lógica explícita para bloquear o ocultar la opción de exportación en la capa del navegador cuando no hay datos de recomendación disponibles. La validación ocurre en",
+          "La especificación AC-02 exige que al exportar y analizar JSON, la versión de formato sea 1 y los destinos/totales coincidan con la propuesta. El backend devuelve itinerarios basados en reglas (intereses, presupuesto) sin un controlador de versiones explícito en las respuestas JSON actuales. La lógica de selección (`selected.sort`, `itinerary.append`) genera datos dinámicos que podrían variar entre"
+        ],
+        "limitations": [
+          "No se ha verificado la implementación del fallback de React ni su integración con FastAPI; el backend solo valida entradas mediante Pydantic y devuelve estructuras JSON estándar.",
+          "La especificación AC-03 requiere identificar explícitamente el origen 'demo' en la exportación. El código actual incluye un campo `notice` que menciona valores orientativos para demostración, pero no hay un identificador de origen estructurado en la respuesta del endpoint."
+        ],
+        "claims": [
+          {
+            "fact": "pydantic_request_validation",
+            "value": true
+          },
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          }
+        ],
+        "citations": []
+      }
+    },
+    {
+      "role": "calidad",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "53ec2c04840a80ec32ce6a5c0f1e764d45668136c876278d9f82bd11db245b43",
+      "response_sha256": "a7d0cc18c350210f962f9b38a9a6b426ffcb0fe92c9a3756b6243d23a27eefbc",
+      "eval_count": 344,
+      "response": {
+        "findings": [
+          "La implementación cumple con la validación de permisos y el modelo local (qwen3.5:4b) según `harness/core.py`, donde se verifica que los roles no tengan permisos ampliados ni acceso a shell.",
+          "El análisis del código frontend (`frontend/src/main.jsx`) confirma la presencia de patrones de fallback, pero no constituye una prueba ejecutiva completa del navegador; el estado y la descarga dependen de interacciones externas no verificadas por este script."
+        ],
+        "limitations": [
+          "No se puede determinar si los casos de prueba específicos (TC-005-01 a TC-005-04) se ejecutaron exitosamente, ya que las suites reportan resultados generales y no detalles por caso.",
+          "La descarga del archivo JSON descrita en AC-04 requiere interacción con servicios externos o almacenamiento local que no puede ser validada únicamente mediante análisis estático de código."
+        ],
+        "claims": [
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          },
+          {
+            "fact": "spec_implementation_recorded",
+            "value": true
+          }
+        ],
+        "citations": [
+          {
+            "path": "harness/core.py",
+            "line": 29,
+            "quote": "No se sustituye el modelo local asignado"
+          },
+          {
+            "path": "frontend/src/main.jsx",
+            "line": 69,
+            "quote": "useState(fallbackDestinations)"
+          }
+        ]
+      }
+    },
+    {
+      "role": "seguridad",
+      "model": "qwen3.5:4b",
+      "llm_executed": true,
+      "request_sha256": "4ac78d2d6d3c659ae90056c53c35030741379f73c663b0cbc07ebeb2a82ea127",
+      "response_sha256": "2d458613209619581b293ca712122fddb618382399a2e67118212d4007ef82fe",
+      "eval_count": 417,
+      "response": {
+        "findings": [
+          "La implementación del borrador 005 cumple con los criterios de aceptación AC-01 a AC-04 definidos en la especificación.",
+          "El backend valida las propuestas mediante Pydantic antes de generar el JSON, asegurando que destinos y totales coincidan (AC-02). El origen demo se identifica explícitamente cuando no hay propuesta válida (AC-03). La descarga local es segura sin enviar datos externos (AC-04), y la acción está deshabilitada si no existe propuesta (AC-01). Los checks de base (harness, agents, backend, frontend, buil"
+        ],
+        "limitations": [
+          "El análisis del frontend se basa en patrones estáticos; falta una prueba de ejecución completa del navegador para confirmar el comportamiento visual exacto.",
+          "Los datos semilla utilizados en las pruebas no son idénticos a las entradas reales del cliente, por lo que la validación de formatos depende de la consistencia lógica y no de coincidencia directa."
+        ],
+        "claims": [
+          {
+            "fact": "pydantic_request_validation",
+            "value": true
+          },
+          {
+            "fact": "frontend_demo_fallback",
+            "value": true
+          },
+          {
+            "fact": "base_checks_passed",
+            "value": true
+          }
+        ],
+        "citations": [
+          {
+            "path": "backend/app/main.py",
+            "line": 1,
+            "quote": "Imports, modelos Pydantic y handlers completos; sin repetir datos semilla."
+          },
+          {
+            "path": "frontend/src/main.jsx",
+            "line": 1,
+            "quote": "Estado, fetch, filtros y makeTrip/fallback; interfaz visual omitida."
+          }
+        ]
+      }
+    }
+  ],
+  "mcp": [],
+  "technical_facts": {
+    "facts": {
+      "pydantic_request_validation": {
+        "value": true,
+        "source": "backend/app/main.py"
+      },
+      "frontend_demo_fallback": {
+        "value": true,
+        "source": "frontend/src/main.jsx"
+      },
+      "base_checks_passed": {
+        "value": true,
+        "source": "operator_checks"
+      },
+      "spec_implementation_recorded": {
+        "value": true,
+        "source": "specs/taller-6/005-exportar-itinerario/spec.json"
+      },
+      "spec_tests_executed": {
+        "value": true,
+        "source": "specs/taller-6/005-exportar-itinerario/spec.json"
+      }
+    },
+    "basis": {
+      "backend": {
+        "sha256": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+        "analysis": "AST BaseModel + Field + typed handler"
+      },
+      "frontend": {
+        "sha256": "2f1fea75471a270691e827d79207c5b41c3d2ea61af4d30653e560fa78dc6e13",
+        "analysis": "static pattern; not full browser proof"
+      }
+    },
+    "distinction": "Generated test designs are not execution records; inspect the actual linked test runs.",
+    "source_sha256": {
+      "backend/app/main.py": "770bbc346580b0660e4c491d7723c369ddcc2f22da7c789f29f51d2b5fea78b9",
+      "frontend/src/main.jsx": "2f1fea75471a270691e827d79207c5b41c3d2ea61af4d30653e560fa78dc6e13"
+    },
+    "limitation": "Spec facts check declared records, not independent proof of feature implementation or test execution."
+  },
+  "claim_audits": [
+    {
+      "role": "orquestador",
+      "claims": [
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        },
+        {
+          "fact": "spec_implementation_recorded",
+          "claimed": true,
+          "actual": true,
+          "source": "specs/taller-6/005-exportar-itinerario/spec.json",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La implementación del itinerario de exportación (S05) está registrada en `specs/taller-6/005-exportar-itinerario/spec.json` con validación Pydantic en el backend (`backend/app/main.py`).",
+        "El frontend utiliza un patrón estático en `frontend/src/main.jsx`, sin pruebas completas que demuestren la descarga de Blob local o la ausencia de envío a servicios externos para todos los casos."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "frontend",
+      "claims": [
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        },
+        {
+          "fact": "spec_implementation_recorded",
+          "claimed": true,
+          "actual": true,
+          "source": "specs/taller-6/005-exportar-itinerario/spec.json",
+          "status": "verified"
+        }
+      ],
+      "citations": [
+        {
+          "path": "frontend/src/main.jsx",
+          "status": "invalid_or_not_supplied"
+        },
+        {
+          "path": "frontend/src/export-itinerary.js",
+          "status": "invalid_or_not_supplied"
+        }
+      ],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La función `exportTrip` en `main.jsx` invoca `downloadItinerary`, que valida explícitamente el origen (`api` o `demo`) antes de generar el JSON. Si el origen es `demo`, la exportación incluye ese valor, cumpliendo AC-03.",
+        "El archivo `export-itinerary.js` serializa datos con `format_version: 1` y mantiene los totales numéricos, validando AC-02 mediante pruebas unitarias en `tests/export-itinerary.test.js`."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "backend",
+      "claims": [
+        {
+          "fact": "pydantic_request_validation",
+          "claimed": true,
+          "actual": true,
+          "source": "backend/app/main.py",
+          "status": "verified"
+        },
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        }
+      ],
+      "citations": [],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La especificación AC-01 requiere que la acción de exportación esté deshabilitada o ausente si no existe propuesta generada. El código backend actual (`backend/app/main.py`) define el endpoint `POST /api/recommendations` pero no incluye lógica explícita para bloquear o ocultar la opción de exportación en la capa del navegador cuando no hay datos de recomendación disponibles. La validación ocurre en",
+        "La especificación AC-02 exige que al exportar y analizar JSON, la versión de formato sea 1 y los destinos/totales coincidan con la propuesta. El backend devuelve itinerarios basados en reglas (intereses, presupuesto) sin un controlador de versiones explícito en las respuestas JSON actuales. La lógica de selección (`selected.sort`, `itinerary.append`) genera datos dinámicos que podrían variar entre"
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "calidad",
+      "claims": [
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        },
+        {
+          "fact": "spec_implementation_recorded",
+          "claimed": true,
+          "actual": true,
+          "source": "specs/taller-6/005-exportar-itinerario/spec.json",
+          "status": "verified"
+        }
+      ],
+      "citations": [
+        {
+          "path": "harness/core.py",
+          "status": "invalid_or_not_supplied"
+        },
+        {
+          "path": "frontend/src/main.jsx",
+          "status": "invalid_or_not_supplied"
+        }
+      ],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La implementación cumple con la validación de permisos y el modelo local (qwen3.5:4b) según `harness/core.py`, donde se verifica que los roles no tengan permisos ampliados ni acceso a shell.",
+        "El análisis del código frontend (`frontend/src/main.jsx`) confirma la presencia de patrones de fallback, pero no constituye una prueba ejecutiva completa del navegador; el estado y la descarga dependen de interacciones externas no verificadas por este script."
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    },
+    {
+      "role": "seguridad",
+      "claims": [
+        {
+          "fact": "pydantic_request_validation",
+          "claimed": true,
+          "actual": true,
+          "source": "backend/app/main.py",
+          "status": "verified"
+        },
+        {
+          "fact": "frontend_demo_fallback",
+          "claimed": true,
+          "actual": true,
+          "source": "frontend/src/main.jsx",
+          "status": "verified"
+        },
+        {
+          "fact": "base_checks_passed",
+          "claimed": true,
+          "actual": true,
+          "source": "operator_checks",
+          "status": "verified"
+        }
+      ],
+      "citations": [
+        {
+          "path": "backend/app/main.py",
+          "status": "invalid_or_not_supplied"
+        },
+        {
+          "path": "frontend/src/main.jsx",
+          "status": "invalid_or_not_supplied"
+        }
+      ],
+      "blocked_claims": 0,
+      "unverified_prose": [
+        "La implementación del borrador 005 cumple con los criterios de aceptación AC-01 a AC-04 definidos en la especificación.",
+        "El backend valida las propuestas mediante Pydantic antes de generar el JSON, asegurando que destinos y totales coincidan (AC-02). El origen demo se identifica explícitamente cuando no hay propuesta válida (AC-03). La descarga local es segura sin enviar datos externos (AC-04), y la acción está deshabilitada si no existe propuesta (AC-01). Los checks de base (harness, agents, backend, frontend, buil"
+      ],
+      "human_acceptance": false,
+      "limitation": "Only catalogued facts and exact supplied quotations are checked. Free prose remains unverified."
+    }
+  ],
+  "stage_events": [
+    {
+      "role": "orquestador",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T16:03:01.042468+00:00",
+      "payload_chars": 8369,
+      "finished_at": "2026-11-18T16:04:09.143871+00:00",
+      "elapsed_seconds": 68.094,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "frontend",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T16:04:09.176449+00:00",
+      "payload_chars": 16765,
+      "finished_at": "2026-11-18T16:05:51.663876+00:00",
+      "elapsed_seconds": 102.484,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "backend",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T16:05:51.718468+00:00",
+      "payload_chars": 11586,
+      "finished_at": "2026-11-18T16:07:12.462462+00:00",
+      "elapsed_seconds": 80.75,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "calidad",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T16:07:12.514954+00:00",
+      "payload_chars": 18895,
+      "finished_at": "2026-11-18T16:08:39.954995+00:00",
+      "elapsed_seconds": 87.437,
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "role": "seguridad",
+      "stage": "llm",
+      "limit_seconds": 150,
+      "started_at": "2026-11-18T16:08:39.984334+00:00",
+      "payload_chars": 22775,
+      "finished_at": "2026-11-18T16:10:32.264914+00:00",
+      "elapsed_seconds": 112.281,
+      "exit_code": 0,
+      "status": "passed"
+    }
+  ],
+  "elapsed_seconds": 451.453,
+  "total_limit_seconds": 600,
+  "code_modified": false,
+  "checks_source": "docs/taller-6/ejecuciones/20261118T160230Z-283a97bd/checks.json",
+  "context_selection": "symbols_and_line_ranges",
+  "approval": "operator_assertion_not_identity",
+  "next_gate": "human_review"
+}

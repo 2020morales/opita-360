@@ -1,0 +1,147 @@
+{
+  "branch": {
+    "command": [
+      "git",
+      "branch",
+      "--show-current"
+    ],
+    "exit_code": 0,
+    "stdout": "taller6/base-comun\n",
+    "stderr": ""
+  },
+  "heads": {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD",
+      "MERGE_HEAD",
+      "main",
+      "taller4/completar-entrega",
+      "taller5/sistema-agentes"
+    ],
+    "exit_code": 0,
+    "stdout": "8cce952bace0763ac5e96208c70e93a304979fb4\n4a2321518560e7cd5f1e38d8b9df1140bab0148e\n4bb1626975c67dfeeee67ab1156322f2e6ce3eba\n4a2321518560e7cd5f1e38d8b9df1140bab0148e\n8cce952bace0763ac5e96208c70e93a304979fb4\n",
+    "stderr": ""
+  },
+  "staged": {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--name-status"
+    ],
+    "exit_code": 0,
+    "stdout": "M\tREADME.md\nA\tdocs/taller-4/README.md\nA\tdocs/taller-4/evidencias/api-server.log\nA\tdocs/taller-4/evidencias/build.log\nA\tdocs/taller-4/evidencias/chrome.log\nA\tdocs/taller-4/evidencias/escritorio.png\nA\tdocs/taller-4/evidencias/intento-puerto-ocupado.json\nA\tdocs/taller-4/evidencias/movil.png\nA\tdocs/taller-4/evidencias/resultados.json\nA\tdocs/taller-4/evidencias/unit.log\nA\tdocs/taller-4/evidencias/vite-server.log\nA\tdocs/taller-4/github-verificado.json\nA\tdocs/taller-4/historial/primera-ejecucion-navegador/api-server.log\nA\tdocs/taller-4/historial/primera-ejecucion-navegador/build.log\nA\tdocs/taller-4/historial/primera-ejecucion-navegador/chrome.log\nA\tdocs/taller-4/historial/primera-ejecucion-navegador/escritorio.png\nA\tdocs/taller-4/historial/primera-ejecucion-navegador/intento-puerto-ocupado.json\nA\tdocs/taller-4/historial/primera-ejecucion-navegador/movil.png\nA\tdocs/taller-4/historial/primera-ejecucion-navegador/resultados.json\nA\tdocs/taller-4/historial/primera-ejecucion-navegador/unit.log\nA\tdocs/taller-4/historial/primera-ejecucion-navegador/vite-server.log\nA\tdocs/taller-4/pendientes.md\nA\tdocs/taller-4/plan-aprobado.md\nA\tdocs/taller-4/propuesta-pr.md\nA\tdocs/taller-4/requirements-browser.txt\nA\tdocs/taller-4/resultados.md\nA\tdocs/taller-4/verificar.py\nM\tfrontend/package.json\nA\tfrontend/src/destination-filters.js\nM\tfrontend/src/main.jsx\nA\tfrontend/tests/destination-filters.test.js\n",
+    "stderr": ""
+  },
+  "conflicts": {
+    "command": [
+      "git",
+      "diff",
+      "--name-only",
+      "--diff-filter=U"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "unstaged_tracked": {
+    "command": [
+      "git",
+      "diff",
+      "--exit-code"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "preserve_t5": {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--exit-code",
+      "HEAD",
+      "--",
+      "agents",
+      "backend",
+      "docs/taller-5",
+      ".gitattributes"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "preserve_t4": {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--exit-code",
+      "taller4/completar-entrega",
+      "--",
+      "docs/taller-4",
+      "frontend/src/destination-filters.js",
+      "frontend/tests",
+      "frontend/package.json",
+      "README.md"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "whitespace": {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "exit_code": 2,
+    "stdout": "docs/taller-4/evidencias/build.log:18: trailing whitespace.\n+ \u001b[38;5;240m  │\u001b[0m ──────┬──────  \ndocs/taller-4/evidencias/build.log:20: trailing whitespace.\n+ \u001b[38;5;240m  │\u001b[0m \ndocs/taller-4/evidencias/build.log:28: trailing whitespace.\n+ \u001b[38;5;240m  │\u001b[0m ──────┬──────  \ndocs/taller-4/evidencias/build.log:30: trailing whitespace.\n+ \u001b[38;5;240m  │\u001b[0m \ndocs/taller-4/historial/primera-ejecucion-navegador/build.log:18: trailing whitespace.\n+ \u001b[38;5;240m  │\u001b[0m ──────┬──────  \ndocs/taller-4/historial/primera-ejecucion-navegador/build.log:20: trailing whitespace.\n+ \u001b[38;5;240m  │\u001b[0m \ndocs/taller-4/historial/primera-ejecucion-navegador/build.log:28: trailing whitespace.\n+ \u001b[38;5;240m  │\u001b[0m ──────┬──────  \ndocs/taller-4/historial/primera-ejecucion-navegador/build.log:30: trailing whitespace.\n+ \u001b[38;5;240m  │\u001b[0m \n",
+    "stderr": ""
+  },
+  "original_t5_status": {
+    "command": [
+      "git",
+      "-C",
+      "<REPO_ORIGINAL>",
+      "status",
+      "--porcelain=v1",
+      "--untracked-files=all"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "original_t4_status": {
+    "command": [
+      "git",
+      "-C",
+      "<WORKTREE_T4>",
+      "status",
+      "--porcelain=v1",
+      "--untracked-files=all"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "exactly_31_incoming_paths": true,
+  "previous_source_hashes_match_current": true,
+  "timestamp_utc": "2026-11-17T20:38:22.849687+00:00",
+  "privacy_redaction": {
+    "scope": "Local paths and account identifiers only; no test rerun.",
+    "aliases": [
+      "<WORKTREE_T6>",
+      "<WORKTREE_T4>",
+      "<REPO_ORIGINAL>",
+      "<PYTHON>",
+      "<NPM>"
+    ],
+    "original_report_sha256": "9ece496d6d9c53e200b984438e16dee00afab9ca878b86d258e3d81919be19fc",
+    "historical_hashes": "Existing hash fields describe the original execution, not the anonymized copy.",
+    "portable_adapter_sha256": "c648388e3a47c746b59de9d0f32918c944021a6c43af4a54902c96ac1952cd6c",
+    "test_results_dates_and_quantities_changed": false
+  }
+}

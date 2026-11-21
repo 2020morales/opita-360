@@ -1,0 +1,47 @@
+{
+  "id": "002",
+  "title": "Filtro por costo maximo",
+  "amber": 3,
+  "status": "approved",
+  "implementation": "implemented",
+  "pull_request": "https://github.com/2020morales/opita-360/pull/6",
+  "acceptance": [
+    {
+      "id": "AC-01",
+      "given": "destino de 35000 COP y limite 35000",
+      "when": "aplicar costo maximo",
+      "then": "el destino se incluye por limite inclusivo",
+      "layer": "unit"
+    },
+    {
+      "id": "AC-02",
+      "given": "filtros activos y costo vacio",
+      "when": "filtrar catalogo",
+      "then": "costo no limita; municipio, categoria y busqueda siguen activos",
+      "layer": "unit"
+    },
+    {
+      "id": "AC-03",
+      "given": "catalogo actual con precios positivos",
+      "when": "aplicar limite cero",
+      "then": "lista vacia y mensaje de recuperacion",
+      "layer": "browser"
+    },
+    {
+      "id": "AC-04",
+      "given": "entrada negativa o no numerica",
+      "when": "intentar aplicar el limite",
+      "then": "mensaje de validacion; no se aplica un filtro invalido",
+      "layer": "browser"
+    }
+  ],
+  "acceptance_status": "awaiting_human_review",
+  "test_runs": [
+    "docs/taller-6/ejecuciones/20261118T052732Z-400db009/s02-browser.json"
+  ],
+  "integration": {
+    "branch": "taller6/integracion-final",
+    "main": "not_integrated",
+    "human_review": "pending"
+  }
+}

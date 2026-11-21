@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "-m",
+    "harness",
+    "validate"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"specs\": [{\"id\": \"001\", \"criteria\": 10, \"status\": \"approved\"}, {\"id\": \"002\", \"criteria\": 4, \"status\": \"approved\"}, {\"id\": \"003\", \"criteria\": 5, \"status\": \"approved\"}, {\"id\": \"004\", \"criteria\": 5, \"status\": \"approved\"}, {\"id\": \"005\", \"criteria\": 4, \"status\": \"approved\"}], \"status\": \"structure_valid_not_implemented\"}\n",
+  "stderr": ""
+}

@@ -1,0 +1,16 @@
+{
+  "spec": "002",
+  "branch": "taller6/002-costo-maximo",
+  "base": "0985273541e21579009cb6179546b9f3db845f7e",
+  "checks": "docs/taller-6/ejecuciones/20261118T052855Z-fa1dc3d8/checks.json",
+  "checks_snapshot_current": true,
+  "protected_paths_changed": [],
+  "excluded_count": 16,
+  "staged_paths": [],
+  "s01_is_ancestor": false,
+  "notes": [
+    "No backend or API changes; frontend-only approved scope.",
+    "No historical evidence overwritten.",
+    "New suites passed; browser proof linked in results."
+  ]
+}

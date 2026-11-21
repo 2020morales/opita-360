@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "model": {
+    "provider": "ollama-local",
+    "name": "qwen3.5:4b"
+  },
+  "agents": {
+    "orquestador": {
+      "purpose": "Recibir spec, delegar revisiones secuenciales y reunir evidencia. No programa ni publica.",
+      "tools": [
+        "read_context",
+        "delegate",
+        "llm_review"
+      ],
+      "read": [
+        "harness/agents/orquestador.md",
+        "AGENTS.md",
+        "harness/README.md",
+        "harness/manifest.json",
+        "docs/taller-6/integracion-final-contexto.json"
+      ],
+      "write": false,
+      "shell": false,
+      "skills": []
+    },
+    "frontend": {
+      "purpose": "Revisar React, filtros, teclado y modo demo; proponer cambios pendientes de aprobacion.",
+      "tools": [
+        "read_context",
+        "llm_review",
+        "read_mcp"
+      ],
+      "read": [
+        "harness/agents/frontend.md",
+        "frontend/AGENTS.md",
+        "frontend/src/main.jsx",
+        "frontend/src/destination-filters.js",
+        "frontend/src/styles.css",
+        ".agents/skills/opita-frontend/SKILL.md",
+        "frontend/src/destination-detail.jsx",
+        "frontend/tests/max-cost.test.js",
+        "frontend/src/favorites.js",
+        "frontend/tests/favorites.test.js",
+        "frontend/src/recommendation-municipality.js",
+        "frontend/tests/recommendation-municipality.test.js",
+        "frontend/src/export-itinerary.js",
+        "frontend/tests/export-itinerary.test.js",
+        "docs/taller-6/integracion-final-contexto.json"
+      ],
+      "write": false,
+      "shell": false,
+      "skills": [
+        "opita-frontend"
+      ]
+    },
+    "backend": {
+      "purpose": "Revisar FastAPI, validacion, contratos y datos en memoria; no cambiar persistencia.",
+      "tools": [
+        "read_context",
+        "llm_review",
+        "read_mcp"
+      ],
+      "read": [
+        "harness/agents/backend.md",
+        "backend/AGENTS.md",
+        "backend/app/main.py",
+        "backend/tests/test_api.py",
+        ".agents/skills/opita-backend/SKILL.md",
+        "backend/tests/test_destination_detail.py",
+        "backend/tests/test_recommendation_municipality.py",
+        "docs/taller-6/integracion-final-contexto.json",
+        "backend/tests/test_integrated_features.py"
+      ],
+      "write": false,
+      "shell": false,
+      "skills": [
+        "opita-backend"
+      ]
+    },
+    "calidad": {
+      "purpose": "Disenar pruebas desde criterios, contrastar resultados reales y detectar cobertura faltante.",
+      "tools": [
+        "read_context",
+        "llm_review"
+      ],
+      "read": [
+        "harness/agents/calidad.md",
+        "harness/core.py",
+        "harness/tests/test_harness.py",
+        ".agents/skills/brujula-semantica/SKILL.md",
+        "harness/grounding.py",
+        "docs/taller-6/integracion-final-contexto.json"
+      ],
+      "write": false,
+      "shell": false,
+      "skills": [
+        "brújula-semántica"
+      ]
+    },
+    "seguridad": {
+      "purpose": "Revisar permisos, aislamiento, entradas no confiables y limites; no emitir aprobaciones humanas.",
+      "tools": [
+        "read_context",
+        "llm_review"
+      ],
+      "read": [
+        "harness/agents/seguridad.md",
+        "AGENTS.md",
+        "harness/manifest.json",
+        "harness/runtime.py",
+        "harness/core.py",
+        "harness/grounding.py",
+        "docs/taller-6/integracion-final-contexto.json"
+      ],
+      "write": false,
+      "shell": false,
+      "skills": []
+    }
+  },
+  "approval": {
+    "required": true,
+    "kind": "operator_assertion_not_identity"
+  },
+  "limits": {
+    "max_file_bytes": 65536,
+    "llm_timeout_seconds": 150,
+    "max_output_tokens": 1000,
+    "correction_rounds": 0,
+    "mcp_timeout_seconds": 60,
+    "run_timeout_seconds": 600,
+    "context_code_chars": 4200,
+    "context_document_chars": 900
+  },
+  "tools": {
+    "read_context": "Host reads only explicit allowlisted files; denied redirects and traversal.",
+    "delegate": "Orchestrator only, fixed roles, sequential.",
+    "llm_review": "Fixed loopback endpoint; no redirects or proxies; model has no executable tools.",
+    "read_mcp": "Reuse agents.mcp_probe.probe; exported copy; read_text_file only."
+  },
+  "write_policy": "Agents cannot write. Operator CLI creates new unique reports only in docs/taller-6/ejecuciones."
+}
