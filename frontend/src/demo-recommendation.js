@@ -19,12 +19,13 @@ export function buildItinerary(candidates, { days, budget, interests }) {
       total += destination.price;
     }
   }
-  return { itinerary, total };
+  return { itinerary, total, matched: matches.length > 0 };
 }
 
 // Mismos avisos que agrega la API al campo notice.
-export function itineraryNotices({ days, budget, itinerary, total }) {
+export function itineraryNotices({ days, budget, itinerary, total, matched = true }) {
   let notice = "";
+  if (!matched && itinerary.length) notice += "Ningún destino coincide con tus intereses; se muestran opciones generales. ";
   if (total > budget) notice += "La primera parada supera tu presupuesto; se incluye como referencia. ";
   if (itinerary.length && itinerary.length < days) notice += `Solo hay ${itinerary.length} parada(s) para ${days} día(s) con estos filtros. `;
   return notice;

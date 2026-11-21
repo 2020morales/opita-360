@@ -40,3 +40,4 @@
 .export-button:disabled { opacity: .55; cursor: not-allowed; }
 .export-button:focus-visible { outline: 3px solid #206444; outline-offset: 3px; }
 .export-controls p { margin-top: .6rem; }
+.form-error{color:#7d3318;font-weight:600;font-size:13px;line-height:1.4;margin:8px 0 0}

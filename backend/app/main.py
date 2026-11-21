@@ -111,6 +111,7 @@ def recommend_trip(request: TripRequest):
         interest.lower() == d["category"].lower()
         for interest in request.interests
     )]
+    matched = bool(selected)
     if not selected:
         selected = candidates[:]
     # Prioriza sitios asequibles y ajusta el número a los días solicitados.
@@ -124,6 +125,8 @@ def recommend_trip(request: TripRequest):
             total += destination["price"]
     remaining = max(request.budget - total, 0)
     warnings = ""
+    if candidates and not matched:
+        warnings += "Ningún destino coincide con tus intereses; se muestran opciones generales. "
     if total > request.budget:
         warnings += "La primera parada supera tu presupuesto; se incluye como referencia. "
     if itinerary and len(itinerary) < request.days:

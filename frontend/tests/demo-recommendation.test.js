@@ -55,3 +55,15 @@ test('REV-06 avisa cuando hay menos paradas que días', () => {
 test('REV-03/06 sin avisos en un caso normal', () => {
   assert.equal(itineraryNotices({ days: 1, budget: 200000, itinerary: [catalog[2]], total: 35000 }), '');
 });
+
+test('REV2-04 avisa cuando ningún destino coincide con los intereses', () => {
+  const { itinerary, total, matched } = buildItinerary(catalog, { days: 1, budget: 200000, interests: ['sin-coincidencias'] });
+  assert.equal(matched, false);
+  assert.match(itineraryNotices({ days: 1, budget: 200000, itinerary, total, matched }), /Ningún destino coincide con tus intereses/);
+});
+
+test('REV2-04 sin aviso de intereses cuando sí coinciden', () => {
+  const { itinerary, total, matched } = buildItinerary(catalog, { days: 1, budget: 200000, interests: ['cultura'] });
+  assert.equal(matched, true);
+  assert.doesNotMatch(itineraryNotices({ days: 1, budget: 200000, itinerary, total, matched }), /Ningún destino/);
+});

@@ -8,6 +8,7 @@ import { loadFavorites, saveFavorites, toggleFavorite, SESSION_NOTICE } from "./
 import { recommendationCandidates } from "./recommendation-municipality.js";
 import { downloadItinerary } from "./export-itinerary.js";
 import { buildItinerary, itineraryNotices } from "./demo-recommendation.js";
+import { MAX_BUDGET, parseBudget, recommendationOutcome } from "./trip-request.js";
 // Copia exacta del catálogo de la API (verificada por backend/tests/test_review_fixes.py).
 import fallbackDestinations from "./fallback-destinations.json";
 
@@ -40,6 +41,7 @@ function App() {
   const [result, setResult] = useState(null);
   const [resultOrigin, setResultOrigin] = useState(null);
   const [exportError, setExportError] = useState("");
+  const [tripError, setTripError] = useState("");
   const [loading, setLoading] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [detail, setDetail] = useState(null);
@@ -104,20 +106,34 @@ function App() {
 
   async function makeTrip(e) {
     e.preventDefault();
+    const parsedBudget = parseBudget(budget);
+    if (!parsedBudget.valid) {
+      setTripError(parsedBudget.error);
+      document.getElementById("budget")?.focus();
+      return;
+    }
+    setTripError("");
     setLoading(true);
     setExportError("");
-    const payload = { days: Number(days), budget: Math.max(0, Number(budget) || 0), interests: interests.length ? interests : ["naturaleza"], ...(tripMunicipality ? { municipality: tripMunicipality } : {}) };
+    const payload = { days: Number(days), budget: parsedBudget.value, interests: interests.length ? interests : ["naturaleza"], ...(tripMunicipality ? { municipality: tripMunicipality } : {}) };
     try {
       const response = await fetch(`${API}/api/recommendations`, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload) });
-      if (!response.ok) throw new Error("API");
+      const outcome = recommendationOutcome(response.status);
+      if (outcome === "invalid") {
+        // Datos rechazados por la API: se informa en vez de simular una propuesta demo.
+        setTripError("La API rechazó los datos del formulario. Revisa los días, el presupuesto y los intereses.");
+        setLoading(false);
+        return;
+      }
+      if (outcome !== "api") throw new Error("API");
       setResult(await response.json());
       setResultOrigin("api");
     } catch {
       setResultOrigin("demo");
       const candidates = recommendationCandidates(destinations, payload.municipality);
-      const { itinerary, total } = buildItinerary(candidates, payload);
+      const { itinerary, total, matched } = buildItinerary(candidates, payload);
       const localityNotice = payload.municipality && !candidates.length ? "No hay destinos disponibles para el municipio seleccionado. " : "";
-      const warnings = itineraryNotices({ ...payload, itinerary, total });
+      const warnings = itineraryNotices({ ...payload, itinerary, total, matched });
       setResult({summary:`Propuesta de ${itinerary.length} parada(s) para ${days} día(s).`,method:"Recomendación local de demostración.",itinerary,estimated_total:total,budget:payload.budget,remaining_budget:Math.max(payload.budget-total,0),notice:`${localityNotice}${warnings}Valores orientativos; confirma precios y disponibilidad antes de viajar.`});
     }
     setLoading(false);
@@ -206,7 +222,8 @@ function App() {
           <input id="trip-days" className="range" type="range" min="1" max="7" value={days} aria-valuetext={`${days} ${days===1?"día":"días"}`} onChange={e=>setDays(Number(e.target.value))} />
           <div className="range-ends"><span>1 día</span><span>7 días</span></div>
           <label className="field-label budget-label" htmlFor="budget"><span><Wallet size={16}/> ¿Cuál es tu presupuesto?</span></label>
-          <div className="money-input"><span>$</span><input id="budget" type="number" min="0" step="10000" value={budget} onChange={e=>setBudget(e.target.value)} required/><small>COP</small></div>
+          <div className="money-input"><span>$</span><input id="budget" type="number" min="0" max={MAX_BUDGET} step="1" value={budget} onChange={e=>{setBudget(e.target.value); setTripError("");}} aria-invalid={Boolean(tripError)} aria-describedby={tripError ? "budget-error" : undefined} required/><small>COP</small></div>
+          {tripError && <p id="budget-error" className="form-error" role="alert">{tripError}</p>}
           <div className="field-label"><span><Heart size={16}/> ¿Qué te gustaría vivir?</span></div>
           <label className="field-label" htmlFor="trip-municipality">Municipio de la propuesta</label>
           <select className="trip-municipality" id="trip-municipality" value={tripMunicipality} onChange={event=>setTripMunicipality(event.target.value)}><option value="">Todos los municipios</option>{municipalities.map(value=><option key={value} value={value}>{value}</option>)}</select>

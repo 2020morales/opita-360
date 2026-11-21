@@ -48,5 +48,37 @@ class ReviewFixesTests(unittest.TestCase):
         self.assertIn(f"{len(data['itinerary'])} parada(s) para 14 día(s)", data["notice"])
 
 
+
+class SecondReviewTests(unittest.TestCase):
+    def setUp(self):
+        self.client = TestClient(app)
+
+    def tearDown(self):
+        self.client.close()
+
+    def post(self, **payload):
+        return self.client.post("/api/recommendations", json=payload)
+
+    def test_rev2_04_unmatched_interests_are_announced(self):
+        data = self.post(days=1, budget=200000, interests=["sin-coincidencias"]).json()
+        self.assertEqual(len(data["itinerary"]), 1)
+        self.assertIn("Ningún destino coincide con tus intereses", data["notice"])
+
+    def test_rev2_04_unmatched_interests_within_municipality(self):
+        data = self.post(days=2, budget=200000, interests=["naturaleza"], municipality="Neiva").json()
+        self.assertEqual({d["id"] for d in data["itinerary"]}, {3, 8})
+        self.assertIn("Ningún destino coincide con tus intereses", data["notice"])
+
+    def test_rev2_04_no_interest_notice_when_matched_or_no_candidates(self):
+        self.assertNotIn("Ningún destino", self.post(days=1, budget=200000, interests=["cultura"]).json()["notice"])
+        self.assertNotIn("Ningún destino", self.post(municipality="Sin destinos").json()["notice"])
+
+    def test_rev2_01_budget_limit_matches_frontend_constant(self):
+        source = (FALLBACK.parent / "trip-request.js").read_text(encoding="utf-8")
+        self.assertIn("MAX_BUDGET = 100000000", source)
+        self.assertEqual(self.post(budget=100000000).status_code, 200)
+        self.assertEqual(self.post(budget=100000001).status_code, 422)
+
+
 if __name__ == "__main__":
     unittest.main()
