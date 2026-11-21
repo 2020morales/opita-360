@@ -1,0 +1,80 @@
+{
+  "finished_at": "2026-11-20T06:56:14.212524+00:00",
+  "branch": "fix/revision-taller-6",
+  "base_commit": "a5f3e3a218e32836388dc289509827a01932bdbe",
+  "changed_existing_files": [
+    "README.md",
+    "docs/taller-6/requisitos-oficiales.md",
+    "harness/README.md",
+    "specs/taller-6/001-detalle-destino/pr.md",
+    "specs/taller-6/002-costo-maximo/pr.md",
+    "specs/taller-6/003-favoritos/pr.md",
+    "specs/taller-6/004-recomendaciones-municipio/pr.md",
+    "specs/taller-6/005-exportar-itinerario/pr.md"
+  ],
+  "preserved_tracked_files": 358,
+  "branch_refs_unchanged": true,
+  "counts": {
+    "harness": 46,
+    "agents": 34,
+    "backend": 22,
+    "frontend": 38
+  },
+  "total_tests": 140,
+  "build_exit_code": 0,
+  "checks_path": "docs/taller-6/ejecuciones/20261120T065100Z-9f589ed0/checks.json",
+  "checks_sha256": "b07179188cc4390517008cdf1e6b92642551403ed35daecca2191f3041b92d9e",
+  "specs": [
+    {
+      "id": "001",
+      "amber": 3,
+      "criteria": 10,
+      "cases": 10,
+      "plan_value_matches": true
+    },
+    {
+      "id": "002",
+      "amber": 3,
+      "criteria": 4,
+      "cases": 4,
+      "plan_value_matches": true
+    },
+    {
+      "id": "003",
+      "amber": 4,
+      "criteria": 5,
+      "cases": 5,
+      "plan_value_matches": true
+    },
+    {
+      "id": "004",
+      "amber": 5,
+      "criteria": 5,
+      "cases": 5,
+      "plan_value_matches": true
+    },
+    {
+      "id": "005",
+      "amber": 3,
+      "criteria": 4,
+      "cases": 4,
+      "plan_value_matches": true
+    }
+  ],
+  "skills_preserved": true,
+  "plan_mode_preserved": true,
+  "runtime_code_unchanged": true,
+  "inventory_review_path": "docs/taller-6/ejecuciones/20261120T065244Z-a8f4b690/review.json",
+  "inventory_reports": 5,
+  "llm_executed": false,
+  "mcp_executed": false,
+  "diff_check_exit_code": 0,
+  "diff_check_warnings": "warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/taller-6/requisitos-oficiales.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'harness/README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'specs/taller-6/001-detalle-destino/pr.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'specs/taller-6/002-costo-maximo/pr.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'specs/taller-6/003-favoritos/pr.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'specs/taller-6/004-recomendaciones-municipio/pr.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'specs/taller-6/005-exportar-itinerario/pr.md', LF will be replaced by CRLF the next time Git touches it\n",
+  "sensitive_pattern_matches": [],
+  "staged": false,
+  "limitations": [
+    "No se ejecutan LLM, MCP ni navegador nuevos en una corrección documental.",
+    "El inventario PPTX inspecciona XML y notas; no se aplica OCR a imágenes.",
+    "Los requisitos ambiguos no se declaran resueltos."
+  ]
+}

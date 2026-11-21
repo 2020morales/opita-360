@@ -4,6 +4,20 @@ Ensayo local de integración S01–S05; no es aceptación humana ni fusión a ma
 
 Texto solicitado por la consigna: «Arnés certificado por el profesor (código FET-ARN-42)». Se reproduce como requisito literal del documento; no acredita una certificación o revisión emitida por el docente.
 
+## Estado de los requisitos del Taller 6
+
+Los seis términos cuestionados aparecen en el PDF oficial y se conservan.
+**Certificación y revisión docente: no acreditadas.** La frase literal solicitada
+no demuestra una certificación, firma ni revisión del profesor. La aprobación del
+usuario o la fusión de un PR tampoco las sustituyen.
+
+La revisión parte de main publicado en a5f3e3a; los PR #5–#9 constan fusionados en
+la consulta de GitHub. Las menciones siguientes a «ensayo local» o «sin fusión»
+describen la etapa anterior, no el estado actual de esas cinco funcionalidades.
+Esta rama de corrección no realiza merges ni altera sus implementaciones.
+
+[Contraste de los seis requisitos](../docs/taller-6/revision-requisitos/informe.md). Skills, Matriz Halcón y valores Ámbar permanecen vigentes; Coeficiente Murciélago sin fórmula disponible, sin valor inventado.
+
 ## Componentes y arquitectura
 
 - ../AGENTS.md: memoria de inicio e instrucciones para Codex en VS Code.
