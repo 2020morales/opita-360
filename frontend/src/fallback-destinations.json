@@ -1,0 +1,138 @@
+[
+  {
+    "id": 1,
+    "name": "Desierto de la Tatacoa",
+    "municipality": "Villavieja",
+    "category": "Naturaleza",
+    "price": 85000,
+    "days": 1,
+    "description": "Paisajes rojizos, senderos y observación del cielo nocturno.",
+    "emoji": "🌵",
+    "tags": [
+      "naturaleza",
+      "aventura",
+      "fotografía",
+      "astronomía"
+    ],
+    "color": "sand"
+  },
+  {
+    "id": 2,
+    "name": "Parque Arqueológico de San Agustín",
+    "municipality": "San Agustín",
+    "category": "Cultura",
+    "price": 120000,
+    "days": 1,
+    "description": "Estatuas ancestrales, historia y patrimonio arqueológico.",
+    "emoji": "🗿",
+    "tags": [
+      "cultura",
+      "historia",
+      "familia",
+      "arqueología"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 3,
+    "name": "Malecón del río Magdalena",
+    "municipality": "Neiva",
+    "category": "Cultura",
+    "price": 35000,
+    "days": 1,
+    "description": "Un recorrido urbano para disfrutar el río y la identidad opita.",
+    "emoji": "🌅",
+    "tags": [
+      "cultura",
+      "gastronomía",
+      "familia",
+      "relajación"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 4,
+    "name": "Salto de Bordones",
+    "municipality": "Isnos",
+    "category": "Naturaleza",
+    "price": 95000,
+    "days": 1,
+    "description": "Una imponente caída de agua rodeada de montañas y vegetación.",
+    "emoji": "💧",
+    "tags": [
+      "naturaleza",
+      "aventura",
+      "fotografía",
+      "senderismo"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 5,
+    "name": "Estrecho del río Magdalena",
+    "municipality": "San Agustín",
+    "category": "Aventura",
+    "price": 70000,
+    "days": 1,
+    "description": "Un tramo singular del río entre grandes formaciones rocosas.",
+    "emoji": "🏞️",
+    "tags": [
+      "aventura",
+      "naturaleza",
+      "fotografía",
+      "senderismo"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 6,
+    "name": "Termales de Rivera",
+    "municipality": "Rivera",
+    "category": "Bienestar",
+    "price": 65000,
+    "days": 1,
+    "description": "Aguas termales y descanso en un entorno natural.",
+    "emoji": "♨️",
+    "tags": [
+      "relajación",
+      "naturaleza",
+      "familia",
+      "bienestar"
+    ],
+    "color": "sand"
+  },
+  {
+    "id": 7,
+    "name": "Represa de Betania",
+    "municipality": "Yaguará",
+    "category": "Aventura",
+    "price": 90000,
+    "days": 1,
+    "description": "Paisajes acuáticos y actividades recreativas según disponibilidad local.",
+    "emoji": "🛶",
+    "tags": [
+      "aventura",
+      "naturaleza",
+      "familia",
+      "fotografía"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 8,
+    "name": "Centro de Neiva y tradición opita",
+    "municipality": "Neiva",
+    "category": "Cultura",
+    "price": 45000,
+    "days": 1,
+    "description": "Sabores regionales, espacios culturales y tradición del Huila.",
+    "emoji": "🎭",
+    "tags": [
+      "cultura",
+      "gastronomía",
+      "historia",
+      "familia"
+    ],
+    "color": "sand"
+  }
+]

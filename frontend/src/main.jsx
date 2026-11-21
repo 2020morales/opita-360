@@ -1,25 +1,18 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { createRoot } from "react-dom/client";
-import { ArrowDownRight, ArrowRight, Compass, MapPin, Sparkles, CalendarDays, Wallet, Heart, Menu, X, Mountain, Waves, Landmark, Search, ExternalLink } from "lucide-react";
+import { ArrowDownRight, ArrowRight, ArrowUpRight, Compass, MapPin, Sparkles, CalendarDays, Wallet, Heart, Menu, X, Mountain, Waves, Search } from "lucide-react";
 import "./styles.css";
 import DestinationDetail from "./destination-detail.jsx";
 import { getMunicipalities, validMunicipality, filterDestinations, parseMaxCost } from "./destination-filters.js";
 import { loadFavorites, saveFavorites, toggleFavorite, SESSION_NOTICE } from "./favorites.js";
 import { recommendationCandidates } from "./recommendation-municipality.js";
 import { downloadItinerary } from "./export-itinerary.js";
+import { buildItinerary, itineraryNotices } from "./demo-recommendation.js";
+// Copia exacta del catálogo de la API (verificada por backend/tests/test_review_fixes.py).
+import fallbackDestinations from "./fallback-destinations.json";
 
 const API = "http://127.0.0.1:8000";
 const COP = new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 });
-const fallbackDestinations = [
-  {id:1,name:"Desierto de la Tatacoa",municipality:"Villavieja",category:"Naturaleza",price:85000,days:1,description:"Paisajes rojizos, senderos y observación del cielo nocturno.",emoji:"🌵",tags:["naturaleza","aventura","fotografía","astronomía"],color:"sand"},
-  {id:2,name:"Parque Arqueológico de San Agustín",municipality:"San Agustín",category:"Cultura",price:120000,days:1,description:"Estatuas ancestrales, historia y patrimonio arqueológico.",emoji:"🗿",tags:["cultura","historia","familia","arqueología"],color:"green"},
-  {id:3,name:"Malecón del río Magdalena",municipality:"Neiva",category:"Cultura",price:35000,days:1,description:"Un recorrido urbano para disfrutar el río y la identidad opita.",emoji:"🌅",tags:["cultura","gastronomía","familia","relajación"],color:"blue"},
-  {id:4,name:"Salto de Bordones",municipality:"Isnos",category:"Naturaleza",price:95000,days:1,description:"Una imponente caída de agua rodeada de montañas y vegetación.",emoji:"💧",tags:["naturaleza","aventura","fotografía","senderismo"],color:"blue"},
-  {id:5,name:"Estrecho del río Magdalena",municipality:"San Agustín",category:"Aventura",price:70000,days:1,description:"Un tramo singular del río entre grandes formaciones rocosas.",emoji:"🏞️",tags:["aventura","naturaleza","fotografía","senderismo"],color:"green"},
-  {id:6,name:"Termales de Rivera",municipality:"Rivera",category:"Bienestar",price:65000,days:1,description:"Aguas termales y descanso en un entorno natural.",emoji:"♨️",tags:["relajación","naturaleza","familia","bienestar"],color:"sand"},
-  {id:7,name:"Represa de Betania",municipality:"Yaguará",category:"Aventura",price:90000,days:1,description:"Paisajes acuáticos y actividades recreativas según disponibilidad local.",emoji:"🛶",tags:["aventura","naturaleza","familia","fotografía"],color:"blue"},
-  {id:8,name:"Centro de Neiva y tradición opita",municipality:"Neiva",category:"Cultura",price:45000,days:1,description:"Sabores regionales, espacios culturales y tradición del Huila.",emoji:"🎭",tags:["cultura","gastronomía","historia","familia"],color:"sand"}
-];
 const photos = {
   "Desierto de la Tatacoa":"https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=900&q=85",
   "Parque Arqueológico de San Agustín":"https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=900&q=85",
@@ -122,11 +115,10 @@ function App() {
     } catch {
       setResultOrigin("demo");
       const candidates = recommendationCandidates(destinations, payload.municipality);
-      const chosen = candidates.filter(d => d.tags.some(t => payload.interests.includes(t)) || payload.interests.includes(d.category.toLowerCase())).sort((a,b)=>a.price-b.price).slice(0, Number(days));
-      const itinerary = chosen.length ? chosen : candidates.slice(0, Number(days));
-      const total = itinerary.reduce((sum,d)=>sum+d.price,0);
+      const { itinerary, total } = buildItinerary(candidates, payload);
       const localityNotice = payload.municipality && !candidates.length ? "No hay destinos disponibles para el municipio seleccionado. " : "";
-      setResult({summary:`Propuesta de ${itinerary.length} parada(s) para ${days} día(s).`,method:"Recomendación local de demostración.",itinerary,estimated_total:total,budget:payload.budget,remaining_budget:Math.max(payload.budget-total,0),notice:`${localityNotice}Valores orientativos; confirma precios y disponibilidad antes de viajar.`});
+      const warnings = itineraryNotices({ ...payload, itinerary, total });
+      setResult({summary:`Propuesta de ${itinerary.length} parada(s) para ${days} día(s).`,method:"Recomendación local de demostración.",itinerary,estimated_total:total,budget:payload.budget,remaining_budget:Math.max(payload.budget-total,0),notice:`${localityNotice}${warnings}Valores orientativos; confirma precios y disponibilidad antes de viajar.`});
     }
     setLoading(false);
     setTimeout(() => document.getElementById("resultado")?.scrollIntoView({behavior:"smooth",block:"start"}), 80);
@@ -172,7 +164,7 @@ function App() {
 
       <section className="destinations section-pad" id="destinos">
         <div className="section-heading"><div><span className="section-kicker">LUGARES QUE DEJAN HUELLA</span><h2>El Huila te espera<span className="dot">.</span></h2></div><a className="text-link dark" href="#mapa">Ver mapa <ArrowRight size={16}/></a></div>
-        <div className="filter-row"><div className="searchbox"><Search size={17}/><input aria-label="Buscar destinos por nombre o municipio" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Busca un destino o municipio…"/></div><label className="municipality-filter" htmlFor="municipality-filter"><MapPin size={16} aria-hidden="true"/><span>Municipio</span><select id="municipality-filter" value={municipality} onChange={e=>setMunicipality(e.target.value)}><option value="Todos">Todos los municipios</option>{municipalities.map(m=><option key={m} value={m}>{m}</option>)}</select></label><div className="filters">{["Todos","Naturaleza","Cultura","Aventura","Bienestar"].map(c=><button key={c} className={category===c?"filter active":"filter"} onClick={()=>setCategory(c)}>{c}</button>)}</div></div>
+        <div className="filter-row"><div className="searchbox"><Search size={17}/><input aria-label="Buscar destinos por nombre o municipio" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Busca un destino o municipio…"/></div><label className="municipality-filter" htmlFor="municipality-filter"><MapPin size={16} aria-hidden="true"/><span>Municipio</span><select id="municipality-filter" value={municipality} onChange={e=>setMunicipality(e.target.value)}><option value="Todos">Todos los municipios</option>{municipalities.map(m=><option key={m} value={m}>{m}</option>)}</select></label><div className="filters">{["Todos","Naturaleza","Cultura","Aventura","Bienestar"].map(c=><button type="button" key={c} className={category===c?"filter active":"filter"} aria-pressed={category===c} onClick={()=>setCategory(c)}>{c}</button>)}</div></div>
         <form className="cost-filter" onSubmit={applyMaxCost}>
           <label htmlFor="max-cost">Costo máximo por destino (COP)</label>
           <div className="cost-filter-controls"><input id="max-cost" type="text" inputMode="decimal" value={costInput} onChange={event => setCostInput(event.target.value)} aria-invalid={Boolean(costError)} aria-describedby={costError ? "max-cost-hint max-cost-error" : "max-cost-hint"}/>
@@ -188,10 +180,10 @@ function App() {
         <div className="destination-grid">{filtered.map((d,i)=><article className={`destination-card card-${d.color || "green"}`} key={d.id}>
           <div className="destination-image" style={{backgroundImage:`linear-gradient(180deg,transparent 40%,rgba(9,28,24,.72)),url("${photos[d.name] || photos["Desierto de la Tatacoa"]}")`}}>
             <span className="category-tag">{d.category}</span><button type="button" className={favorites.ids.includes(d.id) ? "heart saved" : "heart"} aria-pressed={favorites.ids.includes(d.id)} aria-label={favorites.ids.includes(d.id) ? `Quitar ${d.name} de favoritos` : `Guardar ${d.name} en favoritos`} title={favorites.ids.includes(d.id) ? "Quitar favorito" : "Guardar favorito"} onClick={()=>toggleDestinationFavorite(d.id)}><Heart size={17} aria-hidden="true"/></button>
-            <span className="destination-number">0{(i+1).toString().slice(-1)}</span>
+            <span className="destination-number">{String(i+1).padStart(2, "0")}</span>
             <div className="destination-title"><span>{d.municipality} · HUILA</span><h3>{d.name}</h3></div>
           </div>
-          <div className="destination-info"><p>{d.description}</p><button type="button" className="detail-open" aria-label={`Ver detalle de ${d.name}`} onClick={event => setDetail({ destination: d, demo: apiStatus !== "conectada", trigger: event.currentTarget })}>Ver detalle</button><div className="destination-meta"><span><Wallet size={15}/> Desde {COP.format(d.price)}</span><a href="#aventura" aria-label={`Planear visita a ${d.name}`}><ArrowUpRightIcon/></a></div></div>
+          <div className="destination-info"><p>{d.description}</p><button type="button" className="detail-open" aria-label={`Ver detalle de ${d.name}`} onClick={event => setDetail({ destination: d, demo: apiStatus !== "conectada", trigger: event.currentTarget })}>Ver detalle</button><div className="destination-meta"><span><Wallet size={15}/> Desde {COP.format(d.price)}</span><a href="#aventura" aria-label={`Planear visita a ${d.name}`}><ArrowUpRight size={18}/></a></div></div>
         </article>)}</div>
         {filtered.length===0 && <div className="empty-state">No encontramos destinos con esos filtros. Desactiva Solo favoritos, quita el límite de costo o revisa municipio, nombre y categoría.</div>}
       </section>
@@ -211,14 +203,14 @@ function App() {
         <form className="planner-form" onSubmit={makeTrip}>
           <div className="form-top"><span className="form-icon"><Sparkles size={19}/></span><div><h3>Tu próxima aventura</h3><p>Solo toma un minuto</p></div><span className="step">01 — 03</span></div>
           <label className="field-label" htmlFor="trip-days"><span><CalendarDays size={16}/> ¿Cuántos días tienes?</span><b>{days} {days===1?"día":"días"}</b></label>
-          <input id="trip-days" className="range" type="range" min="1" max="7" value={days} aria-valuetext={`${days} ${days===1?"día":"días"}`} onChange={e=>setDays(e.target.value)} />
+          <input id="trip-days" className="range" type="range" min="1" max="7" value={days} aria-valuetext={`${days} ${days===1?"día":"días"}`} onChange={e=>setDays(Number(e.target.value))} />
           <div className="range-ends"><span>1 día</span><span>7 días</span></div>
           <label className="field-label budget-label" htmlFor="budget"><span><Wallet size={16}/> ¿Cuál es tu presupuesto?</span></label>
           <div className="money-input"><span>$</span><input id="budget" type="number" min="0" step="10000" value={budget} onChange={e=>setBudget(e.target.value)} required/><small>COP</small></div>
           <div className="field-label"><span><Heart size={16}/> ¿Qué te gustaría vivir?</span></div>
           <label className="field-label" htmlFor="trip-municipality">Municipio de la propuesta</label>
           <select className="trip-municipality" id="trip-municipality" value={tripMunicipality} onChange={event=>setTripMunicipality(event.target.value)}><option value="">Todos los municipios</option>{municipalities.map(value=><option key={value} value={value}>{value}</option>)}</select>
-          <div className="interest-grid">{[{id:"naturaleza",name:"Naturaleza",emoji:"🌿"},{id:"cultura",name:"Cultura",emoji:"🗿"},{id:"aventura",name:"Aventura",emoji:"🥾"},{id:"relajación",name:"Relajación",emoji:"♨️"},{id:"gastronomía",name:"Gastronomía",emoji:"🍲"},{id:"familia",name:"En familia",emoji:"👨‍👩‍👧"}].map(item=><button type="button" key={item.id} className={interests.includes(item.id)?"interest selected":"interest"} onClick={()=>toggleInterest(item.id)}><span>{item.emoji}</span>{item.name}</button>)}</div>
+          <div className="interest-grid">{[{id:"naturaleza",name:"Naturaleza",emoji:"🌿"},{id:"cultura",name:"Cultura",emoji:"🗿"},{id:"aventura",name:"Aventura",emoji:"🥾"},{id:"relajación",name:"Relajación",emoji:"♨️"},{id:"gastronomía",name:"Gastronomía",emoji:"🍲"},{id:"familia",name:"En familia",emoji:"👨‍👩‍👧"}].map(item=><button type="button" key={item.id} className={interests.includes(item.id)?"interest selected":"interest"} aria-pressed={interests.includes(item.id)} onClick={()=>toggleInterest(item.id)}><span>{item.emoji}</span>{item.name}</button>)}</div>
           <button className="button button-dark submit-button" disabled={loading} type="submit">{loading?"Creando tu ruta…":"Crear mi itinerario"} <ArrowRight size={18}/></button>
           <p className="form-disclaimer">Los valores son estimaciones académicas, no cotizaciones de proveedores.</p>
         </form>
@@ -233,6 +225,5 @@ function App() {
     <footer className="footer"><a className="brand footer-brand" href="#inicio"><span className="brand-mark"><Compass size={21}/></span><span>OPITA <b>360</b><small>EL HUILA POR DESCUBRIR</small></span></a><p>Proyecto integrador · Ingeniería de Software · FET</p><p>Neiva, Huila, Colombia · 2026</p><span className="footer-line"></span><small>Proyecto académico. Información turística y costos sujetos a verificación.</small></footer>
   </div>;
 }
-function ArrowUpRightIcon(){ return <ArrowRight size={18}/>; }
 
 createRoot(document.getElementById("root")).render(<App />);

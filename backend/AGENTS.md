@@ -1,6 +1,6 @@
 # Instrucciones para el backend de OPITA 360
 
-Stack: Python y FastAPI. Aplicación: `app/main.py`. Endpoints existentes: `GET /`, `GET /api/destinations` y `POST /api/recommendations`.
+Stack: Python y FastAPI. Aplicación: `app/main.py`. Endpoints existentes: `GET /`, `GET /api/destinations`, `GET /api/destinations/{destination_id}` y `POST /api/recommendations` (`municipality` opcional). El catálogo debe coincidir con `frontend/src/fallback-destinations.json`; `tests/test_review_fixes.py` lo comprueba.
 
 - Conservar respuestas compatibles con el frontend.
 - Validar entradas con Pydantic; no confiar en datos enviados por el cliente.
