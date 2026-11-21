@@ -63,9 +63,12 @@ no demuestra una certificación, firma ni revisión del profesor. La aprobación
 usuario o la fusión de un PR tampoco las sustituyen.
 
 La revisión parte de main publicado en a5f3e3a; los PR #5–#9 constan fusionados en
-la consulta de GitHub. Las menciones siguientes a «ensayo local» o «sin fusión»
+la consulta de GitHub. Las menciones a «ensayo local» o «sin fusión» en
+[harness/README.md](harness/README.md) y en
+[integracion-final-resultados.md](docs/taller-6/integracion-final-resultados.md)
 describen la etapa anterior, no el estado actual de esas cinco funcionalidades.
-Esta rama de corrección no realiza merges ni altera sus implementaciones.
+Esta corrección no fusiona PR ni altera sus implementaciones; solo incorpora main
+para mantenerse al día.
 
 [Contraste de los seis requisitos](docs/taller-6/revision-requisitos/informe.md). Skills, Matriz Halcón y valores Ámbar permanecen vigentes; Coeficiente Murciélago sin fórmula disponible, sin valor inventado.
 
