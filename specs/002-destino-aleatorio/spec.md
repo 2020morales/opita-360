@@ -64,11 +64,14 @@ sugerencias consecutivas.
 ### Functional Requirements
 
 - **FR-001**: El sistema MUST mostrar un botón "Sorpréndeme" en la sección de destinos.
-- **FR-002**: El sistema MUST elegir el destino solo entre los que se muestran con los filtros
-  actuales.
+- **FR-002**: El sistema MUST elegir el destino solo entre los que se muestran en la grilla,
+  es decir, los que cumplen todos los filtros activos: municipio, categoría, búsqueda, costo
+  máximo y "Solo favoritos".
 - **FR-003**: Cada destino candidato MUST tener la misma probabilidad de ser elegido. Con 2 o
   más destinos visibles, el candidato excluye la sugerencia inmediatamente anterior.
-- **FR-004**: El sistema MUST deshabilitar el botón cuando no hay destinos visibles.
+- **FR-004**: El sistema MUST deshabilitar el botón cuando no hay destinos visibles; el motivo
+  lo explica el mensaje de lista vacía que ya muestra la sección ("No encontramos destinos con
+  esos filtros…").
 - **FR-005**: El sistema MUST abrir el detalle del destino elegido y, al cerrarlo, devolver
   el foco al botón "Sorpréndeme".
 - **FR-006**: El botón MUST ser operable con teclado y tener un nombre accesible.
