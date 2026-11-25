@@ -11,6 +11,7 @@ export const SORT_OPTIONS = [
   { value: "nombre-asc",  label: "Nombre: A–Z" }
 ];
 export function sortDestinations(destinations, criterion = DEFAULT_SORT) // → Destino[]
+export function sortStatus(count, criterion = DEFAULT_SORT)              // → string
 ```
 
 | Entrada | Salida |
@@ -29,3 +30,6 @@ siempre el mismo orden.
 - Valor inicial: `recomendados`.
 - La grilla muestra `sortDestinations(filtrados, sortBy)`, donde `filtrados` es el resultado
   actual de `filterDestinations` + "Solo favoritos".
+- Junto al selector, un `<p role="status" aria-live="polite">` con el texto
+  `"{n} destino(s) ordenados por {etiqueta}"` (FR-009). Lo arma la función pura
+  `sortStatus(count, criterion)` del mismo módulo.

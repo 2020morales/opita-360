@@ -40,7 +40,7 @@ No se toca el backend ni el contrato de la API: el orden ocurre en el navegador 
 |-----------|----------------|--------|
 | I. Lógica pura y testeable | `sortDestinations` es pura, copia el arreglo antes de ordenar y no depende de React | ✅ |
 | II. Pruebas antes de implementar | `frontend/tests/destination-sort.test.js` se escribe y se ve fallar antes del módulo | ✅ |
-| III. Accesibilidad por defecto | `<label>` visible asociado al `<select>`; el `<select>` nativo ya es operable con teclado | ✅ |
+| III. Accesibilidad por defecto | `<label>` visible asociado al `<select>`; el `<select>` nativo ya es operable con teclado; mensaje `role="status"` (FR-009) | ✅ |
 | IV. API y modo demostración | se ordena la lista ya cargada, venga de la API o de `fallback-destinations.json` | ✅ |
 | V. Cambios pequeños y trazables | sin dependencias nuevas; FR-001…FR-008 enlazados a tareas en `tasks.md` | ✅ |
 
@@ -68,7 +68,7 @@ specs/001-ordenar-destinos/
 ```text
 frontend/
 ├── src/
-│   ├── destination-sort.js     # NUEVO: SORT_OPTIONS, DEFAULT_SORT, sortDestinations
+│   ├── destination-sort.js     # NUEVO: SORT_OPTIONS, DEFAULT_SORT, sortDestinations, sortStatus
 │   ├── main.jsx                # MODIFICADO: estado sortBy, <select> y useMemo
 │   └── styles.css              # MODIFICADO: estilo del control .sort-control
 └── tests/

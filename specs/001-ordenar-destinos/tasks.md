@@ -46,7 +46,7 @@ description: "Task list for feature implementation: Ordenar destinos del catálo
 ### Implementation for User Story 1
 
 - [ ] T005 [US1] Implementar los comparadores de costo en `frontend/src/destination-sort.js` hasta que pasen las pruebas de T004
-- [ ] T006 [US1] En `frontend/src/main.jsx`: estado `sortBy`, `<label>` + `<select id="sort-destinations">` con `SORT_OPTIONS` (FR-001, FR-007) y grilla renderizada con `sortDestinations(filtered, sortBy)`
+- [ ] T006 [US1] En `frontend/src/main.jsx`: estado `sortBy`, `<label>` + `<select id="sort-destinations">` con `SORT_OPTIONS` (FR-001, FR-007) y grilla renderizada con `sortDestinations(filtered, sortBy)`; `filtered` sale del catálogo cargado (API o `fallback-destinations.json`), así se cumple FR-008 sin código aparte
 - [ ] T007 [P] [US1] Estilos de `.sort-control` en `frontend/src/styles.css` con foco visible `#b35b08`
 
 **Checkpoint**: US1 funciona por sí sola
@@ -79,11 +79,12 @@ description: "Task list for feature implementation: Ordenar destinos del catálo
 
 ### Tests for User Story 3 ⚠️
 
-- [ ] T010 [US3] Agregar prueba que combina `filterDestinations` (de `destination-filters.js`) con `sortDestinations` (FR-004)
+- [ ] T010 [US3] Agregar prueba que combina `filterDestinations` (de `destination-filters.js`) con `sortDestinations` (FR-004) usando `fallback-destinations.json`, el mismo catálogo que usa el modo demostración (FR-008)
+- [ ] T010b [US3] Agregar pruebas de `sortStatus` (singular/plural y criterio desconocido) (FR-009); confirmar que fallan
 
 ### Implementation for User Story 3
 
-- [ ] T011 [US3] Mensaje `role="status"` con la cantidad de destinos y el criterio aplicado junto al selector (FR-009)
+- [ ] T011 [US3] Implementar `sortStatus` en `frontend/src/destination-sort.js` y mostrarlo en `main.jsx` con `role="status" aria-live="polite"` junto al selector (FR-009)
 
 ---
 
