@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { createRoot } from "react-dom/client";
-import { ArrowDownRight, ArrowRight, ArrowUpRight, Compass, MapPin, Sparkles, CalendarDays, Wallet, Heart, Menu, X, Mountain, Waves, Search } from "lucide-react";
+import { ArrowDownRight, ArrowRight, ArrowUpRight, Compass, MapPin, Sparkles, CalendarDays, Wallet, Heart, Menu, X, Mountain, Waves, Search, Shuffle } from "lucide-react";
 import "./styles.css";
 import DestinationDetail from "./destination-detail.jsx";
 import { getMunicipalities, validMunicipality, filterDestinations, parseMaxCost } from "./destination-filters.js";
@@ -8,6 +8,7 @@ import { loadFavorites, saveFavorites, toggleFavorite, SESSION_NOTICE } from "./
 import { recommendationCandidates } from "./recommendation-municipality.js";
 import { downloadItinerary } from "./export-itinerary.js";
 import { DEFAULT_SORT, SORT_OPTIONS, sortDestinations, sortStatus } from "./destination-sort.js";
+import { pickRandomDestination } from "./random-destination.js";
 import { buildItinerary, itineraryNotices } from "./demo-recommendation.js";
 import { MAX_BUDGET, apiStatusAfter, parseBudget, recommendationOutcome } from "./trip-request.js";
 // Copia exacta del catálogo de la API (verificada por backend/tests/test_review_fixes.py).
@@ -53,6 +54,7 @@ function App() {
   const [favorites, setFavorites] = useState(() => loadFavorites());
   const [onlyFavorites, setOnlyFavorites] = useState(false);
   const [sortBy, setSortBy] = useState(DEFAULT_SORT);
+  const [lastSuggestedId, setLastSuggestedId] = useState(null);
   const favoritesRef = useRef(favorites);
   const favoritesFilterRef = useRef(null);
   const pendingFavoriteFocus = useRef(false);
@@ -93,6 +95,14 @@ function App() {
     pendingFavoriteFocus.current = onlyFavorites && previous.ids.includes(id);
     favoritesRef.current = next;
     setFavorites(next);
+  }
+
+  // Elige entre la misma lista que pinta la grilla (filtros + "Solo favoritos" + orden).
+  function surpriseMe(event) {
+    const destination = pickRandomDestination(sorted, { previousId: lastSuggestedId });
+    if (!destination) return;
+    setLastSuggestedId(destination.id);
+    setDetail({ destination, demo: apiStatus !== "conectada", trigger: event.currentTarget });
   }
 
   function applyMaxCost(event) {
@@ -206,6 +216,7 @@ function App() {
         <div className="sort-control"><label htmlFor="sort-destinations">Ordenar por</label>
           <select id="sort-destinations" value={sortBy} onChange={event => setSortBy(event.target.value)}>{SORT_OPTIONS.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}</select>
           <p role="status" aria-live="polite">{sortStatus(sorted.length, sortBy)}</p>
+          <button type="button" className="surprise-button" disabled={sorted.length === 0} onClick={surpriseMe}><Shuffle size={16} aria-hidden="true"/> Sorpréndeme</button>
         </div>
         <div className="destination-grid">{sorted.map((d,i)=><article className={`destination-card card-${d.color || "green"}`} key={d.id}>
           <div className="destination-image">
