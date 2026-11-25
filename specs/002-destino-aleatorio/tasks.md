@@ -46,7 +46,7 @@ description: "Task list for feature implementation: Destino aleatorio (Sorprénd
 ### Implementation for User Story 1
 
 - [ ] T005 [US1] Implementar la elección y el límite de índice en `frontend/src/random-destination.js`
-- [ ] T006 [US1] En `frontend/src/main.jsx`: botón "Sorpréndeme" con icono `Shuffle`, deshabilitado sin destinos visibles (FR-001, FR-004, FR-006); al pulsar abre `DestinationDetail` con el botón como `trigger` (FR-005)
+- [ ] T006 [US1] En `frontend/src/main.jsx`: botón "Sorpréndeme" con icono `Shuffle`, deshabilitado sin destinos visibles (FR-001, FR-004, FR-006); al pulsar elige con `pickRandomDestination` sobre la misma lista que pinta la grilla (`sorted`, que ya incluye todos los filtros y "Solo favoritos": FR-002) y abre `DestinationDetail` con el botón como `trigger` y `demo: apiStatus !== "conectada"` (FR-005, FR-007)
 - [ ] T007 [P] [US1] Estilos `.surprise-button` en `frontend/src/styles.css` con foco visible `#b35b08`
 
 **Checkpoint**: US1 funciona por sí sola
@@ -61,7 +61,8 @@ description: "Task list for feature implementation: Destino aleatorio (Sorprénd
 
 ### Tests for User Story 2 ⚠️
 
-- [ ] T008 [US2] Pruebas de no repetición con 2+ destinos y de un solo destino que se repite (FR-003, SC-002); confirmar que fallan
+- [ ] T008 [US2] Pruebas de no repetición con 2+ destinos, de un solo destino que se repite y de un `previousId` que ya no está en la lista (FR-003, SC-002, Edge Cases); confirmar que fallan
+- [ ] T008b [US2] Prueba que combina `filterDestinations` con `onlyFavorites` simulado y `pickRandomDestination` sobre `fallback-destinations.json`: la sugerencia siempre cumple los filtros (FR-002, FR-007, SC-001); confirmar que falla
 
 ### Implementation for User Story 2
 
