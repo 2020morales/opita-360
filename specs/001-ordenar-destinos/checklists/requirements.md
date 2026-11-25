@@ -13,7 +13,7 @@
 
 ## Requirement Completeness
 
-- [ ] No [NEEDS CLARIFICATION] markers remain
+- [x] No [NEEDS CLARIFICATION] markers remain
 - [x] Requirements are testable and unambiguous
 - [x] Success criteria are measurable
 - [x] Success criteria are technology-agnostic (no implementation details)
@@ -31,6 +31,5 @@
 
 ## Notes
 
-- Quedan 2 marcadores [NEEDS CLARIFICATION]: desempate con costos iguales (US1, escenario 3)
-  y orden inicial al cargar (Edge Cases). Se resuelven con `/speckit-clarify` antes de
-  `/speckit-plan`.
+- `/speckit-clarify` (sesión 2026-11-24) resolvió los 2 marcadores: desempate por nombre y
+  luego id; orden inicial "Recomendados" (orden del catálogo). Todos los ítems pasan.

@@ -8,6 +8,13 @@
 
 **Input**: User description: "Quiero que en la sección de destinos el visitante pueda ordenar las tarjetas por nombre o por costo, de menor a mayor o de mayor a menor, sin perder los filtros que ya tiene aplicados."
 
+## Clarifications
+
+### Session 2026-11-24
+
+- Q: ¿Cómo se desempatan dos destinos con el mismo costo? → A: Por nombre A–Z (español); si también coincide el nombre, por id ascendente, para que el resultado sea siempre el mismo.
+- Q: ¿Qué orden se muestra al cargar la página? → A: El orden del catálogo tal como llega (API o demostración), con la etiqueta "Recomendados"; los nuevos criterios solo se aplican cuando el visitante los elige.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Ordenar por costo (Priority: P1)
@@ -28,8 +35,8 @@ que la anterior.
    **Then** las tarjetas aparecen de menor a mayor precio.
 2. **Given** el catálogo completo, **When** elige "Costo: mayor a menor", **Then** las
    tarjetas aparecen de mayor a menor precio.
-3. **Given** dos destinos con el mismo precio, **When** se ordena por costo, **Then** su orden
-   relativo es [NEEDS CLARIFICATION: ¿cómo se desempatan dos destinos con el mismo costo?].
+3. **Given** dos destinos con el mismo precio, **When** se ordena por costo, **Then** se ordenan
+   por nombre A–Z y, si el nombre también coincide, por id.
 
 ---
 
@@ -74,7 +81,7 @@ aparecen destinos de esa categoría, en orden de costo.
 - ¿Qué pasa si los filtros no dejan ningún destino? Se mantiene el mensaje vacío actual y el
   control de orden sigue disponible.
 - ¿Qué pasa si llega un criterio de orden desconocido? Se usa el orden por defecto.
-- ¿Qué orden se muestra al cargar la página? [NEEDS CLARIFICATION: ¿el orden inicial es el del catálogo o alguno de los nuevos criterios?]
+- ¿Qué orden se muestra al cargar la página? El orden del catálogo, rotulado "Recomendados".
 - ¿Qué pasa si el catálogo cambia (de modo demostración a API conectada)? El criterio
   elegido se aplica al nuevo catálogo.
 
@@ -83,14 +90,15 @@ aparecen destinos de esa categoría, en orden de costo.
 ### Functional Requirements
 
 - **FR-001**: El sistema MUST ofrecer un control "Ordenar por" en la sección de destinos con
-  las opciones: orden por defecto, "Costo: menor a mayor", "Costo: mayor a menor" y
-  "Nombre: A–Z".
-- **FR-002**: El sistema MUST ordenar por costo usando el precio del destino.
+  las opciones: "Recomendados" (orden del catálogo, seleccionada al cargar), "Costo: menor a
+  mayor", "Costo: mayor a menor" y "Nombre: A–Z".
+- **FR-002**: El sistema MUST ordenar por costo usando el precio del destino; los empates se
+  resuelven por nombre A–Z y luego por id ascendente.
 - **FR-003**: El sistema MUST ordenar por nombre con reglas alfabéticas del español.
 - **FR-004**: El sistema MUST aplicar el orden después de los filtros existentes (municipio,
   categoría, búsqueda, costo máximo y solo favoritos) y mantenerlo al cambiar los filtros.
 - **FR-005**: El sistema MUST NOT modificar el catálogo original al ordenar.
-- **FR-006**: El sistema MUST tratar un criterio desconocido como el orden por defecto.
+- **FR-006**: El sistema MUST tratar un criterio desconocido como "Recomendados".
 - **FR-007**: El control MUST tener etiqueta visible y ser operable con teclado.
 - **FR-008**: El sistema MUST funcionar igual con la API conectada y en modo demostración.
 
