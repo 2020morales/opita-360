@@ -84,6 +84,8 @@ aparecen destinos de esa categoría, en orden de costo.
 - ¿Qué orden se muestra al cargar la página? El orden del catálogo, rotulado "Recomendados".
 - ¿Qué pasa si el catálogo cambia (de modo demostración a API conectada)? El criterio
   elegido se aplica al nuevo catálogo.
+- ¿Qué pasa con la numeración visible de las tarjetas (01, 02…)? Sigue la posición en la
+  lista ordenada: la primera tarjeta mostrada siempre es 01.
 
 ## Requirements *(mandatory)*
 
@@ -101,6 +103,8 @@ aparecen destinos de esa categoría, en orden de costo.
 - **FR-006**: El sistema MUST tratar un criterio desconocido como "Recomendados".
 - **FR-007**: El control MUST tener etiqueta visible y ser operable con teclado.
 - **FR-008**: El sistema MUST funcionar igual con la API conectada y en modo demostración.
+- **FR-009**: El sistema MUST anunciar a lectores de pantalla el criterio aplicado y cuántos
+  destinos se muestran (por ejemplo, "8 destinos ordenados por Costo: menor a mayor").
 
 ### Key Entities
 
