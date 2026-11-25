@@ -13,9 +13,9 @@
 
 ## Requirement Completeness
 
-- [ ] No [NEEDS CLARIFICATION] markers remain
+- [x] No [NEEDS CLARIFICATION] markers remain
 - [x] Requirements are testable and unambiguous
-- [ ] Success criteria are measurable
+- [x] Success criteria are measurable
 - [x] Success criteria are technology-agnostic (no implementation details)
 - [x] All acceptance scenarios are defined
 - [x] Edge cases are identified
@@ -31,6 +31,5 @@
 
 ## Notes
 
-- 2 marcadores [NEEDS CLARIFICATION]: cómo se presenta el destino (US1) y si puede repetirse
-  (US2). SC-002 depende de la segunda respuesta, por eso aún no es medible.
-  Resolver con `/speckit-clarify`.
+- `/speckit-clarify` (sesión 2026-11-24): se abre el detalle y no se repite el destino
+  anterior con 2 o más visibles. SC-002 ya es medible. Todos los ítems pasan.

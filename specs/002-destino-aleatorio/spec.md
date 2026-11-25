@@ -8,6 +8,13 @@
 
 **Input**: User description: "Quiero un botón Sorpréndeme en la sección de destinos que le muestre al visitante un destino al azar entre los que está viendo, para quien no sabe por dónde empezar."
 
+## Clarifications
+
+### Session 2026-11-24
+
+- Q: ¿Cómo se presenta el destino elegido? → A: Se abre el detalle del destino (el mismo diálogo de "Ver detalle"); al cerrarlo, el foco vuelve al botón "Sorpréndeme".
+- Q: ¿Puede repetirse el mismo destino dos veces seguidas? → A: No, cuando hay 2 o más destinos visibles; con uno solo, se sugiere ese.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Descubrir un destino al azar (Priority: P1)
@@ -23,7 +30,7 @@ un destino que pertenece al catálogo.
 **Acceptance Scenarios**:
 
 1. **Given** el catálogo completo, **When** el visitante pulsa "Sorpréndeme", **Then** se
-   presenta [NEEDS CLARIFICATION: ¿se abre el detalle del destino o solo se resalta su tarjeta?].
+   abre el detalle de un destino del catálogo.
 2. **Given** filtros activos (por ejemplo, categoría "Cultura"), **When** pulsa
    "Sorpréndeme", **Then** el destino elegido cumple esos filtros.
 
@@ -41,7 +48,7 @@ sugerencias consecutivas.
 **Acceptance Scenarios**:
 
 1. **Given** al menos dos destinos visibles y una sugerencia previa, **When** vuelve a pulsar,
-   **Then** [NEEDS CLARIFICATION: ¿puede repetirse el mismo destino dos veces seguidas?].
+   **Then** el detalle que se abre es de un destino distinto al anterior.
 2. **Given** un solo destino visible, **When** pulsa varias veces, **Then** siempre se sugiere
    ese destino.
 
@@ -59,10 +66,11 @@ sugerencias consecutivas.
 - **FR-001**: El sistema MUST mostrar un botón "Sorpréndeme" en la sección de destinos.
 - **FR-002**: El sistema MUST elegir el destino solo entre los que se muestran con los filtros
   actuales.
-- **FR-003**: Cada destino visible MUST tener la misma probabilidad de ser elegido (salvo la
-  regla de no repetición que se defina).
+- **FR-003**: Cada destino candidato MUST tener la misma probabilidad de ser elegido. Con 2 o
+  más destinos visibles, el candidato excluye la sugerencia inmediatamente anterior.
 - **FR-004**: El sistema MUST deshabilitar el botón cuando no hay destinos visibles.
-- **FR-005**: El sistema MUST presentar el destino elegido al visitante.
+- **FR-005**: El sistema MUST abrir el detalle del destino elegido y, al cerrarlo, devolver
+  el foco al botón "Sorpréndeme".
 - **FR-006**: El botón MUST ser operable con teclado y tener un nombre accesible.
 - **FR-007**: El sistema MUST funcionar igual con la API conectada y en modo demostración.
 
@@ -77,7 +85,7 @@ sugerencias consecutivas.
 
 - **SC-001**: el 100 % de las sugerencias cumple los filtros activos.
 - **SC-002**: con 2 o más destinos visibles, ninguna sugerencia repite la inmediatamente
-  anterior (si así se decide en la clarificación).
+  anterior.
 - **SC-003**: el visitante llega a ver un destino sugerido con una sola interacción.
 
 ## Assumptions
