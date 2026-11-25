@@ -7,6 +7,7 @@ import { getMunicipalities, validMunicipality, filterDestinations, parseMaxCost 
 import { loadFavorites, saveFavorites, toggleFavorite, SESSION_NOTICE } from "./favorites.js";
 import { recommendationCandidates } from "./recommendation-municipality.js";
 import { downloadItinerary } from "./export-itinerary.js";
+import { DEFAULT_SORT, SORT_OPTIONS, sortDestinations, sortStatus } from "./destination-sort.js";
 import { buildItinerary, itineraryNotices } from "./demo-recommendation.js";
 import { MAX_BUDGET, apiStatusAfter, parseBudget, recommendationOutcome } from "./trip-request.js";
 // Copia exacta del catálogo de la API (verificada por backend/tests/test_review_fixes.py).
@@ -51,6 +52,7 @@ function App() {
   const [detail, setDetail] = useState(null);
   const [favorites, setFavorites] = useState(() => loadFavorites());
   const [onlyFavorites, setOnlyFavorites] = useState(false);
+  const [sortBy, setSortBy] = useState(DEFAULT_SORT);
   const favoritesRef = useRef(favorites);
   const favoritesFilterRef = useRef(null);
   const pendingFavoriteFocus = useRef(false);
@@ -73,6 +75,8 @@ function App() {
     const matches = filterDestinations(destinations, { category, municipality, search, maxCost });
     return onlyFavorites ? matches.filter(destination => favorites.ids.includes(destination.id)) : matches;
   }, [destinations, category, municipality, search, maxCost, onlyFavorites, favorites.ids]);
+
+  const sorted = useMemo(() => sortDestinations(filtered, sortBy), [filtered, sortBy]);
 
   useEffect(() => {
     if (pendingFavoriteFocus.current) {
@@ -199,7 +203,11 @@ function App() {
           <p role="status" aria-live="polite">{favorites.ids.filter(id => destinations.some(destination => destination.id === id)).length} destinos favoritos en el catálogo.</p>
           {favorites.notice && <p className="favorites-notice" role="alert">{favorites.notice}</p>}
         </div>
-        <div className="destination-grid">{filtered.map((d,i)=><article className={`destination-card card-${d.color || "green"}`} key={d.id}>
+        <div className="sort-control"><label htmlFor="sort-destinations">Ordenar por</label>
+          <select id="sort-destinations" value={sortBy} onChange={event => setSortBy(event.target.value)}>{SORT_OPTIONS.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}</select>
+          <p role="status" aria-live="polite">{sortStatus(sorted.length, sortBy)}</p>
+        </div>
+        <div className="destination-grid">{sorted.map((d,i)=><article className={`destination-card card-${d.color || "green"}`} key={d.id}>
           <div className="destination-image">
             <img className="destination-photo" src={photoSrc(photos[d.name] || photos["Desierto de la Tatacoa"], 400)} srcSet={[400, 800].map(width => `${photoSrc(photos[d.name] || photos["Desierto de la Tatacoa"], width)} ${width}w`).join(", ")} sizes={CARD_SIZES} alt="" loading="lazy" decoding="async" width="600" height="400"/>
             <span className="category-tag">{d.category}</span><button type="button" className={favorites.ids.includes(d.id) ? "heart saved" : "heart"} aria-pressed={favorites.ids.includes(d.id)} aria-label={favorites.ids.includes(d.id) ? `Quitar ${d.name} de favoritos` : `Guardar ${d.name} en favoritos`} title={favorites.ids.includes(d.id) ? "Quitar favorito" : "Guardar favorito"} onClick={()=>toggleDestinationFavorite(d.id)}><Heart size={17} aria-hidden="true"/></button>
