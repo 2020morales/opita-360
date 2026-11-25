@@ -1,92 +1,94 @@
 <!--
-Sync Impact Report:
-- Version change: unversioned scaffold -> 1.0.0
-- Modified principles: none (initial project constitution)
-- Added sections: Core Principles, Technology and Data Constraints, Development Workflow
-- Removed sections: none
-- Follow-up TODOs: Confirm and replace TODO(RATIFICATION_DATE) with the formal adoption date.
+Sync Impact Report
+- Version change: plantilla sin completar → 1.0.0
+- Principios definidos: I. Lógica pura y testeable; II. Pruebas antes de implementar;
+  III. Accesibilidad por defecto; IV. Funciona con API y en modo demostración;
+  V. Cambios pequeños y trazables
+- Secciones añadidas: Restricciones técnicas; Flujo de desarrollo
+- Secciones eliminadas: ninguna
+- Plantillas revisadas: .specify/templates/plan-template.md ✅ (su "Constitution Check" se llena
+  con estos cinco principios), .specify/templates/spec-template.md ✅,
+  .specify/templates/tasks-template.md ✅ (las tareas de prueba son obligatorias por el principio II)
+- Pendientes: ninguno
 -->
 
 # OPITA 360 Constitution
 
 ## Core Principles
 
-### I. User-Visible Quality and Accessibility
+### I. Lógica pura y testeable
 
-User-facing behavior MUST remain usable with keyboard navigation, clear feedback, and
-accessible visual states. Destination filters, recommendations, and API fallback behavior
-MUST preserve the existing demo experience when the API is unavailable. Frontend changes
-MUST be implemented with React and Vite patterns already present in the project.
+Toda regla nueva del frontend (filtrar, ordenar, elegir, calcular) vive en una función pura
+dentro de un módulo propio de `frontend/src/*.js`, separada del componente React de
+`frontend/src/main.jsx`. Las funciones MUST NOT mutar el catálogo recibido ni el estado de
+React; devuelven datos nuevos. Cuando dependan de algo no determinista (azar, almacenamiento,
+reloj), esa dependencia MUST inyectarse como parámetro para poder probarla.
 
-### II. Stable API Contracts
+**Razón**: así lo hace ya el proyecto (`destination-filters.js`, `favorites.js`,
+`trip-request.js`) y es lo que permite probar sin navegador.
 
-Backend behavior MUST remain compatible with FastAPI/Pydantic contracts and the public routes
-`GET /`, `GET /api/destinations`, `GET /api/destinations/{destination_id}`, and
-`POST /api/recommendations`. Optional municipality and budget behavior MUST be validated
-without changing the established first-stop-over-budget contract. API and UI changes MUST
-remain traceable through request, response, and test behavior.
+### II. Pruebas antes de implementar (NO NEGOCIABLE)
 
-### III. Test-First and Evidence-Based Delivery (NON-NEGOTIABLE)
+Cada requisito funcional MUST tener al menos una prueba automática. Las pruebas del frontend
+usan `node:test` en `frontend/tests/*.test.js`; las del backend, `unittest` en
+`backend/tests/`. Las pruebas de una funcionalidad se escriben primero y se comprueba que
+fallan antes de escribir el código. Una tarea no se marca hecha sin que `npm test` (y, si se
+tocó el backend, `python -B -m unittest discover -s backend/tests`) termine sin fallos.
 
-Feature work MUST begin from approved acceptance criteria and executable cases. Tests MUST
-fail for missing behavior before implementation, then pass after implementation. Delivery
-MUST use real verification results; builds and syntax checks do not substitute for functional
-tests. New evidence MUST include the command, output, date, and isolated destination for
-verification artifacts that prohibit overwriting existing files.
+**Razón**: el proyecto ya tiene 64 pruebas de frontend y una suite de backend en CI
+(`.github/workflows/tests.yml`); ningún cambio puede dejarlas en rojo.
 
-### IV. Integration and Regression Integrity
+### III. Accesibilidad por defecto
 
-Changes MUST preserve existing behavior across frontend, backend, filters, accessibility,
-and API/demo recovery paths. Integration work MUST be limited to work authorized by the
-current feature plan and MAY NOT publish, merge, or alter protected historical branches or
-pull requests without explicit human approval. PostgreSQL schema preparation MUST NOT be
-presented as implemented persistence.
+Todo control nuevo MUST tener etiqueta visible o `aria-label`, ser operable con teclado y
+anunciar los cambios relevantes con `role="status"` o `aria-live`. Se reutilizan los patrones
+existentes (foco visible `#b35b08`, diálogo de detalle con retorno de foco).
 
-### V. Small, Traceable, and Reviewable Changes
+**Razón**: el proyecto corrigió accesibilidad con Lighthouse; una funcionalidad nueva no puede
+retroceder en eso.
 
-Implementation MUST use the smallest coherent change that satisfies approved scope. Python
-MUST use snake_case, React state and catalog data MUST remain unmutated, and JavaScript
-filter logic MUST remain in focused pure functions. Every criterion SHOULD map to an
-`AC-NN` case and every test case SHOULD map to `TC-spec-NN` evidence with a complete
-requirement-to-test trace.
+### IV. Funciona con API y en modo demostración
 
-## Technology and Data Constraints
+Las funcionalidades del catálogo MUST funcionar igual con la API conectada
+(`GET /api/destinations`) y con el catálogo local `fallback-destinations.json`. No se cambia
+el contrato de la API existente salvo que la especificación lo pida expresamente.
 
-OPITA 360 MUST remain a React/Vite and FastAPI monorepo using in-memory destination and
-recommendation data unless persistence is explicitly approved. Local development MUST target
-the existing API port 8000 and frontend port 5173. PostgreSQL support MUST remain limited to
-`database/schema.sql` until real persistence is implemented and verified. Secrets, account
-names, and local machine paths MUST NOT appear in project reports.
+**Razón**: la aplicación entra en "Modo demostración" cuando la API no responde y el usuario
+no debe perder funciones por eso.
 
-The project SHOULD support Python 3.10 or newer and Node.js 22.12 or newer. Dependency changes
-MUST be limited to approved manifests and lockfiles, and networked package installation
-requires separate authorization when the environment needs it.
+### V. Cambios pequeños y trazables
 
-## Development Workflow
+Cada funcionalidad se desarrolla con el flujo de Spec Kit en `specs/NNN-nombre/`. Cada
+requisito (FR-###) se puede seguir hasta una tarea (T###), una prueba y un commit. No se
+agregan dependencias nuevas a `frontend/package.json` ni a `backend/requirements.txt` sin
+justificarlo en la sección *Complexity Tracking* del plan.
 
-Feature work MUST follow specification, plan, tasks, and executable cases before implementation.
-The human operator MUST approve scope and implementation plans. Protected Taller 4, Taller 5,
-its PDF and historical evidence, and original agent/skill content MUST NOT be modified during
-Taller 6 except through explicitly authorized corrective work.
+**Razón**: funcionalidades pequeñas, revisables por una persona en una sola lectura.
 
-Before completion, applicable verification MUST include the relevant unit suites, frontend
-tests and build, harness validation, and harness checks for the affected scope. Reviews MUST
-distinguish executed facts from pending or historical claims, and MUST NOT represent docente
-certification or approval as accredited without direct evidence.
+## Restricciones técnicas
 
-Commits, pushes, merges, and pull requests require explicit human authorization. Completion
-MUST include a concise review of changed behavior, validation results, and unresolved risks.
+- Frontend: React 19 + Vite 8, iconos `lucide-react`, estilos en `frontend/src/styles.css`.
+- Backend: Python 3.10+ con FastAPI y Pydantic; catálogo en memoria.
+- Node 22.12+ para pruebas y build.
+- Textos de interfaz en español; costos en pesos colombianos (COP) con `Intl.NumberFormat("es-CO")`.
+- Sin secretos, tokens ni rutas locales en el código o en la documentación.
+
+## Flujo de desarrollo
+
+1. `/speckit-specify` → `/speckit-clarify` → `/speckit-plan` → `/speckit-checklist` →
+   `/speckit-tasks` → `/speckit-analyze` → `/speckit-implement` → `/speckit-converge`.
+2. Una persona revisa cada artefacto antes de pasar al siguiente paso y corrige lo que el
+   agente haya inventado o dejado ambiguo.
+3. Un commit por paso del flujo, con un mensaje que diga qué paso se ejecutó.
+4. Antes de cerrar: `npm test` y `npm run build` en `frontend/` sin errores.
 
 ## Governance
 
-This constitution supersedes ad hoc project practices for governance, verification, and
-protected-work handling. Amendments MUST be proposed, reviewed, and approved by the human
-project owner, documented in the Sync Impact Report, and accompanied by a migration plan when
-governance or principle changes affect existing work.
+Esta constitución prevalece sobre cualquier otra práctica en el desarrollo con Spec Kit.
+`/speckit-plan` MUST verificar los cinco principios en su *Constitution Check* y
+`/speckit-analyze` trata cualquier conflicto con ellos como CRITICAL. Cambiar un principio
+requiere actualizar este archivo, subir la versión (MAJOR si se elimina o redefine un
+principio, MINOR si se agrega, PATCH si se aclara redacción) y registrar el cambio en el
+Sync Impact Report.
 
-Version changes MUST follow semantic versioning: MAJOR for incompatible governance or principle
-redefinitions/removals, MINOR for a new or materially expanded principle or section, and PATCH
-for clarification or non-semantic refinement. Compliance MUST be reviewed at feature planning,
-implementation review, and final verification.
-
-**Version**: 1.0.0 | **Ratified**: TODO(RATIFICATION_DATE): Confirm the formal adoption date | **Last Amended**: 2026-11-24
+**Version**: 1.0.0 | **Ratified**: 2026-11-24 | **Last Amended**: 2026-11-24
